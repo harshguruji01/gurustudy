@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Pure White Background -->
+  <rect width="512" height="512" fill="#FFFFFF" />
+
+  <!-- Outer Study Session Clock Arc -->
+  <!-- Indigo Major Arc (Clock / Time Horizon) -->
+  <path d="M 256 66 
+           A 190 190 0 1 0 420 351" 
+        fill="none" 
+        stroke="#1E3A8A" 
+        stroke-width="18" 
+        stroke-linecap="round" />
+
+  <!-- Saffron Yellow Accent Sweep (Active Session / Timer Horizon) -->
+  <path d="M 276 67 
+           A 190 190 0 0 1 437 205" 
+        fill="none" 
+        stroke="#F59E0B" 
+        stroke-width="18" 
+        stroke-linecap="round" />
+
+  <!-- Central Unified Educational Symbol: Book + Graduation Cap -->
+  <g transform="translate(0, 8)">
+    <!-- Graduation Cap / Mortarboard Diamond Silhouette -->
+    <!-- Left Flange / Shaded Facet -->
+    <path d="M 256 142 
+             L 160 184 
+             L 256 226 
+             Z" 
+          fill="#162B66" />
+    
+    <!-- Right Flange / Primary Indigo Facet -->
+    <path d="M 256 142 
+             L 352 184 
+             L 256 226 
+             Z" 
+          fill="#1E3A8A" />
+
+    <!-- Cap Under-band / Skull Cap Neck -->
+    <path d="M 200 202 
+             L 200 226 
+             Q 256 250 312 226 
+             L 312 202 
+             Z" 
+          fill="#1E3A8A" />
+
+    <!-- Saffron Yellow Tassel -->
+    <!-- Tassel Cord -->
+    <path d="M 256 148 
+             Q 318 160 330 200" 
+          fill="none" 
+          stroke="#F59E0B" 
+          stroke-width="4.5" 
+          stroke-linecap="round" />
+    <!-- Tassel Band & Drop -->
+    <circle cx="330" cy="204" r="4.5" fill="#F59E0B" />
+    <path d="M 326 208 
+             L 334 208 
+             L 336 228 
+             Q 330 232 324 228 
+             Z" 
+          fill="#F59E0B" />
+
+    <!-- Open Book Symbol (Primary Anchor) -->
+    <!-- Left Page Group -->
+    <!-- Outer Cover Ridge Left -->
+    <path d="M 140 248 
+             L 152 248 
+             L 152 334 
+             Q 200 348 244 366 
+             L 244 380 
+             Q 192 360 140 344 
+             Z" 
+          fill="#1E3A8A" />
+
+    <!-- Main Left Page Body -->
+    <path d="M 162 230 
+             Q 214 236 248 260 
+             L 248 356 
+             Q 204 336 162 324 
+             Z" 
+          fill="#1E3A8A" />
+
+    <!-- Right Page Group -->
+    <!-- Main Right Page Body -->
+    <path d="M 350 230 
+             Q 298 236 264 260 
+             L 264 356 
+             Q 308 336 350 324 
+             Z" 
+          fill="#1E3A8A" />
+
+    <!-- Outer Cover Ridge Right -->
+    <path d="M 372 248 
+             L 360 248 
+             L 360 334 
+             Q 312 348 268 366 
+             L 268 380 
+             Q 320 360 372 344 
+             Z" 
+          fill="#1E3A8A" />
+
+    <!-- Book Spine Center Base -->
+    <path d="M 244 374 
+             Q 256 366 268 374 
+             L 268 382 
+             Q 256 374 244 382 
+             Z" 
+          fill="#1E3A8A" />
+  </g>
+</svg>
