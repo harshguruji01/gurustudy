@@ -1,0 +1,51 @@
+# ==============================================================================
+# GuruStudy • Official Robots Configuration
+# Website: https://gurustudy.webguruji.online
+# Developer: HarshGuruJi (contact@webguruji.online)
+# Academic Curriculum: CBSE Class 10 (2026–2027)
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /styles.css
+Allow: /app.js
+Allow: /manifest.json
+Allow: /dist/
+Allow: /data/
+Allow: /*.apk$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.json$
+
+# Block internal development directories and private routes
+Disallow: /.git/
+Disallow: /android/
+Disallow: /build/
+Disallow: /.gradle/
+Disallow: /admin/
+Disallow: /*?*
+
+# Search engine specific crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.jpg$
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Canonical Host & Sitemap Declarations
+Host: https://gurustudy.webguruji.online
+Sitemap: https://gurustudy.webguruji.online/sitemap.xml

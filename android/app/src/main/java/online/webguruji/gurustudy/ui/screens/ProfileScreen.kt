@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -37,10 +38,19 @@ fun ProfileScreen(
     onLanguageChanged: (String) -> Unit,
     onSaveProfile: (UserProfile) -> Unit,
     onResetData: () -> Unit,
-    onNavigateToAlarmCenter: () -> Unit = {}
+    onNavigateToAlarmCenter: () -> Unit = {},
+    onDataRestored: () -> Unit = {}
 ) {
+    val context = LocalContext.current
+    val repo = remember { online.webguruji.gurustudy.data.repository.StudyRepository(context) }
+
     var showEditProfileDialog by remember { mutableStateOf(false) }
     var showResetDialog by remember { mutableStateOf(false) }
+    var showExportDialog by remember { mutableStateOf(false) }
+    var exportJsonString by remember { mutableStateOf("") }
+    var showRestoreDialog by remember { mutableStateOf(false) }
+    var restoreJsonInput by remember { mutableStateOf("") }
+    var restoreError by remember { mutableStateOf<String?>(null) }
 
     Scaffold(
         topBar = {
@@ -283,7 +293,6 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            val context = LocalContext.current
             val hasOverlayPermission = Settings.canDrawOverlays(context)
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager
             val canExactAlarm = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

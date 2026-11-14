@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Main Web App & Dashboard -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gurustudy.webguruji.online/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://gurustudy.webguruji.online/" />
+    <image:image>
+      <image:loc>https://gurustudy.webguruji.online/logo.png</image:loc>
+      <image:title>GuruStudy CBSE Class 10 Study Companion Logo</image:title>
+      <image:caption>GuruStudy - Official 93-Day Master Revision Plan by HarshGuruJi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gurustudy.webguruji.online/gurustudy_logo.png</image:loc>
+      <image:title>GuruStudy Flat Vector Brand Identity</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gurustudy.webguruji.online/icon-512.png</image:loc>
+      <image:title>GuruStudy App Launcher Icon 512px</image:title>
+    </image:image>
+  </url>
+
+  <!-- 93-Day Master Study Plan & Calendar View -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#tab-calendar</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- NCERT Digital Library & Chapter Summaries (Mathematics, Science, SST, English, Hindi A & B) -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#tab-books</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- CBSE Previous Year Questions (PYQs), Chapter Tests & AI Study Assistant -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#tab-practice</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Pomodoro Deep Focus Study Timer Engine -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#tab-timer</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Personal Mistake Notebook & Active Recall Tracker -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#tab-mistakes</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Study Analytics, Weak Topic Radar & Completion Metrics -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#tab-analytics</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Android Native APK Download Hub & QR Code -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/#download</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://gurustudy.webguruji.online/apk_qr.png</image:loc>
+      <image:title>GuruStudy Native Android APK Mobile QR Code Download</image:title>
+    </image:image>
+  </url>
+
+  <!-- Direct Native Release APK Binary (v2.0.0 Production) -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/GuruStudy-v2.0.0-release.apk</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Release Mirror Binary -->
+  <url>
+    <loc>https://gurustudy.webguruji.online/dist/GuruStudy-v2.0.0-release.apk</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>
