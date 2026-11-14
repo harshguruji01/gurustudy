@@ -1,0 +1,13 @@
+# Gradle / Android Studio Build Artifacts
+.gradle/
+build/
+*/build/
+.kotlin/
+*.iml
+.idea/
+local.properties
+.DS_Store
+
+# Working Notes / Temporary
+TASK 1.md
+web/

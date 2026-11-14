@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">GuruStudy</string>
+    <string name="tagline">स्मार्ट पढ़ें। बेहतर योजना बनाएं। सफलता पाएं।</string>
+    <string name="developer_name">HarshGuruJi</string>
+    <string name="developer_email">contact@webguruji.online</string>
+    <string name="academic_session">सत्र 2026–2027</string>
+    <string name="study_period">15 नवंबर 2026 – 15 फरवरी 2027</string>
+    <string name="target_audience">कक्षा 10 एनसीईआरटी छात्र</string>
+
+    <!-- Welcome & Onboarding -->
+    <string name="welcome_title">GuruStudy में आपका स्वागत है</string>
+    <string name="welcome_subtitle">सीबीएसई कक्षा 10 के लिए आपका स्मार्ट एनसीईआरटी अध्ययन साथी और 93-दिवसीय परीक्षा सिलेबस मैनेजर।</string>
+    <string name="btn_lets_go">शुरू करें</string>
+    <string name="btn_lets_get_started">आगे बढ़ें</string>
+    <string name="onboarding_heading">आइए पढ़ाई शुरू करें!</string>
+    <string name="label_full_name">पूरा नाम</string>
+    <string name="hint_full_name">अपना पूरा नाम दर्ज करें</string>
+    <string name="label_dob">जन्म तिथि</string>
+    <string name="label_class">कक्षा</string>
+    <string name="value_class_10">कक्षा 10वीं</string>
+    <string name="label_school">विद्यालय का नाम</string>
+    <string name="hint_school">अपने विद्यालय का नाम दर्ज करें</string>
+    <string name="label_language">पसंदीदा भाषा</string>
+    <string name="lang_english">English</string>
+    <string name="lang_hindi">हिंदी (Hindi)</string>
+    <string name="label_study_goal">दैनिक अध्ययन लक्ष्य</string>
+    <string name="btn_save_continue">सुरक्षित करें और आगे बढ़ें</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">होम</string>
+    <string name="nav_books">किताबें</string>
+    <string name="nav_calendar">कैलेंडर</string>
+    <string name="nav_practice">अभ्यास</string>
+    <string name="nav_profile">प्रोफाइल</string>
+
+    <!-- Dashboard -->
+    <string name="greeting_format">नमस्ते, %1$s!</string>
+    <string name="today_plan">आज की अध्ययन योजना</string>
+    <string name="daily_streak">अध्ययन निरंतरता</string>
+    <string name="days_count">%1$d दिन</string>
+    <string name="next_alarm">अगला अलार्म</string>
+    <string name="btn_start_studying">पढ़ाई शुरू करें</string>
+    <string name="completion_rate">पाठ्यक्रम पूर्णता</string>
+    <string name="quick_actions">त्वरित मेन्यू</string>
+
+    <!-- Alarm & Reminders -->
+    <string name="alarm_channel_name">GuruStudy अध्ययन अलार्म</string>
+    <string name="alarm_channel_desc">सटीक अध्ययन सत्र अनुस्मारक एवं व्यक्तिगत वॉइस उद्घोषणा</string>
+    <string name="alarm_tts_msg_en">Hello %1$s, it’s time to study %2$s on GuruStudy!</string>
+    <string name="alarm_tts_msg_hi">%1$s जी, अब आपका %2$s पढ़ने का समय हो गया है!</string>
+    <string name="btn_snooze">स्नूज़ (10 मिनट)</string>
+    <string name="btn_dismiss">बंद करें</string>
+    <string name="btn_start_study_now">अभी पढ़ना शुरू करें</string>
+
+    <!-- Privacy & Settings -->
+    <string name="privacy_title">गोपनीयता एवं डेटा सुरक्षा</string>
+    <string name="privacy_desc">आपकी प्रोफाइल, अध्ययन समय सारिणी और टेस्ट रिकॉर्ड 100% स्थानीय रूप से आपके डिवाइस पर सुरक्षित रहते हैं। GuruStudy कोई भी संवेदनशील व्यक्तिगत डेटा एकत्र नहीं करता है।</string>
+</resources>

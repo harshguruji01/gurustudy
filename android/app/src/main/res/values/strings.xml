@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">GuruStudy</string>
+    <string name="tagline">Learn Smart. Plan Better. Achieve More.</string>
+    <string name="developer_name">HarshGuruJi</string>
+    <string name="developer_email">contact@webguruji.online</string>
+    <string name="academic_session">Session 2026–2027</string>
+    <string name="study_period">15 Nov 2026 – 15 Feb 2027</string>
+    <string name="target_audience">Class 10th NCERT Students</string>
+
+    <!-- Welcome & Onboarding -->
+    <string name="welcome_title">Welcome to GuruStudy</string>
+    <string name="welcome_subtitle">Your smart NCERT study companion and 93-day exam syllabus manager for CBSE Class 10.</string>
+    <string name="btn_lets_go">Let’s Go</string>
+    <string name="btn_lets_get_started">Let’s Get Started</string>
+    <string name="onboarding_heading">Let’s Get Into Learning!</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="hint_full_name">Enter your full name</string>
+    <string name="label_dob">Date of Birth</string>
+    <string name="label_class">Class</string>
+    <string name="value_class_10">Class 10th</string>
+    <string name="label_school">School Name</string>
+    <string name="hint_school">Enter your school name</string>
+    <string name="label_language">Preferred Language</string>
+    <string name="lang_english">English</string>
+    <string name="lang_hindi">हिंदी (Hindi)</string>
+    <string name="label_study_goal">Daily Study Goal</string>
+    <string name="btn_save_continue">Save &amp; Continue</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_books">Books</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_practice">Practice</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Dashboard -->
+    <string name="greeting_format">Namaste, %1$s!</string>
+    <string name="today_plan">Today’s Study Plan</string>
+    <string name="daily_streak">Study Streak</string>
+    <string name="days_count">%1$d Days</string>
+    <string name="next_alarm">Next Alarm</string>
+    <string name="btn_start_studying">Start Studying</string>
+    <string name="completion_rate">Syllabus Completion</string>
+    <string name="quick_actions">Quick Access</string>
+
+    <!-- Alarm & Reminders -->
+    <string name="alarm_channel_name">GuruStudy Study Alarms</string>
+    <string name="alarm_channel_desc">Exact study session reminders and personalized voice announcements</string>
+    <string name="alarm_tts_msg_en">Hello %1$s, it’s time to study %2$s on GuruStudy!</string>
+    <string name="alarm_tts_msg_hi">%1$s जी, अब आपका %2$s पढ़ने का समय हो गया है!</string>
+    <string name="btn_snooze">Snooze (10m)</string>
+    <string name="btn_dismiss">Dismiss</string>
+    <string name="btn_start_study_now">Start Study Now</string>
+
+    <!-- Privacy & Settings -->
+    <string name="privacy_title">Privacy &amp; Data Security</string>
+    <string name="privacy_desc">All your profile, study schedules, and test records are saved 100% locally on your device. GuruStudy never collects sensitive personal information or sends your data to third parties.</string>
+</resources>
