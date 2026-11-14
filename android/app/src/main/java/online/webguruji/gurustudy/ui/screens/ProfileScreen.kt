@@ -488,6 +488,161 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
+            // Offline Data Backup & Restore Section
+            Text(
+                text = "Offline Data & Backup Management",
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.onBackground
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Card(
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        text = "Data Portability & Safe Backup",
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 14.sp
+                    )
+                    Text(
+                        text = "Export your entire revision plan progress, completed chapters, focus sessions, and mistake notebook to a secure JSON file.",
+                        fontSize = 12.sp,
+                        color = Color(0xFF64748B),
+                        lineHeight = 18.sp
+                    )
+
+                    Spacer(modifier = Modifier.height(14.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Button(
+                            onClick = {
+                                exportJsonString = repo.exportBackupJson()
+                                showExportDialog = true
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.weight(1f).height(46.dp)
+                        ) {
+                            Text("📥 Export Backup", fontSize = 12.sp, color = Color.White)
+                        }
+
+                        OutlinedButton(
+                            onClick = {
+                                restoreJsonInput = ""
+                                restoreError = null
+                                showRestoreDialog = true
+                            },
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.weight(1f).height(46.dp)
+                        ) {
+                            Text("📤 Restore Backup", fontSize = 12.sp)
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // AI Study Assistant API Settings
+            Text(
+                text = "AI Study Assistant Configuration",
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.onBackground
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            var apiKeyText by remember { mutableStateOf(repo.getGeminiApiKey()) }
+            val hasApiKey = repo.hasGeminiApiKey()
+
+            Card(
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column {
+                            Text("Google Gemini API Key", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                            Text(
+                                text = if (hasApiKey) "Active (Live AI enabled)" else "Optional (Using offline CBSE textbook)",
+                                fontSize = 12.sp,
+                                color = if (hasApiKey) EmeraldGreen else Color(0xFF64748B)
+                            )
+                        }
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = if (hasApiKey) Color(0xFFDCFCE7) else Color(0xFFF1F5F9)
+                        ) {
+                            Text(
+                                text = if (hasApiKey) "✓ Active" else "Offline",
+                                color = if (hasApiKey) Color(0xFF16A34A) else Color(0xFF64748B),
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    OutlinedTextField(
+                        value = apiKeyText,
+                        onValueChange = { apiKeyText = it },
+                        placeholder = { Text("Enter Gemini API key (AIzaSy...)") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Button(
+                            onClick = {
+                                repo.setGeminiApiKey(apiKeyText.trim())
+                                Toast.makeText(context, "API Key saved successfully!", Toast.LENGTH_SHORT).show()
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Text("Save API Key", color = Color.White, fontSize = 12.sp)
+                        }
+
+                        if (hasApiKey) {
+                            OutlinedButton(
+                                onClick = {
+                                    repo.setGeminiApiKey("")
+                                    apiKeyText = ""
+                                    Toast.makeText(context, "API Key cleared. Using offline textbook.", Toast.LENGTH_SHORT).show()
+                                },
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                Text("Clear", fontSize = 12.sp)
+                            }
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
             // Privacy & Safe Learning
             Text(
                 text = "Privacy & Safe Learning",
@@ -670,6 +825,98 @@ fun ProfileScreen(
             },
             dismissButton = {
                 OutlinedButton(onClick = { showResetDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+
+    // Export Backup Dialog
+    if (showExportDialog) {
+        val clipboardManager = context.getSystemService(android.content.Context.CLIPBOARD_SERVICE) as? android.content.ClipboardManager
+        AlertDialog(
+            onDismissRequest = { showExportDialog = false },
+            title = { Text("📥 Offline Backup Exported", fontWeight = FontWeight.Bold) },
+            text = {
+                Column {
+                    Text("Your backup JSON payload has been generated. You can copy it or save it securely for data portability across devices.", fontSize = 13.sp)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    OutlinedTextField(
+                        value = exportJsonString.take(400) + if (exportJsonString.length > 400) "... [${exportJsonString.length} chars total]" else "",
+                        onValueChange = {},
+                        readOnly = true,
+                        modifier = Modifier.fillMaxWidth().height(120.dp)
+                    )
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        val clip = android.content.ClipData.newPlainText("GuruStudy_Backup", exportJsonString)
+                        clipboardManager?.setPrimaryClip(clip)
+                        Toast.makeText(context, "Backup copied to clipboard!", Toast.LENGTH_SHORT).show()
+                        showExportDialog = false
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue)
+                ) {
+                    Text("📋 Copy to Clipboard", color = Color.White)
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showExportDialog = false }) {
+                    Text("Close")
+                }
+            }
+        )
+    }
+
+    // Restore Backup Dialog
+    if (showRestoreDialog) {
+        AlertDialog(
+            onDismissRequest = { showRestoreDialog = false },
+            title = { Text("📤 Restore Backup Data", fontWeight = FontWeight.Bold) },
+            text = {
+                Column {
+                    Text("Paste your exported GuruStudy JSON backup payload below:", fontSize = 13.sp)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = restoreJsonInput,
+                        onValueChange = {
+                            restoreJsonInput = it
+                            restoreError = null
+                        },
+                        placeholder = { Text("Paste JSON payload here...") },
+                        modifier = Modifier.fillMaxWidth().height(140.dp)
+                    )
+                    if (restoreError != null) {
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(text = "❌ $restoreError", color = Color(0xFFEF4444), fontSize = 12.sp)
+                    }
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        if (restoreJsonInput.isBlank()) {
+                            restoreError = "Please paste a valid JSON backup string."
+                        } else {
+                            val success = repo.importBackupJson(restoreJsonInput.trim())
+                            if (success) {
+                                Toast.makeText(context, "Backup restored successfully!", Toast.LENGTH_LONG).show()
+                                showRestoreDialog = false
+                                onDataRestored()
+                            } else {
+                                restoreError = "Invalid backup format or corrupted JSON file."
+                            }
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = EmeraldGreen)
+                ) {
+                    Text("Restore Now", color = Color.White)
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showRestoreDialog = false }) {
                     Text("Cancel")
                 }
             }
