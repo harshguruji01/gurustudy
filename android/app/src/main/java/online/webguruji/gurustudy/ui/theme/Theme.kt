@@ -40,9 +40,21 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun GuruStudyTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    accent: String = "royal_blue",
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
+    val primaryColor = when (accent) {
+        "emerald" -> AccentEmerald
+        "purple" -> AccentPurpleColor
+        "crimson" -> AccentCrimson
+        else -> if (darkTheme) RoyalBlueLight else RoyalBlue
+    }
+
+    val baseScheme = if (darkTheme) DarkColorScheme else LightColorScheme
+    val colorScheme = baseScheme.copy(
+        primary = primaryColor,
+        primaryContainer = if (darkTheme) primaryColor.copy(alpha = 0.3f) else primaryColor.copy(alpha = 0.15f)
+    )
 
     MaterialTheme(
         colorScheme = colorScheme,

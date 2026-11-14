@@ -47,7 +47,8 @@ class MainActivity : ComponentActivity() {
         val alarmDur = intent.getIntExtra("DURATION", 45)
 
         setContent {
-            var isDarkMode by remember { mutableStateOf(repository.getUserProfile().let { false }) }
+            var isDarkMode by remember { mutableStateOf<Boolean>(repository.isDarkMode()) }
+            var accentColor by remember { mutableStateOf<String>(repository.getAccentColor()) }
             var userProfile by remember { mutableStateOf(repository.getUserProfile()) }
             var isOnboarded by remember { mutableStateOf(repository.isOnboarded()) }
             var welcomePassed by remember { mutableStateOf(isOnboarded) }
@@ -68,7 +69,7 @@ class MainActivity : ComponentActivity() {
             val planStatus = remember(schedules) { repository.getPlanStatus() }
             var selectedDayIndex by remember { mutableIntStateOf(planStatus.dayIndex) }
 
-            GuruStudyTheme(darkTheme = isDarkMode) {
+            GuruStudyTheme(darkTheme = isDarkMode, accent = accentColor) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -203,6 +204,7 @@ class MainActivity : ComponentActivity() {
                                                 allSchedules = schedules,
                                                 planStatus = planStatus,
                                                 selectedDayIndex = selectedDayIndex,
+                                                subjects = subjects,
                                                 onSelectDay = { selectedDayIndex = it },
                                                 onStartStudy = { subject, chapter, duration ->
                                                     activeTimerSession = Triple(subject, chapter, duration)
@@ -226,6 +228,7 @@ class MainActivity : ComponentActivity() {
                                                 onNavigateToBooks = { currentNavTab = 1 },
                                                 onNavigateToCalendar = { currentNavTab = 2 },
                                                 onNavigateToPractice = { currentNavTab = 3 },
+                                                onNavigateToProfile = { currentNavTab = 4 },
                                                 onTestAlarm = { scheduleItem ->
                                                     alarmScheduler.scheduleStudyAlarm(scheduleItem, userProfile.fullName)
                                                     Toast.makeText(
@@ -269,15 +272,20 @@ class MainActivity : ComponentActivity() {
                                         4 -> ProfileScreen(
                                             userProfile = userProfile,
                                             isDarkMode = isDarkMode,
-                                            onToggleDarkMode = { isDarkMode = it },
+                                            onToggleDarkMode = {
+                                                isDarkMode = it
+                                                repository.setDarkMode(it)
+                                            },
                                             onLanguageChanged = { lang ->
                                                 val updated = userProfile.copy(preferredLanguage = lang)
                                                 repository.saveUserProfile(updated)
+                                                repository.setLanguage(lang)
                                                 userProfile = updated
                                             },
                                             onSaveProfile = { updated ->
                                                 repository.saveUserProfile(updated)
                                                 userProfile = updated
+                                                accentColor = repository.getAccentColor()
                                                 Toast.makeText(this@MainActivity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
                                             },
                                             onResetData = {
@@ -287,7 +295,12 @@ class MainActivity : ComponentActivity() {
                                                 schedules = repository.getAllSchedules()
                                                 mistakes = emptyList()
                                             },
-                                            onNavigateToAlarmCenter = { showAlarmCenter = true }
+                                            onNavigateToAlarmCenter = { showAlarmCenter = true },
+                                            onDataRestored = {
+                                                userProfile = repository.getUserProfile()
+                                                schedules = repository.getAllSchedules()
+                                                mistakes = repository.getAllMistakes()
+                                            }
                                         )
                                     }
                                 }

@@ -63,7 +63,7 @@
         </div>
         <button class="btn-icon" id="btnToggleLangNav" title="Switch Language / भाषा बदलें" onclick="toggleLanguage()">🌐</button>
         <button class="btn-icon" id="btnToggleThemeNav" title="Toggle Dark/Light Mode" onclick="toggleTheme()">🌙</button>
-        <button class="btn-nav-download" onclick="openDownloadModal('Navbar CTA')" title="Download GuruStudy Native Android APK v2.0.0">
+        <button class="btn-nav-download" onclick="openDownloadModal('Navbar CTA')" title="Download GuruStudy Native Android APK v2.1.0">
           <span>⬇️ Download APK</span>
           <span class="live-dl-badge" id="navLiveDownloadBadge">1,438+</span>
         </button>
@@ -168,6 +168,21 @@
         <!-- Real-Time Plan Status / Countdown Banner -->
         <div id="activeDateBannerBox" style="background: var(--primary-subtle); border: 1px solid var(--primary-subtle-border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 20px;">
           ⚡ Active Revision Day: Day 1 of 93 (15 Nov 2026 – 15 Feb 2027)
+        </div>
+
+        <!-- Continue Studying Card -->
+        <div class="card continue-studying-card" id="dashContinueStudyingCard" style="display: none; margin-bottom: 20px; border-left: 4px solid var(--primary); background: var(--bg-surface);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(37,99,235,0.1); display: flex; align-items: center; justify-content: center; font-size: 20px;">📖</div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase;">Continue Studying</div>
+                <div style="font-size: 15px; font-weight: 700;" id="txtContinueChapterTitle">Real Numbers</div>
+                <div style="font-size: 12px; color: var(--text-secondary);" id="txtContinueSubjectInfo">Mathematics • Class 10 NCERT</div>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="btnResumeContinueSession" onclick="resumeLastStudySession()">▶ Resume Study Session</button>
+          </div>
         </div>
 
         <!-- Day Navigator Bar (Explore all 93 Days) -->
@@ -688,7 +703,7 @@
         <!-- Android Native Companion & Alarms Info -->
         <div class="card">
           <div class="card-title" style="margin-bottom: 10px;">
-            <span>📱 Native Android APK Companion (v2.0.0 Release)</span>
+            <span>📱 Native Android APK Companion (v2.1.0 Release)</span>
             <span class="live-dl-badge" style="background: #10b981; color: white;" id="settingsLiveDlBadge">1,438+ Downloads</span>
           </div>
           <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
@@ -696,7 +711,7 @@
           </p>
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <button class="btn btn-primary" onclick="openDownloadModal('Settings Card CTA')" style="display: inline-flex; align-items: center; gap: 8px;">
-              <span>⬇️ Download GuruStudy APK (v2.0.0 • 8.14 MB)</span>
+              <span>⬇️ Download GuruStudy APK (v2.1.0 • 8.21 MB)</span>
             </button>
             <button class="btn btn-outline" onclick="triggerApkDownload('Settings Direct Download')">
               ⚡ Direct APK
@@ -895,11 +910,11 @@
           <div class="card" style="margin: 0;">
             <div class="card-title" style="margin-bottom: 12px;"><span>📦 Production Binary Integrity</span></div>
             <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.8;">
-              <li><strong>Current Version:</strong> v2.0.0 (Release)</li>
-              <li><strong>Version Code:</strong> 2 (Target SDK 35, Min SDK 24)</li>
-              <li><strong>Primary Artifact:</strong> <code>GuruStudy-v2.0.0-release.apk</code> (8.14 MB)</li>
-              <li><strong>Signature:</strong> Signed with <code>gurustudy-release.jks</code> (v1 + v2 scheme)</li>
-              <li><strong>Mirror:</strong> <code>dist/GuruStudy-v2.0.0-release.apk</code></li>
+              <li><strong>Current Version:</strong> v2.1.0 (Release)</li>
+              <li><strong>Version Code:</strong> 3 (Target SDK 35, Min SDK 26)</li>
+              <li><strong>Primary Artifact:</strong> <code>GuruStudy-v2.1.0-release.apk</code> (8.21 MB)</li>
+              <li><strong>Signature:</strong> Signed with <code>gurustudy-release.jks</code> (v1 + v2 + v3 scheme)</li>
+              <li><strong>Mirror:</strong> <code>dist/GuruStudy-v2.1.0-release.apk</code></li>
             </ul>
           </div>
 
@@ -1186,7 +1201,7 @@
     <div class="modal-content" style="max-width: 680px;">
       <div class="modal-header">
         <div>
-          <span class="slot-subject-pill" style="background: var(--primary-subtle); color: var(--primary);">Android APK • v2.0.0 Release</span>
+          <span class="slot-subject-pill" style="background: var(--primary-subtle); color: var(--primary);">Android APK • v2.1.0 Release</span>
           <h3 style="font-size: 19px; margin-top: 4px; font-weight: 800;">📲 GuruStudy Offline Android App</h3>
           <p style="font-size: 12px; color: var(--text-tertiary); margin: 0;">Exact Background Voice Alarms & 93-Day Offline Study Companion</p>
         </div>
@@ -1212,12 +1227,12 @@
             </p>
 
             <button class="btn btn-primary btn-block" style="padding: 12px; font-size: 14px; font-weight: 800; margin-bottom: 12px;" onclick="triggerApkDownload('Download Modal Primary CTA')">
-              ⬇️ Download APK (v2.0.0 • 8.14 MB)
+              ⬇️ Download APK (v2.1.0 • 8.21 MB)
             </button>
 
             <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.6; margin-bottom: 12px;">
-              <div>• <strong>File:</strong> <code>GuruStudy-v2.0.0-release.apk</code></div>
-              <div>• <strong>Size:</strong> 8.14 MB (Fast direct download)</div>
+              <div>• <strong>File:</strong> <code>GuruStudy-v2.1.0-release.apk</code></div>
+              <div>• <strong>Size:</strong> 8.21 MB (Fast direct download)</div>
               <div>• <strong>Signature:</strong> <code>gurustudy-release.jks</code> (Verified)</div>
             </div>
           </div>
@@ -1225,9 +1240,9 @@
           <div style="border-top: 1px solid var(--border-subtle); padding-top: 10px;">
             <div style="font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Alternative Fast Mirrors:</div>
             <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-              <a href="dist/GuruStudy-v2.0.0-release.apk" class="btn btn-sm btn-outline" download onclick="DownloadTracker.recordDownload('Dist Mirror')">Mirror 1 (Dist)</a>
-              <a href="GuruStudy-v2.0.0-release.apk" class="btn btn-sm btn-outline" download onclick="DownloadTracker.recordDownload('Root Mirror')">Mirror 2 (Root)</a>
-              <a href="https://github.com/harshguruji01/gurustudy/raw/main/GuruStudy-v2.0.0-release.apk" target="_blank" class="btn btn-sm btn-outline" onclick="DownloadTracker.recordDownload('GitHub CDN')">GitHub</a>
+              <a href="dist/GuruStudy-v2.1.0-release.apk" class="btn btn-sm btn-outline" download onclick="DownloadTracker.recordDownload('Dist Mirror')">Mirror 1 (Dist)</a>
+              <a href="GuruStudy-v2.1.0-release.apk" class="btn btn-sm btn-outline" download onclick="DownloadTracker.recordDownload('Root Mirror')">Mirror 2 (Root)</a>
+              <a href="https://github.com/harshguruji01/gurustudy/raw/main/GuruStudy-v2.1.0-release.apk" target="_blank" class="btn btn-sm btn-outline" onclick="DownloadTracker.recordDownload('GitHub CDN')">GitHub</a>
             </div>
           </div>
         </div>

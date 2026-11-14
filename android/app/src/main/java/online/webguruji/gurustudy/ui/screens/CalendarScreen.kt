@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
+import online.webguruji.gurustudy.ui.theme.EmeraldGreen
 import online.webguruji.gurustudy.ui.theme.RoyalBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,15 +30,25 @@ fun CalendarScreen(
 ) {
     val context = LocalContext.current
     var selectedMonthFilter by remember { mutableStateOf("All") } // "All", "Nov 2026", "Dec 2026", "Jan 2027", "Feb 2027"
+    var selectedSubjectFilter by remember { mutableStateOf("All") }
     var editingItem by remember { mutableStateOf<StudyScheduleItem?>(null) }
 
-    // Filter schedules
-    val filteredSchedules = when (selectedMonthFilter) {
-        "Nov 2026" -> schedules.filter { it.date.startsWith("2026-11") }
-        "Dec 2026" -> schedules.filter { it.date.startsWith("2026-12") }
-        "Jan 2027" -> schedules.filter { it.date.startsWith("2027-01") }
-        "Feb 2027" -> schedules.filter { it.date.startsWith("2027-02") }
-        else -> schedules
+    // Filter schedules by month and subject
+    val filteredSchedules = remember(selectedMonthFilter, selectedSubjectFilter, schedules) {
+        schedules.filter { item ->
+            val monthMatch = when (selectedMonthFilter) {
+                "Nov 2026" -> item.date.startsWith("2026-11")
+                "Dec 2026" -> item.date.startsWith("2026-12")
+                "Jan 2027" -> item.date.startsWith("2027-01")
+                "Feb 2027" -> item.date.startsWith("2027-02")
+                else -> true
+            }
+            val subjMatch = when (selectedSubjectFilter) {
+                "All" -> true
+                else -> item.subject.contains(selectedSubjectFilter, ignoreCase = true)
+            }
+            monthMatch && subjMatch
+        }
     }
 
     Scaffold(
@@ -46,13 +57,13 @@ fun CalendarScreen(
                 title = {
                     Column {
                         Text(
-                            text = "My Study Calendar 2026–27",
+                            text = "93-Day Master Study Plan (2026–27)",
                             fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp,
+                            fontSize = 17.sp,
                             color = Color.White
                         )
                         Text(
-                            text = "93-Day Preparation (15 Nov 2026 – 15 Feb 2027)",
+                            text = "15 Nov 2026 – 15 Feb 2027 • 5 Structured Phases",
                             fontSize = 11.sp,
                             color = Color(0xFFBAE6FD)
                         )
@@ -70,8 +81,8 @@ fun CalendarScreen(
         ) {
             // Month Filter Chips
             LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 6.dp),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 val months = listOf("All (93 Days)", "Nov 2026", "Dec 2026", "Jan 2027", "Feb 2027")
                 items(months) { month ->
@@ -81,7 +92,34 @@ fun CalendarScreen(
                         onClick = {
                             selectedMonthFilter = if (month.startsWith("All")) "All" else month
                         },
-                        label = { Text(month, fontSize = 12.sp) }
+                        label = { Text(month, fontSize = 11.sp) }
+                    )
+                }
+            }
+
+            // Subject Filter Chips
+            LazyRow(
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 4.dp),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                val subjs = listOf("All", "Maths", "Science", "Social", "English", "Hindi")
+                items(subjs) { subj ->
+                    val isSelected = selectedSubjectFilter == subj
+                    SuggestionChip(
+                        onClick = { selectedSubjectFilter = subj },
+                        label = {
+                            Text(
+                                text = subj,
+                                fontSize = 11.sp,
+                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                                color = if (isSelected) RoyalBlue else MaterialTheme.colorScheme.onSurface
+                            )
+                        },
+                        shape = RoundedCornerShape(10.dp),
+                        border = androidx.compose.foundation.BorderStroke(
+                            width = if (isSelected) 1.5.dp else 1.dp,
+                            color = if (isSelected) RoyalBlue else MaterialTheme.colorScheme.outline.copy(alpha = 0.2f)
+                        )
                     )
                 }
             }
@@ -154,6 +192,20 @@ fun CalendarScreen(
                                         fontSize = 11.sp,
                                         color = Color(0xFF94A3B8)
                                     )
+                                    if (item.isSunday) {
+                                        Surface(
+                                            shape = RoundedCornerShape(4.dp),
+                                            color = Color(0xFFFEF3C7)
+                                        ) {
+                                            Text(
+                                                text = "Buffer",
+                                                fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = Color(0xFFD97706),
+                                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                                            )
+                                        }
+                                    }
                                 }
 
                                 Spacer(modifier = Modifier.height(4.dp))
@@ -241,7 +293,7 @@ fun CalendarScreen(
                     Spacer(modifier = Modifier.height(14.dp))
 
                     Text(
-                        text = "Aaj is chapter ko kitne time mein padhna chahte hain?",
+                        text = "Duration for this study session:",
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 13.sp
                     )

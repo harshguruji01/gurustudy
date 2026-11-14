@@ -6,9 +6,15 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import online.webguruji.gurustudy.data.model.BackupPayload
+import online.webguruji.gurustudy.data.model.FocusSessionItem
 import online.webguruji.gurustudy.data.model.MistakeItem
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
 import online.webguruji.gurustudy.data.model.StudySlotItem
+import online.webguruji.gurustudy.data.model.UserProfile
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -17,7 +23,7 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
 
     companion object {
         const val DATABASE_NAME = "gurustudy_database.db"
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 3
 
         // Table Schedules (93-Day Roadmap)
         const val TABLE_SCHEDULE = "study_schedule"
@@ -51,6 +57,16 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         const val COL_MISTAKE_CORRECT = "correct_answer"
         const val COL_MISTAKE_EXP = "explanation"
         const val COL_MISTAKE_DATE = "date_added"
+
+        // Table Focus Sessions
+        const val TABLE_FOCUS_SESSIONS = "focus_sessions"
+        const val COL_FOCUS_ID = "id"
+        const val COL_FOCUS_SUBJECT = "subject"
+        const val COL_FOCUS_CHAPTER = "chapter"
+        const val COL_FOCUS_DURATION = "duration_minutes"
+        const val COL_FOCUS_TIMESTAMP = "timestamp"
+        const val COL_FOCUS_MODE = "mode"
+        const val COL_FOCUS_COMPLETED = "completed"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -91,14 +107,53 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             )
         """.trimIndent()
 
+        val createFocusTable = """
+            CREATE TABLE $TABLE_FOCUS_SESSIONS (
+                $COL_FOCUS_ID TEXT PRIMARY KEY,
+                $COL_FOCUS_SUBJECT TEXT,
+                $COL_FOCUS_CHAPTER TEXT,
+                $COL_FOCUS_DURATION INTEGER,
+                $COL_FOCUS_TIMESTAMP INTEGER,
+                $COL_FOCUS_MODE TEXT,
+                $COL_FOCUS_COMPLETED INTEGER
+            )
+        """.trimIndent()
+
         db.execSQL(createScheduleTable)
         db.execSQL(createMistakesTable)
+        db.execSQL(createFocusTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_SCHEDULE")
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_MISTAKES")
-        onCreate(db)
+        if (oldVersion < 2) {
+            val createMistakesTable = """
+                CREATE TABLE IF NOT EXISTS $TABLE_MISTAKES (
+                    $COL_MISTAKE_ID TEXT PRIMARY KEY,
+                    $COL_MISTAKE_SUBJ TEXT,
+                    $COL_MISTAKE_CHAPTER TEXT,
+                    $COL_MISTAKE_QUESTION TEXT,
+                    $COL_MISTAKE_WRONG TEXT,
+                    $COL_MISTAKE_CORRECT TEXT,
+                    $COL_MISTAKE_EXP TEXT,
+                    $COL_MISTAKE_DATE TEXT
+                )
+            """.trimIndent()
+            db.execSQL(createMistakesTable)
+        }
+        if (oldVersion < 3) {
+            val createFocusTable = """
+                CREATE TABLE IF NOT EXISTS $TABLE_FOCUS_SESSIONS (
+                    $COL_FOCUS_ID TEXT PRIMARY KEY,
+                    $COL_FOCUS_SUBJECT TEXT,
+                    $COL_FOCUS_CHAPTER TEXT,
+                    $COL_FOCUS_DURATION INTEGER,
+                    $COL_FOCUS_TIMESTAMP INTEGER,
+                    $COL_FOCUS_MODE TEXT,
+                    $COL_FOCUS_COMPLETED INTEGER
+                )
+            """.trimIndent()
+            db.execSQL(createFocusTable)
+        }
     }
 
     fun insertOrUpdateSchedule(item: StudyScheduleItem) {
@@ -276,9 +331,99 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         return list
     }
 
+    fun addFocusSession(session: FocusSessionItem) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COL_FOCUS_ID, session.id)
+            put(COL_FOCUS_SUBJECT, session.subject)
+            put(COL_FOCUS_CHAPTER, session.chapter)
+            put(COL_FOCUS_DURATION, session.durationMinutes)
+            put(COL_FOCUS_TIMESTAMP, session.timestamp)
+            put(COL_FOCUS_MODE, session.mode)
+            put(COL_FOCUS_COMPLETED, if (session.completed) 1 else 0)
+        }
+        db.insertWithOnConflict(TABLE_FOCUS_SESSIONS, null, values, SQLiteDatabase.CONFLICT_REPLACE)
+    }
+
+    fun getAllFocusSessions(): List<FocusSessionItem> {
+        val list = mutableListOf<FocusSessionItem>()
+        val db = readableDatabase
+        val cursor = db.query(TABLE_FOCUS_SESSIONS, null, null, null, null, null, "$COL_FOCUS_TIMESTAMP DESC")
+        cursor.use {
+            while (it.moveToNext()) {
+                list.add(
+                    FocusSessionItem(
+                        id = it.getString(it.getColumnIndexOrThrow(COL_FOCUS_ID)),
+                        subject = it.getString(it.getColumnIndexOrThrow(COL_FOCUS_SUBJECT)),
+                        chapter = it.getString(it.getColumnIndexOrThrow(COL_FOCUS_CHAPTER)),
+                        durationMinutes = it.getInt(it.getColumnIndexOrThrow(COL_FOCUS_DURATION)),
+                        timestamp = it.getLong(it.getColumnIndexOrThrow(COL_FOCUS_TIMESTAMP)),
+                        mode = it.getString(it.getColumnIndexOrThrow(COL_FOCUS_MODE)),
+                        completed = it.getInt(it.getColumnIndexOrThrow(COL_FOCUS_COMPLETED)) == 1
+                    )
+                )
+            }
+        }
+        return list
+    }
+
+    fun getTotalFocusMinutes(): Int {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT SUM($COL_FOCUS_DURATION) FROM $TABLE_FOCUS_SESSIONS WHERE $COL_FOCUS_COMPLETED = 1", null)
+        var total = 0
+        cursor.use {
+            if (it.moveToFirst() && !it.isNull(0)) {
+                total = it.getInt(0)
+            }
+        }
+        return total
+    }
+
+    fun exportBackup(profile: UserProfile): BackupPayload {
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        return BackupPayload(
+            appVersion = "2.0.0",
+            exportDate = sdf.format(Date()),
+            profile = profile,
+            schedules = getAllSchedules(),
+            mistakes = getAllMistakes(),
+            focusSessions = getAllFocusSessions()
+        )
+    }
+
+    fun importBackup(payload: BackupPayload): Boolean {
+        val db = writableDatabase
+        db.beginTransaction()
+        return try {
+            if (payload.schedules.isNotEmpty()) {
+                for (item in payload.schedules) {
+                    insertOrUpdateSchedule(item)
+                }
+            }
+            if (payload.mistakes.isNotEmpty()) {
+                for (mistake in payload.mistakes) {
+                    addMistake(mistake)
+                }
+            }
+            if (payload.focusSessions.isNotEmpty()) {
+                for (focus in payload.focusSessions) {
+                    addFocusSession(focus)
+                }
+            }
+            db.setTransactionSuccessful()
+            true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        } finally {
+            db.endTransaction()
+        }
+    }
+
     fun clearAllData() {
         val db = writableDatabase
         db.delete(TABLE_SCHEDULE, null, null)
         db.delete(TABLE_MISTAKES, null, null)
+        db.delete(TABLE_FOCUS_SESSIONS, null, null)
     }
 }

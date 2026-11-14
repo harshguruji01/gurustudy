@@ -538,6 +538,26 @@ function renderHomeTab() {
     bannerBox.style.display = "block";
   }
 
+  // Continue Studying Card
+  const continueCard = document.getElementById("dashContinueStudyingCard");
+  const lastReadRaw = localStorage.getItem("gurustudy_last_read");
+  if (continueCard) {
+    if (lastReadRaw) {
+      try {
+        const lastRead = JSON.parse(lastReadRaw);
+        const titleEl = document.getElementById("txtContinueChapterTitle");
+        const infoEl = document.getElementById("txtContinueSubjectInfo");
+        if (titleEl) titleEl.textContent = lastRead.chapter || "Real Numbers";
+        if (infoEl) infoEl.textContent = `${lastRead.subject || "Mathematics"} • Class 10 NCERT`;
+        continueCard.style.display = "block";
+      } catch (e) {
+        continueCard.style.display = "none";
+      }
+    } else {
+      continueCard.style.display = "none";
+    }
+  }
+
   // Overall Syllabus Progress Calculation
   const completedCount = AppState.schedules.filter(s => s.status === "Completed").length;
   const totalDays = AppState.schedules.length || 93;
@@ -961,9 +981,37 @@ function renderFilteredBooks(subjectsToRender) {
   });
 }
 
+function resumeLastStudySession() {
+  const lastReadRaw = localStorage.getItem("gurustudy_last_read");
+  if (lastReadRaw) {
+    try {
+      const lastRead = JSON.parse(lastReadRaw);
+      const subject = AppState.subjects.find(s => s.name === lastRead.subject || s.id === lastRead.subject) || AppState.subjects[0];
+      if (subject) {
+        let foundChapter = null;
+        for (const book of subject.books) {
+          const ch = book.chapters.find(c => c.title === lastRead.chapter);
+          if (ch) { foundChapter = ch; break; }
+        }
+        if (foundChapter) {
+          openChapterModal(subject, foundChapter);
+          return;
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  switchTab("books");
+}
+
 // Chapter Detail Modal
 function openChapterModal(subject, chapter) {
   AppState.activeChapterData = { subject, chapter };
+
+  try {
+    localStorage.setItem("gurustudy_last_read", JSON.stringify({ subject: subject.name, chapter: chapter.title }));
+  } catch (e) {}
 
   document.getElementById("modalChapterSubjectBadge").textContent = subject.name;
   document.getElementById("modalChapterTitle").textContent = `Chapter ${chapter.number}: ${chapter.title}`;

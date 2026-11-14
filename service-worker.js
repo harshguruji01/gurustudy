@@ -1,7 +1,7 @@
 // GuruStudy Service Worker for Offline PWA Support
 // Developed by HarshGuruJi (contact@webguruji.online)
 
-const CACHE_NAME = "gurustudy-cache-v1";
+const CACHE_NAME = "gurustudy-cache-v2.1.0";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

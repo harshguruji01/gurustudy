@@ -5,10 +5,13 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import online.webguruji.gurustudy.data.local.PreferencesManager
 import online.webguruji.gurustudy.data.local.ScheduleDatabaseHelper
+import online.webguruji.gurustudy.data.model.BackupPayload
+import online.webguruji.gurustudy.data.model.FocusSessionItem
 import online.webguruji.gurustudy.data.model.MistakeItem
 import online.webguruji.gurustudy.data.model.NcertSubject
 import online.webguruji.gurustudy.data.model.PlanStatusInfo
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
+import online.webguruji.gurustudy.data.model.StudySlotItem
 import online.webguruji.gurustudy.data.model.UserProfile
 import java.io.InputStreamReader
 import java.text.SimpleDateFormat
@@ -176,6 +179,12 @@ class StudyRepository(private val context: Context) {
 
     fun isOnboarded(): Boolean = prefs.isOnboarded()
 
+    fun isDarkMode(): Boolean = prefs.isDarkMode()
+    fun setDarkMode(enabled: Boolean) = prefs.setDarkMode(enabled)
+
+    fun getLanguage(): String = prefs.getLanguage()
+    fun setLanguage(lang: String) = prefs.setLanguage(lang)
+
     fun addMistake(item: MistakeItem) = dbHelper.addMistake(item)
 
     fun getAllMistakes(): List<MistakeItem> = dbHelper.getAllMistakes()
@@ -191,6 +200,89 @@ class StudyRepository(private val context: Context) {
 
     fun isSlotAlarmEnabled(slotIndex: Int): Boolean = prefs.isSlotAlarmEnabled(slotIndex)
     fun setSlotAlarmEnabled(slotIndex: Int, enabled: Boolean) = prefs.setSlotAlarmEnabled(slotIndex, enabled)
+
+    fun addFocusSession(session: FocusSessionItem) = dbHelper.addFocusSession(session)
+    fun getAllFocusSessions(): List<FocusSessionItem> = dbHelper.getAllFocusSessions()
+    fun getTotalFocusMinutes(): Int = dbHelper.getTotalFocusMinutes()
+
+    fun getGeminiApiKey(): String = prefs.getGeminiApiKey()
+    fun setGeminiApiKey(key: String) = prefs.setGeminiApiKey(key)
+    fun hasGeminiApiKey(): Boolean = prefs.hasGeminiApiKey()
+
+    fun isAdaptivePlannerEnabled(): Boolean = prefs.isAdaptivePlannerEnabled()
+    fun setAdaptivePlannerEnabled(enabled: Boolean) = prefs.setAdaptivePlannerEnabled(enabled)
+
+    fun exportBackupJson(): String = gson.toJson(dbHelper.exportBackup(getUserProfile()))
+    fun importBackupJson(jsonString: String): Boolean {
+        return try {
+            val payload = gson.fromJson(jsonString, BackupPayload::class.java)
+            if (payload != null && (payload.schedules.isNotEmpty() || payload.profile != null)) {
+                if (payload.profile != null) saveUserProfile(payload.profile)
+                dbHelper.importBackup(payload)
+            } else false
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
+    }
+
+    fun getPendingOverdueSlots(): List<Pair<StudyScheduleItem, StudySlotItem>> {
+        val planStat = getPlanStatus()
+        val overdue = mutableListOf<Pair<StudyScheduleItem, StudySlotItem>>()
+        getAllSchedules().filter { it.dayIndex < planStat.dayIndex && it.status != "Completed" }.forEach { day ->
+            day.slots.filter { !it.completed }.forEach { slot ->
+                overdue.add(Pair(day, slot))
+            }
+        }
+        return overdue
+    }
+
+    // Appearance
+    fun getThemeMode(): String = prefs.getThemeMode()
+    fun setThemeMode(mode: String) = prefs.setThemeMode(mode)
+    fun getAccentColor(): String = prefs.getAccentColor()
+    fun setAccentColor(color: String) = prefs.setAccentColor(color)
+    fun getFontSizeScale(): String = prefs.getFontSizeScale()
+    fun setFontSizeScale(scale: String) = prefs.setFontSizeScale(scale)
+    fun isReducedMotion(): Boolean = prefs.isReducedMotion()
+    fun setReducedMotion(reduced: Boolean) = prefs.setReducedMotion(reduced)
+    fun isCompactDensity(): Boolean = prefs.isCompactDensity()
+    fun setCompactDensity(compact: Boolean) = prefs.setCompactDensity(compact)
+
+    // Study & Timer
+    fun getBreakDuration(): Int = prefs.getBreakDuration()
+    fun setBreakDuration(minutes: Int) = prefs.setBreakDuration(minutes)
+    fun getWorkDuration(): Int = prefs.getWorkDuration()
+    fun setWorkDuration(minutes: Int) = prefs.setWorkDuration(minutes)
+    fun isTimerSoundEnabled(): Boolean = prefs.isTimerSoundEnabled()
+    fun setTimerSoundEnabled(enabled: Boolean) = prefs.setTimerSoundEnabled(enabled)
+    fun isTimerVibrateEnabled(): Boolean = prefs.isTimerVibrateEnabled()
+    fun setTimerVibrateEnabled(enabled: Boolean) = prefs.setTimerVibrateEnabled(enabled)
+    fun isAutoScheduleSundayEnabled(): Boolean = prefs.isAutoScheduleSundayEnabled()
+    fun setAutoScheduleSundayEnabled(enabled: Boolean) = prefs.setAutoScheduleSundayEnabled(enabled)
+
+    // Reader Preferences
+    fun getReaderTheme(): String = prefs.getReaderTheme()
+    fun setReaderTheme(theme: String) = prefs.setReaderTheme(theme)
+    fun getReaderFontSize(): Int = prefs.getReaderFontSize()
+    fun setReaderFontSize(size: Int) = prefs.setReaderFontSize(size)
+    fun getReaderLineSpacing(): Float = prefs.getReaderLineSpacing()
+    fun setReaderLineSpacing(spacing: Float) = prefs.setReaderLineSpacing(spacing)
+    fun getLastReadSubject(): String = prefs.getLastReadSubject()
+    fun getLastReadChapter(): String = prefs.getLastReadChapter()
+    fun setLastRead(subject: String, chapter: String) = prefs.setLastRead(subject, chapter)
+
+    // Dashboard Customization
+    fun isDashAlarmsVisible(): Boolean = prefs.isDashAlarmsVisible()
+    fun setDashAlarmsVisible(visible: Boolean) = prefs.setDashAlarmsVisible(visible)
+    fun isDashWeeklyVisible(): Boolean = prefs.isDashWeeklyVisible()
+    fun setDashWeeklyVisible(visible: Boolean) = prefs.setDashWeeklyVisible(visible)
+    fun isDashWeakChVisible(): Boolean = prefs.isDashWeakChVisible()
+    fun setDashWeakChVisible(visible: Boolean) = prefs.setDashWeakChVisible(visible)
+    fun isDashAchieveVisible(): Boolean = prefs.isDashAchieveVisible()
+    fun setDashAchieveVisible(visible: Boolean) = prefs.setDashAchieveVisible(visible)
+    fun isDashContinueVisible(): Boolean = prefs.isDashContinueVisible()
+    fun setDashContinueVisible(visible: Boolean) = prefs.setDashContinueVisible(visible)
 
     fun resetAllData() {
         prefs.clearAllData()

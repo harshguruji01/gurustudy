@@ -8,7 +8,7 @@ data class StudySlotItem(
     val topic: String = "",
     val target: String = "",
     val chapter: String = "",
-    val scheduledTime: String = "06:00",
+    var scheduledTime: String = "06:00",
     var completed: Boolean = false,
     var alarmEnabled: Boolean = true
 )
@@ -55,4 +55,23 @@ data class PlanStatusInfo(
     val phase: Int = 1,
     val phaseName: String = "Foundation Building",
     val isPreview: Boolean = false
+)
+
+data class FocusSessionItem(
+    val id: String = "",
+    val subject: String = "",
+    val chapter: String = "",
+    val durationMinutes: Int = 25,
+    val timestamp: Long = System.currentTimeMillis(),
+    val mode: String = "Pomodoro",
+    val completed: Boolean = true
+)
+
+data class BackupPayload(
+    val appVersion: String = "2.0.0",
+    val exportDate: String = "",
+    val profile: UserProfile? = null,
+    val schedules: List<StudyScheduleItem> = emptyList(),
+    val mistakes: List<MistakeItem> = emptyList(),
+    val focusSessions: List<FocusSessionItem> = emptyList()
 )
