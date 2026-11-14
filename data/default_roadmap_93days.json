@@ -15,7 +15,9 @@
         "durationMinutes": 90,
         "target": "Mean, median, mode calculation & empirical relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -23,7 +25,9 @@
         "durationMinutes": 60,
         "target": "Balancing equations, types of reactions, oxidation & reduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -31,7 +35,9 @@
         "durationMinutes": 60,
         "target": "Conservation of forests, tiger project, multi-purpose dams & rainwater harvesting",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -39,7 +45,9 @@
         "durationMinutes": 30,
         "target": "Lencho's irony, central themes and poetic devices",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -47,7 +55,9 @@
     "topic": "SST: Forest & Wildlife Resources, Water Resources • English: A Letter to God, Dust of Snow / Fire & Ice",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 2,
@@ -65,7 +75,9 @@
         "durationMinutes": 90,
         "target": "Mean, median, mode calculation & empirical relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -73,7 +85,9 @@
         "durationMinutes": 60,
         "target": "Balancing equations, types of reactions, oxidation & reduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -81,7 +95,9 @@
         "durationMinutes": 60,
         "target": "Conservation of forests, tiger project, multi-purpose dams & rainwater harvesting",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -89,7 +105,9 @@
         "durationMinutes": 30,
         "target": "Lencho's irony, central themes and poetic devices",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -97,7 +115,9 @@
     "topic": "SST: Forest & Wildlife Resources, Water Resources • English: A Letter to God, Dust of Snow / Fire & Ice",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 3,
@@ -115,7 +135,9 @@
         "durationMinutes": 90,
         "target": "Mean, median, mode calculation & empirical relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -123,7 +145,9 @@
         "durationMinutes": 60,
         "target": "Balancing equations, types of reactions, oxidation & reduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -131,7 +155,9 @@
         "durationMinutes": 60,
         "target": "Conservation of forests, tiger project, multi-purpose dams & rainwater harvesting",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -139,7 +165,9 @@
         "durationMinutes": 30,
         "target": "Lencho's irony, central themes and poetic devices",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -147,7 +175,9 @@
     "topic": "SST: Forest & Wildlife Resources, Water Resources • English: A Letter to God, Dust of Snow / Fire & Ice",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 4,
@@ -165,7 +195,9 @@
         "durationMinutes": 90,
         "target": "Mean, median, mode calculation & empirical relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -173,7 +205,9 @@
         "durationMinutes": 60,
         "target": "Balancing equations, types of reactions, oxidation & reduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -181,7 +215,9 @@
         "durationMinutes": 60,
         "target": "Conservation of forests, tiger project, multi-purpose dams & rainwater harvesting",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -189,7 +225,9 @@
         "durationMinutes": 30,
         "target": "Lencho's irony, central themes and poetic devices",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -197,7 +235,9 @@
     "topic": "SST: Forest & Wildlife Resources, Water Resources • English: A Letter to God, Dust of Snow / Fire & Ice",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 5,
@@ -215,7 +255,9 @@
         "durationMinutes": 90,
         "target": "Fundamental theorem of arithmetic, proving irrationality & zeroes relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -223,7 +265,9 @@
         "durationMinutes": 60,
         "target": "pH scale, neutralization, baking soda, washing soda & POP",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -231,7 +275,9 @@
         "durationMinutes": 60,
         "target": "Types of resources, land degradation, soil classification & erosion control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -239,7 +285,9 @@
         "durationMinutes": 30,
         "target": "Tricki's recovery & Mandela's twin obligations and struggle",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -247,7 +295,9 @@
     "topic": "SST: Resources & Development • English: A Triumph of Surgery, Nelson Mandela",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 6,
@@ -265,7 +315,9 @@
         "durationMinutes": 90,
         "target": "Fundamental theorem of arithmetic, proving irrationality & zeroes relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -273,7 +325,9 @@
         "durationMinutes": 60,
         "target": "pH scale, neutralization, baking soda, washing soda & POP",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -281,7 +335,9 @@
         "durationMinutes": 60,
         "target": "Types of resources, land degradation, soil classification & erosion control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -289,7 +345,9 @@
         "durationMinutes": 30,
         "target": "Tricki's recovery & Mandela's twin obligations and struggle",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -297,7 +355,9 @@
     "topic": "SST: Resources & Development • English: A Triumph of Surgery, Nelson Mandela",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 7,
@@ -315,7 +375,9 @@
         "durationMinutes": 90,
         "target": "Fundamental theorem of arithmetic, proving irrationality & zeroes relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -323,7 +385,9 @@
         "durationMinutes": 60,
         "target": "pH scale, neutralization, baking soda, washing soda & POP",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -331,7 +395,9 @@
         "durationMinutes": 60,
         "target": "Types of resources, land degradation, soil classification & erosion control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -339,7 +405,9 @@
         "durationMinutes": 30,
         "target": "Tricki's recovery & Mandela's twin obligations and struggle",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -347,7 +415,9 @@
     "topic": "SST: Resources & Development • English: A Triumph of Surgery, Nelson Mandela",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 8,
@@ -365,7 +435,9 @@
         "durationMinutes": 90,
         "target": "Fundamental theorem of arithmetic, proving irrationality & zeroes relation",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -373,7 +445,9 @@
         "durationMinutes": 60,
         "target": "pH scale, neutralization, baking soda, washing soda & POP",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -381,7 +455,9 @@
         "durationMinutes": 60,
         "target": "Types of resources, land degradation, soil classification & erosion control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -389,7 +465,9 @@
         "durationMinutes": 30,
         "target": "Tricki's recovery & Mandela's twin obligations and struggle",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -397,7 +475,9 @@
     "topic": "SST: Resources & Development • English: A Triumph of Surgery, Nelson Mandela",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 9,
@@ -415,7 +495,9 @@
         "durationMinutes": 90,
         "target": "Factorisation, quadratic formula & nature of roots (discriminant)",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -423,7 +505,9 @@
         "durationMinutes": 60,
         "target": "Ohm's law, resistance factors, series & parallel numericals, Joule's law",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -431,7 +515,9 @@
         "durationMinutes": 60,
         "target": "French revolution, Napoleonic Code 1804 & Vienna Congress 1815",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -439,7 +525,9 @@
         "durationMinutes": 30,
         "target": "Young seagull's flight, black aeroplane & caged tiger contrast",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -447,7 +535,9 @@
     "topic": "SST: The Rise of Nationalism in Europe (Part 1) • English: Two Stories about Flying, A Tiger in the Zoo",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 10,
@@ -465,7 +555,9 @@
         "durationMinutes": 90,
         "target": "Factorisation, quadratic formula & nature of roots (discriminant)",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -473,7 +565,9 @@
         "durationMinutes": 60,
         "target": "Ohm's law, resistance factors, series & parallel numericals, Joule's law",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -481,7 +575,9 @@
         "durationMinutes": 60,
         "target": "French revolution, Napoleonic Code 1804 & Vienna Congress 1815",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -489,7 +585,9 @@
         "durationMinutes": 30,
         "target": "Young seagull's flight, black aeroplane & caged tiger contrast",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -497,7 +595,9 @@
     "topic": "SST: The Rise of Nationalism in Europe (Part 1) • English: Two Stories about Flying, A Tiger in the Zoo",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 11,
@@ -515,7 +615,9 @@
         "durationMinutes": 90,
         "target": "Factorisation, quadratic formula & nature of roots (discriminant)",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -523,7 +625,9 @@
         "durationMinutes": 60,
         "target": "Ohm's law, resistance factors, series & parallel numericals, Joule's law",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -531,7 +635,9 @@
         "durationMinutes": 60,
         "target": "French revolution, Napoleonic Code 1804 & Vienna Congress 1815",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -539,7 +645,9 @@
         "durationMinutes": 30,
         "target": "Young seagull's flight, black aeroplane & caged tiger contrast",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -547,7 +655,9 @@
     "topic": "SST: The Rise of Nationalism in Europe (Part 1) • English: Two Stories about Flying, A Tiger in the Zoo",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 12,
@@ -565,7 +675,9 @@
         "durationMinutes": 90,
         "target": "Factorisation, quadratic formula & nature of roots (discriminant)",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -573,7 +685,9 @@
         "durationMinutes": 60,
         "target": "Ohm's law, resistance factors, series & parallel numericals, Joule's law",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -581,7 +695,9 @@
         "durationMinutes": 60,
         "target": "French revolution, Napoleonic Code 1804 & Vienna Congress 1815",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -589,7 +705,9 @@
         "durationMinutes": 30,
         "target": "Young seagull's flight, black aeroplane & caged tiger contrast",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -597,7 +715,9 @@
     "topic": "SST: The Rise of Nationalism in Europe (Part 1) • English: Two Stories about Flying, A Tiger in the Zoo",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 13,
@@ -615,7 +735,9 @@
         "durationMinutes": 90,
         "target": "Substitution and elimination methods, word problems & consistency",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -623,7 +745,9 @@
         "durationMinutes": 60,
         "target": "Photosynthesis, human digestive system & aerobic vs anaerobic respiration",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -631,7 +755,9 @@
         "durationMinutes": 60,
         "target": "Unification of Germany & Italy, Per Capita Income & HDI index",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -639,7 +765,9 @@
         "durationMinutes": 30,
         "target": "Hari Singh's reform & Ausable's witty presence of mind",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -647,7 +775,9 @@
     "topic": "SST: Rise of Nationalism in Europe (Part 2), Development • English: The Thief's Story, The Midnight Visitor",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 14,
@@ -665,7 +795,9 @@
         "durationMinutes": 90,
         "target": "Substitution and elimination methods, word problems & consistency",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -673,7 +805,9 @@
         "durationMinutes": 60,
         "target": "Photosynthesis, human digestive system & aerobic vs anaerobic respiration",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -681,7 +815,9 @@
         "durationMinutes": 60,
         "target": "Unification of Germany & Italy, Per Capita Income & HDI index",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -689,7 +825,9 @@
         "durationMinutes": 30,
         "target": "Hari Singh's reform & Ausable's witty presence of mind",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -697,7 +835,9 @@
     "topic": "SST: Rise of Nationalism in Europe (Part 2), Development • English: The Thief's Story, The Midnight Visitor",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 15,
@@ -715,7 +855,9 @@
         "durationMinutes": 90,
         "target": "Substitution and elimination methods, word problems & consistency",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -723,7 +865,9 @@
         "durationMinutes": 60,
         "target": "Photosynthesis, human digestive system & aerobic vs anaerobic respiration",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -731,7 +875,9 @@
         "durationMinutes": 60,
         "target": "Unification of Germany & Italy, Per Capita Income & HDI index",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -739,7 +885,9 @@
         "durationMinutes": 30,
         "target": "Hari Singh's reform & Ausable's witty presence of mind",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -747,7 +895,9 @@
     "topic": "SST: Rise of Nationalism in Europe (Part 2), Development • English: The Thief's Story, The Midnight Visitor",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 16,
@@ -765,7 +915,9 @@
         "durationMinutes": 90,
         "target": "Substitution and elimination methods, word problems & consistency",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -773,7 +925,9 @@
         "durationMinutes": 60,
         "target": "Photosynthesis, human digestive system & aerobic vs anaerobic respiration",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -781,7 +935,9 @@
         "durationMinutes": 60,
         "target": "Unification of Germany & Italy, Per Capita Income & HDI index",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -789,7 +945,9 @@
         "durationMinutes": 30,
         "target": "Hari Singh's reform & Ausable's witty presence of mind",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -797,13 +955,15 @@
     "topic": "SST: Rise of Nationalism in Europe (Part 2), Development • English: The Thief's Story, The Midnight Visitor",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 17,
     "date": "2026-12-01",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -815,7 +975,9 @@
         "durationMinutes": 90,
         "target": "nth term, sum of first n terms & practical application word problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -823,7 +985,9 @@
         "durationMinutes": 60,
         "target": "Human heart double circulation, nephron diagram & urine formation",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -831,7 +995,9 @@
         "durationMinutes": 60,
         "target": "Belgium accommodation vs Sri Lanka, federal lists & 1992 decentralisation",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -839,7 +1005,9 @@
         "durationMinutes": 30,
         "target": "Epistemology of loss, teenage escapism & Kitty diary entries",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -847,13 +1015,15 @@
     "topic": "SST: Power Sharing, Federalism • English: The Ball Poem / Amanda!, Diary of Anne Frank",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 18,
     "date": "2026-12-02",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -865,7 +1035,9 @@
         "durationMinutes": 90,
         "target": "nth term, sum of first n terms & practical application word problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -873,7 +1045,9 @@
         "durationMinutes": 60,
         "target": "Human heart double circulation, nephron diagram & urine formation",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -881,7 +1055,9 @@
         "durationMinutes": 60,
         "target": "Belgium accommodation vs Sri Lanka, federal lists & 1992 decentralisation",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -889,7 +1065,9 @@
         "durationMinutes": 30,
         "target": "Epistemology of loss, teenage escapism & Kitty diary entries",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -897,13 +1075,15 @@
     "topic": "SST: Power Sharing, Federalism • English: The Ball Poem / Amanda!, Diary of Anne Frank",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 19,
     "date": "2026-12-03",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -915,7 +1095,9 @@
         "durationMinutes": 90,
         "target": "nth term, sum of first n terms & practical application word problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -923,7 +1105,9 @@
         "durationMinutes": 60,
         "target": "Human heart double circulation, nephron diagram & urine formation",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -931,7 +1115,9 @@
         "durationMinutes": 60,
         "target": "Belgium accommodation vs Sri Lanka, federal lists & 1992 decentralisation",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -939,7 +1125,9 @@
         "durationMinutes": 30,
         "target": "Epistemology of loss, teenage escapism & Kitty diary entries",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -947,13 +1135,15 @@
     "topic": "SST: Power Sharing, Federalism • English: The Ball Poem / Amanda!, Diary of Anne Frank",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 20,
     "date": "2026-12-04",
     "dayOfWeek": "Friday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -965,7 +1155,9 @@
         "durationMinutes": 90,
         "target": "nth term, sum of first n terms & practical application word problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -973,7 +1165,9 @@
         "durationMinutes": 60,
         "target": "Human heart double circulation, nephron diagram & urine formation",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -981,7 +1175,9 @@
         "durationMinutes": 60,
         "target": "Belgium accommodation vs Sri Lanka, federal lists & 1992 decentralisation",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -989,7 +1185,9 @@
         "durationMinutes": 30,
         "target": "Epistemology of loss, teenage escapism & Kitty diary entries",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -997,13 +1195,15 @@
     "topic": "SST: Power Sharing, Federalism • English: The Ball Poem / Amanda!, Diary of Anne Frank",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 21,
     "date": "2026-12-05",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1015,7 +1215,9 @@
         "durationMinutes": 90,
         "target": "Basic Proportionality Theorem (Thales) proof & AA/SSS/SAS similarity",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1023,7 +1225,9 @@
         "durationMinutes": 60,
         "target": "10% energy law, biomagnification, neuron structure & reflex arc",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1031,7 +1235,9 @@
         "durationMinutes": 60,
         "target": "Primary/Secondary/Tertiary GDP shares, disguised unemployment & Golden Quadrilateral",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1039,7 +1245,9 @@
         "durationMinutes": 30,
         "target": "Horace Danby & Baker from Goa, Coorg, Tea from Assam",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1047,13 +1255,15 @@
     "topic": "SST: Sectors of Indian Economy, Lifelines of National Economy • English: A Question of Trust, Glimpses of India (1, 2, 3)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 22,
     "date": "2026-12-06",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -1065,7 +1275,9 @@
         "durationMinutes": 90,
         "target": "Basic Proportionality Theorem (Thales) proof & AA/SSS/SAS similarity",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1073,7 +1285,9 @@
         "durationMinutes": 60,
         "target": "10% energy law, biomagnification, neuron structure & reflex arc",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1081,7 +1295,9 @@
         "durationMinutes": 60,
         "target": "Primary/Secondary/Tertiary GDP shares, disguised unemployment & Golden Quadrilateral",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1089,7 +1305,9 @@
         "durationMinutes": 30,
         "target": "Horace Danby & Baker from Goa, Coorg, Tea from Assam",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -1097,13 +1315,15 @@
     "topic": "SST: Sectors of Indian Economy, Lifelines of National Economy • English: A Question of Trust, Glimpses of India (1, 2, 3)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 23,
     "date": "2026-12-07",
     "dayOfWeek": "Monday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1115,7 +1335,9 @@
         "durationMinutes": 90,
         "target": "Basic Proportionality Theorem (Thales) proof & AA/SSS/SAS similarity",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1123,7 +1345,9 @@
         "durationMinutes": 60,
         "target": "10% energy law, biomagnification, neuron structure & reflex arc",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1131,7 +1355,9 @@
         "durationMinutes": 60,
         "target": "Primary/Secondary/Tertiary GDP shares, disguised unemployment & Golden Quadrilateral",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1139,7 +1365,9 @@
         "durationMinutes": 30,
         "target": "Horace Danby & Baker from Goa, Coorg, Tea from Assam",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1147,13 +1375,15 @@
     "topic": "SST: Sectors of Indian Economy, Lifelines of National Economy • English: A Question of Trust, Glimpses of India (1, 2, 3)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 24,
     "date": "2026-12-08",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1165,7 +1395,9 @@
         "durationMinutes": 90,
         "target": "Basic Proportionality Theorem (Thales) proof & AA/SSS/SAS similarity",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1173,7 +1405,9 @@
         "durationMinutes": 60,
         "target": "10% energy law, biomagnification, neuron structure & reflex arc",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1181,7 +1415,9 @@
         "durationMinutes": 60,
         "target": "Primary/Secondary/Tertiary GDP shares, disguised unemployment & Golden Quadrilateral",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1189,7 +1425,9 @@
         "durationMinutes": 30,
         "target": "Horace Danby & Baker from Goa, Coorg, Tea from Assam",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1197,13 +1435,15 @@
     "topic": "SST: Sectors of Indian Economy, Lifelines of National Economy • English: A Question of Trust, Glimpses of India (1, 2, 3)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 25,
     "date": "2026-12-09",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1215,7 +1455,9 @@
         "durationMinutes": 90,
         "target": "Distance formula, section formula & mid-point problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1223,7 +1465,9 @@
         "durationMinutes": 60,
         "target": "Magnetic field lines, Fleming's left hand rule, solenoid & domestic circuits",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1231,7 +1475,9 @@
         "durationMinutes": 60,
         "target": "Rowlatt Act, Jallianwala Bagh massacre, Khilafat & Non-Cooperation movement",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1239,7 +1485,9 @@
         "durationMinutes": 30,
         "target": "Maxwell's otter antics & humorous ballad of true courage",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1247,13 +1495,15 @@
     "topic": "SST: Nationalism in India (Part 1) • English: Mijbil the Otter, The Tale of Custard the Dragon",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 26,
     "date": "2026-12-10",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1265,7 +1515,9 @@
         "durationMinutes": 90,
         "target": "Distance formula, section formula & mid-point problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1273,7 +1525,9 @@
         "durationMinutes": 60,
         "target": "Magnetic field lines, Fleming's left hand rule, solenoid & domestic circuits",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1281,7 +1535,9 @@
         "durationMinutes": 60,
         "target": "Rowlatt Act, Jallianwala Bagh massacre, Khilafat & Non-Cooperation movement",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1289,7 +1545,9 @@
         "durationMinutes": 30,
         "target": "Maxwell's otter antics & humorous ballad of true courage",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1297,13 +1555,15 @@
     "topic": "SST: Nationalism in India (Part 1) • English: Mijbil the Otter, The Tale of Custard the Dragon",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 27,
     "date": "2026-12-11",
     "dayOfWeek": "Friday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1315,7 +1575,9 @@
         "durationMinutes": 90,
         "target": "Distance formula, section formula & mid-point problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1323,7 +1585,9 @@
         "durationMinutes": 60,
         "target": "Magnetic field lines, Fleming's left hand rule, solenoid & domestic circuits",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1331,7 +1595,9 @@
         "durationMinutes": 60,
         "target": "Rowlatt Act, Jallianwala Bagh massacre, Khilafat & Non-Cooperation movement",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1339,7 +1605,9 @@
         "durationMinutes": 30,
         "target": "Maxwell's otter antics & humorous ballad of true courage",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1347,13 +1615,15 @@
     "topic": "SST: Nationalism in India (Part 1) • English: Mijbil the Otter, The Tale of Custard the Dragon",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 28,
     "date": "2026-12-12",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1365,7 +1635,9 @@
         "durationMinutes": 90,
         "target": "Distance formula, section formula & mid-point problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1373,7 +1645,9 @@
         "durationMinutes": 60,
         "target": "Magnetic field lines, Fleming's left hand rule, solenoid & domestic circuits",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1381,7 +1655,9 @@
         "durationMinutes": 60,
         "target": "Rowlatt Act, Jallianwala Bagh massacre, Khilafat & Non-Cooperation movement",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1389,7 +1665,9 @@
         "durationMinutes": 30,
         "target": "Maxwell's otter antics & humorous ballad of true courage",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1397,13 +1675,15 @@
     "topic": "SST: Nationalism in India (Part 1) • English: Mijbil the Otter, The Tale of Custard the Dragon",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 29,
     "date": "2026-12-13",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -1415,7 +1695,9 @@
         "durationMinutes": 90,
         "target": "Trigonometric ratios table (0-90 deg) & proving identity equations",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1423,7 +1705,9 @@
         "durationMinutes": 60,
         "target": "Asexual fission/budding, flower double fertilization & human reproduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1431,7 +1715,9 @@
         "durationMinutes": 60,
         "target": "Dandi Salt March 1930, Poona Pact & Rabi/Kharif cropping seasons",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1439,7 +1725,9 @@
         "durationMinutes": 30,
         "target": "Nature liberation, cat-feet fog metaphor & inner vs outer beauty",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -1447,13 +1735,15 @@
     "topic": "SST: Nationalism in India (Part 2), Agriculture • English: The Trees / Fog / For Anne Gregory",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 30,
     "date": "2026-12-14",
     "dayOfWeek": "Monday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1465,7 +1755,9 @@
         "durationMinutes": 90,
         "target": "Trigonometric ratios table (0-90 deg) & proving identity equations",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1473,7 +1765,9 @@
         "durationMinutes": 60,
         "target": "Asexual fission/budding, flower double fertilization & human reproduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1481,7 +1775,9 @@
         "durationMinutes": 60,
         "target": "Dandi Salt March 1930, Poona Pact & Rabi/Kharif cropping seasons",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1489,7 +1785,9 @@
         "durationMinutes": 30,
         "target": "Nature liberation, cat-feet fog metaphor & inner vs outer beauty",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1497,13 +1795,15 @@
     "topic": "SST: Nationalism in India (Part 2), Agriculture • English: The Trees / Fog / For Anne Gregory",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 31,
     "date": "2026-12-15",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 2: Core Concept Mastery",
+    "phase": "Phase 2: Core Consolidation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1515,7 +1815,9 @@
         "durationMinutes": 90,
         "target": "Trigonometric ratios table (0-90 deg) & proving identity equations",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1523,7 +1825,9 @@
         "durationMinutes": 60,
         "target": "Asexual fission/budding, flower double fertilization & human reproduction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1531,7 +1835,9 @@
         "durationMinutes": 60,
         "target": "Dandi Salt March 1930, Poona Pact & Rabi/Kharif cropping seasons",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1539,7 +1845,9 @@
         "durationMinutes": 30,
         "target": "Nature liberation, cat-feet fog metaphor & inner vs outer beauty",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1547,13 +1855,15 @@
     "topic": "SST: Nationalism in India (Part 2), Agriculture • English: The Trees / Fog / For Anne Gregory",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 32,
     "date": "2026-12-16",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1565,7 +1875,9 @@
         "durationMinutes": 90,
         "target": "Heights and distances, angles of elevation and depression 2-triangle problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1573,7 +1885,9 @@
         "durationMinutes": 60,
         "target": "Mendel's monohybrid & dihybrid crosses, dominant/recessive, sex determination",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1581,7 +1895,9 @@
         "durationMinutes": 60,
         "target": "Ferrous/non-ferrous, conventional vs solar/wind & Silk routes, Great Depression",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1589,7 +1905,9 @@
         "durationMinutes": 30,
         "target": "Buddha's teaching to Kisa Gotami & Griffin's lawless invisibility",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1597,13 +1915,15 @@
     "topic": "SST: Minerals & Energy Resources, Making of a Global World • English: The Sermon at Benares, Footprints Without Feet",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 33,
     "date": "2026-12-17",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1615,7 +1935,9 @@
         "durationMinutes": 90,
         "target": "Heights and distances, angles of elevation and depression 2-triangle problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1623,7 +1945,9 @@
         "durationMinutes": 60,
         "target": "Mendel's monohybrid & dihybrid crosses, dominant/recessive, sex determination",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1631,7 +1955,9 @@
         "durationMinutes": 60,
         "target": "Ferrous/non-ferrous, conventional vs solar/wind & Silk routes, Great Depression",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1639,7 +1965,9 @@
         "durationMinutes": 30,
         "target": "Buddha's teaching to Kisa Gotami & Griffin's lawless invisibility",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1647,13 +1975,15 @@
     "topic": "SST: Minerals & Energy Resources, Making of a Global World • English: The Sermon at Benares, Footprints Without Feet",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 34,
     "date": "2026-12-18",
     "dayOfWeek": "Friday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1665,7 +1995,9 @@
         "durationMinutes": 90,
         "target": "Heights and distances, angles of elevation and depression 2-triangle problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1673,7 +2005,9 @@
         "durationMinutes": 60,
         "target": "Mendel's monohybrid & dihybrid crosses, dominant/recessive, sex determination",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1681,7 +2015,9 @@
         "durationMinutes": 60,
         "target": "Ferrous/non-ferrous, conventional vs solar/wind & Silk routes, Great Depression",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1689,7 +2025,9 @@
         "durationMinutes": 30,
         "target": "Buddha's teaching to Kisa Gotami & Griffin's lawless invisibility",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1697,13 +2035,15 @@
     "topic": "SST: Minerals & Energy Resources, Making of a Global World • English: The Sermon at Benares, Footprints Without Feet",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 35,
     "date": "2026-12-19",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1715,7 +2055,9 @@
         "durationMinutes": 90,
         "target": "Heights and distances, angles of elevation and depression 2-triangle problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1723,7 +2065,9 @@
         "durationMinutes": 60,
         "target": "Mendel's monohybrid & dihybrid crosses, dominant/recessive, sex determination",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1731,7 +2075,9 @@
         "durationMinutes": 60,
         "target": "Ferrous/non-ferrous, conventional vs solar/wind & Silk routes, Great Depression",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1739,7 +2085,9 @@
         "durationMinutes": 30,
         "target": "Buddha's teaching to Kisa Gotami & Griffin's lawless invisibility",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1747,13 +2095,15 @@
     "topic": "SST: Minerals & Energy Resources, Making of a Global World • English: The Sermon at Benares, Footprints Without Feet",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 36,
     "date": "2026-12-20",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -1765,7 +2115,9 @@
         "durationMinutes": 90,
         "target": "Tangent perpendicular to radius & equality of tangents from external point",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1773,7 +2125,9 @@
         "durationMinutes": 60,
         "target": "Reactivity series, ionic bonding, roasting/calcination & corrosion prevention",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1781,7 +2135,9 @@
         "durationMinutes": 60,
         "target": "Secular state, feminist movements, formal vs informal credit & SHGs",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1789,7 +2145,9 @@
         "durationMinutes": 30,
         "target": "Richard Ebright's curiosity & Matilda Loisel's vanity lesson",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -1797,13 +2155,15 @@
     "topic": "SST: Gender, Religion & Caste, Money & Credit • English: The Making of a Scientist, The Necklace",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 37,
     "date": "2026-12-21",
     "dayOfWeek": "Monday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1815,7 +2175,9 @@
         "durationMinutes": 90,
         "target": "Tangent perpendicular to radius & equality of tangents from external point",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1823,7 +2185,9 @@
         "durationMinutes": 60,
         "target": "Reactivity series, ionic bonding, roasting/calcination & corrosion prevention",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1831,7 +2195,9 @@
         "durationMinutes": 60,
         "target": "Secular state, feminist movements, formal vs informal credit & SHGs",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1839,7 +2205,9 @@
         "durationMinutes": 30,
         "target": "Richard Ebright's curiosity & Matilda Loisel's vanity lesson",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1847,13 +2215,15 @@
     "topic": "SST: Gender, Religion & Caste, Money & Credit • English: The Making of a Scientist, The Necklace",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 38,
     "date": "2026-12-22",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1865,7 +2235,9 @@
         "durationMinutes": 90,
         "target": "Tangent perpendicular to radius & equality of tangents from external point",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1873,7 +2245,9 @@
         "durationMinutes": 60,
         "target": "Reactivity series, ionic bonding, roasting/calcination & corrosion prevention",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1881,7 +2255,9 @@
         "durationMinutes": 60,
         "target": "Secular state, feminist movements, formal vs informal credit & SHGs",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1889,7 +2265,9 @@
         "durationMinutes": 30,
         "target": "Richard Ebright's curiosity & Matilda Loisel's vanity lesson",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1897,13 +2275,15 @@
     "topic": "SST: Gender, Religion & Caste, Money & Credit • English: The Making of a Scientist, The Necklace",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 39,
     "date": "2026-12-23",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1915,7 +2295,9 @@
         "durationMinutes": 90,
         "target": "Tangent perpendicular to radius & equality of tangents from external point",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1923,7 +2305,9 @@
         "durationMinutes": 60,
         "target": "Reactivity series, ionic bonding, roasting/calcination & corrosion prevention",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1931,7 +2315,9 @@
         "durationMinutes": 60,
         "target": "Secular state, feminist movements, formal vs informal credit & SHGs",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1939,7 +2325,9 @@
         "durationMinutes": 30,
         "target": "Richard Ebright's curiosity & Matilda Loisel's vanity lesson",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1947,13 +2335,15 @@
     "topic": "SST: Gender, Religion & Caste, Money & Credit • English: The Making of a Scientist, The Necklace",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 40,
     "date": "2026-12-24",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -1965,7 +2355,9 @@
         "durationMinutes": 90,
         "target": "Sector and segment area calculations & combined plane figure areas",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -1973,7 +2365,9 @@
         "durationMinutes": 60,
         "target": "Mirror and lens formula numericals, sign convention & power of lens",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -1981,7 +2375,9 @@
         "durationMinutes": 60,
         "target": "Functions & challenges of parties, agro vs mineral industries & pollution control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -1989,7 +2385,9 @@
         "durationMinutes": 30,
         "target": "Valli's bus journey & Bholi's transformation through education",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -1997,13 +2395,15 @@
     "topic": "SST: Political Parties, Manufacturing Industries • English: Madam Rides the Bus, Bholi",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 41,
     "date": "2026-12-25",
     "dayOfWeek": "Friday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2015,7 +2415,9 @@
         "durationMinutes": 90,
         "target": "Sector and segment area calculations & combined plane figure areas",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2023,7 +2425,9 @@
         "durationMinutes": 60,
         "target": "Mirror and lens formula numericals, sign convention & power of lens",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2031,7 +2435,9 @@
         "durationMinutes": 60,
         "target": "Functions & challenges of parties, agro vs mineral industries & pollution control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2039,7 +2445,9 @@
         "durationMinutes": 30,
         "target": "Valli's bus journey & Bholi's transformation through education",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2047,13 +2455,15 @@
     "topic": "SST: Political Parties, Manufacturing Industries • English: Madam Rides the Bus, Bholi",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 42,
     "date": "2026-12-26",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2065,7 +2475,9 @@
         "durationMinutes": 90,
         "target": "Sector and segment area calculations & combined plane figure areas",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2073,7 +2485,9 @@
         "durationMinutes": 60,
         "target": "Mirror and lens formula numericals, sign convention & power of lens",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2081,7 +2495,9 @@
         "durationMinutes": 60,
         "target": "Functions & challenges of parties, agro vs mineral industries & pollution control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2089,7 +2505,9 @@
         "durationMinutes": 30,
         "target": "Valli's bus journey & Bholi's transformation through education",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2097,13 +2515,15 @@
     "topic": "SST: Political Parties, Manufacturing Industries • English: Madam Rides the Bus, Bholi",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 43,
     "date": "2026-12-27",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -2115,7 +2535,9 @@
         "durationMinutes": 90,
         "target": "Sector and segment area calculations & combined plane figure areas",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2123,7 +2545,9 @@
         "durationMinutes": 60,
         "target": "Mirror and lens formula numericals, sign convention & power of lens",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2131,7 +2555,9 @@
         "durationMinutes": 60,
         "target": "Functions & challenges of parties, agro vs mineral industries & pollution control",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2139,7 +2565,9 @@
         "durationMinutes": 30,
         "target": "Valli's bus journey & Bholi's transformation through education",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -2147,13 +2575,15 @@
     "topic": "SST: Political Parties, Manufacturing Industries • English: Madam Rides the Bus, Bholi",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 44,
     "date": "2026-12-28",
     "dayOfWeek": "Monday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2165,7 +2595,9 @@
         "durationMinutes": 90,
         "target": "Combination of solids (cylinder, cone, hemisphere) surface area and volume",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2173,7 +2605,9 @@
         "durationMinutes": 60,
         "target": "Myopia & hypermetropia corrections, prism dispersion & atmospheric refraction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2181,7 +2615,9 @@
         "durationMinutes": 60,
         "target": "Gutenberg press, Martin Luther reformation & vernacular press in India",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2189,7 +2625,9 @@
         "durationMinutes": 30,
         "target": "Lomov-Natalya comedy & Martian Think-Tank Mother Goose satire",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2197,13 +2635,15 @@
     "topic": "SST: Print Culture & the Modern World • English: The Proposal, The Book That Saved the Earth",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 45,
     "date": "2026-12-29",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2215,7 +2655,9 @@
         "durationMinutes": 90,
         "target": "Combination of solids (cylinder, cone, hemisphere) surface area and volume",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2223,7 +2665,9 @@
         "durationMinutes": 60,
         "target": "Myopia & hypermetropia corrections, prism dispersion & atmospheric refraction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2231,7 +2675,9 @@
         "durationMinutes": 60,
         "target": "Gutenberg press, Martin Luther reformation & vernacular press in India",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2239,7 +2685,9 @@
         "durationMinutes": 30,
         "target": "Lomov-Natalya comedy & Martian Think-Tank Mother Goose satire",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2247,13 +2695,15 @@
     "topic": "SST: Print Culture & the Modern World • English: The Proposal, The Book That Saved the Earth",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 46,
     "date": "2026-12-30",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2265,7 +2715,9 @@
         "durationMinutes": 90,
         "target": "Combination of solids (cylinder, cone, hemisphere) surface area and volume",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2273,7 +2725,9 @@
         "durationMinutes": 60,
         "target": "Myopia & hypermetropia corrections, prism dispersion & atmospheric refraction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2281,7 +2735,9 @@
         "durationMinutes": 60,
         "target": "Gutenberg press, Martin Luther reformation & vernacular press in India",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2289,7 +2745,9 @@
         "durationMinutes": 30,
         "target": "Lomov-Natalya comedy & Martian Think-Tank Mother Goose satire",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2297,13 +2755,15 @@
     "topic": "SST: Print Culture & the Modern World • English: The Proposal, The Book That Saved the Earth",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 47,
     "date": "2026-12-31",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 3: High-Yield Application",
+    "phase": "Phase 3: Advanced Application",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2315,7 +2775,9 @@
         "durationMinutes": 90,
         "target": "Combination of solids (cylinder, cone, hemisphere) surface area and volume",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2323,7 +2785,9 @@
         "durationMinutes": 60,
         "target": "Myopia & hypermetropia corrections, prism dispersion & atmospheric refraction",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2331,7 +2795,9 @@
         "durationMinutes": 60,
         "target": "Gutenberg press, Martin Luther reformation & vernacular press in India",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2339,7 +2805,9 @@
         "durationMinutes": 30,
         "target": "Lomov-Natalya comedy & Martian Think-Tank Mother Goose satire",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2347,13 +2815,15 @@
     "topic": "SST: Print Culture & the Modern World • English: The Proposal, The Book That Saved the Earth",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 48,
     "date": "2027-01-01",
     "dayOfWeek": "Friday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2365,7 +2835,9 @@
         "durationMinutes": 90,
         "target": "Classical probability problems + full formula sheet recall",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2373,7 +2845,9 @@
         "durationMinutes": 60,
         "target": "Catenation, tetravalency, homologous series, ethanol & micelle cleaning",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2381,7 +2855,9 @@
         "durationMinutes": 60,
         "target": "Accountable & legitimate government, MNCs, liberalisation 1991 & WTO",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2389,7 +2865,9 @@
         "durationMinutes": 30,
         "target": "Integrated grammar gap-filling and error-correction drills",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2397,13 +2875,15 @@
     "topic": "SST: Outcomes of Democracy, Globalisation & Indian Economy • English: Grammar (Tenses, Modals, Subject-Verb Concord)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 49,
     "date": "2027-01-02",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2415,7 +2895,9 @@
         "durationMinutes": 90,
         "target": "Classical probability problems + full formula sheet recall",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2423,7 +2905,9 @@
         "durationMinutes": 60,
         "target": "Catenation, tetravalency, homologous series, ethanol & micelle cleaning",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2431,7 +2915,9 @@
         "durationMinutes": 60,
         "target": "Accountable & legitimate government, MNCs, liberalisation 1991 & WTO",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2439,7 +2925,9 @@
         "durationMinutes": 30,
         "target": "Integrated grammar gap-filling and error-correction drills",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2447,13 +2935,15 @@
     "topic": "SST: Outcomes of Democracy, Globalisation & Indian Economy • English: Grammar (Tenses, Modals, Subject-Verb Concord)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 50,
     "date": "2027-01-03",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -2465,7 +2955,9 @@
         "durationMinutes": 90,
         "target": "Classical probability problems + full formula sheet recall",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2473,7 +2965,9 @@
         "durationMinutes": 60,
         "target": "Catenation, tetravalency, homologous series, ethanol & micelle cleaning",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2481,7 +2975,9 @@
         "durationMinutes": 60,
         "target": "Accountable & legitimate government, MNCs, liberalisation 1991 & WTO",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2489,7 +2985,9 @@
         "durationMinutes": 30,
         "target": "Integrated grammar gap-filling and error-correction drills",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -2497,13 +2995,15 @@
     "topic": "SST: Outcomes of Democracy, Globalisation & Indian Economy • English: Grammar (Tenses, Modals, Subject-Verb Concord)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 51,
     "date": "2027-01-04",
     "dayOfWeek": "Monday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2515,7 +3015,9 @@
         "durationMinutes": 90,
         "target": "Classical probability problems + full formula sheet recall",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2523,7 +3025,9 @@
         "durationMinutes": 60,
         "target": "Catenation, tetravalency, homologous series, ethanol & micelle cleaning",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2531,7 +3035,9 @@
         "durationMinutes": 60,
         "target": "Accountable & legitimate government, MNCs, liberalisation 1991 & WTO",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2539,7 +3045,9 @@
         "durationMinutes": 30,
         "target": "Integrated grammar gap-filling and error-correction drills",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2547,13 +3055,15 @@
     "topic": "SST: Outcomes of Democracy, Globalisation & Indian Economy • English: Grammar (Tenses, Modals, Subject-Verb Concord)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 52,
     "date": "2027-01-05",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2565,7 +3075,9 @@
         "durationMinutes": 90,
         "target": "Classical probability problems + full formula sheet recall",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2573,7 +3085,9 @@
         "durationMinutes": 60,
         "target": "Catenation, tetravalency, homologous series, ethanol & micelle cleaning",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2581,7 +3095,9 @@
         "durationMinutes": 60,
         "target": "Accountable & legitimate government, MNCs, liberalisation 1991 & WTO",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2589,7 +3105,9 @@
         "durationMinutes": 30,
         "target": "Integrated grammar gap-filling and error-correction drills",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2597,13 +3115,15 @@
     "topic": "SST: Outcomes of Democracy, Globalisation & Indian Economy • English: Grammar (Tenses, Modals, Subject-Verb Concord)",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 53,
     "date": "2027-01-06",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2615,7 +3135,9 @@
         "durationMinutes": 90,
         "target": "High-difficulty proving questions and 5-mark exemplar problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2623,7 +3145,9 @@
         "durationMinutes": 60,
         "target": "All ray diagrams, mirror/lens numericals, circuit calculations",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2631,7 +3155,9 @@
         "durationMinutes": 60,
         "target": "Locating major dams, thermal/nuclear plants, ports, airports & Congress sessions",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2639,7 +3165,9 @@
         "durationMinutes": 30,
         "target": "Direct to indirect speech rules, formal letter & analytical paragraph",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2647,13 +3175,15 @@
     "topic": "SST: Map Work (History & Geography) + Key Terms • English: Grammar (Determiners, Reported Speech) & Writing Formats",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 54,
     "date": "2027-01-07",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2665,7 +3195,9 @@
         "durationMinutes": 90,
         "target": "High-difficulty proving questions and 5-mark exemplar problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2673,7 +3205,9 @@
         "durationMinutes": 60,
         "target": "All ray diagrams, mirror/lens numericals, circuit calculations",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2681,7 +3215,9 @@
         "durationMinutes": 60,
         "target": "Locating major dams, thermal/nuclear plants, ports, airports & Congress sessions",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2689,7 +3225,9 @@
         "durationMinutes": 30,
         "target": "Direct to indirect speech rules, formal letter & analytical paragraph",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2697,13 +3235,15 @@
     "topic": "SST: Map Work (History & Geography) + Key Terms • English: Grammar (Determiners, Reported Speech) & Writing Formats",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 55,
     "date": "2027-01-08",
     "dayOfWeek": "Friday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2715,7 +3255,9 @@
         "durationMinutes": 90,
         "target": "High-difficulty proving questions and 5-mark exemplar problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2723,7 +3265,9 @@
         "durationMinutes": 60,
         "target": "All ray diagrams, mirror/lens numericals, circuit calculations",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2731,7 +3275,9 @@
         "durationMinutes": 60,
         "target": "Locating major dams, thermal/nuclear plants, ports, airports & Congress sessions",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2739,7 +3285,9 @@
         "durationMinutes": 30,
         "target": "Direct to indirect speech rules, formal letter & analytical paragraph",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2747,13 +3295,15 @@
     "topic": "SST: Map Work (History & Geography) + Key Terms • English: Grammar (Determiners, Reported Speech) & Writing Formats",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 56,
     "date": "2027-01-09",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2765,7 +3315,9 @@
         "durationMinutes": 90,
         "target": "High-difficulty proving questions and 5-mark exemplar problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2773,7 +3325,9 @@
         "durationMinutes": 60,
         "target": "All ray diagrams, mirror/lens numericals, circuit calculations",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2781,7 +3335,9 @@
         "durationMinutes": 60,
         "target": "Locating major dams, thermal/nuclear plants, ports, airports & Congress sessions",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2789,7 +3345,9 @@
         "durationMinutes": 30,
         "target": "Direct to indirect speech rules, formal letter & analytical paragraph",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2797,13 +3355,15 @@
     "topic": "SST: Map Work (History & Geography) + Key Terms • English: Grammar (Determiners, Reported Speech) & Writing Formats",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 57,
     "date": "2027-01-10",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -2815,7 +3375,9 @@
         "durationMinutes": 90,
         "target": "High-difficulty proving questions and 5-mark exemplar problems",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2823,7 +3385,9 @@
         "durationMinutes": 60,
         "target": "All ray diagrams, mirror/lens numericals, circuit calculations",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2831,7 +3395,9 @@
         "durationMinutes": 60,
         "target": "Locating major dams, thermal/nuclear plants, ports, airports & Congress sessions",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2839,7 +3405,9 @@
         "durationMinutes": 30,
         "target": "Direct to indirect speech rules, formal letter & analytical paragraph",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -2847,13 +3415,15 @@
     "topic": "SST: Map Work (History & Geography) + Key Terms • English: Grammar (Determiners, Reported Speech) & Writing Formats",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 58,
     "date": "2027-01-11",
     "dayOfWeek": "Monday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2865,7 +3435,9 @@
         "durationMinutes": 90,
         "target": "80-mark timed simulation paper + logging doubts in mistake notebook",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2873,7 +3445,9 @@
         "durationMinutes": 60,
         "target": "Complete 39-question CBSE pattern test with Section A to E",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2881,7 +3455,9 @@
         "durationMinutes": 60,
         "target": "Full mock test with source-based case studies & map work",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2889,7 +3465,9 @@
         "durationMinutes": 30,
         "target": "Nelson Mandela, Lencho, Ausable, Bholi sketches + sample paper",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2897,13 +3475,15 @@
     "topic": "SST: 2 Full-Length SST Sample Papers & Timeline Revision • English: Literature Character Sketches, Poetic Devices & 1 Sample Paper",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 59,
     "date": "2027-01-12",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2915,7 +3495,9 @@
         "durationMinutes": 90,
         "target": "80-mark timed simulation paper + logging doubts in mistake notebook",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2923,7 +3505,9 @@
         "durationMinutes": 60,
         "target": "Complete 39-question CBSE pattern test with Section A to E",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2931,7 +3515,9 @@
         "durationMinutes": 60,
         "target": "Full mock test with source-based case studies & map work",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2939,7 +3525,9 @@
         "durationMinutes": 30,
         "target": "Nelson Mandela, Lencho, Ausable, Bholi sketches + sample paper",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2947,13 +3535,15 @@
     "topic": "SST: 2 Full-Length SST Sample Papers & Timeline Revision • English: Literature Character Sketches, Poetic Devices & 1 Sample Paper",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 60,
     "date": "2027-01-13",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -2965,7 +3555,9 @@
         "durationMinutes": 90,
         "target": "80-mark timed simulation paper + logging doubts in mistake notebook",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -2973,7 +3565,9 @@
         "durationMinutes": 60,
         "target": "Complete 39-question CBSE pattern test with Section A to E",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -2981,7 +3575,9 @@
         "durationMinutes": 60,
         "target": "Full mock test with source-based case studies & map work",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -2989,7 +3585,9 @@
         "durationMinutes": 30,
         "target": "Nelson Mandela, Lencho, Ausable, Bholi sketches + sample paper",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -2997,13 +3595,15 @@
     "topic": "SST: 2 Full-Length SST Sample Papers & Timeline Revision • English: Literature Character Sketches, Poetic Devices & 1 Sample Paper",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 61,
     "date": "2027-01-14",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3015,7 +3615,9 @@
         "durationMinutes": 90,
         "target": "80-mark timed simulation paper + logging doubts in mistake notebook",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3023,7 +3625,9 @@
         "durationMinutes": 60,
         "target": "Complete 39-question CBSE pattern test with Section A to E",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3031,7 +3635,9 @@
         "durationMinutes": 60,
         "target": "Full mock test with source-based case studies & map work",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3039,7 +3645,9 @@
         "durationMinutes": 30,
         "target": "Nelson Mandela, Lencho, Ausable, Bholi sketches + sample paper",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3047,13 +3655,15 @@
     "topic": "SST: 2 Full-Length SST Sample Papers & Timeline Revision • English: Literature Character Sketches, Poetic Devices & 1 Sample Paper",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 62,
     "date": "2027-01-15",
     "dayOfWeek": "Friday",
-    "phase": "Phase 4: Intensive Practice & Synthesis",
+    "phase": "Phase 4: Full Revision & Weak Spot Remediation",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3065,7 +3675,9 @@
         "durationMinutes": 90,
         "target": "80-mark timed simulation paper + logging doubts in mistake notebook",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3073,7 +3685,9 @@
         "durationMinutes": 60,
         "target": "Complete 39-question CBSE pattern test with Section A to E",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3081,7 +3695,9 @@
         "durationMinutes": 60,
         "target": "Full mock test with source-based case studies & map work",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3089,7 +3705,9 @@
         "durationMinutes": 30,
         "target": "Nelson Mandela, Lencho, Ausable, Bholi sketches + sample paper",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3097,13 +3715,15 @@
     "topic": "SST: 2 Full-Length SST Sample Papers & Timeline Revision • English: Literature Character Sketches, Poetic Devices & 1 Sample Paper",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 63,
     "date": "2027-01-16",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3115,7 +3735,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3123,7 +3745,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3131,7 +3755,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3139,7 +3765,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3147,13 +3775,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 64,
     "date": "2027-01-17",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -3165,7 +3795,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3173,7 +3805,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3181,7 +3815,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3189,7 +3825,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -3197,13 +3835,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 65,
     "date": "2027-01-18",
     "dayOfWeek": "Monday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3215,7 +3855,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3223,7 +3865,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3231,7 +3875,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3239,7 +3885,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3247,13 +3895,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 66,
     "date": "2027-01-19",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3265,7 +3915,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3273,7 +3925,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3281,7 +3935,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3289,7 +3945,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3297,13 +3955,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 67,
     "date": "2027-01-20",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3315,7 +3975,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3323,7 +3985,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3331,7 +3995,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3339,7 +4005,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3347,13 +4015,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 68,
     "date": "2027-01-21",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3365,7 +4035,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3373,7 +4045,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3381,7 +4055,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3389,7 +4065,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3397,13 +4075,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 69,
     "date": "2027-01-22",
     "dayOfWeek": "Friday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3415,7 +4095,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3423,7 +4105,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3431,7 +4115,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3439,7 +4125,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3447,13 +4135,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 70,
     "date": "2027-01-23",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3465,7 +4155,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3473,7 +4165,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3481,7 +4175,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3489,7 +4185,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3497,13 +4195,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 71,
     "date": "2027-01-24",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -3515,7 +4215,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3523,7 +4225,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3531,7 +4235,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3539,7 +4245,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -3547,13 +4255,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 72,
     "date": "2027-01-25",
     "dayOfWeek": "Monday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3565,7 +4275,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3573,7 +4285,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3581,7 +4295,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3589,7 +4305,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3597,13 +4315,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 73,
     "date": "2027-01-26",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3615,7 +4335,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3623,7 +4345,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3631,7 +4355,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3639,7 +4365,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3647,13 +4375,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 74,
     "date": "2027-01-27",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3665,7 +4395,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3673,7 +4405,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3681,7 +4415,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3689,7 +4425,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3697,13 +4435,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 75,
     "date": "2027-01-28",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3715,7 +4455,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3723,7 +4465,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3731,7 +4475,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3739,7 +4485,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3747,13 +4495,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 76,
     "date": "2027-01-29",
     "dayOfWeek": "Friday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3765,7 +4515,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3773,7 +4525,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3781,7 +4535,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3789,7 +4545,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3797,13 +4555,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 77,
     "date": "2027-01-30",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3815,7 +4575,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3823,7 +4585,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3831,7 +4595,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3839,7 +4605,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3847,13 +4615,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 78,
     "date": "2027-01-31",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -3865,7 +4635,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3873,7 +4645,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3881,7 +4655,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3889,7 +4665,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -3897,13 +4675,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 79,
     "date": "2027-02-01",
     "dayOfWeek": "Monday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3915,7 +4695,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3923,7 +4705,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3931,7 +4715,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3939,7 +4725,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3947,13 +4735,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 80,
     "date": "2027-02-02",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -3965,7 +4755,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -3973,7 +4765,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -3981,7 +4775,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -3989,7 +4785,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -3997,13 +4795,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 81,
     "date": "2027-02-03",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4015,7 +4815,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4023,7 +4825,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4031,7 +4835,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4039,7 +4845,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4047,13 +4855,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 82,
     "date": "2027-02-04",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4065,7 +4875,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4073,7 +4885,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4081,7 +4895,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4089,7 +4905,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4097,13 +4915,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 83,
     "date": "2027-02-05",
     "dayOfWeek": "Friday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4115,7 +4935,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4123,7 +4945,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4131,7 +4955,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4139,7 +4965,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4147,13 +4975,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 84,
     "date": "2027-02-06",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4165,7 +4995,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4173,7 +5005,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4181,7 +5015,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4189,7 +5025,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4197,13 +5035,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 85,
     "date": "2027-02-07",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -4215,7 +5055,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4223,7 +5065,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4231,7 +5075,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4239,7 +5085,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -4247,13 +5095,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 86,
     "date": "2027-02-08",
     "dayOfWeek": "Monday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4265,7 +5115,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4273,7 +5125,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4281,7 +5135,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4289,7 +5145,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4297,13 +5155,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 87,
     "date": "2027-02-09",
     "dayOfWeek": "Tuesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4315,7 +5175,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4323,7 +5185,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4331,7 +5195,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4339,7 +5205,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4347,13 +5215,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 88,
     "date": "2027-02-10",
     "dayOfWeek": "Wednesday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4365,7 +5235,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4373,7 +5245,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4381,7 +5255,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4389,7 +5265,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4397,13 +5275,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 89,
     "date": "2027-02-11",
     "dayOfWeek": "Thursday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4415,7 +5295,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4423,7 +5305,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4431,7 +5315,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4439,7 +5325,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4447,13 +5335,15 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 90,
     "date": "2027-02-12",
     "dayOfWeek": "Friday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4465,7 +5355,9 @@
         "durationMinutes": 90,
         "target": "Full 38 questions simulation under timed condition",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4473,7 +5365,9 @@
         "durationMinutes": 60,
         "target": "Solve 50 tricky assertion and reason questions",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4481,7 +5375,9 @@
         "durationMinutes": 60,
         "target": "Key definitions, terms and constitutional reforms",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4489,7 +5385,9 @@
         "durationMinutes": 30,
         "target": "Timed Section A (Reading comprehension) drill",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4497,13 +5395,15 @@
     "topic": "SST: Political Science & Economics Rapid Recall • English: CBSE Board Official Sample Paper 2027",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 91,
     "date": "2027-02-13",
     "dayOfWeek": "Saturday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4515,7 +5415,9 @@
         "durationMinutes": 90,
         "target": "Speed and step-marking presentation drill",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4523,7 +5425,9 @@
         "durationMinutes": 60,
         "target": "Master 3-mark and 5-mark structured answers",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4531,7 +5435,9 @@
         "durationMinutes": 60,
         "target": "Analyze source passages and extract perfect answers",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4539,7 +5445,9 @@
         "durationMinutes": 30,
         "target": "Data charts, graphs & letter to editor practice",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4547,13 +5455,15 @@
     "topic": "SST: Social Science Case-Based Questions • English: English Analytical Paragraph & Grammar",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 92,
     "date": "2027-02-14",
     "dayOfWeek": "Sunday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": true,
     "sundayBufferRule": "Sunday 4-Hour Buffer Block: Clear any unfinished weekly targets before beginning the next block.",
     "totalDailyHours": 4.0,
@@ -4565,7 +5475,9 @@
         "durationMinutes": 90,
         "target": "BPT, circle tangents, heights & distances proofs",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4573,7 +5485,9 @@
         "durationMinutes": 60,
         "target": "Equivalent resistance, heating effect & refractive index",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4581,7 +5495,9 @@
         "durationMinutes": 60,
         "target": "100% accurate identification of ports, mines & soil belts",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4589,7 +5505,9 @@
         "durationMinutes": 30,
         "target": "Thematic questions linking multiple stories",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "4-Subject Daily Revision",
@@ -4597,13 +5515,15 @@
     "topic": "SST: Complete India Map Skills Drill • English: Literature Long Answer Value Questions",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   },
   {
     "dayIndex": 93,
     "date": "2027-02-15",
     "dayOfWeek": "Monday",
-    "phase": "Phase 5: Final Board Exam Simulation & Mastery",
+    "phase": "Phase 5: Final Board Sprint",
     "isSunday": false,
     "sundayBufferRule": null,
     "totalDailyHours": 4.0,
@@ -4615,7 +5535,9 @@
         "durationMinutes": 90,
         "target": "Quadratics, AP sum formulas, mean/median/mode",
         "scheduledTime": "06:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Science",
@@ -4623,7 +5545,9 @@
         "durationMinutes": 60,
         "target": "Combustion, oxidation, esterification & saponification",
         "scheduledTime": "17:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "Social Science",
@@ -4631,7 +5555,9 @@
         "durationMinutes": 60,
         "target": "Revising 1804 to 1947 events chronologically",
         "scheduledTime": "19:00",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       },
       {
         "subject": "English",
@@ -4639,7 +5565,9 @@
         "durationMinutes": 30,
         "target": "Griffin, Horace Danby, Matilda, Bholi depth study",
         "scheduledTime": "20:30",
-        "alarmEnabled": true
+        "alarmEnabled": true,
+        "completed": false,
+        "actualFocusedMinutes": 0
       }
     ],
     "subject": "Mathematics",
@@ -4647,6 +5575,8 @@
     "topic": "SST: History Dates & Nationalism Timeline • English: Footprints Without Feet Character Analysis",
     "estimatedMinutes": 240,
     "scheduledTime": "06:00",
-    "alarmEnabled": true
+    "alarmEnabled": true,
+    "actualFocusedMinutes": 0,
+    "plannedMinutes": 240
   }
 ]

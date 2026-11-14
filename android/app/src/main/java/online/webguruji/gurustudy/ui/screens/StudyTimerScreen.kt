@@ -136,7 +136,28 @@ fun StudyTimerScreen(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(36.dp))
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Presets Row
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.padding(vertical = 4.dp)
+                ) {
+                    listOf(15, 30, 45, 60, 90).forEach { mins ->
+                        FilterChip(
+                            selected = totalSeconds == mins * 60,
+                            onClick = {
+                                if (!isRunning) {
+                                    totalSeconds = mins * 60
+                                    remainingSeconds = totalSeconds
+                                }
+                            },
+                            label = { Text("${mins}m", fontSize = 12.sp) }
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
 
                 // Controls
                 Row(

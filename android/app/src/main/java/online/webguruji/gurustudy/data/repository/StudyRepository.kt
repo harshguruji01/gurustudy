@@ -7,6 +7,7 @@ import online.webguruji.gurustudy.data.local.PreferencesManager
 import online.webguruji.gurustudy.data.local.ScheduleDatabaseHelper
 import online.webguruji.gurustudy.data.model.MistakeItem
 import online.webguruji.gurustudy.data.model.NcertSubject
+import online.webguruji.gurustudy.data.model.PlanStatusInfo
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
 import online.webguruji.gurustudy.data.model.UserProfile
 import java.io.InputStreamReader
@@ -49,7 +50,7 @@ class StudyRepository(private val context: Context) {
 
     fun initializeRoadmapIfEmpty() {
         val existing = dbHelper.getAllSchedules()
-        if (existing.isEmpty()) {
+        if (existing.isEmpty() || existing.size < 93) {
             try {
                 val inputStream = context.assets.open("default_roadmap_93days.json")
                 val reader = InputStreamReader(inputStream, "UTF-8")
@@ -75,9 +76,83 @@ class StudyRepository(private val context: Context) {
         return dbHelper.getScheduleForDate(dateStr)
     }
 
+    fun getScheduleForDay(dayIndex: Int): StudyScheduleItem? {
+        val all = getAllSchedules()
+        return all.find { it.dayIndex == dayIndex } ?: all.firstOrNull()
+    }
+
+    fun getPlanStatus(): PlanStatusInfo {
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        val todayStr = sdf.format(Date())
+        val startStr = "2026-11-15"
+        val endStr = "2027-02-15"
+
+        val todayDate = sdf.parse(todayStr) ?: Date()
+        val startDate = sdf.parse(startStr) ?: Date()
+        val endDate = sdf.parse(endStr) ?: Date()
+
+        return when {
+            todayDate.before(startDate) -> {
+                val diffDays = ((startDate.time - todayDate.time) / (1000 * 60 * 60 * 24)).toInt()
+                val msg = if (diffDays <= 1) "Revision plan starts tomorrow! (15 Nov 2026)" else "Revision plan starts in $diffDays days (15 Nov 2026)"
+                PlanStatusInfo(
+                    dayIndex = 1,
+                    status = "Upcoming",
+                    message = msg,
+                    phase = 1,
+                    phaseName = "Foundation Building",
+                    isPreview = true
+                )
+            }
+            todayDate.after(endDate) -> {
+                PlanStatusInfo(
+                    dayIndex = 93,
+                    status = "Completed",
+                    message = "93-Day Revision Plan Finished! Best of luck for CBSE Board Exams 2027!",
+                    phase = 5,
+                    phaseName = "Final Board Sprint",
+                    isPreview = false
+                )
+            }
+            else -> {
+                val diffDays = ((todayDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt()
+                val currentDay = (diffDays + 1).coerceIn(1, 93)
+                val phase = when {
+                    currentDay <= 16 -> 1
+                    currentDay <= 31 -> 2
+                    currentDay <= 47 -> 3
+                    currentDay <= 62 -> 4
+                    else -> 5
+                }
+                val phaseName = when (phase) {
+                    1 -> "Foundation Building"
+                    2 -> "Core Consolidation"
+                    3 -> "Advanced Application"
+                    4 -> "Full Revision & Weak Spot Remediation"
+                    else -> "Final Board Sprint"
+                }
+                PlanStatusInfo(
+                    dayIndex = currentDay,
+                    status = "Active",
+                    message = "Active Revision Day $currentDay of 93",
+                    phase = phase,
+                    phaseName = phaseName,
+                    isPreview = false
+                )
+            }
+        }
+    }
+
     fun getTodaySchedule(): StudyScheduleItem? {
-        val todayStr = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-        return getScheduleForDate(todayStr) ?: getAllSchedules().firstOrNull()
+        val planStatus = getPlanStatus()
+        val schedule = getScheduleForDay(planStatus.dayIndex)
+        return schedule ?: getAllSchedules().firstOrNull()
+    }
+
+    fun getBacklogItemsForSunday(sundayDayIndex: Int): List<StudyScheduleItem> {
+        val all = getAllSchedules()
+        val startDay = (sundayDayIndex - 6).coerceAtLeast(1)
+        return all.filter { it.dayIndex in startDay until sundayDayIndex && it.status != "Completed" }
     }
 
     fun updateScheduleStatus(dayIndex: Int, newStatus: String) {
@@ -104,6 +179,18 @@ class StudyRepository(private val context: Context) {
     fun addMistake(item: MistakeItem) = dbHelper.addMistake(item)
 
     fun getAllMistakes(): List<MistakeItem> = dbHelper.getAllMistakes()
+
+    fun isFloatingReminderEnabled(): Boolean = prefs.isFloatingReminderEnabled()
+    fun setFloatingReminderEnabled(enabled: Boolean) = prefs.setFloatingReminderEnabled(enabled)
+
+    fun isVoiceAnnouncementEnabled(): Boolean = prefs.isVoiceAnnouncementEnabled()
+    fun setVoiceAnnouncementEnabled(enabled: Boolean) = prefs.setVoiceAnnouncementEnabled(enabled)
+
+    fun getSlotAlarmTime(slotIndex: Int): String = prefs.getSlotAlarmTime(slotIndex)
+    fun setSlotAlarmTime(slotIndex: Int, time: String) = prefs.setSlotAlarmTime(slotIndex, time)
+
+    fun isSlotAlarmEnabled(slotIndex: Int): Boolean = prefs.isSlotAlarmEnabled(slotIndex)
+    fun setSlotAlarmEnabled(slotIndex: Int, enabled: Boolean) = prefs.setSlotAlarmEnabled(slotIndex, enabled)
 
     fun resetAllData() {
         prefs.clearAllData()

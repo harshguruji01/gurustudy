@@ -27,6 +27,8 @@ fun ChapterDetailScreen(
 ) {
     var selectedTab by remember { mutableIntStateOf(0) }
     var currentStatus by remember { mutableStateOf(chapter.safeStatus) }
+    var readingTheme by remember { mutableStateOf("Light") } // "Light", "Sepia"
+    var fontSizeDelta by remember { mutableFloatStateOf(0f) } // -2f, 0f, 3f
 
     Scaffold(
         topBar = {
@@ -96,6 +98,45 @@ fun ChapterDetailScreen(
                     ) {
                         Text("⏱️ Study Timer", fontSize = 13.sp, color = Color.White)
                     }
+                }
+            }
+
+            // Reader Options (Theme & Font Size)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 6.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    FilterChip(
+                        selected = readingTheme == "Light",
+                        onClick = { readingTheme = "Light" },
+                        label = { Text("☀️ Normal", fontSize = 11.sp) }
+                    )
+                    FilterChip(
+                        selected = readingTheme == "Sepia",
+                        onClick = { readingTheme = "Sepia" },
+                        label = { Text("📜 Sepia", fontSize = 11.sp) }
+                    )
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                    FilterChip(
+                        selected = fontSizeDelta == -2f,
+                        onClick = { fontSizeDelta = -2f },
+                        label = { Text("A-", fontSize = 11.sp) }
+                    )
+                    FilterChip(
+                        selected = fontSizeDelta == 0f,
+                        onClick = { fontSizeDelta = 0f },
+                        label = { Text("A", fontSize = 11.sp) }
+                    )
+                    FilterChip(
+                        selected = fontSizeDelta == 3f,
+                        onClick = { fontSizeDelta = 3f },
+                        label = { Text("A+", fontSize = 11.sp) }
+                    )
                 }
             }
 

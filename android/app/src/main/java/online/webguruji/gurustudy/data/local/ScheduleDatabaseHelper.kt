@@ -4,20 +4,28 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import online.webguruji.gurustudy.data.model.MistakeItem
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
+import online.webguruji.gurustudy.data.model.StudySlotItem
 
 class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
+    private val gson = Gson()
+    private val slotsType = object : TypeToken<List<StudySlotItem>>() {}.type
+
     companion object {
         const val DATABASE_NAME = "gurustudy_database.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 2
 
         // Table Schedules (93-Day Roadmap)
         const val TABLE_SCHEDULE = "study_schedule"
         const val COL_DAY_INDEX = "day_index"
         const val COL_DATE = "date_str"
         const val COL_DAY_OF_WEEK = "day_of_week"
+        const val COL_PHASE = "phase"
+        const val COL_IS_SUNDAY = "is_sunday"
         const val COL_SUBJECT = "subject"
         const val COL_BOOK = "book"
         const val COL_CHAPTER_NUM = "chapter_num"
@@ -31,6 +39,7 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         const val COL_STATUS = "status"
         const val COL_SCHEDULED_TIME = "scheduled_time"
         const val COL_ALARM_ENABLED = "alarm_enabled"
+        const val COL_SLOTS_JSON = "slots_json"
 
         // Table Mistakes
         const val TABLE_MISTAKES = "mistake_notebook"
@@ -50,6 +59,8 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
                 $COL_DAY_INDEX INTEGER PRIMARY KEY,
                 $COL_DATE TEXT UNIQUE,
                 $COL_DAY_OF_WEEK TEXT,
+                $COL_PHASE TEXT,
+                $COL_IS_SUNDAY INTEGER DEFAULT 0,
                 $COL_SUBJECT TEXT,
                 $COL_BOOK TEXT,
                 $COL_CHAPTER_NUM INTEGER,
@@ -62,7 +73,8 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
                 $COL_TYPE TEXT,
                 $COL_STATUS TEXT,
                 $COL_SCHEDULED_TIME TEXT,
-                $COL_ALARM_ENABLED INTEGER
+                $COL_ALARM_ENABLED INTEGER,
+                $COL_SLOTS_JSON TEXT
             )
         """.trimIndent()
 
@@ -95,6 +107,8 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             put(COL_DAY_INDEX, item.dayIndex)
             put(COL_DATE, item.date)
             put(COL_DAY_OF_WEEK, item.dayOfWeek)
+            put(COL_PHASE, item.phase)
+            put(COL_IS_SUNDAY, if (item.isSunday) 1 else 0)
             put(COL_SUBJECT, item.subject)
             put(COL_BOOK, item.book)
             put(COL_CHAPTER_NUM, item.chapterNumber)
@@ -108,6 +122,7 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             put(COL_STATUS, item.status)
             put(COL_SCHEDULED_TIME, item.scheduledTime)
             put(COL_ALARM_ENABLED, if (item.alarmEnabled) 1 else 0)
+            put(COL_SLOTS_JSON, gson.toJson(item.slots))
         }
         db.insertWithOnConflict(TABLE_SCHEDULE, null, values, SQLiteDatabase.CONFLICT_REPLACE)
     }
@@ -118,10 +133,23 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         val cursor = db.query(TABLE_SCHEDULE, null, null, null, null, null, "$COL_DAY_INDEX ASC")
         cursor.use {
             while (it.moveToNext()) {
+                val slotsJson = it.getString(it.getColumnIndexOrThrow(COL_SLOTS_JSON))
+                val slots: List<StudySlotItem> = if (!slotsJson.isNullOrBlank()) {
+                    try { gson.fromJson(slotsJson, slotsType) ?: emptyList() } catch (e: Exception) { emptyList() }
+                } else emptyList()
+
+                val phaseStr = try {
+                    it.getString(it.getColumnIndexOrThrow(COL_PHASE)) ?: "Phase 1: Foundation Building"
+                } catch (e: Exception) {
+                    "Phase 1: Foundation Building"
+                }
+
                 val item = StudyScheduleItem(
                     dayIndex = it.getInt(it.getColumnIndexOrThrow(COL_DAY_INDEX)),
                     date = it.getString(it.getColumnIndexOrThrow(COL_DATE)),
                     dayOfWeek = it.getString(it.getColumnIndexOrThrow(COL_DAY_OF_WEEK)),
+                    phase = phaseStr,
+                    isSunday = it.getInt(it.getColumnIndexOrThrow(COL_IS_SUNDAY)) == 1,
                     subject = it.getString(it.getColumnIndexOrThrow(COL_SUBJECT)),
                     book = it.getString(it.getColumnIndexOrThrow(COL_BOOK)),
                     chapterNumber = it.getInt(it.getColumnIndexOrThrow(COL_CHAPTER_NUM)),
@@ -134,7 +162,8 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
                     type = it.getString(it.getColumnIndexOrThrow(COL_TYPE)),
                     status = it.getString(it.getColumnIndexOrThrow(COL_STATUS)),
                     scheduledTime = it.getString(it.getColumnIndexOrThrow(COL_SCHEDULED_TIME)),
-                    alarmEnabled = it.getInt(it.getColumnIndexOrThrow(COL_ALARM_ENABLED)) == 1
+                    alarmEnabled = it.getInt(it.getColumnIndexOrThrow(COL_ALARM_ENABLED)) == 1,
+                    slots = slots
                 )
                 list.add(item)
             }
@@ -155,10 +184,23 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         )
         cursor.use {
             if (it.moveToFirst()) {
+                val slotsJson = it.getString(it.getColumnIndexOrThrow(COL_SLOTS_JSON))
+                val slots: List<StudySlotItem> = if (!slotsJson.isNullOrBlank()) {
+                    try { gson.fromJson(slotsJson, slotsType) ?: emptyList() } catch (e: Exception) { emptyList() }
+                } else emptyList()
+
+                val phaseStr = try {
+                    it.getString(it.getColumnIndexOrThrow(COL_PHASE)) ?: "Phase 1: Foundation Building"
+                } catch (e: Exception) {
+                    "Phase 1: Foundation Building"
+                }
+
                 return StudyScheduleItem(
                     dayIndex = it.getInt(it.getColumnIndexOrThrow(COL_DAY_INDEX)),
                     date = it.getString(it.getColumnIndexOrThrow(COL_DATE)),
                     dayOfWeek = it.getString(it.getColumnIndexOrThrow(COL_DAY_OF_WEEK)),
+                    phase = phaseStr,
+                    isSunday = it.getInt(it.getColumnIndexOrThrow(COL_IS_SUNDAY)) == 1,
                     subject = it.getString(it.getColumnIndexOrThrow(COL_SUBJECT)),
                     book = it.getString(it.getColumnIndexOrThrow(COL_BOOK)),
                     chapterNumber = it.getInt(it.getColumnIndexOrThrow(COL_CHAPTER_NUM)),
@@ -171,7 +213,8 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
                     type = it.getString(it.getColumnIndexOrThrow(COL_TYPE)),
                     status = it.getString(it.getColumnIndexOrThrow(COL_STATUS)),
                     scheduledTime = it.getString(it.getColumnIndexOrThrow(COL_SCHEDULED_TIME)),
-                    alarmEnabled = it.getInt(it.getColumnIndexOrThrow(COL_ALARM_ENABLED)) == 1
+                    alarmEnabled = it.getInt(it.getColumnIndexOrThrow(COL_ALARM_ENABLED)) == 1,
+                    slots = slots
                 )
             }
         }

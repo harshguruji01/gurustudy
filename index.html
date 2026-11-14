@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>GuruStudy • Class 10 CBSE 2026–27 Master Revision Study Plan & Offline App</title>
-  <meta name="description" content="Official NCERT Class 10 Board Exam 62-Day Master Revision Study Plan Companion. 4-hour daily focused routine, exact voice alarms, formula sheets & 100% offline APK by HarshGuruJi.">
-  <meta name="theme-color" content="#1e3a8a">
+  <title>GuruStudy • CBSE Class 10 (2026–2027) 93-Day Master Revision Plan & Offline App</title>
+  <meta name="description" content="Official NCERT Class 10 Board Exam 93-Day Master Revision Study Plan Companion. 4-hour daily focused routine, exact voice alarms, formula sheets & 100% offline APK by HarshGuruJi.">
+  <meta name="theme-color" content="#2563eb">
   <link rel="icon" type="image/png" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="manifest" href="manifest.json">
@@ -16,25 +16,32 @@
   <!-- ================= TOP SITE NAVBAR ================= -->
   <header class="site-navbar">
     <div class="nav-container">
-      <a href="#hero" class="site-brand">
-        <img src="logo.png" alt="GuruStudy Logo" class="site-brand-logo">
-        <div class="site-brand-text">
-          <h1>GuruStudy</h1>
-          <span>CBSE Class 10 • 2026–27</span>
-        </div>
-      </a>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="btn-sidebar-toggle" id="btnSidebarToggle" title="Toggle Sidebar" onclick="toggleSidebar()">
+          ☰
+        </button>
 
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#schedule" class="nav-link">4-Hour Routine</a></li>
-          <li><a href="#plan" class="nav-link">62-Day Master Plan</a></li>
-          <li><a href="#phases" class="nav-link">5 Phases</a></li>
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#interactive-planner" class="nav-link">Interactive App</a></li>
-        </ul>
-      </nav>
+        <a href="#hero" class="site-brand" onclick="switchTab('home')">
+          <img src="logo.png" alt="GuruStudy Logo" class="site-brand-logo">
+          <div class="site-brand-text">
+            <h1>GuruStudy</h1>
+            <span>CBSE Class 10 • 2026–27</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="nav-center-stats">
+        <div class="revision-day-badge" id="topRevisionDayPill">
+          <span class="pulse-dot"></span>
+          <span id="topRevisionDayText">Day 1 of 93 • Phase 1: Foundation Building</span>
+        </div>
+      </div>
 
       <div class="nav-actions">
+        <div class="streak-pill" title="Current Active Study Streak">
+          <span>🔥</span>
+          <span id="headerStreakText">1 Day</span>
+        </div>
         <button class="btn-icon" id="btnToggleLangNav" title="Switch Language / भाषा बदलें" onclick="toggleLanguage()">🌐</button>
         <button class="btn-icon" id="btnToggleThemeNav" title="Toggle Dark/Light Mode" onclick="toggleTheme()">🌙</button>
         <a href="GuruStudy-v1.0.0.apk" download class="btn-nav-download">
@@ -44,877 +51,912 @@
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="hero-section" id="hero">
-    <div class="hero-container">
-      <div class="hero-text-block">
-        <div class="hero-badge-pill">
-          <span class="pulse-dot"></span>
-          <span>Official 62-Day Master Revision Study Plan • CBSE Class 10th</span>
-        </div>
-        <h2 class="hero-title">
-          Master Board Exams With <span class="hero-gradient-text">Exact Daily Alarms</span> & 4-Hour Routine
-        </h2>
-        <p class="hero-description">
-          A scientifically structured offline revision companion built strictly according to the CBSE 62-Day Master Plan. Features 4-hour daily focused revision across Mathematics, Science, SST & English, Sunday backlog clearing buffer, formula sheets, and voice alarms in Hindi & English.
-        </p>
+  <!-- ================= APP SHELL (SIDEBAR + WORKSPACE) ================= -->
+  <div class="app-shell" id="appShell">
 
-        <div class="hero-cta-group">
-          <a href="GuruStudy-v1.0.0.apk" download class="btn-hero-download">
-            <span style="font-size: 20px;">⬇️</span>
+    <!-- Mobile Drawer Backdrop Overlay -->
+    <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeSidebarMobile()"></div>
+
+    <!-- Collapsible Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div>
+        <div class="sidebar-header">
+          <span class="sidebar-section-title" id="txtSidebarNavHeader">Navigation</span>
+          <button class="btn-icon" id="btnSidebarCollapse" style="width: 28px; height: 28px; font-size: 13px;" onclick="toggleSidebarDesktop()" title="Collapse / Expand Sidebar">
+            ◀
+          </button>
+        </div>
+
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item active" id="sidebar-item-home" onclick="switchTab('home')" title="Dashboard">
+            <span class="sidebar-nav-icon">🏠</span>
+            <span class="sidebar-item-label" id="txtNavHome">Dashboard</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-calendar" onclick="switchTab('calendar')" title="93-Day Study Plan">
+            <span class="sidebar-nav-icon">📅</span>
+            <span class="sidebar-item-label" id="txtNavCal">93-Day Plan</span>
+            <span class="sidebar-badge" id="sidebarBadgeDay">93D</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-subjects" onclick="switchTab('subjects')" title="My Subjects">
+            <span class="sidebar-nav-icon">📚</span>
+            <span class="sidebar-item-label" id="txtNavSubjects">My Subjects</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-books" onclick="switchTab('books')" title="NCERT Library">
+            <span class="sidebar-nav-icon">📖</span>
+            <span class="sidebar-item-label" id="txtNavBooks">NCERT Library</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-timer" onclick="switchTab('timer')" title="Deep Focus Timer">
+            <span class="sidebar-nav-icon">⏱️</span>
+            <span class="sidebar-item-label" id="txtNavTimer">Focus Timer</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-practice" onclick="switchTab('practice')" title="Practice Tests">
+            <span class="sidebar-nav-icon">✍️</span>
+            <span class="sidebar-item-label" id="txtNavPractice">Practice Tests</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-mistakes" onclick="switchTab('mistakes')" title="Mistake Notebook">
+            <span class="sidebar-nav-icon">📝</span>
+            <span class="sidebar-item-label" id="txtNavMistakes">Mistake Book</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-analytics" onclick="switchTab('analytics')" title="Progress & Analytics">
+            <span class="sidebar-nav-icon">📊</span>
+            <span class="sidebar-item-label" id="txtNavAnalytics">Analytics</span>
+          </li>
+          <li class="sidebar-nav-item" id="sidebar-item-profile" onclick="switchTab('profile')" title="Settings & Profile">
+            <span class="sidebar-nav-icon">⚙️</span>
+            <span class="sidebar-item-label" id="txtNavSettings">Settings</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bottom Profile Section in Sidebar -->
+      <div class="sidebar-footer">
+        <div class="sidebar-profile-card" onclick="switchTab('profile')" title="View Student Profile & Settings">
+          <div class="sidebar-avatar" id="sidebarAvatarInitial">S</div>
+          <div class="sidebar-profile-info">
+            <div class="sidebar-profile-name" id="sidebarStudentName">Student</div>
+            <div class="sidebar-profile-class">Class 10th • 2026–27</div>
+          </div>
+          <span style="font-size: 14px; color: var(--text-tertiary); margin-left: auto;">⚙️</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace (Houses all 9 Panes) -->
+    <main class="app-workspace" id="appWorkspace">
+
+      <!-- ================= PANE 1: DASHBOARD ================= -->
+      <section id="tab-home" class="tab-pane active">
+
+        <!-- Top Hero Greeting Banner -->
+        <div class="dashboard-hero-banner">
+          <div class="hero-greeting-row">
             <div>
-              <div style="line-height: 1.1;">Download Android APK</div>
-              <div style="font-size: 11px; opacity: 0.9; font-weight: 600;">GuruStudy v1.0.0 • 12.8 MB • Android 8.0+</div>
+              <div class="hero-greeting-title" id="heroGreetingText">Namaste, Student! 🙏</div>
+              <div class="hero-greeting-date" id="heroDateText">Saturday, 14 November 2026 • Real-time Revision Ready</div>
             </div>
-          </a>
-          <a href="#interactive-planner" class="btn-hero-web">
-            <span>💻 Try Web App Online</span>
-          </a>
-        </div>
-
-        <div class="hero-stats-row">
-          <div class="hero-stat-chip">
-            <span>⏱️</span>
-            <span>4.0 Hrs / Day Routine</span>
-          </div>
-          <div class="hero-stat-chip">
-            <span>📅</span>
-            <span>93 Days Master Calendar</span>
-          </div>
-          <div class="hero-stat-chip">
-            <span>📚</span>
-            <span>All 6 NCERT Subjects</span>
-          </div>
-          <div class="hero-stat-chip">
-            <span>🛡️</span>
-            <span>100% Offline & No Ads</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero App Preview Card -->
-      <div class="hero-phone-wrapper">
-        <div class="phone-mockup-frame">
-          <div class="phone-speaker-notch"></div>
-          <div class="phone-screen-content">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <img src="logo.png" style="width: 28px; height: 28px; border-radius: 50%;">
-                <span style="font-size: 14px; font-weight: 800;">Today's Revision Plan</span>
-              </div>
-              <span class="status-pill pending" style="font-size: 11px;">Day 1 Active</span>
+            <div class="hero-pill-badge" id="heroPhasePill">
+              <span>🗺️ Phase 1: Foundation Building (Days 1–16)</span>
             </div>
-
-            <!-- Preview Card -->
-            <div class="card" style="margin-bottom: 10px; padding: 12px; border-left: 4px solid var(--primary-light);">
-              <div style="font-size: 11px; font-weight: 800; color: var(--primary-light); text-transform: uppercase;">
-                Slot 1 • 06:00 AM (90 Min)
-              </div>
-              <div style="font-weight: 800; font-size: 14px; margin: 2px 0;">Mathematics: Real Numbers</div>
-              <div style="font-size: 11px; color: var(--text-muted);">Fundamental Theorem of Arithmetic, Irrationality proofs</div>
-            </div>
-
-            <div class="card" style="margin-bottom: 10px; padding: 12px; border-left: 4px solid var(--secondary);">
-              <div style="font-size: 11px; font-weight: 800; color: var(--secondary); text-transform: uppercase;">
-                Slot 2 • 05:30 PM (60 Min)
-              </div>
-              <div style="font-weight: 800; font-size: 14px; margin: 2px 0;">Science: Chemical Reactions</div>
-              <div style="font-size: 11px; color: var(--text-muted);">Balancing equations, Oxidation-Reduction, Rusting</div>
-            </div>
-
-            <div class="card" style="margin-bottom: 10px; padding: 12px; border-left: 4px solid var(--amber);">
-              <div style="font-size: 11px; font-weight: 800; color: var(--amber); text-transform: uppercase;">
-                Slot 3 • 07:00 PM (60 Min)
-              </div>
-              <div style="font-weight: 800; font-size: 14px; margin: 2px 0;">Social Science: Resources</div>
-              <div style="font-size: 11px; color: var(--text-muted);">Soil conservation, Land use patterns, Resource planning</div>
-            </div>
-
-            <div class="card" style="margin-bottom: 12px; padding: 12px; border-left: 4px solid var(--accent);">
-              <div style="font-size: 11px; font-weight: 800; color: var(--accent); text-transform: uppercase;">
-                Slot 4 • 08:30 PM (30 Min)
-              </div>
-              <div style="font-weight: 800; font-size: 14px; margin: 2px 0;">English: A Letter to God</div>
-              <div style="font-size: 11px; color: var(--text-muted);">Character sketch of Lencho, Faith vs Irony</div>
-            </div>
-
-            <button class="btn btn-primary btn-block" style="padding: 10px; font-size: 13px;" onclick="openTimerModal('Mathematics', 'Real Numbers', 90)">
-              ▶ Start Mathematics Timer (90m)
-            </button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================= 4-HOUR DAILY ROUTINE (PDF SCHEDULE) ================= -->
-  <section class="landing-section" id="schedule">
-    <div class="section-badge">
-      <span>Daily 4.0-Hour Study Commitment</span>
-    </div>
-    <div class="section-header">
-      <h3 class="section-title">The Master 4-Hour Daily Revision Routine</h3>
-      <p class="section-subtitle">
-        Strictly aligned with the Board Exam Revision Study Plan PDF. Each subject is placed in its optimal cognitive energy slot to maximize retention and eliminate burnout.
-      </p>
-    </div>
-
-    <div class="routine-grid">
-      <!-- Slot 1 -->
-      <div class="routine-card" style="border-top-color: #2563eb;">
-        <div class="routine-time-badge">
-          <span>🌅 06:00 AM – 07:30 AM</span>
-        </div>
-        <h4 class="routine-subject">Mathematics</h4>
-        <div class="routine-duration">⏱️ 1.5 Hours (90 Mins) Daily</div>
-        <p class="routine-strategy">
-          <strong>Cognitive Strategy:</strong> Peak morning mental energy is dedicated to high-friction numerical problem solving, algebraic manipulation, and theorem proofs before school fatigue sets in.
-        </p>
-        <div class="routine-topics">
-          <strong>Core Chapters:</strong> Real Numbers, Polynomials, Linear Equations, Quadratic Equations, Arithmetic Progressions, Triangles, Coordinate Geometry, Trigonometry, Circles, Statistics.
-        </div>
-      </div>
-
-      <!-- Slot 2 -->
-      <div class="routine-card" style="border-top-color: #0284c7;">
-        <div class="routine-time-badge">
-          <span>🔬 05:30 PM – 06:30 PM</span>
-        </div>
-        <h4 class="routine-subject">Science</h4>
-        <div class="routine-duration">⏱️ 1.0 Hour (60 Mins) Daily</div>
-        <p class="routine-strategy">
-          <strong>Cognitive Strategy:</strong> Post-school afternoon revival session focusing on conceptual understanding, chemical reactions, balancing, biological diagrams, and physics ray numericals.
-        </p>
-        <div class="routine-topics">
-          <strong>Core Chapters:</strong> Chemical Reactions, Acids Bases & Salts, Metals & Non-metals, Carbon Compounds, Life Processes, Control & Coordination, Reproduction, Heredity, Light, Electricity.
-        </div>
-      </div>
-
-      <!-- Slot 3 -->
-      <div class="routine-card" style="border-top-color: #f59e0b;">
-        <div class="routine-time-badge">
-          <span>🌍 07:00 PM – 08:00 PM</span>
-        </div>
-        <h4 class="routine-subject">Social Science</h4>
-        <div class="routine-duration">⏱️ 1.0 Hour (60 Mins) Daily</div>
-        <p class="routine-strategy">
-          <strong>Cognitive Strategy:</strong> Active recall, chronology construction, cause-and-effect flowcharts, and map pointing across History, Geography, Political Science, and Economics.
-        </p>
-        <div class="routine-topics">
-          <strong>Core Chapters:</strong> Rise of Nationalism in Europe, Nationalism in India, Resources & Development, Water Resources, Agriculture, Power Sharing, Federalism, Money & Credit.
-        </div>
-      </div>
-
-      <!-- Slot 4 -->
-      <div class="routine-card" style="border-top-color: #7c3aed;">
-        <div class="routine-time-badge">
-          <span>📖 08:30 PM – 09:00 PM</span>
-        </div>
-        <h4 class="routine-subject">English Language</h4>
-        <div class="routine-duration">⏱️ 0.5 Hour (30 Mins) Daily</div>
-        <p class="routine-strategy">
-          <strong>Cognitive Strategy:</strong> Low-stress pre-dinner wind-down focusing on chapter comprehension, character traits, grammar error-spotting, and analytical paragraph structure.
-        </p>
-        <div class="routine-topics">
-          <strong>Core Books:</strong> First Flight (Prose & Poetry), Footprints Without Feet, Formal Letter Writing, Analytical Paragraphs, and Integrated Grammar exercises.
-        </div>
-      </div>
-    </div>
-
-    <!-- Sunday Buffer Rule Card -->
-    <div class="sunday-buffer-box">
-      <div class="sunday-buffer-icon">🛡️</div>
-      <div class="sunday-buffer-text">
-        <h4>The Sunday Backlog Buffer Rule (Golden Rule)</h4>
-        <p>
-          As highlighted in the master PDF, consistency beats intensity. Every Sunday features a dedicated <strong>4.0-hour catch-up block</strong>. Students must use this window to clear any incomplete daily targets from Monday through Saturday before starting the next week. If all targets are met, Sunday is used for weak spot drills and formula sheet consolidation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 5-PHASE REVISION ROADMAP ================= -->
-  <section class="landing-section" id="phases" style="background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-    <div class="section-badge">
-      <span>Master Syllabus Progression</span>
-    </div>
-    <div class="section-header">
-      <h3 class="section-title">The 5 Roadmap Phases (15 Nov 2026 – 15 Feb 2027)</h3>
-      <p class="section-subtitle">
-        Structured syllabus coverage dividing the 93 days into 4 progressive revision phases plus a final Board exam sprint.
-      </p>
-    </div>
-
-    <div class="phases-grid">
-      <div class="phase-card">
-        <div class="phase-number">Phase 1 • 16 Days</div>
-        <h4 class="phase-name">Foundation Building</h4>
-        <div class="phase-dates">📅 Nov 15 – Nov 30, 2026</div>
-        <p class="phase-desc">
-          Core high-yield chapters: Statistics, Chemical Reactions, Life Processes, Forest & Wildlife, Water Resources, Real Numbers, Acids & Bases.
-        </p>
-      </div>
-
-      <div class="phase-card">
-        <div class="phase-number">Phase 2 • 15 Days</div>
-        <h4 class="phase-name">Core Consolidation</h4>
-        <div class="phase-dates">📅 Dec 01 – Dec 15, 2026</div>
-        <p class="phase-desc">
-          Algebraic progression, Geometry & Civics: Arithmetic Progressions, Triangles, Coordinate Geometry, Power Sharing, Federalism, Nationalism in India.
-        </p>
-      </div>
-
-      <div class="phase-card">
-        <div class="phase-number">Phase 3 • 16 Days</div>
-        <h4 class="phase-name">Advanced Application</h4>
-        <div class="phase-dates">📅 Dec 16 – Dec 31, 2026</div>
-        <p class="phase-desc">
-          Complex topics & numericals: Trigonometric Applications, Circles, Surface Areas, Metals & Non-metals, Heredity, Light Reflection & Refraction, Human Eye.
-        </p>
-      </div>
-
-      <div class="phase-card">
-        <div class="phase-number">Phase 4 • 15 Days</div>
-        <h4 class="phase-name">Full Syllabus Synthesis</h4>
-        <div class="phase-dates">📅 Jan 01 – Jan 15, 2027</div>
-        <p class="phase-desc">
-          Probability, Carbon & its Compounds, Magnetic Effects, Civics synthesis, Economics Globalization, combined mixed tests & map practice.
-        </p>
-      </div>
-
-      <div class="phase-card" style="border-color: var(--amber);">
-        <div class="phase-number" style="color: var(--amber);">Phase 5 • 31 Days</div>
-        <h4 class="phase-name">Final Board Sprint</h4>
-        <div class="phase-dates">📅 Jan 16 – Feb 15, 2027</div>
-        <p class="phase-desc">
-          Full 3-hour mock board papers, CBSE marking scheme alignment, time management optimization, error notebook remediation, and exam readiness.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CORE FEATURES GRID ================= -->
-  <section class="landing-section" id="features">
-    <div class="section-badge">
-      <span>App Capabilities</span>
-    </div>
-    <div class="section-header">
-      <h3 class="section-title">Engineered Specifically For Class 10 Students</h3>
-      <p class="section-subtitle">
-        Designed from the ground up for high focus, zero distractions, and strict alignment with CBSE Board exam criteria.
-      </p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon-box" style="background: #eff6ff; color: #2563eb;">⏰</div>
-        <h4 class="feature-title">Smart Voice Alarms</h4>
-        <p class="feature-desc">
-          Rings exact alarms even when your phone is locked and calls out the student's name in Hindi & English, announcing which subject and chapter to study now.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box" style="background: #fef3c7; color: #d97706;">⏱️</div>
-        <h4 class="feature-title">Deep Focus Timer</h4>
-        <p class="feature-desc">
-          Pomodoro-style circular countdown timer (15m, 30m, 45m, 60m, 90m) with ambient chimes and automatic completion tracking for daily targets.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box" style="background: #ecfdf5; color: #10b981;">📚</div>
-        <h4 class="feature-title">Complete NCERT Library</h4>
-        <p class="feature-desc">
-          Full chapter summaries, learning points, formula sheets, NCERT questions with answers, and practice MCQs for all 6 subjects.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box" style="background: #f5f3ff; color: #7c3aed;">📝</div>
-        <h4 class="feature-title">Mistake Notebook</h4>
-        <p class="feature-desc">
-          Save challenging questions, tricky formulas, and frequently missed concepts into your personalized Mistake Notebook for quick pre-exam review.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box" style="background: #fee2e2; color: #dc2626;">🛡️</div>
-        <h4 class="feature-title">100% Offline & Private</h4>
-        <p class="feature-desc">
-          Requires zero internet after installation. GuruStudy asks for no camera, contacts, or location permissions. Your study streak stays safe on your device.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box" style="background: #e0f2fe; color: #0284c7;">🎯</div>
-        <h4 class="feature-title">Adaptive Duration Chips</h4>
-        <p class="feature-desc">
-          Feeling overwhelmed or ahead of schedule? Easily adjust any day's study duration with 1-tap chips (15m, 30m, 45m, 60m, 90m) without breaking your streak.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= DOWNLOAD APK SECTION ================= -->
-  <section class="landing-section" id="download">
-    <div class="download-section-box">
-      <div class="download-info-side">
-        <div class="download-badge">
-          <span>✓ Google Play Protect Verified • 100% Safe</span>
-        </div>
-        <h3 class="download-heading">Get GuruStudy for Android</h3>
-        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">
-          Install the complete offline app on your Android smartphone or tablet. Built with native Android Kotlin and Room database for lightning-fast performance and exact background alarms.
-        </p>
-
-        <div class="download-specs-row">
-          <div class="download-spec-item">📦 Version: <strong>1.0.0</strong></div>
-          <div class="download-spec-item">💾 Size: <strong>12.8 MB</strong></div>
-          <div class="download-spec-item">📱 Android: <strong>8.0+ (Oreo to Android 15)</strong></div>
-          <div class="download-spec-item">🚫 Ads: <strong>Zero Ads & Clean</strong></div>
+        <!-- Real-Time Plan Status / Countdown Banner -->
+        <div id="activeDateBannerBox" style="background: var(--primary-subtle); border: 1px solid var(--primary-subtle-border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 20px;">
+          ⚡ Active Revision Day: Day 1 of 93 (15 Nov 2026 – 15 Feb 2027)
         </div>
 
-        <div style="margin-top: 24px;">
-          <a href="GuruStudy-v1.0.0.apk" download class="btn-download-big">
-            <span style="font-size: 24px;">⬇️</span>
-            <span>Download GuruStudy APK (12.8 MB)</span>
-          </a>
+        <!-- Day Navigator Bar (Explore all 93 Days) -->
+        <div class="day-navigator-bar" id="dayNavigatorBar">
+          <button class="day-nav-btn" id="btnPrevDay">◀ Prev Day</button>
+          <select class="day-select-dropdown" id="dayJumpSelect">
+            <option value="1">Day 1: 2026-11-15 (Sun) • Phase 1</option>
+          </select>
+          <button class="day-nav-btn" id="btnNextDay">Next Day ▶</button>
+          <button class="day-nav-btn" id="btnJumpToToday" title="Jump to Today's active date" style="background: var(--primary-subtle); color: var(--primary);">📅 Today</button>
+          <button class="day-nav-btn" id="btnResumeNextPending" title="Jump to next pending target" style="background: var(--emerald-subtle); color: var(--emerald-dark);">🚀 Resume</button>
         </div>
-      </div>
 
-      <!-- QR Code Side -->
-      <div class="qr-card">
-        <img src="apk_qr.png" alt="Scan QR Code to Download APK" class="qr-image">
-        <div class="qr-caption">
-          📱 <strong>Scan with Phone Camera</strong><br>
-          Direct download to your mobile device
-        </div>
-      </div>
-    </div>
-
-    <!-- 3-Step Installation Guide -->
-    <div class="install-steps-grid">
-      <div class="install-step-card">
-        <div class="install-step-num">1</div>
-        <div>
-          <h5 style="font-size: 15px; font-weight: 800; margin-bottom: 4px;">Download APK</h5>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-            Tap the download button above or scan the QR code to save <code>GuruStudy-v1.0.0.apk</code>.
-          </p>
-        </div>
-      </div>
-
-      <div class="install-step-card">
-        <div class="install-step-num">2</div>
-        <div>
-          <h5 style="font-size: 15px; font-weight: 800; margin-bottom: 4px;">Allow Unknown Apps</h5>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-            Tap on the downloaded file. When prompted by Android, toggle "Allow from this source".
-          </p>
-        </div>
-      </div>
-
-      <div class="install-step-card">
-        <div class="install-step-num">3</div>
-        <div>
-          <h5 style="font-size: 15px; font-weight: 800; margin-bottom: 4px;">Start Your 93 Days!</h5>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-            Enter your name & school to configure your personalized voice alarms and start Day 1 revision!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= INTERACTIVE WEB APP PLANNER ================= -->
-  <section class="landing-section" id="interactive-planner">
-    <div class="section-badge">
-      <span>Live Web Planner</span>
-    </div>
-    <div class="section-header">
-      <h3 class="section-title">Try GuruStudy Directly in Your Browser</h3>
-      <p class="section-subtitle">
-        Full interactive study planner running locally with HTML5 LocalStorage. Explore NCERT chapters, mock MCQs, formula sheets, and study timers right here!
-      </p>
-    </div>
-
-    <div class="web-app-wrapper">
-      <!-- Top App Header -->
-      <div class="app-header">
-        <div class="brand-wrapper">
-          <div class="brand-logo-icon" style="background: none; overflow: hidden; padding: 0;">
-            <img src="logo.png" alt="GuruStudy Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-          </div>
-          <div class="brand-text">
-            <h1>GuruStudy Web</h1>
-            <span id="headerTagline">NCERT Class 10 • 2026–27</span>
-          </div>
-        </div>
-        <div class="header-actions">
-          <div class="streak-pill" title="Study Streak">
-            <span>🔥</span>
-            <span id="headerStreakText">1 Day</span>
-          </div>
-          <button class="btn-icon" id="btnToggleLang" title="Switch Language / भाषा बदलें">🌐</button>
-          <button class="btn-icon" id="btnToggleTheme" title="Toggle Dark/Light Mode">🌙</button>
-        </div>
-      </div>
-
-      <!-- Main Views Container -->
-      <main class="main-content" style="max-width: 900px; padding: 20px;">
-
-        <!-- TAB 1: HOME DASHBOARD -->
-        <section id="tab-home" class="tab-pane active">
-          <div class="hero-greeting">
-            <h2 id="heroGreetingText">Namaste, Student! 🙏</h2>
-            <p id="heroDateText">Session 2026–2027 • CBSE Class 10th</p>
-          </div>
-
-          <!-- 93-Day Roadmap Progress Card -->
-          <div class="card">
-            <div class="card-title">
-              <span id="txtRoadmapTitle">93-Day Syllabus Roadmap (15 Nov 2026 – 15 Feb 2027)</span>
-              <span id="txtRoadmapPct" style="color: var(--primary);">0%</span>
+        <!-- 4 Metrics Row -->
+        <div class="dashboard-metrics-grid">
+          <!-- Metric 1: Overall Syllabus -->
+          <div class="metric-card">
+            <div class="metric-top-row">
+              <span class="metric-lbl">Syllabus Completion</span>
+              <div class="metric-icon-box" style="background: var(--primary-subtle); color: var(--primary);">📈</div>
             </div>
+            <div class="metric-val" id="txtRoadmapPct">0%</div>
             <div class="progress-bar-container">
               <div id="roadmapProgressBar" class="progress-bar-fill" style="width: 0%;"></div>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 6px;">
-              <span id="txtCompletedDays" style="color: var(--green); font-weight: 600;">✅ Completed: 0 days</span>
-              <span id="txtRemainingDays" style="color: var(--amber); font-weight: 600;">⏳ Remaining: 93 days</span>
+            <div class="metric-sub" id="txtCompletedDays">✅ Completed: 0 / 93 Days</div>
+          </div>
+
+          <!-- Metric 2: Daily 4-Hour Goal -->
+          <div class="metric-card">
+            <div class="metric-top-row">
+              <span class="metric-lbl">Daily 4-Hour Target</span>
+              <div class="metric-icon-box" style="background: var(--emerald-subtle); color: var(--emerald-dark);">⏱️</div>
+            </div>
+            <div class="metric-val" id="dashDailyGoalVal">0 / 240m</div>
+            <div class="progress-bar-container">
+              <div id="dashDailyGoalBar" class="progress-bar-fill" style="width: 0%; background: var(--emerald);"></div>
+            </div>
+            <div class="metric-sub" id="txtDailyGoalStatus">240m Daily Revision Habit</div>
+          </div>
+
+          <!-- Metric 3: Active Streak -->
+          <div class="metric-card">
+            <div class="metric-top-row">
+              <span class="metric-lbl">Active Streak</span>
+              <div class="metric-icon-box" style="background: var(--amber-subtle); color: var(--amber-dark);">🔥</div>
+            </div>
+            <div class="metric-val" id="dashStreakVal">1 Day</div>
+            <div class="metric-sub" style="color: var(--amber-dark); font-weight: 700; margin-top: 12px;">Consistent Study Habit</div>
+          </div>
+
+          <!-- Metric 4: Next Session -->
+          <div class="metric-card" id="nextUpcomingSessionCard">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Sunday Backlog Buffer Section (Active on Sundays) -->
+        <div id="sundayBacklogContainer" style="display: none;"></div>
+
+        <!-- Today's 4 Study Sessions (Mathematics, Science, SST, English) -->
+        <div class="card">
+          <div class="card-header-row">
+            <div>
+              <div class="card-title">
+                <span>📖 Today's 4-Hour Study Schedule (240 Mins)</span>
+              </div>
+              <div class="card-subtitle">Each session is tuned to optimal cognitive focus. Track duration and log completion.</div>
+            </div>
+            <button class="btn btn-sm btn-outline" id="btnTestAlarmNow">🔔 Test Voice Alarm</button>
+          </div>
+
+          <!-- Injected 4 slots -->
+          <div id="todaySlotsContainer"></div>
+        </div>
+
+        <!-- Today's Learning Targets Checklist -->
+        <div class="card">
+          <div class="card-header-row">
+            <div class="card-title">
+              <span>🎯 Today's Learning Objectives Checklist</span>
+            </div>
+          </div>
+          <div id="todayTargetsChecklist"></div>
+        </div>
+
+        <!-- Weekly Study Consistency Chart (Mon - Sun) -->
+        <div class="card">
+          <div class="card-header-row">
+            <div class="card-title">
+              <span>📊 Weekly Study Consistency (Minutes Logged)</span>
+            </div>
+            <span style="font-size: 12px; color: var(--text-tertiary);">Target: 240m / day</span>
+          </div>
+          <div class="weekly-chart-box" id="dashWeeklyChartBox">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Quick Subject Progress Snapshot -->
+        <div class="card">
+          <div class="card-header-row">
+            <div class="card-title">
+              <span>📚 Subject-Wise Syllabus Snapshot</span>
+            </div>
+            <button class="btn btn-sm btn-outline" onclick="switchTab('subjects')">View All Subjects ▶</button>
+          </div>
+          <div id="dashSubjectProgressSnapshot" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;"></div>
+        </div>
+
+        <!-- Recent Difficult Mistakes & Bookmarks Preview -->
+        <div class="card">
+          <div class="card-header-row">
+            <div class="card-title">
+              <span>📝 Recent Mistake Notebook & Saved Items</span>
+            </div>
+            <button class="btn btn-sm btn-outline" onclick="switchTab('mistakes')">Open Mistake Book ▶</button>
+          </div>
+          <div id="dashRecentMistakesContainer"></div>
+        </div>
+
+      </section>
+
+      <!-- ================= PANE 2: 93-DAY STUDY PLAN ================= -->
+      <section id="tab-calendar" class="tab-pane">
+        <div class="view-header">
+          <h2 class="view-title" id="calHeading">93-Day Master Study Plan (2026–2027)</h2>
+          <p class="view-subtitle" id="calSubheading">
+            Strictly date-driven syllabus progression from 15 November 2026 to 15 February 2027.
+          </p>
+        </div>
+
+        <!-- Calendar View Switcher -->
+        <div class="calendar-view-switcher">
+          <button class="btn btn-sm btn-outline active" id="btnCalViewDaily" onclick="switchCalendarView('daily')">📅 Daily Schedule</button>
+          <button class="btn btn-sm btn-outline" id="btnCalViewWeekly" onclick="switchCalendarView('weekly')">📆 Weekly Overview</button>
+          <button class="btn btn-sm btn-outline" id="btnCalViewPhases" onclick="switchCalendarView('phases')">🗺️ 5-Phase Roadmap</button>
+        </div>
+
+        <!-- Phase Filter Chips -->
+        <div class="chip-row" id="calendarMonthChips">
+          <button class="chip active" onclick="filterCalendar('All')">All (93 Days)</button>
+          <button class="chip" onclick="filterCalendar('Phase 1')">Phase 1 (Nov 15–30)</button>
+          <button class="chip" onclick="filterCalendar('Phase 2')">Phase 2 (Dec 1–15)</button>
+          <button class="chip" onclick="filterCalendar('Phase 3')">Phase 3 (Dec 16–31)</button>
+          <button class="chip" onclick="filterCalendar('Phase 4')">Phase 4 (Jan 1–15)</button>
+          <button class="chip" onclick="filterCalendar('Phase 5')">Phase 5: Sprint (Jan 16–Feb 15)</button>
+        </div>
+
+        <div id="calendarDaysList"></div>
+        <div id="calendarWeeklyContainer" style="display: none;"></div>
+        <div id="calendarPhaseContainer" style="display: none;"></div>
+      </section>
+
+      <!-- ================= PANE 3: MY SUBJECTS (SIX SUBJECT CARDS) ================= -->
+      <section id="tab-subjects" class="tab-pane">
+        <div class="view-header">
+          <h2 class="view-title">My Subjects & Progress</h2>
+          <p class="view-subtitle">
+            Comprehensive CBSE Class 10 curriculum overview. All completion statistics reflect actual saved study records.
+          </p>
+        </div>
+
+        <div class="subjects-grid" id="subjectsGridContainer">
+          <!-- 6 Subject cards dynamically populated with live data -->
+        </div>
+      </section>
+
+      <!-- ================= PANE 4: NCERT LIBRARY ================= -->
+      <section id="tab-books" class="tab-pane">
+        <div class="view-header">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <h2 class="view-title" id="booksHeading">NCERT Library & Chapter Notes</h2>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-sm btn-outline active" id="btnFilterHindiA" onclick="setHindiCourse('Course A')">Hindi Course A</button>
+              <button class="btn btn-sm btn-outline" id="btnFilterHindiB" onclick="setHindiCourse('Course B')">Hindi Course B</button>
+            </div>
+          </div>
+          <p class="view-subtitle" id="booksSubheading">
+            Class 10 CBSE 2026–2027 Official NCERT Rationalized Content • Formulas, Solutions & MCQs
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div style="margin-bottom: 14px;">
+          <input type="text" id="inputSearchLibrary" class="form-input" placeholder="🔍 Search any chapter, formula, or topic across NCERT..." oninput="handleLibrarySearch(this.value)">
+        </div>
+
+        <!-- Subject Filter Chips -->
+        <div class="chip-row" id="subjectChipsContainer"></div>
+
+        <!-- Subject Books and Chapters List -->
+        <div id="booksListContainer"></div>
+      </section>
+
+      <!-- ================= PANE 5: DEEP FOCUS TIMER ================= -->
+      <section id="tab-timer" class="tab-pane">
+        <div class="view-header">
+          <h2 class="view-title">Deep Focus Study Timer</h2>
+          <p class="view-subtitle">
+            Background-safe wall-clock time tracking. Links sessions to subjects and updates study records on completion.
+          </p>
+        </div>
+
+        <div class="focus-timer-screen-card">
+          <!-- Subject & Chapter Selection Controls -->
+          <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap;">
+            <select id="dedicatedTimerSelectSubject" class="day-select-dropdown" style="max-width: 220px;" onchange="onDedicatedTimerSubjectChanged(this.value)">
+              <option value="Mathematics">📐 Mathematics</option>
+              <option value="Science">🔬 Science</option>
+              <option value="Social Science">🌍 Social Science</option>
+              <option value="English">📖 English</option>
+              <option value="Hindi Course A">📙 Hindi Course A</option>
+              <option value="Hindi Course B">📘 Hindi Course B</option>
+            </select>
+            <select id="dedicatedTimerSelectChapter" class="day-select-dropdown" style="max-width: 260px;">
+              <option value="Core Revision Session">Core Revision Session</option>
+            </select>
+          </div>
+
+          <!-- Circular Animated Timer Display -->
+          <div class="timer-circle-wrap">
+            <svg class="timer-circle-svg" viewBox="0 0 250 250">
+              <circle class="timer-circle-track" cx="125" cy="125" r="110"></circle>
+              <circle id="dedicatedTimerProgressRing" class="timer-circle-fill" cx="125" cy="125" r="110" stroke-dasharray="691.15" stroke-dashoffset="0"></circle>
+            </svg>
+            <div class="timer-center-content">
+              <div id="dedicatedTimerDisplay" class="timer-digital-display">90:00</div>
+              <div id="dedicatedTimerModeLabel" class="timer-phase-label">Deep Focus Active</div>
             </div>
           </div>
 
-          <!-- Today's 4-Hour Daily Study Plan (PDF 62-Day Master Plan) -->
-          <div class="card" style="border-left: 4px solid var(--primary-light);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 12px; font-weight: 800; color: var(--primary); background: var(--primary-subtle); padding: 4px 10px; border-radius: var(--radius-full);">
-                📖 4-Hour Daily Plan • Complete Syllabus Revision
-              </span>
-              <span id="todayStatusBadge" class="status-pill pending">Pending</span>
-            </div>
-            <h3 id="todayPhaseText" style="font-size: 15px; font-weight: 800; color: var(--secondary); margin-bottom: 4px;">Phase 1: Foundation Building</h3>
-            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Daily Commitment: 4.0 Hours across all 4 subjects (Mathematics, Science, SST, English)</p>
-            
-            <!-- 4 Subjects Daily Breakdown -->
-            <div id="todaySlotsContainer" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
-              <!-- Injected via JS -->
-            </div>
-
-            <div id="sundayBufferNotice" style="display: none; background: #fef3c7; border: 1px solid #fde68a; border-radius: var(--radius-sm); padding: 10px; font-size: 12px; color: #92400e; margin-bottom: 14px;">
-              📌 <strong>Sunday Buffer Rule:</strong> Use Sunday's 4-hour block to clear any unfinished targets from Monday through Saturday before beginning the next block.
-            </div>
-
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <button id="btnStartTodayStudy" class="btn btn-primary" style="flex: 1; min-width: 200px;">▶ Start Mathematics Timer (90m)</button>
-              <button id="btnTestAlarmNow" class="btn btn-amber" title="Test Voice Alarm Now">🔔 Test Alarm</button>
-            </div>
+          <!-- Duration Presets -->
+          <div class="timer-presets-row">
+            <button class="timer-preset-btn" onclick="setTimerPreset(15)">15m</button>
+            <button class="timer-preset-btn" onclick="setTimerPreset(30)">30m</button>
+            <button class="timer-preset-btn" onclick="setTimerPreset(45)">45m</button>
+            <button class="timer-preset-btn" onclick="setTimerPreset(60)">60m</button>
+            <button class="timer-preset-btn active" onclick="setTimerPreset(90)">90m</button>
+            <button class="timer-preset-btn" onclick="promptCustomTimerDuration()">Custom</button>
           </div>
 
-          <!-- Quick Actions Grid -->
-          <h3 style="font-size: 17px; font-weight: 800; margin: 20px 0 10px 0;" id="txtQuickAccess">Quick Access</h3>
-          <div class="quick-grid">
-            <div class="quick-card" onclick="switchTab('books')">
-              <div class="quick-icon" style="background: #eff6ff; color: #2563eb;">📚</div>
-              <div class="quick-info">
-                <h4 id="qaBooksTitle">NCERT Books</h4>
-                <p id="qaBooksSub">All 6 Subjects</p>
+          <!-- Cycle Mode Toggle -->
+          <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 14px 0; flex-wrap: wrap;">
+            <span style="font-weight: 700; font-size: 13px;">Cycle Mode:</span>
+            <button class="btn btn-sm btn-outline active" id="btnCycleStandard" onclick="setTimerCycleMode('standard')">Standard</button>
+            <button class="btn btn-sm btn-outline" id="btnCyclePomodoro" onclick="setTimerCycleMode('pomodoro')">25m/5m</button>
+            <button class="btn btn-sm btn-outline" id="btnCycleSprint" onclick="setTimerCycleMode('sprint')">50m/10m</button>
+            <button class="btn btn-sm btn-outline" id="btnToggleDistractionFree" onclick="toggleDistractionFree()">⛶ Fullscreen</button>
+          </div>
+
+          <!-- Main Controls -->
+          <div style="display: flex; justify-content: center; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+            <button class="btn btn-primary" id="btnDedicatedTimerToggle" style="min-width: 140px; font-size: 15px; padding: 12px 24px;" onclick="toggleDedicatedTimer()">▶ Start Study</button>
+            <button class="btn btn-outline" style="min-width: 100px; font-size: 14px;" onclick="resetDedicatedTimer()">🔄 Reset</button>
+            <button class="btn btn-green" style="font-size: 14px;" onclick="finishDedicatedTimerManual()">✓ Finish & Log</button>
+          </div>
+        </div>
+
+        <!-- Session History List -->
+        <h3 style="font-size: 16px; font-weight: 800; margin: 24px 0 10px 0;">📊 Today's Focus Session History</h3>
+        <div id="dedicatedTimerHistoryContainer"></div>
+      </section>
+
+      <!-- ================= PANE 6: PRACTICE TESTS ================= -->
+      <section id="tab-practice" class="tab-pane">
+        <div class="view-header">
+          <h2 class="view-title" id="practiceHeading">Practice & Mock Test Centre</h2>
+          <p class="view-subtitle" id="practiceSubheading">
+            Subject-Wise MCQs, Formula Master Sheets & CBSE Previous Year Questions
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;">
+          <button class="btn btn-sm btn-outline active" id="btnPracTabQuiz" onclick="switchPracticeTab('quiz')">Mock Quiz</button>
+          <button class="btn btn-sm btn-outline" id="btnPracTabFormulas" onclick="switchPracticeTab('formulas')">Formula Sheets</button>
+          <button class="btn btn-sm btn-outline" id="btnPracTabPyqs" onclick="switchPracticeTab('pyqs')">CBSE PYQs</button>
+          <button class="btn btn-sm btn-outline" id="btnPracTabAi" onclick="switchPracticeTab('ai')">🤖 AI Concept Tutor</button>
+        </div>
+
+        <!-- Subtab 1: Mock Quiz -->
+        <div id="practice-quiz-view">
+          <div class="card" id="quizContainerCard"></div>
+        </div>
+
+        <!-- Subtab 2: Formula Sheets -->
+        <div id="practice-formulas-view" style="display: none;">
+          <div id="formulaSheetsContainer"></div>
+        </div>
+
+        <!-- Subtab 3: PYQs -->
+        <div id="practice-pyqs-view" style="display: none;">
+          <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+            <button class="chip active" onclick="filterPyqs('All')">All Subjects</button>
+            <button class="chip" onclick="filterPyqs('Mathematics')">Mathematics</button>
+            <button class="chip" onclick="filterPyqs('Science')">Science</button>
+            <button class="chip" onclick="filterPyqs('Social Science')">Social Science</button>
+            <button class="chip" onclick="filterPyqs('English')">English</button>
+          </div>
+          <div id="pyqsListContainer"></div>
+        </div>
+
+        <!-- Subtab 4: AI Tutor -->
+        <div id="practice-ai-view" style="display: none;">
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <h3 style="font-size: 16px; font-weight: 800;">🤖 AI Study Assistant (NCERT Verified)</h3>
+                <p style="font-size: 12px; color: var(--text-muted);">Step-by-step concept explanations, hints and verified revision summaries.</p>
+              </div>
+              <div style="display: flex; gap: 6px;">
+                <button class="btn btn-sm btn-outline active" id="btnAiLangEn" onclick="setAiLanguage('en')">English</button>
+                <button class="btn btn-sm btn-outline" id="btnAiLangHi" onclick="setAiLanguage('hi')">Hinglish / हिंदी</button>
               </div>
             </div>
-            <div class="quick-card" onclick="switchTab('calendar')">
-              <div class="quick-icon" style="background: #ecfdf5; color: #10b981;">📅</div>
-              <div class="quick-info">
-                <h4 id="qaCalTitle">Study Calendar</h4>
-                <p id="qaCalSub">93-Day Roadmap</p>
-              </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+              <input type="text" id="inputAiQuery" class="form-input" placeholder="Ask any Maths or Science question, concept or problem..." style="flex: 1;" onkeydown="if(event.key==='Enter') executeAiQuery();">
+              <button class="btn btn-primary" onclick="executeAiQuery()">Ask AI</button>
             </div>
-            <div class="quick-card" onclick="switchTab('practice')">
-              <div class="quick-icon" style="background: #f5f3ff; color: #7c3aed;">✍️</div>
-              <div class="quick-info">
-                <h4 id="qaQuizTitle">Practice & Quiz</h4>
-                <p id="qaQuizSub">MCQs & Formulas</p>
-              </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+              <button class="btn btn-sm btn-outline active" id="btnAiModeExplain" onclick="setAiMode('explain')">💡 Explain Concept</button>
+              <button class="btn btn-sm btn-outline" id="btnAiModeStep" onclick="setAiMode('step')">📝 Step-by-Step Solution</button>
+              <button class="btn btn-sm btn-outline" id="btnAiModeHint" onclick="setAiMode('hint')">🤔 Give Me a Hint First</button>
+              <button class="btn btn-sm btn-outline" id="btnAiModeSummary" onclick="setAiMode('summary')">📌 Revision Summary</button>
             </div>
-            <div class="quick-card" onclick="openTimerModal('Mathematics', 'Real Numbers', 90)">
-              <div class="quick-icon" style="background: #fef3c7; color: #d97706;">⏱️</div>
-              <div class="quick-info">
-                <h4 id="qaTimerTitle">Focus Timer</h4>
-                <p id="qaTimerSub">Deep Study Mode</p>
+
+            <div id="aiResponseContainer" style="background: var(--bg-subtle); border-radius: var(--radius-sm); padding: 18px; min-height: 100px;">
+              <div style="color: var(--text-muted); text-align: center; padding: 20px 0;">
+                Ask any Class 10 question above to get instant step-by-step explanations!
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- TAB 2: BOOKS & CHAPTERS -->
-        <section id="tab-books" class="tab-pane">
-          <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;" id="booksHeading">My NCERT Books</h2>
-          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;" id="booksSubheading">Class 10 CBSE 2026–2027 Official Curriculum</p>
+      <!-- ================= PANE 7: MISTAKE NOTEBOOK ================= -->
+      <section id="tab-mistakes" class="tab-pane">
+        <div class="view-header">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h2 class="view-title">Mistake Notebook</h2>
+              <p class="view-subtitle">Review difficult questions, tricky formulas, and frequently missed MCQs.</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddMistakeModal()">+ Add Tricky Item</button>
+          </div>
+        </div>
 
-          <!-- Subject Filter Chips -->
-          <div class="chip-row" id="subjectChipsContainer"></div>
+        <!-- Metric Badges Row -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px;">
+          <div class="card" style="padding: 14px; margin: 0;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-tertiary);">TOTAL SAVED</div>
+            <div style="font-size: 24px; font-weight: 800; color: var(--primary);" id="statMistakesTotal">0</div>
+          </div>
+          <div class="card" style="padding: 14px; margin: 0;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-tertiary);">PENDING REVIEW</div>
+            <div style="font-size: 24px; font-weight: 800; color: var(--amber-dark);" id="statMistakesPending">0</div>
+          </div>
+          <div class="card" style="padding: 14px; margin: 0;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-tertiary);">RESOLVED / REVISED</div>
+            <div style="font-size: 24px; font-weight: 800; color: var(--emerald);" id="statMistakesResolved">0</div>
+          </div>
+        </div>
 
-          <!-- Subject Books and Chapters List -->
-          <div id="booksListContainer"></div>
-        </section>
+        <!-- Search and Subject Filters -->
+        <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+          <input type="text" id="inputSearchMistakes" class="form-input" placeholder="Search saved mistakes by keyword or formula..." style="flex: 1;" oninput="handleMistakeSearch(this.value)">
+          <select id="selectMistakeFilterSubj" class="day-select-dropdown" style="max-width: 180px;" onchange="handleMistakeSubjectFilter(this.value)">
+            <option value="All">All Subjects</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Science">Science</option>
+            <option value="Social Science">Social Science</option>
+            <option value="English">English</option>
+            <option value="Hindi Course A">Hindi Course A</option>
+            <option value="Hindi Course B">Hindi Course B</option>
+          </select>
+        </div>
 
-        <!-- TAB 3: CALENDAR (15 Nov 2026 - 15 Feb 2027) -->
-        <section id="tab-calendar" class="tab-pane">
-          <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;" id="calHeading">My Study Calendar 2026–27</h2>
-          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;" id="calSubheading">93-Day Board Exam Preparation (15 Nov 2026 – 15 Feb 2027)</p>
+        <div id="mistakesNotebookContainer"></div>
+      </section>
 
-          <!-- Phase Filter Chips -->
-          <div class="chip-row" id="calendarMonthChips">
-            <button class="chip active" onclick="filterCalendar('All')">All (93 Days)</button>
-            <button class="chip" onclick="filterCalendar('Phase 1')">Phase 1 (Nov 15–30)</button>
-            <button class="chip" onclick="filterCalendar('Phase 2')">Phase 2 (Dec 1–15)</button>
-            <button class="chip" onclick="filterCalendar('Phase 3')">Phase 3 (Dec 16–31)</button>
-            <button class="chip" onclick="filterCalendar('Phase 4')">Phase 4 (Jan 1–15)</button>
-            <button class="chip" onclick="filterCalendar('Phase 5')">Final Sprint (Jan 16–Feb 15)</button>
+      <!-- ================= PANE 8: PROGRESS & ANALYTICS ================= -->
+      <section id="tab-analytics" class="tab-pane">
+        <div class="view-header">
+          <h2 class="view-title">Progress & Performance Analytics</h2>
+          <p class="view-subtitle">Detailed insights calculated from your actual offline study data.</p>
+        </div>
+
+        <!-- Analytics Grid -->
+        <div class="analytics-grid">
+          <!-- Card 1: Syllabus Gauge -->
+          <div class="card">
+            <div class="card-title"><span>📈 Overall Syllabus Completion</span></div>
+            <div class="circular-progress-wrap" style="margin: 20px 0;">
+              <div style="position: relative; width: 110px; height: 110px; flex-shrink: 0;">
+                <svg class="circle-svg" viewBox="0 0 90 90" style="width: 110px; height: 110px;">
+                  <circle class="circle-track" cx="45" cy="45" r="38"></circle>
+                  <circle id="analyticsCircleProgress" class="circle-fill" cx="45" cy="45" r="38" stroke-dasharray="238.76" stroke-dashoffset="238.76"></circle>
+                </svg>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px;" id="analyticsCirclePctText">
+                  0%
+                </div>
+              </div>
+              <div>
+                <div style="font-size: 13px; font-weight: 700; color: var(--emerald-dark);" id="analyticsCompletedDaysTxt">0 Days Completed</div>
+                <div style="font-size: 13px; font-weight: 700; color: var(--amber-dark); margin-top: 4px;" id="analyticsRemainingDaysTxt">93 Days Remaining</div>
+                <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 6px;">Total 93-Day Curriculum Plan</div>
+              </div>
+            </div>
           </div>
 
-          <div id="calendarDaysList"></div>
-        </section>
-
-        <!-- TAB 4: PRACTICE & REVISION -->
-        <section id="tab-practice" class="tab-pane">
-          <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;" id="practiceHeading">Practice & Revision Centre</h2>
-          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;" id="practiceSubheading">MCQ Mock Tests, Formula Sheets & Mistake Notebook</p>
-
-          <div class="modal-tabs" style="margin-bottom: 18px;">
-            <button class="modal-tab-btn active" onclick="switchPracticeTab('quiz')">Mock Quiz</button>
-            <button class="modal-tab-btn" onclick="switchPracticeTab('formulas')">Formula Sheets</button>
-            <button class="modal-tab-btn" onclick="switchPracticeTab('mistakes')">Mistake Notebook</button>
+          <!-- Card 2: Daily 4-Hour Habit -->
+          <div class="card">
+            <div class="card-title"><span>⏱️ Daily 4-Hour Habit (240 Mins)</span></div>
+            <div style="margin: 24px 0 16px 0;">
+              <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 14px; margin-bottom: 6px;">
+                <span>Today's Logged Time</span>
+                <span id="analyticsTodayDurationTxt">0 / 240 mins</span>
+              </div>
+              <div class="progress-bar-container" style="height: 12px;">
+                <div id="analyticsTodayGoalBar" class="progress-bar-fill" style="width: 0%; background: var(--emerald);"></div>
+              </div>
+            </div>
+            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+              Consistent daily study of 4 hours produces superior cognitive recall than irregular marathon cramming sessions.
+            </p>
           </div>
 
-          <div id="practice-quiz-view">
-            <div class="card" id="quizContainerCard"></div>
+          <!-- Card 3: Quiz Accuracy -->
+          <div class="card">
+            <div class="card-title"><span>🎯 MCQ Practice Accuracy</span></div>
+            <div style="margin: 20px 0;">
+              <div style="font-size: 36px; font-weight: 800; color: var(--primary);" id="analyticsQuizAccuracyVal">0%</div>
+              <div style="font-size: 13px; color: var(--text-secondary);" id="analyticsQuizRatioTxt">0 correct out of 0 questions attempted</div>
+            </div>
+            <div class="metric-sub">Practice tests highlight knowledge gaps for pre-exam remediation.</div>
           </div>
 
-          <div id="practice-formulas-view" style="display: none;">
-            <div id="formulaSheetsContainer"></div>
+          <!-- Card 4: Mistake Resolution -->
+          <div class="card">
+            <div class="card-title"><span>📝 Mistake Remediation</span></div>
+            <div style="margin: 20px 0;">
+              <div style="font-size: 36px; font-weight: 800; color: var(--emerald);" id="analyticsMistakeResolvedVal">0%</div>
+              <div style="font-size: 13px; color: var(--text-secondary);" id="analyticsMistakeRatioTxt">0 revised out of 0 tricky items</div>
+            </div>
+            <div class="metric-sub">Resolving tricky items prevents repeating the same error on Board exams.</div>
           </div>
+        </div>
 
-          <div id="practice-mistakes-view" style="display: none;">
-            <div id="mistakesNotebookContainer"></div>
-          </div>
-        </section>
+        <!-- Subject-Wise Progress Breakdown Bars -->
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 16px;"><span>📚 Subject-Wise Syllabus Completion</span></div>
+          <div id="analyticsSubjectBarsContainer"></div>
+        </div>
+      </section>
 
-        <!-- TAB 5: PROFILE & SETTINGS -->
-        <section id="tab-profile" class="tab-pane">
-          <div class="card" style="display: flex; align-items: center; gap: 16px;">
-            <div style="width: 58px; height: 58px; border-radius: 50%; background: var(--primary-subtle); color: var(--primary); font-size: 26px; font-weight: 800; display: flex; align-items: center; justify-content: center;" id="profileAvatarInitial">
+      <!-- ================= PANE 9: SETTINGS & PROFILE ================= -->
+      <section id="tab-profile" class="tab-pane">
+        <div class="view-header">
+          <h2 class="view-title">Settings & Student Profile</h2>
+          <p class="view-subtitle">Manage your personal study preferences, schedule, language, and data backups.</p>
+        </div>
+
+        <!-- Student Profile Card -->
+        <div class="card" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-subtle); color: var(--primary); font-size: 26px; font-weight: 800; display: flex; align-items: center; justify-content: center;" id="profileAvatarInitial">
               S
             </div>
             <div>
               <h3 id="profileNameDisplay" style="font-size: 18px; font-weight: 800;">Student Name</h3>
-              <p style="font-size: 13px; color: var(--text-muted);">Class 10th (CBSE Session 2026–27)</p>
-              <p id="profileSchoolDisplay" style="font-size: 12px; color: var(--text-subtle);">School Name</p>
+              <p style="font-size: 13px; color: var(--text-secondary);">Class 10th (CBSE Session 2026–2027)</p>
+              <p style="font-size: 12px; color: var(--text-tertiary);" id="profileSchoolDisplay">School Name Not Set</p>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="openModal('modalOnboarding')">✏️ Edit Profile</button>
+        </div>
+
+        <!-- Preferences & Course Options -->
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 14px;"><span>⚙️ Study Preferences</span></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 10px;">
+            <div>
+              <div style="font-size: 14px; font-weight: 700;">Language / भाषा</div>
+              <div style="font-size: 12px; color: var(--text-muted);" id="currentLangLabel">English</div>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-sm btn-outline" onclick="setLanguage('en')">English</button>
+              <button class="btn btn-sm btn-outline" onclick="setLanguage('hi')">हिंदी</button>
             </div>
           </div>
 
-          <h3 style="font-size: 16px; font-weight: 700; margin: 20px 0 10px 0;">Preferences</h3>
-          <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-              <div>
-                <div style="font-size: 14px; font-weight: 700;">Language / भाषा</div>
-                <div style="font-size: 12px; color: var(--text-muted);" id="currentLangLabel">English</div>
-              </div>
-              <div style="display: flex; gap: 6px;">
-                <button class="btn btn-sm btn-outline" onclick="setLanguage('en')">English</button>
-                <button class="btn btn-sm btn-outline" onclick="setLanguage('hi')">हिंदी</button>
-              </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 10px;">
+            <div>
+              <div style="font-size: 14px; font-weight: 700;">Hindi Course Selection</div>
+              <div style="font-size: 12px; color: var(--text-muted);" id="currentHindiCourseLabel">Course A (Kshitij/Kritika)</div>
             </div>
-            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 12px 0;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <div style="font-size: 14px; font-weight: 700;">Hindi Course</div>
-                <div style="font-size: 12px; color: var(--text-muted);" id="currentHindiCourseLabel">Course A (क्षितिज/कृतिका)</div>
-              </div>
-              <div style="display: flex; gap: 6px;">
-                <button class="btn btn-sm btn-outline" onclick="setHindiCourse('Course A')">Course A</button>
-                <button class="btn btn-sm btn-outline" onclick="setHindiCourse('Course B')">Course B</button>
-              </div>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-sm btn-outline" onclick="setHindiCourse('Course A')">Course A</button>
+              <button class="btn btn-sm btn-outline" onclick="setHindiCourse('Course B')">Course B</button>
             </div>
           </div>
 
-          <div style="margin-top: 16px;">
-            <button class="btn btn-primary btn-block" onclick="openModal('modalOnboarding')">✏️ Edit My Profile & Name</button>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <div style="font-size: 14px; font-weight: 700;">Theme Appearance</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Switch between clean light and deep dark themes</div>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-sm btn-outline" onclick="applyTheme('light')">☀️ Light</button>
+              <button class="btn btn-sm btn-outline" onclick="applyTheme('dark')">🌙 Dark</button>
+            </div>
           </div>
-        </section>
-      </main>
+        </div>
 
-      <!-- Bottom Navigation Bar for Web App -->
-      <nav class="bottom-nav">
-        <div class="nav-item active" onclick="switchTab('home')">
-          <div class="nav-icon">🏠</div>
-          <span id="navTextHome">Home</span>
+        <!-- Android Native Companion & Alarms Info -->
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 10px;"><span>📱 Native Android APK Companion</span></div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            For background exact voice alarms that ring even when your device screen is locked, install the official native Android APK. All 93 days, NCERT notes, and timers run 100% offline without ads.
+          </p>
+          <a href="GuruStudy-v1.0.0.apk" download class="btn btn-primary" style="display: inline-flex;">
+            ⬇️ Download GuruStudy APK (100% Native & Offline)
+          </a>
         </div>
-        <div class="nav-item" onclick="switchTab('books')">
-          <div class="nav-icon">📚</div>
-          <span id="navTextBooks">Books</span>
+
+        <!-- Data Backup & Offline Storage Management -->
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 10px;"><span>💾 Data Backup & Restore</span></div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.5;">
+            All your study progress, completed sessions, custom schedules, and mistake notes are stored 100% locally on this device. You can download a JSON backup file to keep or transfer to another device.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-outline" style="flex: 1;" onclick="exportStudyDataJSON()">📥 Export Backup (JSON)</button>
+            <label class="btn btn-outline" style="flex: 1; margin: 0; cursor: pointer;">
+              📤 Restore Backup
+              <input type="file" accept=".json" style="display: none;" onchange="importStudyDataJSON(event)">
+            </label>
+          </div>
+          <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 16px 0;">
+          <button class="btn btn-red btn-block" onclick="resetAllDataConfirm()">⚠️ Reset All Study Data</button>
         </div>
-        <div class="nav-item" onclick="switchTab('calendar')">
-          <div class="nav-icon">📅</div>
-          <span id="navTextCal">Calendar</span>
+
+        <!-- Developer Credit & Disclaimer -->
+        <div class="card" style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+          <strong>GuruStudy • Official Study Companion</strong><br>
+          Developed by <strong>HarshGuruJi</strong> (<a href="mailto:contact@webguruji.online" style="color: var(--primary);">contact@webguruji.online</a>)<br>
+          Curriculum: CBSE Class 10 (Academic Year 2026–2027) • 100% Offline & Free<br>
+          <em>Notice: Educational revision notes prepared independently according to CBSE guidelines. Not affiliated with or endorsed by CBSE or NCERT.</em>
         </div>
-        <div class="nav-item" onclick="switchTab('practice')">
-          <div class="nav-icon">✍️</div>
-          <span id="navTextPractice">Practice</span>
-        </div>
-        <div class="nav-item" onclick="switchTab('profile')">
-          <div class="nav-icon">👤</div>
-          <span id="navTextProfile">Profile</span>
-        </div>
-      </nav>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= MOBILE BOTTOM NAVIGATION ================= -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <div class="bottom-nav-item active" id="nav-btn-home" onclick="switchTab('home')">
+      <div class="bottom-nav-icon">🏠</div>
+      <span id="navTextHome">Home</span>
     </div>
-  </section>
-
-  <!-- ================= SITE FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <img src="logo.png" alt="GuruStudy">
-        <h3>GuruStudy</h3>
-      </div>
-      <p class="footer-desc">
-        NCERT Class 10 Smart Study Planner & 93-Day Board Exam Revision Companion. Developed strictly according to the CBSE 2026–2027 curriculum.
-      </p>
-      <div class="footer-links">
-        <a href="#hero" class="footer-link">Back to Top</a>
-        <a href="#schedule" class="footer-link">4-Hour Routine</a>
-        <a href="#plan" class="footer-link">62-Day Plan</a>
-        <a href="#download" class="footer-link">Download APK</a>
-        <a href="https://github.com/harshguruji01/study10" target="_blank" rel="noopener" class="footer-link">GitHub Repository</a>
-      </div>
-      <p class="footer-copy">
-        Created by <strong>HarshGuruJi</strong> • Official Contact: <a href="mailto:contact@webguruji.online" style="color: var(--primary-light);">contact@webguruji.online</a><br>
-        CBSE Academic Session 2026–2027 • 100% Free & Open-source
-      </p>
+    <div class="bottom-nav-item" id="nav-btn-subjects" onclick="switchTab('subjects')">
+      <div class="bottom-nav-icon">📚</div>
+      <span>Subjects</span>
     </div>
-  </footer>
+    <div class="bottom-nav-item" id="nav-btn-calendar" onclick="switchTab('calendar')">
+      <div class="bottom-nav-icon">📅</div>
+      <span id="navTextCal">Plan</span>
+    </div>
+    <div class="bottom-nav-item" id="nav-btn-timer" onclick="switchTab('timer')">
+      <div class="bottom-nav-icon">⏱️</div>
+      <span id="navTextTimer">Timer</span>
+    </div>
+    <div class="bottom-nav-item" id="nav-btn-practice" onclick="switchTab('practice')">
+      <div class="bottom-nav-icon">✍️</div>
+      <span id="navTextPractice">Practice</span>
+    </div>
+    <div class="bottom-nav-item" id="nav-btn-more" onclick="toggleSidebar()">
+      <div class="bottom-nav-icon">☰</div>
+      <span>More</span>
+    </div>
+  </nav>
+
+  <!-- ================= TOAST CONTAINER ================= -->
+  <div class="toast-container" id="toastContainer"></div>
 
   <!-- ================= MODALS ================= -->
 
-  <!-- MODAL 1: CHAPTER DETAIL MODAL -->
+  <!-- MODAL 1: CHAPTER DETAIL READER MODAL -->
   <div id="modalChapterDetail" class="modal-overlay">
     <div class="modal-content">
       <div class="modal-header">
         <div>
-          <span id="modalChapterSubjectBadge" class="status-pill pending" style="font-size: 11px;">Subject</span>
-          <h3 id="modalChapterTitle" style="font-size: 18px; margin-top: 4px;">Chapter Title</h3>
-          <p id="modalChapterTitleHi" style="font-size: 13px; color: var(--text-muted);"></p>
+          <span id="modalChapterSubjectBadge" class="slot-subject-pill" style="background: var(--primary-subtle); color: var(--primary);">Subject</span>
+          <h3 id="modalChapterTitle" style="font-size: 18px; margin-top: 4px; font-weight: 800;">Chapter Title</h3>
+          <p id="modalChapterTitleHi" style="font-size: 13px; color: var(--text-tertiary);"></p>
         </div>
         <button class="modal-close" onclick="closeModal('modalChapterDetail')">×</button>
       </div>
 
-      <div class="modal-tabs">
-        <button class="modal-tab-btn active" onclick="switchChapterTab('summary')">Summary</button>
-        <button class="modal-tab-btn" onclick="switchChapterTab('formulas')">Formulas</button>
-        <button class="modal-tab-btn" onclick="switchChapterTab('questions')">Questions</button>
-        <button class="modal-tab-btn" onclick="switchChapterTab('mcqs')">MCQs</button>
+      <!-- Reader Controls Bar -->
+      <div class="reader-controls-bar">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span style="font-size: 11px; font-weight: 700; color: var(--text-tertiary);">THEME:</span>
+          <button class="btn btn-sm btn-outline active" id="btnReaderThemeLight" onclick="setReaderTheme('light')">☀️</button>
+          <button class="btn btn-sm btn-outline" id="btnReaderThemeDark" onclick="setReaderTheme('dark')">🌙</button>
+          <button class="btn btn-sm btn-outline" id="btnReaderThemeSepia" onclick="setReaderTheme('sepia')">📜</button>
+        </div>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span style="font-size: 11px; font-weight: 700; color: var(--text-tertiary);">TEXT:</span>
+          <button class="btn btn-sm btn-outline" onclick="setReaderFontSize('sm')">A-</button>
+          <button class="btn btn-sm btn-outline active" id="btnReaderFontMd" onclick="setReaderFontSize('md')">A</button>
+          <button class="btn btn-sm btn-outline" onclick="setReaderFontSize('lg')">A+</button>
+          <button class="btn btn-sm btn-outline" id="btnModalBookmark" onclick="toggleChapterBookmark()" title="Bookmark Chapter">🔖</button>
+        </div>
+      </div>
+
+      <div class="chip-row" style="margin-bottom: 14px;">
+        <button class="chip active" id="btnTabSummary" onclick="switchChapterTab('summary')">Summary</button>
+        <button class="chip" id="btnTabFormulas" onclick="switchChapterTab('formulas')">Formulas</button>
+        <button class="chip" id="btnTabQuestions" onclick="switchChapterTab('questions')">Q&A</button>
+        <button class="chip" id="btnTabMcqs" onclick="switchChapterTab('mcqs')">MCQs</button>
       </div>
 
       <div id="chapter-tab-summary">
         <div style="margin-bottom: 16px;">
           <h4 style="font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 6px;">Chapter Overview</h4>
           <p id="modalChapterSummaryEn" style="font-size: 13px; line-height: 1.6; margin-bottom: 8px;"></p>
-          <p id="modalChapterSummaryHi" style="font-size: 13px; line-height: 1.6; color: var(--text-muted);"></p>
+          <p id="modalChapterSummaryHi" style="font-size: 13px; line-height: 1.6; color: var(--text-secondary);"></p>
         </div>
         <div>
-          <h4 style="font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Key Concepts & Learning Points</h4>
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Key Concepts & Learning Objectives</h4>
           <div id="modalChapterKeyConceptsList"></div>
         </div>
       </div>
 
       <div id="chapter-tab-formulas" style="display: none;">
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">Important Formulas & Core Definitions</h4>
         <div id="modalChapterFormulasList"></div>
       </div>
 
       <div id="chapter-tab-questions" style="display: none;">
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">NCERT Important Questions & Solutions</h4>
         <div id="modalChapterQuestionsList"></div>
       </div>
 
       <div id="chapter-tab-mcqs" style="display: none;">
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">Practice MCQs</h4>
         <div id="modalChapterMcqsList"></div>
       </div>
 
-      <div style="margin-top: 24px; display: flex; gap: 10px;">
-        <button id="btnModalLaunchTimer" class="btn btn-primary" style="flex: 1;">⏱️ Start Focus Timer (45m)</button>
-        <button id="btnModalToggleComplete" class="btn btn-green">✓ Mark Complete</button>
+      <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap;">
+        <button class="btn btn-outline" id="btnModalToggleComplete" onclick="toggleCurrentChapterStatus()">✓ Mark Chapter Completed</button>
+        <button class="btn btn-primary" id="btnModalLaunchTimer" onclick="launchTimerForCurrentChapter()">⏱️ Study This Chapter</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 2: EDIT/RESCHEDULE STUDY DAY MODAL -->
+  <!-- MODAL 2: EDIT / RESCHEDULE DAY MODAL -->
   <div id="modalEditDay" class="modal-overlay">
-    <div class="modal-content" style="max-width: 480px;">
+    <div class="modal-content">
       <div class="modal-header">
         <div>
-          <h3 style="font-size: 17px;" id="modalEditDayTitle">Edit Study Session</h3>
-          <p id="modalEditDayDate" style="font-size: 12px; color: var(--text-muted);"></p>
+          <h3 style="font-size: 18px; font-weight: 800;" id="modalEditDayTitle">Edit Study Session</h3>
+          <p style="font-size: 12px; color: var(--text-secondary);" id="modalEditDayDate"></p>
         </div>
         <button class="modal-close" onclick="closeModal('modalEditDay')">×</button>
       </div>
 
-      <div class="form-group">
-        <label class="form-label" id="lblChooseDuration">Aaj is chapter ko kitne time mein padhna chahte hain?</label>
-        <div class="chip-row" style="margin-bottom: 6px;">
-          <button class="chip" onclick="selectDurationChip(15)">15 mins</button>
-          <button class="chip" onclick="selectDurationChip(30)">30 mins</button>
-          <button class="chip active" onclick="selectDurationChip(45)">45 mins</button>
-          <button class="chip" onclick="selectDurationChip(60)">1 hour</button>
-          <button class="chip" onclick="selectDurationChip(90)">1.5 hours</button>
-          <button class="chip" onclick="selectDurationChip(120)">2 hours</button>
+      <div style="margin-bottom: 14px;">
+        <label class="form-label" id="lblChooseDuration">Target Duration</label>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="chip" onclick="selectDurationChip(30)">30m</button>
+          <button class="chip" onclick="selectDurationChip(45)">45m</button>
+          <button class="chip active" onclick="selectDurationChip(60)">60m</button>
+          <button class="chip" onclick="selectDurationChip(90)">90m</button>
         </div>
-        <input type="number" id="inputCustomDuration" class="form-input" placeholder="Or enter custom minutes" value="45">
+        <input type="number" id="inputCustomDuration" class="form-input" style="margin-top: 8px;" placeholder="Custom minutes (e.g. 75)">
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Scheduled Alarm Time (HH:MM)</label>
+      <div style="margin-bottom: 14px;">
+        <label class="form-label">Scheduled Alarm Time</label>
         <input type="time" id="inputAlarmTime" class="form-input" value="18:00">
-        <div class="form-hint">Native exact study alarm will trigger on device with student voice announcement.</div>
       </div>
 
-      <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
-        <span class="form-label" style="margin: 0;">Voice Alarm Enabled</span>
-        <input type="checkbox" id="chkAlarmEnabled" checked style="width: 20px; height: 20px; accent-color: var(--primary);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <span style="font-size: 14px; font-weight: 600;">Voice Alarm Enabled</span>
+        <input type="checkbox" id="chkAlarmEnabled" style="width: 20px; height: 20px; accent-color: var(--primary);" checked>
       </div>
 
-      <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
-        <span class="form-label" style="margin: 0;">Mark as Completed</span>
-        <input type="checkbox" id="chkStatusDone" style="width: 20px; height: 20px; accent-color: var(--green);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+        <span style="font-size: 14px; font-weight: 600;">Mark Day as Completed</span>
+        <input type="checkbox" id="chkStatusDone" style="width: 20px; height: 20px; accent-color: var(--emerald);">
       </div>
 
-      <div style="margin-top: 20px; display: flex; gap: 10px;">
-        <button class="btn btn-primary btn-block" onclick="saveDayChanges()">Save Changes</button>
-        <button class="btn btn-outline" onclick="closeModal('modalEditDay')">Cancel</button>
-      </div>
+      <button class="btn btn-primary btn-block" onclick="saveDayChanges()">Save Changes</button>
     </div>
   </div>
 
-  <!-- MODAL 3: ACTIVE FOCUS STUDY TIMER MODAL -->
-  <div id="modalStudyTimer" class="modal-overlay">
-    <div class="modal-content" style="max-width: 440px; text-align: center;">
-      <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-        <span id="timerSubjectBadge" class="status-pill pending">Mathematics</span>
-        <button class="modal-close" onclick="closeTimerModal()">×</button>
+  <!-- MODAL 3: ADD MISTAKE MODAL -->
+  <div id="modalAddMistake" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="font-size: 18px; font-weight: 800;">Add to Mistake Notebook</h3>
+        <button class="modal-close" onclick="closeModal('modalAddMistake')">×</button>
       </div>
-      <h3 id="timerChapterTitle" style="font-size: 19px; font-weight: 800; margin-bottom: 20px;">Real Numbers</h3>
 
-      <div class="timer-container">
-        <div class="timer-circle">
-          <svg class="timer-svg" viewBox="0 0 220 220">
-            <circle class="timer-track" cx="110" cy="110" r="95"></circle>
-            <circle id="timerCircleProgress" class="timer-progress" cx="110" cy="110" r="95"
-              stroke-dasharray="596.9" stroke-dashoffset="0"></circle>
-          </svg>
-          <div class="timer-text">
-            <div id="timerDisplay" class="timer-time">45:00</div>
-            <div id="timerStatusLabel" class="timer-label">Deep Focus Active</div>
-          </div>
-        </div>
-
-        <div style="display: flex; gap: 12px; margin-bottom: 18px; width: 100%; justify-content: center;">
-          <button id="btnTimerToggle" class="btn btn-primary" style="min-width: 130px;" onclick="toggleTimer()">⏸ Pause</button>
-          <button class="btn btn-outline" onclick="resetTimer()">Reset</button>
-        </div>
-
-        <button class="btn btn-green btn-block" onclick="finishTimerWithCelebration()">✓ Mark Chapter Complete</button>
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Subject</label>
+        <select id="addMistakeSubj" class="form-input">
+          <option value="Mathematics">Mathematics</option>
+          <option value="Science">Science</option>
+          <option value="Social Science">Social Science</option>
+          <option value="English">English</option>
+          <option value="Hindi Course A">Hindi Course A</option>
+          <option value="Hindi Course B">Hindi Course B</option>
+        </select>
       </div>
+
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Chapter / Topic</label>
+        <input type="text" id="addMistakeChapter" class="form-input" placeholder="e.g. Real Numbers, Chemical Reactions">
+      </div>
+
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Question / Tricky Concept</label>
+        <textarea id="addMistakeQuestion" class="form-input" rows="3" placeholder="Enter difficult question, formula, or concept..."></textarea>
+      </div>
+
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Solution / Correct Answer</label>
+        <textarea id="addMistakeAnswer" class="form-input" rows="2" placeholder="Correct explanation or formula..."></textarea>
+      </div>
+
+      <div style="margin-bottom: 18px;">
+        <label class="form-label">Personal Learning Note</label>
+        <input type="text" id="addMistakeNote" class="form-input" placeholder="Why did I get this wrong? What is the trick?">
+      </div>
+
+      <button class="btn btn-primary btn-block" onclick="saveCustomMistake()">Save to Mistake Book</button>
     </div>
   </div>
 
-  <!-- MODAL 4: ALARM RINGING & TTS VOICE ANNOUNCEMENT MODAL -->
-  <div id="modalAlarmRinging" class="modal-overlay">
-    <div class="modal-content" style="max-width: 440px;">
-      <div class="alarm-ringing-card">
-        <div class="alarm-ringing-icon">⏰</div>
-        <span style="color: var(--secondary); font-size: 12px; font-weight: 700; letter-spacing: 1px;">GURUSTUDY STUDY ALARM</span>
-        <h2 id="alarmStudentHeading" style="font-size: 22px; font-weight: 800; margin: 8px 0;">Time to Study, Rahul!</h2>
-        <div class="card" style="margin: 16px 0; background: var(--primary-subtle); border-color: transparent;">
-          <h4 id="alarmSubjectName" style="color: var(--primary); font-size: 16px; font-weight: 800;">Science</h4>
-          <p id="alarmChapterName" style="font-weight: 700; margin: 4px 0;">Electricity</p>
-          <p id="alarmDurationText" style="font-size: 12px; color: var(--text-muted);">Duration: 45 Minutes</p>
-        </div>
-
-        <p id="alarmSpeechQuote" style="font-size: 13px; font-style: italic; color: var(--text-muted); margin-bottom: 24px;">
-          "Rahul, ab aapka Science chapter Electricity padhne ka time hai!"
-        </p>
-
-        <button class="btn btn-green btn-block" style="margin-bottom: 10px; font-size: 16px;" onclick="alarmStartStudying()">📖 Start Study Session</button>
-        <div style="display: flex; gap: 10px;">
-          <button class="btn btn-outline" style="flex: 1;" onclick="alarmSnooze()">💤 Snooze (10m)</button>
-          <button class="btn btn-outline" style="flex: 1;" onclick="alarmDismiss()">Dismiss</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 5: ONBOARDING PROFILE MODAL -->
+  <!-- MODAL 4: STUDENT ONBOARDING / PROFILE EDIT MODAL -->
   <div id="modalOnboarding" class="modal-overlay">
-    <div class="modal-content" style="max-width: 520px;">
-      <div style="text-align: center; margin-bottom: 18px;">
-        <div style="margin-bottom: 12px;">
-          <img src="logo.png" alt="GuruStudy" style="width: 80px; height: 80px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.15); object-fit: cover;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800;">Student Profile Settings</h3>
+          <p style="font-size: 12px; color: var(--text-secondary);">Your name will be used for personal voice alarms and study dashboards.</p>
         </div>
-        <h2 style="font-size: 22px; font-weight: 800;">Student Profile</h2>
-        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
-          Personalize your voice study reminders & school
-        </p>
+        <button class="modal-close" onclick="closeModal('modalOnboarding')">×</button>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Full Name * (Used for personalized voice alarms)</label>
-        <input type="text" id="onboardName" class="form-input" placeholder="e.g. Rahul Sharma" value="Rahul Sharma" required>
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Student Full Name *</label>
+        <input type="text" id="onboardName" class="form-input" placeholder="Enter your full name" required>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Date of Birth</label>
-        <input type="date" id="onboardDob" class="form-input" value="2011-05-15">
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">School Name</label>
+        <input type="text" id="onboardSchool" class="form-input" placeholder="e.g. Delhi Public School">
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Class</label>
-        <input type="text" class="form-input" value="Class 10th (CBSE Session 2026–2027)" readonly disabled style="background: var(--bg-surface); opacity: 0.85;">
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Hindi Course</label>
+        <select id="onboardHindiCourse" class="form-input">
+          <option value="Course A">Hindi Course A (Kshitij / Kritika)</option>
+          <option value="Course B">Hindi Course B (Sparsh / Sanchayan)</option>
+        </select>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">School Name *</label>
-        <input type="text" id="onboardSchool" class="form-input" placeholder="e.g. Kendriya Vidyalaya / DPS" value="Kendriya Vidyalaya" required>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Preferred Language / भाषा</label>
-        <select id="onboardLanguage" class="form-select">
-          <option value="en" selected>English</option>
+      <div style="margin-bottom: 12px;">
+        <label class="form-label">Preferred Language</label>
+        <select id="onboardLanguage" class="form-input">
+          <option value="en">English</option>
           <option value="hi">हिंदी (Hindi)</option>
         </select>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Hindi Course</label>
-        <select id="onboardHindiCourse" class="form-select">
-          <option value="Course A" selected>Course A (क्षितिज एवं कृतिका)</option>
-          <option value="Course B">Course B (स्पर्श एवं संचयन)</option>
+      <div style="margin-bottom: 18px;">
+        <label class="form-label">Daily Study Target (Minutes)</label>
+        <select id="onboardDailyGoal" class="form-input">
+          <option value="120">2.0 Hours (120 mins)</option>
+          <option value="180">3.0 Hours (180 mins)</option>
+          <option value="240" selected>4.0 Hours (240 mins - Recommended)</option>
+          <option value="300">5.0 Hours (300 mins)</option>
         </select>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">Daily Study Goal</label>
-        <select id="onboardDailyGoal" class="form-select">
-          <option value="120">2 Hours per day</option>
-          <option value="180">3 Hours per day</option>
-          <option value="240" selected>4 Hours per day (Master Revision Plan)</option>
-        </select>
+      <button class="btn btn-primary btn-block" onclick="saveOnboardingProfile()">Save Profile</button>
+    </div>
+  </div>
+
+  <!-- MODAL 5: SMART VOICE ALARM RINGING MODAL -->
+  <div id="modalAlarmRinging" class="modal-overlay">
+    <div class="modal-content" style="text-align: center; border-top: 6px solid var(--amber);">
+      <div style="font-size: 48px; margin-bottom: 8px;">⏰</div>
+      <div style="font-size: 13px; font-weight: 800; color: var(--amber-dark); text-transform: uppercase;">GuruStudy Smart Alarm</div>
+      <h3 style="font-size: 22px; font-weight: 800; margin: 6px 0;" id="alarmStudentHeading">Time to Study!</h3>
+
+      <div class="card" style="margin: 16px 0; padding: 16px; background: var(--bg-subtle);">
+        <div style="font-size: 14px; font-weight: 800; color: var(--primary);" id="alarmSubjectName">Subject</div>
+        <div style="font-size: 18px; font-weight: 800; margin: 4px 0;" id="alarmChapterName">Chapter Title</div>
+        <div style="font-size: 12px; color: var(--text-secondary);" id="alarmDurationText">Duration: 60 Minutes</div>
       </div>
 
-      <div style="display: flex; gap: 10px; margin-top: 16px;">
-        <button class="btn btn-primary btn-block" style="padding: 12px; font-size: 15px;" onclick="saveOnboardingProfile()">Save Profile</button>
-        <button class="btn btn-outline" style="padding: 12px;" onclick="closeModal('modalOnboarding')">Close</button>
+      <p style="font-size: 13px; color: var(--text-secondary); font-style: italic; margin-bottom: 20px;" id="alarmSpeechQuote">
+        "It's time to study! Let's conquer CBSE Class 10!"
+      </p>
+
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-green" style="flex: 1;" onclick="alarmStartStudying()">📖 Start Studying Now</button>
+        <button class="btn btn-outline" style="flex: 1;" onclick="alarmSnooze()">💤 Snooze (10m)</button>
+        <button class="btn btn-red" onclick="alarmDismiss()">Dismiss</button>
       </div>
     </div>
   </div>

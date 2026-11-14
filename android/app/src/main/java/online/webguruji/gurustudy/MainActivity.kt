@@ -1,10 +1,10 @@
 package online.webguruji.gurustudy
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import online.webguruji.gurustudy.alarm.AlarmScheduler
@@ -23,7 +22,6 @@ import online.webguruji.gurustudy.data.model.UserProfile
 import online.webguruji.gurustudy.data.repository.StudyRepository
 import online.webguruji.gurustudy.ui.screens.*
 import online.webguruji.gurustudy.ui.theme.GuruStudyTheme
-import online.webguruji.gurustudy.ui.theme.RoyalBlue
 
 class MainActivity : ComponentActivity() {
 
@@ -55,6 +53,7 @@ class MainActivity : ComponentActivity() {
             var welcomePassed by remember { mutableStateOf(isOnboarded) }
 
             var currentNavTab by remember { mutableIntStateOf(0) } // 0: Home, 1: Books, 2: Calendar, 3: Practice, 4: Profile
+            var showAlarmCenter by remember { mutableStateOf(false) }
             var selectedChapterSubject by remember { mutableStateOf<Pair<NcertSubject, NcertChapter>?>(null) }
             var activeTimerSession by remember {
                 mutableStateOf(
@@ -65,6 +64,9 @@ class MainActivity : ComponentActivity() {
             var schedules by remember { mutableStateOf(repository.getAllSchedules()) }
             val subjects by remember { mutableStateOf(repository.getSubjects()) }
             var mistakes by remember { mutableStateOf(repository.getAllMistakes()) }
+
+            val planStatus = remember(schedules) { repository.getPlanStatus() }
+            var selectedDayIndex by remember { mutableIntStateOf(planStatus.dayIndex) }
 
             GuruStudyTheme(darkTheme = isDarkMode) {
                 Surface(
@@ -108,10 +110,10 @@ class MainActivity : ComponentActivity() {
                                 initialMinutes = dur,
                                 onBackClicked = { activeTimerSession = null },
                                 onSessionCompleted = {
-                                    // Mark today's schedule completed
-                                    val today = repository.getTodaySchedule()
-                                    if (today != null) {
-                                        repository.updateScheduleStatus(today.dayIndex, "Completed")
+                                    // Mark current schedule completed
+                                    val currentDay = repository.getScheduleForDay(selectedDayIndex)
+                                    if (currentDay != null) {
+                                        repository.updateScheduleStatus(currentDay.dayIndex, "Completed")
                                         schedules = repository.getAllSchedules()
                                     }
                                     userProfile = repository.getUserProfile()
@@ -130,6 +132,20 @@ class MainActivity : ComponentActivity() {
                                 onStartStudyTimer = { s, c ->
                                     activeTimerSession = Triple(s.name, c.title, 45)
                                     selectedChapterSubject = null
+                                }
+                            )
+                        }
+
+                        // Flow 5: Smart Alarm & Overlay Center
+                        showAlarmCenter -> {
+                            AlarmCenterScreen(
+                                userProfile = userProfile,
+                                allSchedules = schedules,
+                                onBackClicked = { showAlarmCenter = false },
+                                onLanguageChanged = { lang ->
+                                    val updated = userProfile.copy(preferredLanguage = lang)
+                                    repository.saveUserProfile(updated)
+                                    userProfile = updated
                                 }
                             )
                         }
@@ -177,17 +193,49 @@ class MainActivity : ComponentActivity() {
                             ) { paddingValues ->
                                 Box(modifier = Modifier.padding(paddingValues)) {
                                     when (currentNavTab) {
-                                        0 -> DashboardScreen(
-                                            userProfile = userProfile,
-                                            todaySchedule = repository.getTodaySchedule(),
-                                            allSchedules = schedules,
-                                            onStartStudy = { item ->
-                                                activeTimerSession = Triple(item.subject, item.chapterTitle, item.estimatedMinutes)
-                                            },
-                                            onNavigateToBooks = { currentNavTab = 1 },
-                                            onNavigateToCalendar = { currentNavTab = 2 },
-                                            onNavigateToPractice = { currentNavTab = 3 }
-                                        )
+                                        0 -> {
+                                            val currentItem = schedules.find { it.dayIndex == selectedDayIndex }
+                                                ?: schedules.firstOrNull()
+
+                                            DashboardScreen(
+                                                userProfile = userProfile,
+                                                currentSchedule = currentItem,
+                                                allSchedules = schedules,
+                                                planStatus = planStatus,
+                                                selectedDayIndex = selectedDayIndex,
+                                                onSelectDay = { selectedDayIndex = it },
+                                                onStartStudy = { subject, chapter, duration ->
+                                                    activeTimerSession = Triple(subject, chapter, duration)
+                                                },
+                                                onToggleSlotComplete = { dayIndex, slotIndex, completed ->
+                                                    val item = schedules.find { it.dayIndex == dayIndex }
+                                                    if (item != null && slotIndex < item.slots.size) {
+                                                        item.slots[slotIndex].completed = completed
+                                                        val allSlotsDone = item.slots.all { it.completed }
+                                                        if (allSlotsDone) {
+                                                            item.status = "Completed"
+                                                        }
+                                                        repository.updateScheduleItem(item)
+                                                        schedules = repository.getAllSchedules()
+                                                    }
+                                                },
+                                                onToggleDayComplete = { dayIndex, completed ->
+                                                    repository.updateScheduleStatus(dayIndex, if (completed) "Completed" else "Pending")
+                                                    schedules = repository.getAllSchedules()
+                                                },
+                                                onNavigateToBooks = { currentNavTab = 1 },
+                                                onNavigateToCalendar = { currentNavTab = 2 },
+                                                onNavigateToPractice = { currentNavTab = 3 },
+                                                onTestAlarm = { scheduleItem ->
+                                                    alarmScheduler.scheduleStudyAlarm(scheduleItem, userProfile.fullName)
+                                                    Toast.makeText(
+                                                        this@MainActivity,
+                                                        "🔔 Test Alarm scheduled for ${scheduleItem.subject}! Starting in 5 seconds...",
+                                                        Toast.LENGTH_LONG
+                                                    ).show()
+                                                }
+                                            )
+                                        }
                                         1 -> BooksScreen(
                                             subjects = subjects,
                                             onChapterSelected = { subj, ch ->
@@ -225,6 +273,11 @@ class MainActivity : ComponentActivity() {
                                                 val updated = userProfile.copy(preferredLanguage = lang)
                                                 repository.saveUserProfile(updated)
                                                 userProfile = updated
+                                            },
+                                            onSaveProfile = { updated ->
+                                                repository.saveUserProfile(updated)
+                                                userProfile = updated
+                                                Toast.makeText(this@MainActivity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
                                             },
                                             onResetData = {
                                                 repository.resetAllData()

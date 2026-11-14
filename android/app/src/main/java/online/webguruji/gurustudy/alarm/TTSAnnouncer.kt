@@ -4,14 +4,23 @@ import android.content.Context
 import android.speech.tts.TextToSpeech
 import java.util.Locale
 
-class TTSAnnouncer(context: Context, private val onInitCompleted: (() -> Unit)? = null) : TextToSpeech.OnInitListener {
+class TTSAnnouncer(
+    context: Context,
+    private val preferredLang: String = "hi",
+    private val onInitCompleted: (() -> Unit)? = null
+) : TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = TextToSpeech(context.applicationContext, this)
     private var isInitialized = false
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             tts?.let { engine ->
-                val result = engine.setLanguage(Locale("hi", "IN"))
+                val targetLocale = if (preferredLang.equals("hi", ignoreCase = true)) {
+                    Locale("hi", "IN")
+                } else {
+                    Locale.US
+                }
+                val result = engine.setLanguage(targetLocale)
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                     engine.setLanguage(Locale.US)
                 }

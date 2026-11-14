@@ -57,6 +57,8 @@ class FullScreenAlarmActivity : ComponentActivity() {
         val dayIndex = intent.getIntExtra(AlarmScheduler.EXTRA_DAY_INDEX, 1)
         val duration = intent.getIntExtra(AlarmScheduler.EXTRA_DURATION, 60)
 
+        val slotIndex = intent.getIntExtra(AlarmScheduler.EXTRA_SLOT_INDEX, 0)
+
         // Play alarm sound
         try {
             val alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
@@ -71,17 +73,19 @@ class FullScreenAlarmActivity : ComponentActivity() {
             e.printStackTrace()
         }
 
-        // Initialize TTS Announcer
+        // Initialize TTS Announcer if enabled
         val repository = StudyRepository(this)
         val profile = repository.getUserProfile()
-        val speechText = if (profile.preferredLanguage == "hi") {
-            "$studentName जी, अब आपका $subject का पाठ $chapter पढ़ने का समय हो गया है! GuruStudy पर पढ़ाई शुरू करें।"
-        } else {
-            "Hello $studentName, it is time to study $subject: $chapter on GuruStudy! Let's start learning."
-        }
+        if (repository.isVoiceAnnouncementEnabled()) {
+            val speechText = if (profile.preferredLanguage == "hi") {
+                "$studentName जी, अब आपका $subject का पाठ $chapter पढ़ने का समय हो गया है! GuruStudy पर पढ़ाई शुरू करें।"
+            } else {
+                "Hello $studentName, it is time to study $subject: $chapter on GuruStudy! Let's start learning."
+            }
 
-        ttsAnnouncer = TTSAnnouncer(this) {
-            ttsAnnouncer?.speak(speechText)
+            ttsAnnouncer = TTSAnnouncer(this) {
+                ttsAnnouncer?.speak(speechText)
+            }
         }
 
         setContent {
@@ -92,6 +96,7 @@ class FullScreenAlarmActivity : ComponentActivity() {
                 duration = duration,
                 onStartStudy = {
                     stopAlarmAndAudio()
+                    dismissFloatingReminder()
                     val mainIntent = Intent(this, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                         putExtra("NAVIGATE_TO", "STUDY_TIMER")
@@ -105,14 +110,27 @@ class FullScreenAlarmActivity : ComponentActivity() {
                 },
                 onSnooze = {
                     stopAlarmAndAudio()
-                    AlarmScheduler(this).scheduleSnoozeAlarm(dayIndex, studentName, subject, chapter, duration)
+                    dismissFloatingReminder()
+                    AlarmScheduler(this).scheduleSnoozeAlarm(dayIndex, studentName, subject, chapter, duration, slotIndex)
                     finish()
                 },
                 onDismiss = {
                     stopAlarmAndAudio()
+                    dismissFloatingReminder()
                     finish()
                 }
             )
+        }
+    }
+
+    private fun dismissFloatingReminder() {
+        try {
+            val stopIntent = Intent(this, online.webguruji.gurustudy.service.FloatingStudyReminderService::class.java).apply {
+                action = online.webguruji.gurustudy.service.FloatingStudyReminderService.ACTION_DISMISS_REMINDER
+            }
+            startService(stopIntent)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

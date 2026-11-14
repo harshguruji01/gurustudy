@@ -65,9 +65,7 @@
                 "correctIndex": 1,
                 "explanation": "A prime number has exactly 2 factors: 1 and the number itself."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -106,9 +104,7 @@
                 "correctIndex": 2,
                 "explanation": "p(x) = k[x^2 - (sum)x + prod] = k[x^2 - x - 12]. With k=1/2, it is x^2/2 - x/2 - 6."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -147,9 +143,7 @@
                 "correctIndex": 2,
                 "explanation": "For parallel lines: a1/a2 = b1/b2 => 3/2 = 2k/5 => 4k = 15 => k = 15/4."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -188,9 +182,7 @@
                 "correctIndex": 1,
                 "explanation": "For equal roots, D = 0 => (-4)^2 - 4(1)(k) = 0 => 16 - 4k = 0 => k = 4."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -228,9 +220,7 @@
                 "correctIndex": 1,
                 "explanation": "a = -3, d = -1/2 - (-3) = 5/2. a_11 = a + 10d = -3 + 10*(5/2) = -3 + 25 = 22."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 6,
@@ -266,9 +256,7 @@
                 "correctIndex": 0,
                 "explanation": "Matching vertices: A->Q, B->R, C->P. So ΔPQR ~ ΔCAB."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 7,
@@ -306,9 +294,7 @@
                 "correctIndex": 2,
                 "explanation": "Distance = sqrt((-6)^2 + 8^2) = sqrt(36 + 64) = sqrt(100) = 10 units."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 8,
@@ -349,9 +335,7 @@
                 "correctIndex": 0,
                 "explanation": "sin A = 1/2 => A = 30°. cot 30° = √3."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 9,
@@ -388,9 +372,7 @@
                 "correctIndex": 1,
                 "explanation": "tan θ = height / shadow = 1 => θ = 45°."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 10,
@@ -426,9 +408,7 @@
                 "correctIndex": 0,
                 "explanation": "r = sqrt(25^2 - 24^2) = sqrt(625 - 576) = sqrt(49) = 7 cm."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 11,
@@ -466,9 +446,7 @@
                 "correctIndex": 0,
                 "explanation": "2πr = πr² => r = 2 units."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 12,
@@ -508,9 +486,7 @@
                 "correctIndex": 2,
                 "explanation": "V = πr²h. If r' = r/3, (r')² = r²/9. To keep V constant, h' must be 9h."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 13,
@@ -551,9 +527,7 @@
                 "correctIndex": 0,
                 "explanation": "3 Median = Mode + 2 Mean = 8 + 16 = 24 => Median = 8."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 14,
@@ -591,9 +565,7 @@
                 "correctIndex": 1,
                 "explanation": "Probability of an event can never be negative (0 <= P <= 1)."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       }
@@ -657,9 +629,7 @@
                 "correctIndex": 2,
                 "explanation": "Iron displaces copper from copper sulphate solution because iron is more reactive."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -700,9 +670,7 @@
                 "correctIndex": 3,
                 "explanation": "Bases turn red litmus blue and have pH > 7. Hence pH 10."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -741,9 +709,7 @@
                 "correctIndex": 1,
                 "explanation": "Mercury (Hg) is the only metal that is liquid at room temperature."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -785,9 +751,7 @@
                 "correctIndex": 1,
                 "explanation": "Butane is an alkane with 4 carbon atoms: CnH2n+2 = C4H10."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -825,9 +789,7 @@
                 "correctIndex": 1,
                 "explanation": "Aerobic respiration breaks down pyruvate in mitochondria to yield CO2, H2O and ATP."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 6,
@@ -865,9 +827,7 @@
                 "correctIndex": 2,
                 "explanation": "Cytokinins are concentrated in areas of rapid cell division such as fruits and seeds."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 7,
@@ -905,9 +865,7 @@
                 "correctIndex": 2,
                 "explanation": "Fertilization occurs in the ampullary region of the Fallopian tube (oviduct)."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 8,
@@ -945,9 +903,7 @@
                 "correctIndex": 0,
                 "explanation": "In heterozygous condition (Tt), only the dominant allele (T) expresses itself."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 9,
@@ -988,9 +944,7 @@
                 "correctIndex": 2,
                 "explanation": "Same size real image is formed when object is at 2F = 2 x 20 = 40 cm."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 10,
@@ -1030,9 +984,7 @@
                 "correctIndex": 1,
                 "explanation": "Hypermetropia (farsightedness) makes nearby objects blurry, while distant objects are clear."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 11,
@@ -1077,9 +1029,7 @@
                 "correctIndex": 2,
                 "explanation": "R = ρ l / A. New resistance R' = ρ (2l) / A'. Since R' = R, ρ (2l) / A' = ρ l / A => A' = 2A."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 12,
@@ -1118,9 +1068,7 @@
                 "correctIndex": 2,
                 "explanation": "During short circuit, resistance drops close to zero, causing electric current to increase drastically."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 13,
@@ -1158,9 +1106,7 @@
                 "correctIndex": 1,
                 "explanation": "Producers (10,000 J) -> Primary consumers (1000 J) -> Secondary consumers (100 J)."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       }
@@ -1193,12 +1139,7 @@
               "Unification of Italy: Giuseppe Mazzini (Young Italy), Count Cavour (diplomat), Giuseppe Garibaldi (Red Shirts), Victor Emmanuel II",
               "Allegories: Marianne (France) and Germania (Germany, wearing crown of oak leaves signifying heroism)"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Explain the major features of the Napoleonic Code of 1804.",
@@ -1219,9 +1160,7 @@
                 "correctIndex": 0,
                 "explanation": "Kaiser William I of Prussia was proclaimed German Emperor at the Hall of Mirrors in Versailles in January 1871."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -1237,12 +1176,7 @@
               "Gandhi-Irwin Pact 1931 and Poona Pact 1932 (Dr. B.R. Ambedkar and Mahatma Gandhi)",
               "Symbols of nationalism: Bharat Mata image by Abanindranath Tagore, Tricolour flag, revival of folklore"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Mahatma Gandhi decide to call off the Civil Disobedience Movement and sign the Gandhi-Irwin Pact in 1931?",
@@ -1263,9 +1197,7 @@
                 "correctIndex": 1,
                 "explanation": "Under the presidency of Jawaharlal Nehru, the Lahore Congress of December 1929 formalised the demand of Poorna Swaraj."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -1280,12 +1212,7 @@
               "Great Depression (1929-mid 1930s): Wall Street Crash, agricultural overproduction, collapse of global banking",
               "Bretton Woods Conference (1944): IMF and World Bank set up to maintain post-war financial stability"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Explain the three types of movements or 'flows' within international economic exchanges in the nineteenth century.",
@@ -1306,9 +1233,7 @@
                 "correctIndex": 1,
                 "explanation": "The International Monetary Fund (IMF) and the World Bank are known as the Bretton Woods twins."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -1323,12 +1248,7 @@
               "Gomasthas: paid servants appointed by East India Company to supervise weavers and collect supplies",
               "Advertisement and calendar art to create consumer markets"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did industrial production in India increase during the First World War?",
@@ -1349,9 +1269,7 @@
                 "correctIndex": 1,
                 "explanation": "Richard Arkwright created the cotton mill where carding, twisting, spinning and rolling were done under one roof."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -1367,12 +1285,7 @@
               "First printing press in India brought to Goa by Portuguese Jesuits in mid-16th century",
               "Vernacular Press Act 1878 passed by Lord Lytton modelled on Irish Press Laws to censor Indian newspapers"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Martin Luther praise print culture as the greatest gift of God?",
@@ -1393,9 +1306,7 @@
                 "correctIndex": 1,
                 "explanation": "The first book Gutenberg printed was the Bible. About 180 copies were printed in 3 years."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       },
@@ -1416,12 +1327,7 @@
               "Alluvial, Black (Regur), Red & Yellow, Laterite, Arid, Forest soils",
               "Soil erosion: Gully erosion, sheet erosion"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Describe any three measures to control soil erosion in hilly and mountainous regions.",
@@ -1442,9 +1348,7 @@
                 "correctIndex": 1,
                 "explanation": "Black soil is known as Regur soil and is ideal for cotton cultivation."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -1458,12 +1362,7 @@
               "Reserved, Protected, and Unclassed forests",
               "Chipko Movement, Beej Bachao Andolan, Joint Forest Management (JFM)"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Differentiate between Reserved and Protected forests.",
@@ -1484,9 +1383,7 @@
                 "correctIndex": 1,
                 "explanation": "Project Tiger was launched in 1973 to save Bengal tigers from extinction."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -1498,12 +1395,7 @@
               "Jawaharlal Nehru called multipurpose dams 'Temples of modern India'",
               "Rainwater harvesting: Rooftop harvesting, Guls/Kuls in Himalayas, Khadins and Johads in Rajasthan, Tankas"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Explain rooftop rainwater harvesting system.",
@@ -1524,9 +1416,7 @@
                 "correctIndex": 1,
                 "explanation": "Tamil Nadu is the first state in India to make rooftop rainwater harvesting compulsory."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -1539,12 +1429,7 @@
               "Major crops: Rice (high temp >25C, >100cm rainfall), Wheat (cool growing season, 50-75cm rainfall), Tea, Coffee, Sugarcane",
               "Bhoodan - Gramdan movement started by Vinoba Bhave ('Blood-less Revolution')"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Distinguish between Kharif and Rabi cropping seasons with two examples each.",
@@ -1565,9 +1450,7 @@
                 "correctIndex": 0,
                 "explanation": "Pulses are leguminous crops that fix atmospheric nitrogen in soil."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -1581,12 +1464,7 @@
               "Conventional: Coal (Anthracite, Bituminous, Lignite, Peat), Petroleum (Mumbai High, Digboi), Natural gas",
               "Non-conventional: Solar, Wind, Biogas, Tidal, Geothermal energy"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why is solar energy called the energy resource of the future in India?",
@@ -1607,9 +1485,7 @@
                 "correctIndex": 3,
                 "explanation": "Anthracite is the highest quality coal containing over 80% carbon."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 6,
@@ -1623,12 +1499,7 @@
               "Agglomeration economies: industries come together to benefit from urban infrastructure",
               "Pollution types: Air, Water, Thermal, Noise pollution and treatment of industrial effluents"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why is the iron and steel industry called the basic or key industry?",
@@ -1649,9 +1520,7 @@
                 "correctIndex": 1,
                 "explanation": "Bengaluru has emerged as the electronic and IT capital of India."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 7,
@@ -1666,12 +1535,7 @@
               "National Waterways: NW-1 (Ganga: Prayagraj to Haldia, 1620 km)",
               "Tourism promotes national integration and brings foreign exchange"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "State any three advantages of pipeline transport in India.",
@@ -1692,9 +1556,7 @@
                 "correctIndex": 1,
                 "explanation": "Chennai is one of the oldest artificial ports in India, next to Mumbai in trade volume."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       },
@@ -1714,12 +1576,7 @@
               "Sri Lanka Majoritarianism: Sinhala supremacy, Buddhism state religion, civil war with LTTE",
               "Forms: Horizontal (Legislature, Executive, Judiciary), Vertical (Federal), Social groups, Political parties"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Differentiate between horizontal and vertical power sharing.",
@@ -1740,9 +1597,7 @@
                 "correctIndex": 0,
                 "explanation": "French minority was richer and more powerful, causing resentment among majority Dutch."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -1755,12 +1610,7 @@
               "Holding together federation (India, Spain) vs Coming together federation (USA, Switzerland)",
               "1992 Decentralisation: Mandatory regular panchayat elections, 1/3 reservation for women, State Election Commission, State Finance Commission"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Explain any three major steps taken towards decentralisation in India in 1992.",
@@ -1781,9 +1631,7 @@
                 "correctIndex": 2,
                 "explanation": "Subjects not included in the three original lists are Residuary subjects, legislated solely by the Union Parliament."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -1796,12 +1644,7 @@
               "Secular state in India: No official state religion, freedom to profess/practice, prohibition of discrimination",
               "Caste in politics (vote banks, candidate selection) vs Politics in caste (sub-castes merging, backward classes coalition)"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Mention any three constitutional provisions that make India a secular state.",
@@ -1822,9 +1665,7 @@
                 "correctIndex": 1,
                 "explanation": "A feminist is someone who advocates equal social, political and economic rights for women."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -1839,12 +1680,7 @@
               "Challenges: Lack of internal democracy, dynastic succession, money and muscle power, lack of meaningful choice",
               "Reforms: Anti-Defection Law, affidavit of assets and criminal cases, mandatory organizational elections"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Describe any three challenges faced by political parties in India.",
@@ -1865,9 +1701,7 @@
                 "correctIndex": 1,
                 "explanation": "The USA and the UK are primary examples of a two-party political system."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -1880,12 +1714,7 @@
               "Democracy is transparent through Right to Information (RTI)",
               "Economic performance might be slower than authoritarian regimes, but democracy guarantees social justice, civil liberties and human dignity"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why is democracy considered a better form of government than dictatorship?",
@@ -1906,9 +1735,7 @@
                 "correctIndex": 1,
                 "explanation": "Democracies require debate, deliberations and consensus, which can make decision making slower."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       },
@@ -1953,9 +1780,7 @@
                 "correctIndex": 1,
                 "explanation": "United Nations Development Programme (UNDP) publishes the Human Development Report annually."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -1970,12 +1795,7 @@
               "MGNREGA 2005: 100 days guaranteed wage employment in rural areas",
               "Organized (job security, paid leaves, fixed hours, PF) vs Unorganized sector"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What is disguised unemployment? Explain with an agricultural example.",
@@ -1996,9 +1816,7 @@
                 "correctIndex": 1,
                 "explanation": "MGNREGA guarantees 100 days of wage employment per year to every rural household."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -2013,12 +1831,7 @@
               "Formal sector (Banks, Cooperatives supervised by RBI) vs Informal sector (Moneylenders, traders charging exorbitant interest rates)",
               "Self-Help Groups (SHGs): 15-20 members pool small savings, offer collateral-free low interest loans"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why is it necessary for banks and cooperatives to increase their lending in rural areas?",
@@ -2039,9 +1852,7 @@
                 "correctIndex": 1,
                 "explanation": "The Reserve Bank of India (RBI) supervises the functioning of formal sector lenders."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -2055,12 +1866,7 @@
               "World Trade Organisation (WTO) promotes free international trade among members",
               "Impact: Consumer choice widened, top Indian companies (Tata Motors, Infosys, Ranbaxy) emerged as MNCs; but small local manufacturers face intense competition"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "How has information and communication technology stimulated the globalisation process?",
@@ -2081,9 +1887,7 @@
                 "correctIndex": 2,
                 "explanation": "Removing restrictions and trade barriers by the government is termed Liberalisation."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -2097,12 +1901,7 @@
               "Standard certifications: ISI mark (industrial electrical goods), Agmark (agricultural food), Hallmark (gold jewellery)",
               "National Consumer Day celebrated on 24th December in India"
             ],
-            "formulas": [
-              "Timeline & Key Dates: Note primary events and statutory enactments.",
-              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
-              "Map Work Points: Important geographical & historical locations for board exam maps.",
-              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Explain the Right to Information available to a consumer with an example.",
@@ -2122,6 +1921,70 @@
                 ],
                 "correctIndex": 1,
                 "explanation": "24th December is observed as National Consumer Day as COPRA was enacted on this day in 1986."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sst_map_work",
+        "title": "Map Work & Essential Skills (History & Geography)",
+        "titleHi": "मानचित्र कार्य एवं आवश्यक कौशल",
+        "chapters": [
+          {
+            "number": 1,
+            "title": "History & Geography Map Locations (Prescribed CBSE List)",
+            "titleHi": "इतिहास एवं भूगोल के प्रमुख मानचित्र स्थल",
+            "summary": "Official CBSE Map items for Class 10: Indian National Congress Sessions (Calcutta 1920, Nagpur 1920, Madras 1927), Important Centres of National Movement (Champaran, Kheda, Ahmedabad, Amritsar/Jallianwala Bagh, Chauri Chaura, Dandi). Geography: Major Soil Types, Major Dams (Salal, Bhakra Nangal, Tehri, Rana Pratap Sagar, Sardar Sarovar, Hirakud, Nagarjuna Sagar, Tungabhadra), Major Thermal & Nuclear Power Plants, Software Tech Parks, Major Seaports and International Airports.",
+            "summaryHi": "सीबीएसई कक्षा 10वीं के लिए निर्धारित आधिकारिक मानचित्र स्थल। भारतीय राष्ट्रीय कांग्रेस के अधिवेशन (कलकत्ता, नागपुर, मद्रास), सत्याग्रह केंद्र (चंपारण, खेड़ा, अहमदाबाद, अमृतसर, चौरी चौरा, दांडी), प्रमुख बाँध, ताप व परमाणु ऊर्जा संयंत्र, बंदरगाह एवं हवाई अड्डे।",
+            "keyConcepts": [
+              "Congress Sessions: Calcutta (Sep 1920), Nagpur (Dec 1920), Madras (1927)",
+              "Satyagraha Centres: Champaran (Indigo), Kheda (Crop failure), Ahmedabad (Cotton mill)",
+              "Movement Turning Points: Jallianwala Bagh (Amritsar), Chauri Chaura (Calling off NCM), Dandi (Salt March/CDM)",
+              "Major Dams: Salal (Chenab), Bhakra Nangal (Satluj), Tehri (Bhagirathi), Sardar Sarovar (Narmada), Hirakud (Mahanadi)",
+              "Nuclear Power Plants: Narora (UP), Rawatbhata (Rajasthan), Kakrapar (Gujarat), Tarapur (Maharashtra), Kalpakkam (TN)",
+              "Major Seaports: Kandla, Mumbai, Marmagao, New Mangalore, Kochi, Tuticorin, Chennai, Visakhapatnam, Paradip, Haldia"
+            ],
+            "formulas": [
+              "Scale ratio = Map distance / Ground distance",
+              "Direction convention: North (Top), South (Bottom), East (Right), West (Left)"
+            ],
+            "importantQuestions": [
+              {
+                "question": "Locate and label the place where the Indian National Congress session was held in September 1920, and the place associated with the calling off of the Non-Cooperation Movement.",
+                "questionHi": "मानचित्र पर वह स्थान दर्शाइए जहाँ सितंबर 1920 में कांग्रेस अधिवेशन हुआ था तथा वह स्थान जहाँ चौरी-चौरा की घटना के बाद असहयोग आंदोलन वापस लिया गया था।",
+                "solution": "1. September 1920 INC Session: Calcutta (Kolkata, West Bengal).\n2. Calling off Non-Cooperation Movement: Chauri Chaura (Gorakhpur district, Uttar Pradesh).",
+                "marks": 2
+              },
+              {
+                "question": "On the political map of India, locate and label: (a) Tehri Dam (b) Tarapur Nuclear Power Plant (c) Raja Sansi (Sri Guru Ram Dass Jee) International Airport.",
+                "questionHi": "भारत के राजनीतिक मानचित्र पर दर्शाइए: (क) टिहरी बाँध (ख) तारापुर परमाणु संयंत्र (ग) राजा सांसी अंतर्राष्ट्रीय हवाई अड्डा।",
+                "solution": "(a) Tehri Dam: Uttarakhand (on Bhagirathi river).\n(b) Tarapur: Maharashtra.\n(c) Raja Sansi International Airport: Amritsar, Punjab.",
+                "marks": 3
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "In which state is the Hirakud Dam located on the Mahanadi river?",
+                "options": [
+                  "Odisha",
+                  "Jharkhand",
+                  "Chhattisgarh",
+                  "West Bengal"
+                ],
+                "correctIndex": 0,
+                "explanation": "Hirakud Dam is built across the Mahanadi river in Odisha and is one of the longest earthen dams in the world."
+              },
+              {
+                "question": "The Indian National Congress Session of December 1920 was held at which of the following cities?",
+                "options": [
+                  "Nagpur",
+                  "Calcutta",
+                  "Madras",
+                  "Lahore"
+                ],
+                "correctIndex": 0,
+                "explanation": "The December 1920 INC session was held at Nagpur, where the Non-Cooperation programme was officially endorsed."
               }
             ],
             "progressStatus": "Not Started",
@@ -2155,12 +2018,7 @@
               "Theme of unshakeable faith vs human skepticism",
               "Robert Frost's symbolism: Hemlock tree, crow, fire = greed/desire, ice = cold hatred"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Lencho say the raindrops were like 'new coins'?",
@@ -2181,9 +2039,7 @@
                 "correctIndex": 2,
                 "explanation": "Lencho requested 100 pesos to sow his field again and survive till the next harvest."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -2197,12 +2053,7 @@
               "Courage is not absence of fear, but triumph over it",
               "Poetic contrast between caged tiger and majestic wild predator"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What 'twin obligations' does Nelson Mandela mention in his speech?",
@@ -2223,9 +2074,7 @@
                 "correctIndex": 0,
                 "explanation": "Mandela was sworn in on 10 May 1994 in Pretoria."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -2238,12 +2087,7 @@
               "Faith and mystery in survival",
               "The Ball Poem: learning epistemology of loss, coping with grief"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What does John Berryman mean by 'the epistemology of loss' in The Ball Poem?",
@@ -2264,9 +2108,7 @@
                 "correctIndex": 1,
                 "explanation": "The narrator was flying his old Dakota DS 088 over France back to England."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -2279,12 +2121,7 @@
               "Anne's irrepressible sense of humour and intellect",
               "Teenage psychology: need for autonomy vs parental control"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Anne Frank decide to keep a personal diary?",
@@ -2305,9 +2142,7 @@
                 "correctIndex": 1,
                 "explanation": "Anne Frank affectionately called her diary 'Kitty'."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -2321,12 +2156,7 @@
               "Legend of tea (Chinese Emperor and Buddhist monk Bodhidharma)",
               "Metaphor of fog coming on 'little cat feet'"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What is the legend regarding the discovery of tea in China according to Rajvir?",
@@ -2347,9 +2177,7 @@
                 "correctIndex": 1,
                 "explanation": "The river Kaveri obtains its water from the hills and forests of Coorg."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 6,
@@ -2362,12 +2190,7 @@
               "Appearance vs true courage in Custard the Dragon",
               "Humorous ballad format"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "How did Custard the Dragon prove that he was not really a coward?",
@@ -2388,9 +2211,7 @@
                 "correctIndex": 0,
                 "explanation": "Zoologists named the subspecies Lutrogale perspicillata maxwelli (Maxwell's otter)."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 7,
@@ -2403,12 +2224,7 @@
               "Transition from childish innocence to awareness of death",
               "W.B. Yeats theme: Only God loves you for yourself alone, not for yellow hair"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "How did Valli save money for her first bus journey?",
@@ -2429,9 +2245,7 @@
                 "correctIndex": 2,
                 "explanation": "30 paise one-way, making 60 paise for the round trip."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 8,
@@ -2444,12 +2258,7 @@
               "Satire on Russian landed aristocracy marrying for wealth and ego",
               "Lomov's hypochondria and Natalya's argumentative nature"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What did Gautama Buddha ask Kisa Gotami to bring to revive her dead child?",
@@ -2470,9 +2279,7 @@
                 "correctIndex": 1,
                 "explanation": "They fight over the ownership of Oxen Meadows located between Birchwoods and Burnt Marsh."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       },
@@ -2491,12 +2298,7 @@
               "Harm of pampering and over-indulgence",
               "Natural veterinary wisdom over medication"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What treatment was given to Tricki by Dr. Herriot at the surgery?",
@@ -2517,9 +2319,7 @@
                 "correctIndex": 1,
                 "explanation": "Tricki was Mrs. Pumphrey's pampered little Pekingese dog."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -2531,12 +2331,7 @@
               "Power of education and unconditional trust to reform a criminal",
               "Internal moral dilemma at train station"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Hari Singh decide to return Anil's stolen money?",
@@ -2557,9 +2352,7 @@
                 "correctIndex": 1,
                 "explanation": "Hari Singh was 15 years old and an experienced thief."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -2570,12 +2363,7 @@
             "keyConcepts": [
               "Presence of mind surpasses physical appearance and weapons"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "How did Ausable trick Max into jumping out of the window?",
@@ -2596,9 +2384,7 @@
                 "correctIndex": 1,
                 "explanation": "Henry the room waiter had brought drinks ordered by Ausable."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -2610,12 +2396,7 @@
               "Honor among thieves is broken",
               "Appearances can be deceptive"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "How was Horace Danby deceived by the lady in red at Shotover Grange?",
@@ -2636,9 +2417,7 @@
                 "correctIndex": 1,
                 "explanation": "Horace suffered from hay fever, triggered by flower scent at Shotover Grange."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 5,
@@ -2650,12 +2429,7 @@
               "Science without ethics leads to criminal madness",
               "Griffin as lawless genius"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Griffin slip into a big London store and what did he do there?",
@@ -2676,9 +2450,7 @@
                 "correctIndex": 0,
                 "explanation": "Griffin escaped from London to the quiet rural village of Iping."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 6,
@@ -2690,12 +2462,7 @@
               "Curiosity, hard work, and will to win for right reasons makes a scientist",
               "Discovery of monarch pupa gold spots hormone"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What are the essential ingredients in the making of a scientist according to Ebright's teacher?",
@@ -2716,9 +2483,7 @@
                 "correctIndex": 1,
                 "explanation": "The children's book 'The Travels of Monarch X' by Dr. Urquhart hooked Ebright on biology."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 7,
@@ -2730,12 +2495,7 @@
               "Disastrous consequences of vanity and discontentment",
               "Tragic irony of life"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "How did the loss of the necklace change the life of the Loisels?",
@@ -2756,9 +2516,7 @@
                 "correctIndex": 2,
                 "explanation": "The original necklace was made of imitation paste worth at most 500 francs."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 8,
@@ -2770,12 +2528,7 @@
               "Transformative power of education for girl child",
               "Rejection of social evils like dowry"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Bholi refuse to marry Bishamber Nath at the wedding altar?",
@@ -2796,9 +2549,7 @@
                 "correctIndex": 2,
                 "explanation": "Her real name was Sulekha, but everyone called her Bholi (the simpleton)."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 9,
@@ -2810,12 +2561,7 @@
               "Satire on foolish pride and baseless arrogance",
               "A humble book saves mankind"
             ],
-            "formulas": [
-              "Central Theme & Motif: Primary message and philosophical reflection of author.",
-              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
-              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
-              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "Why did Think-Tank call books 'sandwiches'?",
@@ -2836,6 +2582,145 @@
                 "correctIndex": 2,
                 "explanation": "The nursery rhyme collection 'Mother Goose' caused Think-Tank to panic and flee."
               }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "english_writing_grammar",
+        "title": "Writing Skills & Applied Grammar (Section B)",
+        "titleHi": "रचनात्मक लेखन एवं व्यावहारिक व्याकरण",
+        "chapters": [
+          {
+            "number": 1,
+            "title": "Formal Letter Writing (Editor, Complaint, Enquiry, Order)",
+            "titleHi": "औपचारिक पत्र लेखन",
+            "summary": "Comprehensive guidelines and formats for CBSE Class 10 Formal Letters (100–120 words, 5 marks). Types include: Letter to the Editor (highlighting civic or social issues), Letter of Complaint (defective products or deficient services), Letter of Enquiry (courses, travel packages), and Placing an Order.",
+            "summaryHi": "सीबीएसई कक्षा 10वीं औपचारिक पत्र लेखन के मानक प्रारूप एवं उदाहरण (संपादक के नाम पत्र, शिकायती पत्र, पूछताछ पत्र तथा व्यावसायिक आदेश पत्र)।",
+            "keyConcepts": [
+              "Sender's Address (Top Left, 2-3 lines)",
+              "Date (Expanded format: e.g. 15 November 2026)",
+              "Receiver's Designation & Address (e.g. The Editor, The Times of India, New Delhi)",
+              "Subject line (Brief, concise, capitalized keywords)",
+              "Salutation (Sir / Madam)",
+              "Body (3 distinct paragraphs: Introduction, Cause & Effects / Details, Expected Action / Remedy)",
+              "Complimentary Close (Yours sincerely / Yours faithfully) and Sender's Name"
+            ],
+            "formulas": [
+              "Formal Letter Format: Sender Address -> Date -> Receiver Address -> Subject -> Salutation -> 3-Para Body -> Sign-off"
+            ],
+            "importantQuestions": [
+              {
+                "question": "You are Akshat/Akshita of 45, Model Town, Delhi. Write a letter to the Editor of a national daily drawing attention to the frequent traffic gridlocks and reckless driving near your school zone. (100–120 words)",
+                "questionHi": "अपने क्षेत्र में स्कूल के पास अनियंत्रित यातायात एवं लापरवाह ड्राइविंग की समस्या पर किसी राष्ट्रीय दैनिक के संपादक को पत्र लिखिए।",
+                "solution": "Format followed strictly: Sender's address, Date, The Editor address, Subject: Chaos caused by reckless driving in school zone. Para 1: State concern via esteemed columns. Para 2: Hazards to school children, lack of traffic police, noise pollution. Para 3: Urgent speed breakers, pedestrian crossing, traffic warden deployment. Complementary close: Yours sincerely.",
+                "marks": 5
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "Which of the following is the most appropriate subject line for a letter of complaint about a newly purchased laptop?",
+                "options": [
+                  "My laptop broke please help",
+                  "Complaint regarding defective Dell Inspiron laptop (Inv #4521)",
+                  "Very angry with customer service",
+                  "Laptop issues"
+                ],
+                "correctIndex": 1,
+                "explanation": "A formal subject line must be objective, concise, and include identifying details such as model and invoice number."
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          },
+          {
+            "number": 2,
+            "title": "Analytical Paragraph Writing",
+            "titleHi": "विश्लेषणात्मक अनुच्छेद लेखन",
+            "summary": "Mastering Analytical Paragraph writing based on given outlines, charts, pie graphs, tables, or bar diagrams (100–120 words, 5 marks). Objective language, comparison indicators, trend analysis, and balanced concluding paragraph.",
+            "summaryHi": "दिए गए आंकड़ों, ग्राफ, चार्ट या फ्लोचार्ट के आधार पर विश्लेषणात्मक गद्यांश लेखन की तकनीक एवं अभ्यास।",
+            "keyConcepts": [
+              "Introduction: Paraphrase the prompt and state what the visual graph/chart represents",
+              "Body Paragraph 1 & 2: Group data logically, highlight peak values, lowest points, and major contrasts",
+              "Comparison language: 'In stark contrast to', 'witnessed an exponential surge', 'remained stagnant', 'fluctuated marginally'",
+              "Conclusion: Summarize the overarching finding without introducing unverified personal opinions"
+            ],
+            "formulas": [
+              "Structure: Paraphrased Topic (1-2 sentences) + Comparative Analysis with Data Points (4-6 sentences) + Final Takeaway (1-2 sentences)"
+            ],
+            "importantQuestions": [
+              {
+                "question": "Write an analytical paragraph in 100-120 words analyzing the trend of renewable energy adoption versus fossil fuel consumption over the past decade based on a given comparative bar graph.",
+                "questionHi": "दिए गए बार ग्राफ के आधार पर पिछले दशक में नवीकरणीय ऊर्जा और जीवाश्म ईंधन की खपत का विश्लेषणात्मक विवरण 100-120 शब्दों में लिखिए।",
+                "solution": "The provided data illustrates the shifting paradigm from fossil fuels toward clean energy between 2015 and 2025. While coal consumption peaked in 2017 at 62%, subsequent years recorded a steady decline down to 44%. Simultaneously, solar and wind energy witnessed a four-fold increase from 9% to 36%. In conclusion, aggressive sustainable investments have substantially diversified the energy grid.",
+                "marks": 5
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "What is the key principle to follow while concluding an analytical paragraph?",
+                "options": [
+                  "Suggest random personal stories",
+                  "Provide a concise synthesis of key trends without personal bias",
+                  "Copy the entire data table again",
+                  "End with a rhetorical question"
+                ],
+                "correctIndex": 1,
+                "explanation": "The conclusion of an analytical paragraph must synthesize the overall pattern without external speculation or bias."
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          },
+          {
+            "number": 3,
+            "title": "Integrated Grammar (Tenses, Modals, Concord & Reported Speech)",
+            "titleHi": "व्यावहारिक व्याकरण (काल, मोडल्स, कर्ता-क्रिया संगति एवं परोक्ष कथन)",
+            "summary": "Complete grammar rules for CBSE Class 10 (10 Marks). Covers: Subject-Verb Agreement, Error Identification & Correction, Gap Filling, and Reported Speech (statements, interrogatives with wh- and if/whether, and imperative commands).",
+            "summaryHi": "सीबीएसई कक्षा 10वीं अंग्रेजी व्याकरण के सभी प्रमुख नियम: काल, मोडल्स, कर्ता-क्रिया संगति, अशुद्धि शोधन एवं प्रत्यक्ष-अप्रत्यक्ष कथन।",
+            "keyConcepts": [
+              "Subject-Verb Concord: Singular subjects take singular verbs; 'Either/Neither' takes singular; 'along with/as well as' follows first subject",
+              "Modals: Must (obligation/certainty), Should/Ought to (moral duty), May/Might (possibility), Can/Could (ability/polite request)",
+              "Reported Speech Tense Shift: Present Simple -> Past Simple; Present Perfect -> Past Perfect; Will -> Would; Can -> Could",
+              "Reported Questions: Said to -> Asked/Inquired; remove question mark; wh-word remains; yes/no questions take if/whether",
+              "Reported Commands: Said to -> Ordered/Requested/Advised + to + verb base form"
+            ],
+            "formulas": [
+              "Direct to Indirect: said to -> told (statements), asked (questions), ordered/urged (commands)",
+              "Neither of the boys + HAS (singular)",
+              "Bread and butter + IS (single entity)"
+            ],
+            "importantQuestions": [
+              {
+                "question": "Report the dialogue between the teacher and Rohit: Teacher: 'Why were you absent yesterday?' Rohit: 'I was suffering from a severe viral fever.'",
+                "questionHi": "अध्यापक और छात्र के मध्य संवाद को अप्रत्यक्ष कथन में बदलिए।",
+                "solution": "The teacher asked Rohit why he had been absent the previous day. Rohit politely replied that he had been suffering from a severe viral fever.",
+                "marks": 2
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "Neither the teacher nor the students ______ present in the auditorium when the announcement was made.",
+                "options": [
+                  "was",
+                  "were",
+                  "is",
+                  "are"
+                ],
+                "correctIndex": 1,
+                "explanation": "When two subjects are joined by 'neither... nor', the verb agrees with the closer subject. Here 'students' is plural, so 'were' is correct."
+              },
+              {
+                "question": "Choose the correct reported form of: He said, 'I will complete the assignment tomorrow.'",
+                "options": [
+                  "He said that he will complete the assignment tomorrow.",
+                  "He said that he would complete the assignment the next day.",
+                  "He said that he would have completed the assignment yesterday.",
+                  "He told he can complete the assignment the following day."
+                ],
+                "correctIndex": 1,
+                "explanation": "'Will' changes to 'would', and 'tomorrow' changes to 'the next day' / 'the following day'."
+              }
             ],
             "progressStatus": "Not Started",
             "isBookmarked": false
@@ -2845,53 +2730,52 @@
     ]
   },
   {
-    "id": "hindi",
-    "name": "Hindi (Course A & B)",
-    "nameHi": "हिंदी (कोर्स अ एवं ब)",
-    "code": "002/085",
+    "id": "hindi_a",
+    "name": "Hindi Course A",
+    "nameHi": "हिंदी (कोर्स ए)",
+    "code": "002",
     "icon": "auto_stories",
-    "color": "#DC2626",
+    "color": "#E11D48",
     "books": [
       {
-        "id": "kshitij",
-        "title": "Kshitij Part 2 (Course A)",
-        "titleHi": "क्षितिज भाग २ (कोर्स अ)",
+        "id": "hindi_kshitij_2",
+        "title": "Kshitij Part 2 (क्षितिज भाग 2 - काव्य एवं गद्य)",
+        "titleHi": "क्षितिज भाग 2",
         "chapters": [
           {
             "number": 1,
             "title": "Pad (Surdas)",
             "titleHi": "पद (सूरदास)",
-            "summary": "Gopis mock Uddhav's dry yoga message after Krishna leaves for Mathura. Compare Uddhav to lotus leaf and oil-smeared pot that water cannot touch. True devotion to Krishna.",
-            "summaryHi": "उद्धव के योग संदेश पर गोपियों के व्यंग्य। प्रेम भक्ति की महिमा।",
+            "summary": "सूरदास के भ्रमरगीत से लिए गए चार पद। गोपियों द्वारा उद्धव के योग संदेश पर व्यंग्य और अनन्य कृष्ण प्रेम का प्रतिपादन।",
+            "summaryHi": "गोपियों की विरह वेदना, कृष्ण के प्रति एकनिष्ठ प्रेम और उद्धव के शुष्क ज्ञान मार्ग की निरर्थकता का सजीव चित्रण।",
             "keyConcepts": [
-              "Bhramargeet tradition",
-              "Vyanga on Nirgun yoga against Sagun love devotion"
+              "उद्धव के ज्ञान मार्ग पर गोपियों के प्रेम मार्ग की विजय",
+              "कमल के पत्ते और तेल की गागर का दृष्टांत",
+              "राजधर्म की सीख: प्रजा को न सताया जाए",
+              "अनुप्रास, रूपक और वक्रोक्ति अलंकार का सुंदर प्रयोग"
             ],
             "formulas": [
-              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
-              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
-              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
-              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+              "काव्य सौंदर्य: ब्रजभाषा, गेय पद, वियोग शृंगार रस, माधुर्य गुण"
             ],
             "importantQuestions": [
               {
-                "question": "गोपियों ने उद्धव की तुलना किन-किन उदाहरणों से की है?",
-                "questionHi": "गोपियों ने उद्धव की तुलना किन-किन उदाहरणों से की है?",
-                "solution": "कमल के पत्ते से (जो जल में रहकर भी भीगता नहीं) तथा तेल लगी गागर से (जिस पर जल की एक बूंद भी नहीं ठहरती)।",
+                "question": "गोपियों ने उद्धव को 'बड़भागी' क्यों कहा है? क्या यह वास्तव में प्रशंसा है?",
+                "questionHi": "गोपियों द्वारा उद्धव को बड़भागी कहने में क्या व्यंग्य छिपा है?",
+                "solution": "गोपियों द्वारा उद्धव को बड़भागी कहना वस्तुतः प्रशंसा नहीं बल्कि तीखा व्यंग्य है। वे कहना चाहती हैं कि कृष्ण के सान्निध्य में रहकर भी उद्धव प्रेम के बंधन और विरह के आनंद से सर्वथा अछूते रहे हैं, इसलिए वे अभागे हैं।",
                 "marks": 3
               }
             ],
             "mcqs": [
               {
-                "question": "सूरदास के पदों में गोपियों ने 'बड़भागी' किसे कहा है?",
+                "question": "सूरदास के पदों में गोपियों ने अपने प्रेम की तुलना किससे की है?",
                 "options": [
-                  "श्रीकृष्ण को",
-                  "उद्धव को",
-                  "स्वयं को",
-                  "नंद को"
+                  "गुड़ से चिपटी चींटी से",
+                  "कमल के पत्ते से",
+                  "तेल की मटकी से",
+                  "भ्रमर से"
                 ],
-                "correctIndex": 1,
-                "explanation": "गोपियों ने उद्धव को व्यंग्य में 'बड़भागी' (भाग्यशाली) कहा है।"
+                "correctIndex": 0,
+                "explanation": "गोपियों ने कहा है 'गुर चाँटी ज्यौं पागी' अर्थात् जिस प्रकार चींटी गुड़ में चिपक कर प्राण त्याग देती है, वैसे ही वे कृष्ण प्रेम में लीन हैं।"
               }
             ],
             "progressStatus": "Not Started",
@@ -2901,37 +2785,36 @@
             "number": 2,
             "title": "Ram-Lakshman-Parashuram Samvad (Tulsidas)",
             "titleHi": "राम-लक्ष्मण-परशुराम संवाद (तुलसीदास)",
-            "summary": "After Lord Ram breaks Shiva's bow at Sita Svayamvar, Parashuram arrives enraged. Lakshman engages in witty, fearless verbal confrontation. Ram cools Parashuram's anger with gentle humility.",
-            "summaryHi": "धनुष भंग के पश्चात परशुराम के क्रोध और लक्ष्मण के व्यंग्यपूर्ण वचनों का संवाद।",
+            "summary": "रामचरितमानस के बालकांड से उद्धृत। सीता स्वयंवर में शिव धनुष टूटने पर परशुराम के क्रोध और लक्ष्मण के व्यंग्योक्तियों का ओजस्वी वर्णन।",
+            "summaryHi": "शिव धनुष भंग के पश्चात परशुराम का उग्र स्वभाव, लक्ष्मण का निडर तर्क और श्री राम की मर्यादा एवं शांत स्वभाव का प्रभावशाली संगम।",
             "keyConcepts": [
-              "Chaupai and Doha metres from Ramcharitmanas",
-              "Veer and Raudra Ras in dialogue"
+              "परशुराम का क्षत्रिय संहारक रूप और फरसे का भय",
+              "लक्ष्मण का 'धनुही' वाला दृष्टांत और व्यंग्य",
+              "वीर एवं रौद्र रस का सुंदर परिपाक",
+              "अवधी भाषा, चौपाई और दोहा छंद"
             ],
             "formulas": [
-              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
-              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
-              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
-              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+              "काव्य तत्व: अवधी भाषा, दोहा-चौपाई छंद, वीर रस, रौद्र रस, उपमा व अतिशयोक्ति अलंकार"
             ],
             "importantQuestions": [
               {
-                "question": "लक्ष्मण ने परशुराम के क्रोध को शांत करने के स्थान पर किस प्रकार प्रदीप्त किया?",
-                "questionHi": "लक्ष्मण ने परशुराम के क्रोध को शांत करने के स्थान पर किस प्रकार प्रदीप्त किया?",
-                "solution": "लक्ष्मण ने धनुष को मामूली पुराना 'धनुही' बताते हुए परशुराम की शक्ति और फरसे का उपहास उड़ाया।",
+                "question": "लक्ष्मण ने वीर योद्धा की क्या-क्या विशेषताएँ बताई हैं?",
+                "questionHi": "परशुराम के समक्ष लक्ष्मण द्वारा वीर योद्धा के कौन से गुण बताए गए हैं?",
+                "solution": "लक्ष्मण के अनुसार सच्चा वीर रणभूमि में अपनी वीरता का प्रदर्शन कर्म द्वारा करता है, बातों से अपनी प्रशंसा नहीं करता। वीर योद्धा धैर्यवान, क्षमाशील और ब्राह्मणों, गायों एवं दुर्बलों पर शस्त्र न उठाने वाले होते हैं।",
                 "marks": 3
               }
             ],
             "mcqs": [
               {
-                "question": "परशुराम ने अपने किस अस्त्र का भय बार-बार दिखाया?",
+                "question": "शिव धनुष तोड़े जाने पर परशुराम ने किसे अपना मुख्य शत्रु घोषित किया?",
                 "options": [
-                  "गदा",
-                  "फरसा",
-                  "त्रिशूल",
-                  "चक्र"
+                  "सहस्रबाहु के समान धनुष तोड़ने वाले को",
+                  "राजा जनक को",
+                  "लक्ष्मण को",
+                  "विश्वामित्र को"
                 ],
-                "correctIndex": 1,
-                "explanation": "परशुराम ने अपने भयंकर फरसे का भय बार-बार दिखाया।"
+                "correctIndex": 0,
+                "explanation": "परशुराम ने क्रोधित होकर कहा कि जिसने भी यह शिव धनुष तोड़ा है, वह सहस्रबाहु के समान मेरा प्रबल शत्रु है।"
               }
             ],
             "progressStatus": "Not Started",
@@ -2939,39 +2822,38 @@
           },
           {
             "number": 3,
-            "title": "Netaji ka Chashma (Swayam Prakash)",
+            "title": "Netaji Ka Chashma (Swayam Prakash)",
             "titleHi": "नेताजी का चश्मा (स्वयं प्रकाश)",
-            "summary": "Haldar Saheb observes Netaji Subhash Chandra Bose's marble statue at town intersection. A poor crippled hawker 'Captain' replaces missing glasses on statue out of patriotic duty. Even ordinary common folk can show genuine patriotism.",
-            "summaryHi": "कैप्टन चश्मेवाले की देशभक्ति की मार्मिक कहानी। देशभक्ति सीमा पर ही नहीं, कर्मों में झलकती है।",
+            "summary": "कैप्टन चश्मेवाले के माध्यम से देश के साधारण नागरिकों और देशभक्ति की सच्ची भावना को उजागर करती एक मर्मस्पर्शी कहानी।",
+            "summaryHi": "कस्बे के चौराहे पर नेताजी सुभाषचंद्र बोस की संगमरमर की मूर्ति पर चश्मा लगाने वाले गरीब, लंगड़े कैप्टन के प्रति सम्मान और सच्ची देशभक्ति का संदेश।",
             "keyConcepts": [
-              "Patriotism belongs to every ordinary citizen",
-              "Respect for freedom fighters"
+              "देशभक्ति किसी सीमा या सेना तक सीमित नहीं, वह हर नागरिक के आचरण में है",
+              "कैप्टन का मूर्ति के प्रति आदरभाव और स्वतंत्रता सेनानियों के प्रति सम्मान",
+              "हालदार साहब की संवेदनशीलता और पानवाले का प्रारंभिक उपहास व पश्चाताप",
+              "बच्चों द्वारा सरकंडे का चश्मा लगाना: भावी पीढ़ी में जीवित देशभक्ति"
             ],
             "formulas": [
-              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
-              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
-              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
-              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+              "मूल भाव: राष्ट्रभक्ति केवल भाषणों में नहीं, अपितु राष्ट्र के प्रति सम्मानपूर्ण कार्यों में प्रकट होती है।"
             ],
             "importantQuestions": [
               {
-                "question": "कैप्टन कौन था और वह नेताजी की मूर्ति पर चश्मा क्यों लगाता था?",
-                "questionHi": "कैप्टन कौन था और वह नेताजी की मूर्ति पर चश्मा क्यों लगाता था?",
-                "solution": "कैप्टन एक निर्धन फेरीवाला था। नेताजी की बिना चश्मे वाली मूर्ति उसे आहत करती थी, इसलिए वह अपने चश्मों में से एक फ्रेम मूर्ति पर लगा देता था।",
+                "question": "सेनानी न होते हुए भी चश्मेवाले को लोग 'कैप्टन' क्यों कहते थे?",
+                "questionHi": "चश्मेवाले को कैप्टन कहे जाने के क्या कारण थे?",
+                "solution": "यद्यपि वह फौज में नहीं था और शरीर से बूढ़ा व लंगड़ा था, परंतु उसके मन में देश के अमर शहीदों व नेताजी के प्रति असीम आदर एवं देशप्रेम था। वह नेताजी की मूर्ति को बिना चश्मे के नहीं देख सकता था। उसकी इसी देशसेवा की भावना के कारण लोग उसे आदर व व्यंग्य में कैप्टन कहते थे।",
                 "marks": 3
               }
             ],
             "mcqs": [
               {
-                "question": "हालदार साहब को कस्बे में कौन सी बात सबसे ज्यादा प्रभावित करती थी?",
+                "question": "कैप्टन की मृत्यु के बाद नेताजी की मूर्ति पर सरकंडे का चश्मा किसने लगाया था?",
                 "options": [
-                  "पान की दुकान",
-                  "कैप्टन की देशभक्ति",
-                  "नगरपालिका का काम",
-                  "स्कूल की इमारत"
+                  "कस्बे के नन्हें बच्चों ने",
+                  "हालदार साहब ने",
+                  "पानवाले ने",
+                  "मास्टर मोतीलाल ने"
                 ],
-                "correctIndex": 1,
-                "explanation": "कैप्टन चश्मेवाले का नेताजी के प्रति आदर भाव हालदार साहब को सबसे ज्यादा छू गया।"
+                "correctIndex": 0,
+                "explanation": "हालदार साहब ने देखा कि कैप्टन के न रहने पर भी बच्चों ने सरकंडे का चश्मा बनाकर नेताजी की मूर्ति पर पहनाया था, जिससे सिद्ध हुआ कि नई पीढ़ी में भी देशभक्ति जीवित है।"
               }
             ],
             "progressStatus": "Not Started",
@@ -2981,37 +2863,36 @@
             "number": 4,
             "title": "Balgobin Bhagat (Ramvriksh Benipuri)",
             "titleHi": "बालगोबिन भगत (रामवृक्ष बेनीपुरी)",
-            "summary": "Sketch of Balgobin Bhagat: pious ascetic householder and follower of Kabir. Defies orthodox Hindu rituals by having widowed daughter-in-law light his only son's pyre and remarry.",
-            "summaryHi": "कबीरपंथी बालगोबिन भगत का समाज-सुधारक एवं भक्तिमय जीवन चरित्र।",
+            "summary": "कबीरपंथी गृहस्थ संत बालगोबिन भगत के आदर्श जीवन, सामाजिक रूढ़ियों पर प्रहार और आडंबरहीन भक्ति का प्रेरणादायी रेखाचित्र।",
+            "summaryHi": "साधु केवल वेशभूषा से नहीं बल्कि पवित्र आचरण से होता है। बालगोबिन भगत द्वारा पुत्र की मृत्यु पर उत्सव मनाना और पतोहू का पुनर्विवाह करवाना सामाजिक क्रांति का प्रतीक है।",
             "keyConcepts": [
-              "Rejection of caste and gender orthodoxy",
-              "True asceticism is purity of conduct, not wearing saffron robes"
+              "संन्यास का आधार बाहरी वेशभूषा नहीं अपितु जीवन के मानवीय मूल्य हैं",
+              "कबीर के पदों का तन्मयता से गायन और ईश्वर के प्रति अटूट विश्वास",
+              "विधवा विवाह का समर्थन और रूढ़िवादी मान्यताओं का साहसिक खंडन",
+              "आत्मा का परमात्मा में विलीन होना: मृत्यु को मिलन का पर्व मानना"
             ],
             "formulas": [
-              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
-              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
-              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
-              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+              "मूल सिद्धांत: कर्मयोग + आडंबरविहीन भक्ति = सच्चा साधुत्व"
             ],
             "importantQuestions": [
               {
-                "question": "भगत ने अपने पुत्र की मृत्यु पर अपनी भावनाएँ किस प्रकार व्यक्त कीं?",
-                "questionHi": "भगत ने अपने पुत्र की मृत्यु पर अपनी भावनाएँ किस प्रकार व्यक्त कीं?",
-                "solution": "उन्होंने विलाप करने के स्थान पर कबीर के गीत गाए और कहा कि आत्मा परमात्मा से मिल गई है, यह विलाप का नहीं उत्सव का समय है।",
+                "question": "भगत ने अपने बेटे की मृत्यु पर अपनी भावनाएँ किस प्रकार व्यक्त कीं?",
+                "questionHi": "पुत्र की मृत्यु पर बालगोबिन भगत का आचरण सामान्य लोगों से भिन्न क्यों था?",
+                "solution": "भगत ने रोने-धोने के स्थान पर पुत्र के शव के समीप बैठकर कबीर के पद गाए और अपनी पुत्रवधू से भी उत्सव मनाने को कहा, क्योंकि उनके अनुसार विरहिणी आत्मा का अपने प्रियतम परमात्मा से मिलन हो गया था।",
                 "marks": 3
               }
             ],
             "mcqs": [
               {
-                "question": "बालगोबिन भगत किसे अपना 'साहब' मानते थे?",
+                "question": "बालगोबिन भगत किस संत के आदर्शों और गीतों पर चलते थे?",
                 "options": [
-                  "तुलसीदास",
-                  "कबीर",
+                  "कबीरदास",
                   "सूरदास",
+                  "तुलसीदास",
                   "रैदास"
                 ],
-                "correctIndex": 1,
-                "explanation": "बालगोबिन भगत कबीर को अपना साहब मानते थे और उन्हीं के पदों को गाते थे।"
+                "correctIndex": 0,
+                "explanation": "बालगोबिन भगत कबीर को 'साहब' मानते थे, उन्हीं के गीतों को गाते और उन्हीं के आदेशों पर चलते थे।"
               }
             ],
             "progressStatus": "Not Started",
@@ -3020,45 +2901,225 @@
         ]
       },
       {
-        "id": "sparsh",
-        "title": "Sparsh Part 2 (Course B)",
-        "titleHi": "स्पर्श भाग २ (कोर्स ब)",
+        "id": "hindi_kritika_2",
+        "title": "Kritika Part 2 (कृतिका भाग 2 - पूरक पाठ्यपुस्तक)",
+        "titleHi": "कृतिका भाग 2",
         "chapters": [
           {
             "number": 1,
-            "title": "Saakhi (Kabir)",
-            "titleHi": "साखी (कबीर)",
-            "summary": "Kabir's couplets on giving up ego, sweet speech, searching God within one's heart (like musk in deer's navel), and finding joy in divine devotion.",
-            "summaryHi": "मीठी वाणी, अहंकार का त्याग, कस्तूरी मृग रूपक तथा ईश्वर की सर्वव्यापकता।",
+            "title": "Mata Ka Aanchal (Shivpujan Sahay)",
+            "titleHi": "माता का आँचल (शिवपूजन सहाय)",
+            "summary": "देहाती जीवन, बाल सुलभ क्रीड़ाओं और पिता-माता के वात्सल्य का आत्मीय चित्रण। विपत्ति के समय बालक का पिता से अधिक माता के आँचल में सुरक्षा का अनुभव करना।",
+            "summaryHi": "उपन्यास 'देहाती दुनिया' से उद्धृत। भोलानाथ का बचपन, ग्रामीण खेलकूद और सांप के डर से कांपते हुए माँ की गोद में शरण लेना।",
             "keyConcepts": [
-              "Ego destruction: 'Jab main tha tab Hari nahi'",
-              "Sadhu bhasha (Sadhukkadi)"
+              "ग्रामीण परिवेश और बच्चों के समूहबद्ध प्राकृतिक खेल",
+              "पिता का बच्चों के साथ मित्रवत व्यवहार (रामायण पाठ, भोजन, खेल)",
+              "माता के वात्सल्य और आँचल की असीम ममतामयी सुरक्षा"
             ],
             "formulas": [
-              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
-              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
-              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
-              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+              "केंद्रीय भाव: संकट में माता का आँचल सर्वाधिक शांति एवं सुरक्षा प्रदान करता है।"
             ],
             "importantQuestions": [
               {
-                "question": "'मीठी वाणी बोलने से औरों को सुख और अपने तन को शीतलता कैसे प्राप्त होती है?'",
-                "questionHi": "'मीठी वाणी बोलने से औरों को सुख और अपने तन को शीतलता कैसे प्राप्त होती है?'",
-                "solution": "अहंकार रहित मधुर वाणी सुनने वाले के मन को शांत करती है और बोलने वाले के चित्त को क्रोध से मुक्त रखती है।",
+                "question": "भोलानाथ अपने साथियों को देखकर सिसकना क्यों भूल जाता था?",
+                "questionHi": "रोते हुए भोलानाथ का साथियों को देखकर रोना भूल जाना बाल स्वभाव की किस विशेषता को दर्शाता है?",
+                "solution": "बाल स्वभाव खेल और हमउम्र साथियों की संगति को सबसे अधिक प्रिय मानता है। साथियों को नए-नए खेलों की तैयारी करते देख भोलानाथ अपनी पीड़ा व रोना भूलकर उनके साथ खेलने में मग्न हो जाता था।",
                 "marks": 3
               }
             ],
             "mcqs": [
               {
-                "question": "कस्तूरी कहाँ बसती है?",
+                "question": "सांप के भय से व्याकुल भोलानाथ ने अंततः कहाँ शरण ली?",
                 "options": [
-                  "वन में",
-                  "मृग की नाभि में",
-                  "पेड़ों पर",
-                  "पहाड़ों में"
+                  "माता के आँचल में",
+                  "पिताजी के पास",
+                  "मित्रों के घर",
+                  "खलिहान में"
                 ],
-                "correctIndex": 1,
-                "explanation": "कबीर के अनुसार कस्तूरी मृग की नाभि में समाई होती है।"
+                "correctIndex": 0,
+                "explanation": "पिता के पुकारने पर भी भयभीत भोलानाथ सीधे अपनी माता के पास गया और उनके आँचल में छिपकर रोने लगा।"
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          },
+          {
+            "number": 2,
+            "title": "Sana Sana Hath Jodi (Madhu Kankariya)",
+            "titleHi": "साना साना हाथ जोड़ि (मधु कांकड़िया)",
+            "summary": "सिक्किम, गंगटोक और हिमालय की अप्रतिम प्राकृतिक सुंदरता का सजीव यात्रा वृत्तांत। साथ ही पहाड़ी जीवन के कठोर संघर्ष और सीमा पर तैनात सैनिकों के प्रति नमन।",
+            "summaryHi": "प्राकृतिक सौंदर्य के पीछे छिपी कठोर वास्तविकता: पहाड़ी महिलाओं द्वारा पत्थर तोड़कर सड़क बनाना और देश की सीमाओं की रक्षा करने वाले जवानों का त्याग।",
+            "keyConcepts": [
+              "गंगटोक: 'मेहनतकश बादशाहों का शहर'",
+              "प्रकृति का सौंदर्य और उससे मिलने वाला आत्मिक सुकून",
+              "सिक्किमी युवतियों का श्रम सौंदर्य और मातृत्व व श्रम का समन्वय",
+              "कटाओ: 'भारत का स्विट्जरलैंड', जहाँ प्रकृति अपने विशुद्ध रूप में है"
+            ],
+            "formulas": [
+              "साना साना हाथ जोड़ि = छोटे-छोटे हाथ जोड़कर प्रार्थना करती हूँ कि मेरा सारा जीवन अच्छाइयों को समर्पित हो।"
+            ],
+            "importantQuestions": [
+              {
+                "question": "गंगटोक को 'मेहनतकश बादशाहों का शहर' क्यों कहा गया है?",
+                "questionHi": "सिक्किम की राजधानी गंगटोक को मेहनतकश बादशाहों का नगर क्यों माना गया है?",
+                "solution": "गंगटोक के निवासियों ने विषम भौगोलिक परिस्थितियों के बावजूद अपने अनथक परिश्रम और लगन से इस पर्वतीय नगर को अत्यंत सुंदर और भव्य बनाया है। यहाँ का हर व्यक्ति स्वाभिमान और कठोर श्रम से जीवन जीता है।",
+                "marks": 3
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "सिक्किम के कटाओ स्थल को किस उपनाम से जाना जाता है?",
+                "options": [
+                  "भारत का स्विट्जरलैंड",
+                  "देवभूमि",
+                  "सैलानियों का स्वर्ग",
+                  "फूलों की घाटी"
+                ],
+                "correctIndex": 0,
+                "explanation": "कटाओ अपनी प्राकृतिक बर्फबारी और सुंदरता के कारण 'भारत का स्विट्जरलैंड' कहलाता है।"
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          }
+        ]
+      },
+      {
+        "id": "hindi_vyakaran_a",
+        "title": "Hindi Vyakaran Course A (व्याकरण - कोर्स ए)",
+        "titleHi": "व्याकरण (कोर्स ए)",
+        "chapters": [
+          {
+            "number": 1,
+            "title": "Pad Parichay (पद परिचय)",
+            "titleHi": "पद परिचय",
+            "summary": "वाक्य में प्रयुक्त पदों (संज्ञा, सर्वनाम, विशेषण, क्रिया, क्रियाविशेषण, अव्यय) का व्याकरणिक परिचय देना। लिंग, वचन, कारक, काल, वाच्य आदि का उल्लेख करना।",
+            "summaryHi": "व्याकरणिक दृष्टि से किसी पद की संपूर्ण पहचान प्रस्तुत करना ही पद परिचय कहलाता है।",
+            "keyConcepts": [
+              "संज्ञा पद परिचय: भेद (व्यक्तिवाचक, जातिवाचक, भाववाचक), लिंग, वचन, कारक, क्रिया से संबंध",
+              "सर्वनाम पद परिचय: भेद (पुरुषवाचक, निजवाचक आदि), लिंग, वचन, कारक",
+              "विशेषण पद परिचय: भेद, लिंग, वचन, विशेष्य",
+              "क्रिया पद परिचय: अकर्मक/सकर्मक, काल, वाच्य, लिंग, वचन, धातु, कर्ता"
+            ],
+            "formulas": [
+              "सूत्र: पद का भेद + लिंग + वचन + कारक + वाक्य के अन्य पदों से संबंध"
+            ],
+            "importantQuestions": [
+              {
+                "question": "रेखांकित पद का परिचय दीजिए: 'रोहन *तेज* दौड़ता है।'",
+                "questionHi": "वाक्य में 'तेज' शब्द का व्याकरणिक पद परिचय लिखिए।",
+                "solution": "तेज: रीतिवाचक क्रियाविशेषण, 'दौड़ता है' क्रिया की रीति/ढंग की विशेषता बता रहा है।",
+                "marks": 1
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "'राधा पुस्तक पढ़ती है' में 'पुस्तक' पद का सही परिचय क्या है?",
+                "options": [
+                  "जातिवाचक संज्ञा, स्त्रीलिंग, एकवचन, कर्म कारक",
+                  "व्यक्तिवाचक संज्ञा, पुल्लिंग, एकवचन, कर्ता कारक",
+                  "भाववाचक संज्ञा, स्त्रीलिंग, बहुवचन, करण कारक",
+                  "गुणवाचक विशेषण, एकवचन, कर्म कारक"
+                ],
+                "correctIndex": 0,
+                "explanation": "'पुस्तक' जातिवाचक संज्ञा है, स्त्रीलिंग है, एकवचन है तथा 'पढ़ती है' क्रिया का कर्म है।"
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          },
+          {
+            "number": 2,
+            "title": "Vakya Bhed & Vachya (वाक्य भेद एवं वाच्य)",
+            "titleHi": "रचना के आधार पर वाक्य भेद एवं वाच्य",
+            "summary": "रचना के आधार पर वाक्य के तीन भेद: सरल वाक्य, संयुक्त वाक्य और मिश्र वाक्य। वाक्य रूपांतरण। वाच्य के तीन भेद: कर्तृवाच्य, कर्मवाच्य और भाववाच्य।",
+            "summaryHi": "सरल, संयुक्त व मिश्र वाक्यों की पहचान तथा वाच्य परिवर्तन के सटीक नियम।",
+            "keyConcepts": [
+              "सरल वाक्य: एक उद्देश्य और एक विधेय (एक मुख्य समापिका क्रिया)",
+              "संयुक्त वाक्य: दो स्वतंत्र उपवाक्य समुच्चयबोधक अव्यय (और, तथा, किंतु, परंतु, या) से जुड़े हों",
+              "मिश्र वाक्य: एक मुख्य उपवाक्य और एक या अधिक आश्रित उपवाक्य (कि, जो, जैसा, जब-तब, यदि-तो)",
+              "कर्तृवाच्य (कर्ता की प्रधानता), कर्मवाच्य (कर्म की प्रधानता + 'के द्वारा'), भाववाच्य (क्रिया के भाव की प्रधानता, अकर्मक क्रिया)"
+            ],
+            "formulas": [
+              "सरल -> संयुक्त: दो स्वतंत्र वाक्य बनाकर 'और/किंतु' से जोड़ें",
+              "सरल -> मिश्र: 'जो/जिसने/जब/कि' लगाकर आश्रित उपवाक्य बनाएं",
+              "कर्तृवाच्य -> कर्मवाच्य: कर्ता + से/के द्वारा + क्रिया में 'जा' रूप"
+            ],
+            "importantQuestions": [
+              {
+                "question": "निर्देशानुसार रूपांतरित कीजिए: 'सूर्योदय होने पर कुहासा छंट गया।' (संयुक्त वाक्य में)",
+                "questionHi": "सरल वाक्य को संयुक्त वाक्य में बदलिए।",
+                "solution": "सूर्योदय हुआ और कुहासा छंट गया।",
+                "marks": 1
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "'मुझसे अब चला नहीं जाता' यह वाक्य किस वाच्य का उदाहरण है?",
+                "options": [
+                  "भाववाच्य",
+                  "कर्मवाच्य",
+                  "कर्तृवाच्य",
+                  "मिश्र वाच्य"
+                ],
+                "correctIndex": 0,
+                "explanation": "अकर्मक क्रिया है तथा असमर्थता का भाव प्रमुख है, अतः यह भाववाच्य है।"
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hindi_b",
+    "name": "Hindi Course B",
+    "nameHi": "हिंदी (कोर्स बी)",
+    "code": "085",
+    "icon": "menu_book",
+    "color": "#EA580C",
+    "books": [
+      {
+        "id": "hindi_sparsh_2",
+        "title": "Sparsh Part 2 (स्पर्श भाग 2 - पद्य एवं गद्य)",
+        "titleHi": "स्पर्श भाग 2",
+        "chapters": [
+          {
+            "number": 1,
+            "title": "Saakhi (Kabir)",
+            "titleHi": "साखी (कबीर)",
+            "summary": "कबीरदास जी की साखियाँ। मीठी वाणी का महत्व, ईश्वर की सर्वव्यापकता, अहंकार का त्याग, कस्तूरी मृग का दृष्टांत और ज्ञान रूपी दीपक से अज्ञान के अंधकार का विनाश।",
+            "summaryHi": "सधुक्कड़ी भाषा में रचित कबीर की साखियों में आडंबरहीन प्रेम, नम्रता, गुरु महिमा और प्रभु भक्ति का अमर संदेश।",
+            "keyConcepts": [
+              "ऐसी बानी बोलिए, मन का आपा खोइ: नम्र वाणी से आत्मशांति और दूसरों को सुख",
+              "कस्तूरी कुंडलि बसै, मृग ढूँढै बन माहि: ईश्वर घट-घट में विद्यमान है",
+              "जब मैं था तब हरि नहीं, अब हरि हैं मैं नाहिं: अहंकार और ईश्वर एक साथ नहीं रह सकते",
+              "पोथी पढ़ि पढ़ि जग मुवा, पंडित भया न कोय: प्रेम का ढाई आखर ही वास्तविक ज्ञान है"
+            ],
+            "formulas": [
+              "काव्य लक्षण: दोहा छंद, सधुक्कड़ी/पंचमेल खिचड़ी भाषा, शांत रस, नीतिपरक उपदेश"
+            ],
+            "importantQuestions": [
+              {
+                "question": "'मीठी वाणी बोलने से औरों को सुख और अपने तन को शीतलता कैसे प्राप्त होती है?'",
+                "questionHi": "कबीर के अनुसार मधुर वाणी का क्या प्रभाव पड़ता है?",
+                "solution": "मीठी वाणी बोलने से अहंकार नष्ट होता है, सुनने वाले के हृदय का क्रोध शांत होता है तथा बोलने वाले का मन भी तनावमुक्त एवं शांत रहता है। इससे पारस्परिक सद्भाव में वृद्धि होती है।",
+                "marks": 3
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "कबीर की साखी में 'दीपक देख्या माहिं' से क्या तात्पर्य है?",
+                "options": [
+                  "ज्ञान रूपी प्रकाश का अंतःकरण में साक्षात्कार",
+                  "मिट्टी का दिया जलाना",
+                  "सूर्य का निकलना",
+                  "मंदिर में दीप जलाना"
+                ],
+                "correctIndex": 0,
+                "explanation": "कबीर के अनुसार गुरु की कृपा से जब हृदय में ज्ञान का दीपक प्रज्वलित होता है, तो अज्ञान का सारा अंधकार मिट जाता है।"
               }
             ],
             "progressStatus": "Not Started",
@@ -3068,37 +3129,130 @@
             "number": 2,
             "title": "Bade Bhai Sahab (Premchand)",
             "titleHi": "बड़े भाई साहब (प्रेमचंद)",
-            "summary": "Elder brother studies day and night but fails; younger brother plays all day yet tops class. Elder brother gently explains that real maturity and wisdom come from life experience and parental values, not rote textbook memorization.",
-            "summaryHi": "बड़े भाई साहब का छोटे भाई के प्रति स्नेह, कर्तव्यबोध और पुस्तकीय ज्ञान बनाम जीवन के अनुभव की कहानी।",
+            "summary": "मुंशी प्रेमचंद की प्रसिद्ध मनोवैज्ञानिक कहानी। पढ़ाई की रटंत प्रणाली पर व्यंग्य, बड़े भाई की जिम्मेदारी, अनुभव का महत्व और छोटे भाई का आदरभाव।",
+            "summaryHi": "उम्र में पाँच साल बड़े भाई साहब का हर समय पढ़ते रहना और फेल होना, जबकि लेखक का खेलकूद में रहकर भी अव्वल आना। अंततः जीवन में किताबी ज्ञान से अधिक अनुभव के महत्व की स्थापना।",
             "keyConcepts": [
-              "Rote learning vs true wisdom",
-              "Affection beneath strict discipline"
+              "शिक्षा प्रणाली की विसंगतियाँ: रटने की प्रवृत्ति बनाम व्यावहारिक समझ",
+              "बड़े भाई का आत्मानुशासन: छोटे भाई को सही राह दिखाने हेतु स्वयं की इच्छाओं का दमन",
+              "अनुभव का महत्व: दादा और अम्मा के पास डिग्रियाँ न होते हुए भी दुनियादारी की गहरी समझ",
+              "बाल मनोविज्ञान और भ्रातृ-प्रेम का संवेदनशील चित्रण"
             ],
             "formulas": [
-              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
-              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
-              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
-              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+              "मूल संदेश: जीवन में केवल किताबी ज्ञान पर्याप्त नहीं, बड़ों का अनुभव और व्यावहारिक सूझबूझ सर्वोपरि है।"
             ],
             "importantQuestions": [
               {
-                "question": "छोटे भाई के अव्वल आने पर बड़े भाई साहब ने उसे क्या नसीहत दी?",
-                "questionHi": "छोटे भाई के अव्वल आने पर बड़े भाई साहब ने उसे क्या नसीहत दी?",
-                "solution": "उन्होंने रावण का उदाहरण देकर समझाया कि घमंड बड़े-बड़ों का नहीं रहा, इसलिए एक कक्षा पास करके अहंकार मत करो।",
+                "question": "बड़े भाई साहब छोटे भाई को क्या सलाह देते थे और क्यों?",
+                "questionHi": "बड़े भाई साहब द्वारा दिए जाने वाले उपदेशों का लेखक पर क्या प्रभाव पड़ता था?",
+                "solution": "बड़े भाई साहब छोटे भाई को खेलकूद छोड़कर दिन-रात पढ़ाई पर ध्यान देने तथा कभी घमंड न करने की सलाह देते थे। वे उदाहरण देते थे कि रावण और चक्रवर्ती राजाओं का घमंड भी नहीं टिका। लेखक इन उपदेशों से सहम जाता था किंतु खेल का मोह पूरी तरह नहीं छोड़ पाता था।",
                 "marks": 3
               }
             ],
             "mcqs": [
               {
-                "question": "'बड़े भाई साहब' कहानी के लेखक कौन हैं?",
+                "question": "बड़े भाई साहब के अनुसार कौन-सी शक्ति किताबी ज्ञान से अधिक महत्वपूर्ण है?",
                 "options": [
-                  "मुंशी प्रेमचंद",
-                  "जयशंकर प्रसाद",
-                  "यशपाल",
-                  "हजारी प्रसाद द्विवेदी"
+                  "जीवन का व्यावहारिक अनुभव",
+                  "रटने की क्षमता",
+                  "कड़ा परिश्रम",
+                  "खेल में दक्षता"
                 ],
                 "correctIndex": 0,
-                "explanation": "यह प्रसिद्ध कहानी मुंशी प्रेमचंद द्वारा लिखी गई है।"
+                "explanation": "बड़े भाई साहब ने समझाया कि अम्मा और दादा भले ही पढ़े-लिखे न हों, लेकिन उनके पास जीवन का जो गहरा अनुभव है, वह दुनिया की किसी डिग्री से बड़ा है।"
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          }
+        ]
+      },
+      {
+        "id": "hindi_sanchayan_2",
+        "title": "Sanchayan Part 2 (संचयन भाग 2 - पूरक पाठ्यपुस्तक)",
+        "titleHi": "संचयन भाग 2",
+        "chapters": [
+          {
+            "number": 1,
+            "title": "Harihar Kaka (Mithileshwar)",
+            "titleHi": "हरिहर काका (मिथिलेश्वर)",
+            "summary": "ग्रामीण समाज में पारिवारिक स्वार्थ, रिश्तों की खोखली बुनियाद और धार्मिक मठाधीशों के पाखंड का यथार्थवादी चित्रण। वृद्ध हरिहर काका की जमीन पर परिजनों और महंत की गिद्ध दृष्टि।",
+            "summaryHi": "पंद्रह बीघे जमीन के लिए सगे भाइयों द्वारा अत्याचार और धर्मस्थल के महंत द्वारा अपहरण। वृद्धों की सामाजिक सुरक्षा और मानवीय संवेदना का हनन।",
+            "keyConcepts": [
+              "स्वार्थ से संचालित आधुनिक पारिवारिक संबंध",
+              "धर्म के नाम पर मठों में पनपता अनैतिक आचरण और षड्यंत्र",
+              "वृद्धावस्था में असहाय व्यक्तियों की त्रासदी",
+              "काका का मौन: अन्याय के विरुद्ध मूक विरोध का प्रतीक"
+            ],
+            "formulas": [
+              "सामाजिक यथार्थ: जब तक जमीन अपने नाम है, तभी तक रिश्तेदार पूछते हैं।"
+            ],
+            "importantQuestions": [
+              {
+                "question": "हरिहर काका को जबरन उठाकर ले जाने वाले कौन थे और उनका क्या उद्देश्य था?",
+                "questionHi": "महंत और उसके आदमियों द्वारा हरिहर काका का अपहरण क्यों किया गया?",
+                "solution": "ठाकुरबारी के महंत और उसके गुंडों ने हरिहर काका का अपहरण उनकी 15 बीघे उपजाऊ जमीन को ठाकुरबारी के नाम जबरन वसीयत कराने के लिए किया था ताकि वे उस पर कब्जा कर सकें।",
+                "marks": 3
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "हरिहर काका के पास कुल कितनी कृषि भूमि थी?",
+                "options": [
+                  "15 बीघे",
+                  "20 बीघे",
+                  "10 बीघे",
+                  "25 बीघे"
+                ],
+                "correctIndex": 0,
+                "explanation": "हरिहर काका के पास उनके हिस्से की 15 बीघे जमीन थी, जो सभी विवादों की जड़ थी।"
+              }
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
+          }
+        ]
+      },
+      {
+        "id": "hindi_vyakaran_b",
+        "title": "Hindi Vyakaran Course B (व्याकरण - कोर्स बी)",
+        "titleHi": "व्याकरण (कोर्स बी)",
+        "chapters": [
+          {
+            "number": 1,
+            "title": "Padbandh, Samas & Vakya Rupantaran (व्याकरण संपूर्ण)",
+            "titleHi": "पदबंध, समास एवं वाक्य रूपांतरण",
+            "summary": "पदबंध के पाँच भेद (संज्ञा, सर्वनाम, विशेषण, क्रिया, क्रियाविशेषण पदबंध)। समास के प्रमुख भेद (तत्पुरुष, कर्मधारय, द्विगु, द्वंद्व, बहुव्रीहि, अव्ययीभाव)। रचना के आधार पर वाक्य रूपांतरण और मुहावरे।",
+            "summaryHi": "कोर्स बी के सभी महत्वपूर्ण व्याकरणिक विषय: पदबंध पहचान, समस्त पद व विग्रह, वाक्य रूपांतरण और पाठ्यपुस्तक आधारित मुहावरे।",
+            "keyConcepts": [
+              "पदबंध: जब एक से अधिक पद मिलकर एक व्याकरणिक इकाई का कार्य करें",
+              "संज्ञा पदबंध (शीर्ष पर संज्ञा), विशेषण पदबंध (संज्ञा की विशेषता बताने वाला समूह)",
+              "समास: दो या दो से अधिक शब्दों का मेल (द्वंद्व: दोनों पद प्रधान, बहुव्रीहि: अन्य पद प्रधान)",
+              "मुहावरे: आँखें खुलना, दाँतों पसीना आना, हवा से बातें करना, आपे से बाहर होना"
+            ],
+            "formulas": [
+              "पहचान: अंतिम पद संज्ञा = संज्ञा पदबंध; अंतिम पद सर्वनाम = सर्वनाम पदबंध",
+              "कर्मधारय = विशेषण-विशेष्य या उपमेय-उपमान (नीलगगन)",
+              "बहुव्रीहि = अन्य पद प्रधान (दशानन = रावण)"
+            ],
+            "importantQuestions": [
+              {
+                "question": "'दशरथ पुत्र राम ने रावण को मारा।' इस वाक्य में 'दशरथ पुत्र राम' कौन-सा पदबंध है?",
+                "questionHi": "पदबंध का भेद पहचानिए।",
+                "solution": "संज्ञा पदबंध (क्योंकि अंतिम और मुख्य पद 'राम' संज्ञा है)।",
+                "marks": 1
+              }
+            ],
+            "mcqs": [
+              {
+                "question": "'त्रिफला' शब्द में कौन-सा समास है?",
+                "options": [
+                  "द्विगु समास",
+                  "द्वंद्व समास",
+                  "तत्पुरुष समास",
+                  "अव्ययीभाव समास"
+                ],
+                "correctIndex": 0,
+                "explanation": "पहला पद संख्यावाचक विशेषण ('त्रि' = तीन) है तथा समूह का बोध कराता है, अतः द्विगु समास है।"
               }
             ],
             "progressStatus": "Not Started",
@@ -3132,12 +3286,7 @@
               "Mail merge for bulk personalized letters",
               "Creating and updating automatic Table of Contents"
             ],
-            "formulas": [
-              "Keyboard Shortcuts: Critical standard shortcuts tested in Board exam.",
-              "File Formats & Protocols: TCP/IP, HTTP/S, SQL Data Types and Constraints.",
-              "Core Definitions: Artificial Intelligence Domains (CV, NLP, Data Sciences).",
-              "Security & Cyber Ethics: Antivirus, Firewalls, Phishing, Strong Passwords."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What is Mail Merge? State its two main components.",
@@ -3158,9 +3307,7 @@
                 "correctIndex": 0,
                 "explanation": "F11 opens the Styles and Formatting deck."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 2,
@@ -3196,9 +3343,7 @@
                 "correctIndex": 1,
                 "explanation": "Goal Seek solves for unknown input to match a desired output target."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 3,
@@ -3234,9 +3379,7 @@
                 "correctIndex": 0,
                 "explanation": "A Primary Key must be unique and NOT NULL."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           },
           {
             "number": 4,
@@ -3249,12 +3392,7 @@
               "Network topologies: Star, Bus, Ring",
               "Security: Strong passwords, two-factor authentication, avoiding phishing emails and unsafe downloads"
             ],
-            "formulas": [
-              "Keyboard Shortcuts: Critical standard shortcuts tested in Board exam.",
-              "File Formats & Protocols: TCP/IP, HTTP/S, SQL Data Types and Constraints.",
-              "Core Definitions: Artificial Intelligence Domains (CV, NLP, Data Sciences).",
-              "Security & Cyber Ethics: Antivirus, Firewalls, Phishing, Strong Passwords."
-            ],
+            "formulas": [],
             "importantQuestions": [
               {
                 "question": "What are Sticky Keys and who benefits from them?",
@@ -3275,9 +3413,7 @@
                 "correctIndex": 1,
                 "explanation": "Toggle Keys emits an audio beep when locking keys are toggled."
               }
-            ],
-            "progressStatus": "Not Started",
-            "isBookmarked": false
+            ]
           }
         ]
       }

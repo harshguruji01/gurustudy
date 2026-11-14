@@ -1,8 +1,14 @@
 package online.webguruji.gurustudy.ui.screens
 
+import android.Manifest
+import android.app.AlarmManager
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
+import androidx.core.content.ContextCompat
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -29,8 +35,11 @@ fun ProfileScreen(
     isDarkMode: Boolean,
     onToggleDarkMode: (Boolean) -> Unit,
     onLanguageChanged: (String) -> Unit,
-    onResetData: () -> Unit
+    onSaveProfile: (UserProfile) -> Unit,
+    onResetData: () -> Unit,
+    onNavigateToAlarmCenter: () -> Unit = {}
 ) {
+    var showEditProfileDialog by remember { mutableStateOf(false) }
     var showResetDialog by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -63,43 +72,89 @@ fun ProfileScreen(
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Row(
-                    modifier = Modifier.padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Surface(
-                        shape = CircleShape,
-                        color = Color(0xFFDBEAFE),
-                        modifier = Modifier.size(60.dp)
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Box(contentAlignment = Alignment.Center) {
+                        Surface(
+                            shape = CircleShape,
+                            color = Color(0xFFDBEAFE),
+                            modifier = Modifier.size(60.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = userProfile.fullName.take(1).uppercase().ifBlank { "S" },
+                                    fontSize = 26.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = RoyalBlue
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.width(16.dp))
+
+                        Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = userProfile.fullName.take(1).uppercase().ifBlank { "S" },
-                                fontSize = 26.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = RoyalBlue
+                                text = userProfile.fullName.ifBlank { "Student" },
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                text = "Class 10th (Session 2026–27)",
+                                fontSize = 13.sp,
+                                color = Color(0xFF64748B)
+                            )
+                            Text(
+                                text = userProfile.schoolName.ifBlank { "School Name Not Set" },
+                                fontSize = 12.sp,
+                                color = Color(0xFF94A3B8)
                             )
                         }
                     }
 
-                    Spacer(modifier = Modifier.width(16.dp))
+                    Spacer(modifier = Modifier.height(14.dp))
 
-                    Column {
-                        Text(
-                            text = userProfile.fullName.ifBlank { "Student" },
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "Class 10th (Session 2026–27)",
-                            fontSize = 13.sp,
-                            color = Color(0xFF64748B)
-                        )
-                        Text(
-                            text = userProfile.schoolName.ifBlank { "School Name" },
-                            fontSize = 12.sp,
-                            color = Color(0xFF94A3B8)
-                        )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = Color(0xFFEFF6FF)
+                        ) {
+                            Text(
+                                text = "Hindi: ${userProfile.hindiCourse}",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = RoyalBlue,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            )
+                        }
+
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = Color(0xFFDCFCE7)
+                        ) {
+                            Text(
+                                text = "Goal: ${userProfile.dailyStudyGoalMinutes}m / Day",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = Color(0xFF16A34A),
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(14.dp))
+
+                    Button(
+                        onClick = { showEditProfileDialog = true },
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("✏️ Edit Student Profile", fontSize = 13.sp, color = Color.White)
                     }
                 }
             }
@@ -173,9 +228,54 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Display Over Other Apps Permission Section
+            // Smart Alarm & Overlay Center Hub
+            Card(
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = RoyalBlue),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier.padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = Color(0x33FFFFFF),
+                        modifier = Modifier.size(46.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Text("⏰", fontSize = 22.sp)
+                        }
+                    }
+                    Spacer(modifier = Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Smart Alarm & Overlay Center",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 15.sp,
+                            color = Color.White
+                        )
+                        Text(
+                            text = "Configure 4 routine alarms, floating reminders & voice alerts",
+                            fontSize = 11.sp,
+                            color = Color(0xFFBAE6FD)
+                        )
+                    }
+                    Button(
+                        onClick = onNavigateToAlarmCenter,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color.White),
+                        shape = RoundedCornerShape(10.dp)
+                    ) {
+                        Text("Open", color = RoyalBlue, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // Special Features & Permissions Section
             Text(
-                text = "Special Features & Permissions",
+                text = "Android System Permissions",
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onBackground
@@ -184,8 +284,130 @@ fun ProfileScreen(
             Spacer(modifier = Modifier.height(10.dp))
 
             val context = LocalContext.current
-            var hasOverlayPermission by remember { mutableStateOf(Settings.canDrawOverlays(context)) }
+            val hasOverlayPermission = Settings.canDrawOverlays(context)
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager
+            val canExactAlarm = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                alarmManager?.canScheduleExactAlarms() ?: true
+            } else true
+            val hasNotificationPermission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+            } else true
 
+            // Card 1: Notifications
+            Card(
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("🔔 ", fontSize = 18.sp)
+                            Column {
+                                Text("Study Notifications", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                                Text(
+                                    text = if (hasNotificationPermission) "Active & Allowed" else "Disabled in system settings",
+                                    fontSize = 12.sp,
+                                    color = if (hasNotificationPermission) EmeraldGreen else Color(0xFFD97706)
+                                )
+                            }
+                        }
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = if (hasNotificationPermission) Color(0xFFDCFCE7) else Color(0xFFFEF3C7)
+                        ) {
+                            Text(
+                                text = if (hasNotificationPermission) "✓ Granted" else "⚠️ Action",
+                                color = if (hasNotificationPermission) Color(0xFF16A34A) else Color(0xFFD97706),
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+                    if (!hasNotificationPermission) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Button(
+                            onClick = {
+                                val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+                                    putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                                }
+                                context.startActivity(intent)
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("Enable Notifications in Settings", fontSize = 13.sp, color = Color.White)
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Card 2: Exact Alarms
+            Card(
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("⏰ ", fontSize = 18.sp)
+                            Column {
+                                Text("Exact Study Alarms", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                                Text(
+                                    text = if (canExactAlarm) "Precise minute wake-up permitted" else "Inexact alarm fallback mode",
+                                    fontSize = 12.sp,
+                                    color = if (canExactAlarm) EmeraldGreen else Color(0xFFD97706)
+                                )
+                            }
+                        }
+                        Surface(
+                            shape = RoundedCornerShape(8.dp),
+                            color = if (canExactAlarm) Color(0xFFDCFCE7) else Color(0xFFFEF3C7)
+                        ) {
+                            Text(
+                                text = if (canExactAlarm) "✓ Allowed" else "⚠️ Inexact",
+                                color = if (canExactAlarm) Color(0xFF16A34A) else Color(0xFFD97706),
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                            )
+                        }
+                    }
+                    if (!canExactAlarm && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Button(
+                            onClick = {
+                                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
+                                    data = Uri.parse("package:${context.packageName}")
+                                }
+                                context.startActivity(intent)
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("Grant Exact Alarm Permission", fontSize = 13.sp, color = Color.White)
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Card 3: Display Over Other Apps
             Card(
                 shape = RoundedCornerShape(14.dp),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -257,7 +479,7 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Privacy & Trust Section
+            // Privacy & Safe Learning
             Text(
                 text = "Privacy & Safe Learning",
                 fontWeight = FontWeight.Bold,
@@ -310,7 +532,7 @@ fun ProfileScreen(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "GuruStudy v1.0.0",
+                        text = "GuruStudy v2.0.0",
                         fontWeight = FontWeight.Bold,
                         fontSize = 15.sp,
                         color = RoyalBlue
@@ -329,7 +551,7 @@ fun ProfileScreen(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Curriculum Reference: NCERT & CBSE Academic Session 2026–27",
+                        text = "Curriculum Reference: NCERT & CBSE Academic Session 2026–2027",
                         fontSize = 11.sp,
                         color = Color(0xFF64748B)
                     )
@@ -338,6 +560,87 @@ fun ProfileScreen(
 
             Spacer(modifier = Modifier.height(30.dp))
         }
+    }
+
+    // Edit Profile Dialog
+    if (showEditProfileDialog) {
+        var editName by remember { mutableStateOf(userProfile.fullName) }
+        var editSchool by remember { mutableStateOf(userProfile.schoolName) }
+        var editHindiCourse by remember { mutableStateOf(userProfile.hindiCourse) }
+        var editGoal by remember { mutableIntStateOf(userProfile.dailyStudyGoalMinutes) }
+
+        AlertDialog(
+            onDismissRequest = { showEditProfileDialog = false },
+            title = {
+                Text("Edit Student Profile", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    OutlinedTextField(
+                        value = editName,
+                        onValueChange = { editName = it },
+                        label = { Text("Student Full Name") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    OutlinedTextField(
+                        value = editSchool,
+                        onValueChange = { editSchool = it },
+                        label = { Text("School Name") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    Text("Hindi Course Selection:", fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        FilterChip(
+                            selected = editHindiCourse == "Course A",
+                            onClick = { editHindiCourse = "Course A" },
+                            label = { Text("Course A (Kshitij/Kritika)", fontSize = 11.sp) }
+                        )
+                        FilterChip(
+                            selected = editHindiCourse == "Course B",
+                            onClick = { editHindiCourse = "Course B" },
+                            label = { Text("Course B (Sparsh/Sanchayan)", fontSize = 11.sp) }
+                        )
+                    }
+
+                    Text("Daily Study Target: ${editGoal} Minutes", fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        listOf(120, 180, 240, 300).forEach { mins ->
+                            FilterChip(
+                                selected = editGoal == mins,
+                                onClick = { editGoal = mins },
+                                label = { Text("${mins / 60}h", fontSize = 11.sp) }
+                            )
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        val updated = userProfile.copy(
+                            fullName = editName.trim(),
+                            schoolName = editSchool.trim(),
+                            hindiCourse = editHindiCourse,
+                            dailyStudyGoalMinutes = editGoal
+                        )
+                        onSaveProfile(updated)
+                        showEditProfileDialog = false
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue)
+                ) {
+                    Text("Save Profile", color = Color.White)
+                }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showEditProfileDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
     }
 
     if (showResetDialog) {

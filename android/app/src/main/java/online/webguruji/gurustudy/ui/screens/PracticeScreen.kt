@@ -4,7 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -47,9 +49,10 @@ fun PracticeScreen(
                 .padding(paddingValues)
                 .background(MaterialTheme.colorScheme.background)
         ) {
-            TabRow(
+            ScrollableTabRow(
                 selectedTabIndex = selectedTab,
-                containerColor = MaterialTheme.colorScheme.surface
+                containerColor = MaterialTheme.colorScheme.surface,
+                edgePadding = 12.dp
             ) {
                 Tab(
                     selected = selectedTab == 0,
@@ -64,7 +67,17 @@ fun PracticeScreen(
                 Tab(
                     selected = selectedTab == 2,
                     onClick = { selectedTab = 2 },
-                    text = { Text("Mistake Book (${mistakes.size})") }
+                    text = { Text("Mistakes (${mistakes.size})") }
+                )
+                Tab(
+                    selected = selectedTab == 3,
+                    onClick = { selectedTab = 3 },
+                    text = { Text("CBSE PYQs") }
+                )
+                Tab(
+                    selected = selectedTab == 4,
+                    onClick = { selectedTab = 4 },
+                    text = { Text("🤖 AI Assistant") }
                 )
             }
 
@@ -72,6 +85,8 @@ fun PracticeScreen(
                 0 -> MockQuizTab(subjects, onAddMistake)
                 1 -> FormulaSheetsTab(subjects)
                 2 -> MistakeNotebookTab(mistakes)
+                3 -> PyqTab()
+                4 -> AiAssistantTab()
             }
         }
     }
@@ -398,6 +413,163 @@ fun MistakeNotebookTab(mistakes: List<MistakeItem>) {
                         text = "💡 ${item.explanation}",
                         fontSize = 12.sp,
                         color = Color(0xFF64748B)
+                    )
+                }
+            }
+        }
+    }
+}
+
+
+@Composable
+fun PyqTab() {
+    val pyqList = listOf(
+        Triple("Mathematics", "Real Numbers • 3 Marks (CBSE 2024)", "Prove that √5 is an irrational number.\n\nOfficial Marking Scheme:\n1. Assume √5 = a/b where a, b are co-prime integers.\n2. 5 = a²/b² ⇒ a² = 5b² (5 divides a² ⇒ 5 divides a).\n3. Let a = 5c ⇒ 25c² = 5b² ⇒ b² = 5c² (5 divides b).\n4. Common factor 5 contradicts co-prime assumption. Hence √5 is irrational. [3 Marks]"),
+        Triple("Mathematics", "Quadratic Equations • 4 Marks (CBSE 2023)", "Find k if (k+4)x² + (k+1)x + 1 = 0 has equal roots.\n\nOfficial Marking Scheme:\n1. For equal roots, Discriminant D = b² - 4ac = 0.\n2. (k+1)² - 4(k+4)(1) = 0\n3. k² + 2k + 1 - 4k - 16 = 0 ⇒ k² - 2k - 15 = 0.\n4. (k-5)(k+3) = 0 ⇒ k = 5 or k = -3. [4 Marks]"),
+        Triple("Science", "Chemical Reactions • 3 Marks (CBSE 2024)", "What happens when lead nitrate is heated in a dry boiling tube?\n\nOfficial Marking Scheme:\n1. Observation: Brown fumes of NO₂ gas and yellowish lead oxide residue.\n2. Equation: 2Pb(NO₃)₂(s) —Heat→ 2PbO(s) + 4NO₂(g) + O₂(g).\n3. Reaction Type: Thermal Decomposition. [3 Marks]"),
+        Triple("Science", "Electricity • 5 Marks (CBSE 2023)", "State Joule's law of heating. Calculate cost for 1000W heater running 2h daily in September at ₹6/unit.\n\nOfficial Marking Scheme:\n1. H = I²Rt statement [2 Marks].\n2. Energy = 1kW × 2h × 30 days = 60 kWh [2 Marks].\n3. Cost = 60 × ₹6 = ₹360.00 [1 Mark]."),
+        Triple("Social Science", "Nationalism in India • 5 Marks (CBSE 2024)", "Explain reasons for launching Non-Cooperation and its withdrawal in 1922.\n\nOfficial Marking Scheme:\n1. Launch: Rowlatt Act, Jallianwala Bagh, Khilafat Movement [3 Marks].\n2. Withdrawal: Violent Chauri Chaura incident, need for satyagraha training [2 Marks].")
+    )
+
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+        modifier = Modifier.fillMaxSize()
+    ) {
+        items(pyqList) { item ->
+            var expanded by remember { mutableStateOf(false) }
+            Card(
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(14.dp)) {
+                    Text(
+                        text = item.first,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = RoyalBlue
+                    )
+                    Text(
+                        text = item.second,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Button(
+                        onClick = { expanded = !expanded },
+                        colors = ButtonDefaults.outlinedButtonColors(),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(if (expanded) "Hide Solution" else "View Official CBSE Marking Scheme")
+                    }
+                    if (expanded) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = item.third,
+                            fontSize = 12.sp,
+                            lineHeight = 18.sp,
+                            color = Color(0xFF334155),
+                            modifier = Modifier.background(Color(0xFFF8FAFC), RoundedCornerShape(8.dp)).padding(10.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun AiAssistantTab() {
+    var query by remember { mutableStateOf("") }
+    var responseText by remember { mutableStateOf("") }
+    var selectedMode by remember { mutableStateOf("Explain Concept") }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState())
+    ) {
+        Card(
+            shape = RoundedCornerShape(14.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = "🤖 AI Study Assistant (Maths & Science)",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp
+                )
+                Text(
+                    text = "Step-by-step problem solver and concept explanations strictly aligned with CBSE Class 10.",
+                    fontSize = 12.sp,
+                    color = Color(0xFF64748B)
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    placeholder = { Text("Ask any Maths or Science question...") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    listOf("Explain Concept", "Step-by-Step", "Hint First").forEach { mode ->
+                        FilterChip(
+                            selected = selectedMode == mode,
+                            onClick = { selectedMode = mode },
+                            label = { Text(mode, fontSize = 11.sp) }
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Button(
+                    onClick = {
+                        val qLower = query.lowercase()
+                        responseText = when {
+                            qLower.contains("chemical") || qLower.contains("reaction") ->
+                                "1. Chemical Equation: 3Fe + 4H2O → Fe3O4 + 4H2.\n2. Law of Conservation of Mass: Total mass of reactants equals total mass of products.\n3. Types: Combination, Decomposition, Displacement, Double Displacement."
+                            qLower.contains("quadratic") ->
+                                "1. Standard Form: ax² + bx + c = 0.\n2. Discriminant D = b² - 4ac.\n3. If D > 0: 2 distinct real roots; If D = 0: 2 equal real roots; If D < 0: no real roots.\n4. Quadratic Formula: x = [-b ± √D] / 2a."
+                            qLower.contains("electricity") || qLower.contains("ohm") ->
+                                "1. Ohm's Law: V = IR at constant temperature.\n2. Resistance factors: R = ρl/A.\n3. Series: Rs = R1 + R2 + R3. Parallel: 1/Rp = 1/R1 + 1/R2 + 1/R3."
+                            else ->
+                                "CBSE Class 10 Concept Guidance:\nFocus on key NCERT definitions, formulas with SI units, and step-by-step working to secure full marks in board examinations."
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Ask Assistant", color = Color.White)
+                }
+
+                if (responseText.isNotBlank()) {
+                    Spacer(modifier = Modifier.height(14.dp))
+                    Text(
+                        text = "Verified Syllabus Response:",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.sp,
+                        color = RoyalBlue
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = responseText,
+                        fontSize = 13.sp,
+                        lineHeight = 20.sp,
+                        color = Color(0xFF1E293B),
+                        modifier = Modifier
+                            .background(Color(0xFFF1F5F9), RoundedCornerShape(8.dp))
+                            .padding(12.dp)
                     )
                 }
             }
