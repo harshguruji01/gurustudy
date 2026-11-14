@@ -419,8 +419,9 @@ fun AlarmCenterScreen(
                             } else {
                                 "Hello ${userProfile.fullName.ifBlank { "Student" }}! This is a test of the GuruStudy smart study announcement."
                             }
-                            val announcer = TTSAnnouncer(context) {
-                                it.speak(speechText)
+                            var announcer: TTSAnnouncer? = null
+                            announcer = TTSAnnouncer(context, userProfile.preferredLanguage) {
+                                announcer?.speak(speechText)
                             }
                             Toast.makeText(context, "🔊 Playing voice announcement test...", Toast.LENGTH_SHORT).show()
                         },

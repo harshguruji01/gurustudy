@@ -233,7 +233,8 @@ class MainActivity : ComponentActivity() {
                                                         "🔔 Test Alarm scheduled for ${scheduleItem.subject}! Starting in 5 seconds...",
                                                         Toast.LENGTH_LONG
                                                     ).show()
-                                                }
+                                                },
+                                                onNavigateToAlarmCenter = { showAlarmCenter = true }
                                             )
                                         }
                                         1 -> BooksScreen(
@@ -285,7 +286,8 @@ class MainActivity : ComponentActivity() {
                                                 welcomePassed = false
                                                 schedules = repository.getAllSchedules()
                                                 mistakes = emptyList()
-                                            }
+                                            },
+                                            onNavigateToAlarmCenter = { showAlarmCenter = true }
                                         )
                                     }
                                 }
