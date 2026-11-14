@@ -13,6 +13,7 @@ class GuruStudyApp : Application() {
     companion object {
         const val ALARM_CHANNEL_ID = "study_alarms_channel"
         const val NOTIFICATION_CHANNEL_ID = "study_reminders_channel"
+        const val TIMER_CHANNEL_ID = "study_timer_overlay_channel"
     }
 
     override fun onCreate() {
@@ -64,8 +65,19 @@ class GuruStudyApp : Application() {
                 description = "Daily study progress and revision reminders"
             }
 
+            // Floating Study Timer Channel
+            val timerChannel = NotificationChannel(
+                TIMER_CHANNEL_ID,
+                "Floating Study Timer",
+                NotificationManager.IMPORTANCE_LOW
+            ).apply {
+                description = "Active study timer overlay notification"
+                setShowBadge(false)
+            }
+
             notificationManager.createNotificationChannel(alarmChannel)
             notificationManager.createNotificationChannel(reminderChannel)
+            notificationManager.createNotificationChannel(timerChannel)
         }
     }
 }

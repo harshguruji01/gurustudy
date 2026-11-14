@@ -1,5 +1,9 @@
 package online.webguruji.gurustudy.ui.screens
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -9,10 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
+import online.webguruji.gurustudy.service.FloatingTimerService
 import online.webguruji.gurustudy.ui.theme.EmeraldGreen
 import online.webguruji.gurustudy.ui.theme.RoyalBlue
 
@@ -180,6 +186,38 @@ fun StudyTimerScreen(
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text("✓ Mark Chapter Complete", color = Color.White, fontWeight = FontWeight.Bold)
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                val context = LocalContext.current
+                OutlinedButton(
+                    onClick = {
+                        if (Settings.canDrawOverlays(context)) {
+                            val serviceIntent = Intent(context, FloatingTimerService::class.java).apply {
+                                action = FloatingTimerService.ACTION_START
+                                putExtra(FloatingTimerService.EXTRA_SECONDS, remainingSeconds)
+                                putExtra(FloatingTimerService.EXTRA_SUBJECT, subjectName)
+                                putExtra(FloatingTimerService.EXTRA_CHAPTER, chapterTitle)
+                            }
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                context.startForegroundService(serviceIntent)
+                            } else {
+                                context.startService(serviceIntent)
+                            }
+                            onBackClicked()
+                        } else {
+                            val intent = Intent(
+                                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                                Uri.parse("package:${context.packageName}")
+                            )
+                            context.startActivity(intent)
+                        }
+                    },
+                    shape = RoundedCornerShape(12.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = RoyalBlue)
+                ) {
+                    Text("⚡ Floating Timer (Over Other Apps)", fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
                 }
             }
         }

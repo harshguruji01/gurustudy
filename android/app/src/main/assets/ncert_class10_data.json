@@ -65,7 +65,9 @@
                 "correctIndex": 1,
                 "explanation": "A prime number has exactly 2 factors: 1 and the number itself."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -104,7 +106,9 @@
                 "correctIndex": 2,
                 "explanation": "p(x) = k[x^2 - (sum)x + prod] = k[x^2 - x - 12]. With k=1/2, it is x^2/2 - x/2 - 6."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -143,7 +147,9 @@
                 "correctIndex": 2,
                 "explanation": "For parallel lines: a1/a2 = b1/b2 => 3/2 = 2k/5 => 4k = 15 => k = 15/4."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -182,7 +188,9 @@
                 "correctIndex": 1,
                 "explanation": "For equal roots, D = 0 => (-4)^2 - 4(1)(k) = 0 => 16 - 4k = 0 => k = 4."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -220,7 +228,9 @@
                 "correctIndex": 1,
                 "explanation": "a = -3, d = -1/2 - (-3) = 5/2. a_11 = a + 10d = -3 + 10*(5/2) = -3 + 25 = 22."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 6,
@@ -256,7 +266,9 @@
                 "correctIndex": 0,
                 "explanation": "Matching vertices: A->Q, B->R, C->P. So ΔPQR ~ ΔCAB."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 7,
@@ -294,7 +306,9 @@
                 "correctIndex": 2,
                 "explanation": "Distance = sqrt((-6)^2 + 8^2) = sqrt(36 + 64) = sqrt(100) = 10 units."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 8,
@@ -335,7 +349,9 @@
                 "correctIndex": 0,
                 "explanation": "sin A = 1/2 => A = 30°. cot 30° = √3."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 9,
@@ -372,7 +388,9 @@
                 "correctIndex": 1,
                 "explanation": "tan θ = height / shadow = 1 => θ = 45°."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 10,
@@ -408,7 +426,9 @@
                 "correctIndex": 0,
                 "explanation": "r = sqrt(25^2 - 24^2) = sqrt(625 - 576) = sqrt(49) = 7 cm."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 11,
@@ -446,7 +466,9 @@
                 "correctIndex": 0,
                 "explanation": "2πr = πr² => r = 2 units."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 12,
@@ -486,7 +508,9 @@
                 "correctIndex": 2,
                 "explanation": "V = πr²h. If r' = r/3, (r')² = r²/9. To keep V constant, h' must be 9h."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 13,
@@ -527,7 +551,9 @@
                 "correctIndex": 0,
                 "explanation": "3 Median = Mode + 2 Mean = 8 + 16 = 24 => Median = 8."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 14,
@@ -565,7 +591,9 @@
                 "correctIndex": 1,
                 "explanation": "Probability of an event can never be negative (0 <= P <= 1)."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       }
@@ -629,7 +657,9 @@
                 "correctIndex": 2,
                 "explanation": "Iron displaces copper from copper sulphate solution because iron is more reactive."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -670,7 +700,9 @@
                 "correctIndex": 3,
                 "explanation": "Bases turn red litmus blue and have pH > 7. Hence pH 10."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -709,7 +741,9 @@
                 "correctIndex": 1,
                 "explanation": "Mercury (Hg) is the only metal that is liquid at room temperature."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -751,7 +785,9 @@
                 "correctIndex": 1,
                 "explanation": "Butane is an alkane with 4 carbon atoms: CnH2n+2 = C4H10."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -789,7 +825,9 @@
                 "correctIndex": 1,
                 "explanation": "Aerobic respiration breaks down pyruvate in mitochondria to yield CO2, H2O and ATP."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 6,
@@ -827,7 +865,9 @@
                 "correctIndex": 2,
                 "explanation": "Cytokinins are concentrated in areas of rapid cell division such as fruits and seeds."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 7,
@@ -865,7 +905,9 @@
                 "correctIndex": 2,
                 "explanation": "Fertilization occurs in the ampullary region of the Fallopian tube (oviduct)."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 8,
@@ -903,7 +945,9 @@
                 "correctIndex": 0,
                 "explanation": "In heterozygous condition (Tt), only the dominant allele (T) expresses itself."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 9,
@@ -944,7 +988,9 @@
                 "correctIndex": 2,
                 "explanation": "Same size real image is formed when object is at 2F = 2 x 20 = 40 cm."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 10,
@@ -984,7 +1030,9 @@
                 "correctIndex": 1,
                 "explanation": "Hypermetropia (farsightedness) makes nearby objects blurry, while distant objects are clear."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 11,
@@ -1029,7 +1077,9 @@
                 "correctIndex": 2,
                 "explanation": "R = ρ l / A. New resistance R' = ρ (2l) / A'. Since R' = R, ρ (2l) / A' = ρ l / A => A' = 2A."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 12,
@@ -1068,7 +1118,9 @@
                 "correctIndex": 2,
                 "explanation": "During short circuit, resistance drops close to zero, causing electric current to increase drastically."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 13,
@@ -1106,7 +1158,9 @@
                 "correctIndex": 1,
                 "explanation": "Producers (10,000 J) -> Primary consumers (1000 J) -> Secondary consumers (100 J)."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       }
@@ -1139,7 +1193,12 @@
               "Unification of Italy: Giuseppe Mazzini (Young Italy), Count Cavour (diplomat), Giuseppe Garibaldi (Red Shirts), Victor Emmanuel II",
               "Allegories: Marianne (France) and Germania (Germany, wearing crown of oak leaves signifying heroism)"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Explain the major features of the Napoleonic Code of 1804.",
@@ -1160,7 +1219,9 @@
                 "correctIndex": 0,
                 "explanation": "Kaiser William I of Prussia was proclaimed German Emperor at the Hall of Mirrors in Versailles in January 1871."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -1176,7 +1237,12 @@
               "Gandhi-Irwin Pact 1931 and Poona Pact 1932 (Dr. B.R. Ambedkar and Mahatma Gandhi)",
               "Symbols of nationalism: Bharat Mata image by Abanindranath Tagore, Tricolour flag, revival of folklore"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Mahatma Gandhi decide to call off the Civil Disobedience Movement and sign the Gandhi-Irwin Pact in 1931?",
@@ -1197,7 +1263,9 @@
                 "correctIndex": 1,
                 "explanation": "Under the presidency of Jawaharlal Nehru, the Lahore Congress of December 1929 formalised the demand of Poorna Swaraj."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -1212,7 +1280,12 @@
               "Great Depression (1929-mid 1930s): Wall Street Crash, agricultural overproduction, collapse of global banking",
               "Bretton Woods Conference (1944): IMF and World Bank set up to maintain post-war financial stability"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Explain the three types of movements or 'flows' within international economic exchanges in the nineteenth century.",
@@ -1233,7 +1306,9 @@
                 "correctIndex": 1,
                 "explanation": "The International Monetary Fund (IMF) and the World Bank are known as the Bretton Woods twins."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -1248,7 +1323,12 @@
               "Gomasthas: paid servants appointed by East India Company to supervise weavers and collect supplies",
               "Advertisement and calendar art to create consumer markets"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did industrial production in India increase during the First World War?",
@@ -1269,7 +1349,9 @@
                 "correctIndex": 1,
                 "explanation": "Richard Arkwright created the cotton mill where carding, twisting, spinning and rolling were done under one roof."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -1285,7 +1367,12 @@
               "First printing press in India brought to Goa by Portuguese Jesuits in mid-16th century",
               "Vernacular Press Act 1878 passed by Lord Lytton modelled on Irish Press Laws to censor Indian newspapers"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Martin Luther praise print culture as the greatest gift of God?",
@@ -1306,7 +1393,9 @@
                 "correctIndex": 1,
                 "explanation": "The first book Gutenberg printed was the Bible. About 180 copies were printed in 3 years."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       },
@@ -1327,7 +1416,12 @@
               "Alluvial, Black (Regur), Red & Yellow, Laterite, Arid, Forest soils",
               "Soil erosion: Gully erosion, sheet erosion"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Describe any three measures to control soil erosion in hilly and mountainous regions.",
@@ -1348,7 +1442,9 @@
                 "correctIndex": 1,
                 "explanation": "Black soil is known as Regur soil and is ideal for cotton cultivation."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -1362,7 +1458,12 @@
               "Reserved, Protected, and Unclassed forests",
               "Chipko Movement, Beej Bachao Andolan, Joint Forest Management (JFM)"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Differentiate between Reserved and Protected forests.",
@@ -1383,7 +1484,9 @@
                 "correctIndex": 1,
                 "explanation": "Project Tiger was launched in 1973 to save Bengal tigers from extinction."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -1395,7 +1498,12 @@
               "Jawaharlal Nehru called multipurpose dams 'Temples of modern India'",
               "Rainwater harvesting: Rooftop harvesting, Guls/Kuls in Himalayas, Khadins and Johads in Rajasthan, Tankas"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Explain rooftop rainwater harvesting system.",
@@ -1416,7 +1524,9 @@
                 "correctIndex": 1,
                 "explanation": "Tamil Nadu is the first state in India to make rooftop rainwater harvesting compulsory."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -1429,7 +1539,12 @@
               "Major crops: Rice (high temp >25C, >100cm rainfall), Wheat (cool growing season, 50-75cm rainfall), Tea, Coffee, Sugarcane",
               "Bhoodan - Gramdan movement started by Vinoba Bhave ('Blood-less Revolution')"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Distinguish between Kharif and Rabi cropping seasons with two examples each.",
@@ -1450,7 +1565,9 @@
                 "correctIndex": 0,
                 "explanation": "Pulses are leguminous crops that fix atmospheric nitrogen in soil."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -1464,7 +1581,12 @@
               "Conventional: Coal (Anthracite, Bituminous, Lignite, Peat), Petroleum (Mumbai High, Digboi), Natural gas",
               "Non-conventional: Solar, Wind, Biogas, Tidal, Geothermal energy"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why is solar energy called the energy resource of the future in India?",
@@ -1485,7 +1607,9 @@
                 "correctIndex": 3,
                 "explanation": "Anthracite is the highest quality coal containing over 80% carbon."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 6,
@@ -1499,7 +1623,12 @@
               "Agglomeration economies: industries come together to benefit from urban infrastructure",
               "Pollution types: Air, Water, Thermal, Noise pollution and treatment of industrial effluents"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why is the iron and steel industry called the basic or key industry?",
@@ -1520,7 +1649,9 @@
                 "correctIndex": 1,
                 "explanation": "Bengaluru has emerged as the electronic and IT capital of India."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 7,
@@ -1535,7 +1666,12 @@
               "National Waterways: NW-1 (Ganga: Prayagraj to Haldia, 1620 km)",
               "Tourism promotes national integration and brings foreign exchange"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "State any three advantages of pipeline transport in India.",
@@ -1556,7 +1692,9 @@
                 "correctIndex": 1,
                 "explanation": "Chennai is one of the oldest artificial ports in India, next to Mumbai in trade volume."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       },
@@ -1576,7 +1714,12 @@
               "Sri Lanka Majoritarianism: Sinhala supremacy, Buddhism state religion, civil war with LTTE",
               "Forms: Horizontal (Legislature, Executive, Judiciary), Vertical (Federal), Social groups, Political parties"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Differentiate between horizontal and vertical power sharing.",
@@ -1597,7 +1740,9 @@
                 "correctIndex": 0,
                 "explanation": "French minority was richer and more powerful, causing resentment among majority Dutch."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -1610,7 +1755,12 @@
               "Holding together federation (India, Spain) vs Coming together federation (USA, Switzerland)",
               "1992 Decentralisation: Mandatory regular panchayat elections, 1/3 reservation for women, State Election Commission, State Finance Commission"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Explain any three major steps taken towards decentralisation in India in 1992.",
@@ -1631,7 +1781,9 @@
                 "correctIndex": 2,
                 "explanation": "Subjects not included in the three original lists are Residuary subjects, legislated solely by the Union Parliament."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -1644,7 +1796,12 @@
               "Secular state in India: No official state religion, freedom to profess/practice, prohibition of discrimination",
               "Caste in politics (vote banks, candidate selection) vs Politics in caste (sub-castes merging, backward classes coalition)"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Mention any three constitutional provisions that make India a secular state.",
@@ -1665,7 +1822,9 @@
                 "correctIndex": 1,
                 "explanation": "A feminist is someone who advocates equal social, political and economic rights for women."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -1680,7 +1839,12 @@
               "Challenges: Lack of internal democracy, dynastic succession, money and muscle power, lack of meaningful choice",
               "Reforms: Anti-Defection Law, affidavit of assets and criminal cases, mandatory organizational elections"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Describe any three challenges faced by political parties in India.",
@@ -1701,7 +1865,9 @@
                 "correctIndex": 1,
                 "explanation": "The USA and the UK are primary examples of a two-party political system."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -1714,7 +1880,12 @@
               "Democracy is transparent through Right to Information (RTI)",
               "Economic performance might be slower than authoritarian regimes, but democracy guarantees social justice, civil liberties and human dignity"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why is democracy considered a better form of government than dictatorship?",
@@ -1735,7 +1906,9 @@
                 "correctIndex": 1,
                 "explanation": "Democracies require debate, deliberations and consensus, which can make decision making slower."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       },
@@ -1780,7 +1953,9 @@
                 "correctIndex": 1,
                 "explanation": "United Nations Development Programme (UNDP) publishes the Human Development Report annually."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -1795,7 +1970,12 @@
               "MGNREGA 2005: 100 days guaranteed wage employment in rural areas",
               "Organized (job security, paid leaves, fixed hours, PF) vs Unorganized sector"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "What is disguised unemployment? Explain with an agricultural example.",
@@ -1816,7 +1996,9 @@
                 "correctIndex": 1,
                 "explanation": "MGNREGA guarantees 100 days of wage employment per year to every rural household."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -1831,7 +2013,12 @@
               "Formal sector (Banks, Cooperatives supervised by RBI) vs Informal sector (Moneylenders, traders charging exorbitant interest rates)",
               "Self-Help Groups (SHGs): 15-20 members pool small savings, offer collateral-free low interest loans"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Why is it necessary for banks and cooperatives to increase their lending in rural areas?",
@@ -1852,7 +2039,9 @@
                 "correctIndex": 1,
                 "explanation": "The Reserve Bank of India (RBI) supervises the functioning of formal sector lenders."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -1866,7 +2055,12 @@
               "World Trade Organisation (WTO) promotes free international trade among members",
               "Impact: Consumer choice widened, top Indian companies (Tata Motors, Infosys, Ranbaxy) emerged as MNCs; but small local manufacturers face intense competition"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "How has information and communication technology stimulated the globalisation process?",
@@ -1887,7 +2081,9 @@
                 "correctIndex": 2,
                 "explanation": "Removing restrictions and trade barriers by the government is termed Liberalisation."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -1901,7 +2097,12 @@
               "Standard certifications: ISI mark (industrial electrical goods), Agmark (agricultural food), Hallmark (gold jewellery)",
               "National Consumer Day celebrated on 24th December in India"
             ],
-            "formulas": [],
+            "formulas": [
+              "Timeline & Key Dates: Note primary events and statutory enactments.",
+              "Standard Terminology: Core definitions evaluated in 1-mark & 3-mark questions.",
+              "Map Work Points: Important geographical & historical locations for board exam maps.",
+              "Key Figures & Leaders: Major contributors, treaties, and constitutional amendments."
+            ],
             "importantQuestions": [
               {
                 "question": "Explain the Right to Information available to a consumer with an example.",
@@ -1922,7 +2123,9 @@
                 "correctIndex": 1,
                 "explanation": "24th December is observed as National Consumer Day as COPRA was enacted on this day in 1986."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       }
@@ -1952,7 +2155,12 @@
               "Theme of unshakeable faith vs human skepticism",
               "Robert Frost's symbolism: Hemlock tree, crow, fire = greed/desire, ice = cold hatred"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Lencho say the raindrops were like 'new coins'?",
@@ -1973,7 +2181,9 @@
                 "correctIndex": 2,
                 "explanation": "Lencho requested 100 pesos to sow his field again and survive till the next harvest."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -1987,7 +2197,12 @@
               "Courage is not absence of fear, but triumph over it",
               "Poetic contrast between caged tiger and majestic wild predator"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "What 'twin obligations' does Nelson Mandela mention in his speech?",
@@ -2008,7 +2223,9 @@
                 "correctIndex": 0,
                 "explanation": "Mandela was sworn in on 10 May 1994 in Pretoria."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -2021,7 +2238,12 @@
               "Faith and mystery in survival",
               "The Ball Poem: learning epistemology of loss, coping with grief"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "What does John Berryman mean by 'the epistemology of loss' in The Ball Poem?",
@@ -2042,7 +2264,9 @@
                 "correctIndex": 1,
                 "explanation": "The narrator was flying his old Dakota DS 088 over France back to England."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -2055,7 +2279,12 @@
               "Anne's irrepressible sense of humour and intellect",
               "Teenage psychology: need for autonomy vs parental control"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Anne Frank decide to keep a personal diary?",
@@ -2076,7 +2305,9 @@
                 "correctIndex": 1,
                 "explanation": "Anne Frank affectionately called her diary 'Kitty'."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -2090,7 +2321,12 @@
               "Legend of tea (Chinese Emperor and Buddhist monk Bodhidharma)",
               "Metaphor of fog coming on 'little cat feet'"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "What is the legend regarding the discovery of tea in China according to Rajvir?",
@@ -2111,7 +2347,9 @@
                 "correctIndex": 1,
                 "explanation": "The river Kaveri obtains its water from the hills and forests of Coorg."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 6,
@@ -2124,7 +2362,12 @@
               "Appearance vs true courage in Custard the Dragon",
               "Humorous ballad format"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "How did Custard the Dragon prove that he was not really a coward?",
@@ -2145,7 +2388,9 @@
                 "correctIndex": 0,
                 "explanation": "Zoologists named the subspecies Lutrogale perspicillata maxwelli (Maxwell's otter)."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 7,
@@ -2158,7 +2403,12 @@
               "Transition from childish innocence to awareness of death",
               "W.B. Yeats theme: Only God loves you for yourself alone, not for yellow hair"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "How did Valli save money for her first bus journey?",
@@ -2179,7 +2429,9 @@
                 "correctIndex": 2,
                 "explanation": "30 paise one-way, making 60 paise for the round trip."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 8,
@@ -2192,7 +2444,12 @@
               "Satire on Russian landed aristocracy marrying for wealth and ego",
               "Lomov's hypochondria and Natalya's argumentative nature"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "What did Gautama Buddha ask Kisa Gotami to bring to revive her dead child?",
@@ -2213,7 +2470,9 @@
                 "correctIndex": 1,
                 "explanation": "They fight over the ownership of Oxen Meadows located between Birchwoods and Burnt Marsh."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       },
@@ -2232,7 +2491,12 @@
               "Harm of pampering and over-indulgence",
               "Natural veterinary wisdom over medication"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "What treatment was given to Tricki by Dr. Herriot at the surgery?",
@@ -2253,7 +2517,9 @@
                 "correctIndex": 1,
                 "explanation": "Tricki was Mrs. Pumphrey's pampered little Pekingese dog."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -2265,7 +2531,12 @@
               "Power of education and unconditional trust to reform a criminal",
               "Internal moral dilemma at train station"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Hari Singh decide to return Anil's stolen money?",
@@ -2286,7 +2557,9 @@
                 "correctIndex": 1,
                 "explanation": "Hari Singh was 15 years old and an experienced thief."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -2297,7 +2570,12 @@
             "keyConcepts": [
               "Presence of mind surpasses physical appearance and weapons"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "How did Ausable trick Max into jumping out of the window?",
@@ -2318,7 +2596,9 @@
                 "correctIndex": 1,
                 "explanation": "Henry the room waiter had brought drinks ordered by Ausable."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -2330,7 +2610,12 @@
               "Honor among thieves is broken",
               "Appearances can be deceptive"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "How was Horace Danby deceived by the lady in red at Shotover Grange?",
@@ -2351,7 +2636,9 @@
                 "correctIndex": 1,
                 "explanation": "Horace suffered from hay fever, triggered by flower scent at Shotover Grange."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 5,
@@ -2363,7 +2650,12 @@
               "Science without ethics leads to criminal madness",
               "Griffin as lawless genius"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Griffin slip into a big London store and what did he do there?",
@@ -2384,7 +2676,9 @@
                 "correctIndex": 0,
                 "explanation": "Griffin escaped from London to the quiet rural village of Iping."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 6,
@@ -2396,7 +2690,12 @@
               "Curiosity, hard work, and will to win for right reasons makes a scientist",
               "Discovery of monarch pupa gold spots hormone"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "What are the essential ingredients in the making of a scientist according to Ebright's teacher?",
@@ -2417,7 +2716,9 @@
                 "correctIndex": 1,
                 "explanation": "The children's book 'The Travels of Monarch X' by Dr. Urquhart hooked Ebright on biology."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 7,
@@ -2429,7 +2730,12 @@
               "Disastrous consequences of vanity and discontentment",
               "Tragic irony of life"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "How did the loss of the necklace change the life of the Loisels?",
@@ -2450,7 +2756,9 @@
                 "correctIndex": 2,
                 "explanation": "The original necklace was made of imitation paste worth at most 500 francs."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 8,
@@ -2462,7 +2770,12 @@
               "Transformative power of education for girl child",
               "Rejection of social evils like dowry"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Bholi refuse to marry Bishamber Nath at the wedding altar?",
@@ -2483,7 +2796,9 @@
                 "correctIndex": 2,
                 "explanation": "Her real name was Sulekha, but everyone called her Bholi (the simpleton)."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 9,
@@ -2495,7 +2810,12 @@
               "Satire on foolish pride and baseless arrogance",
               "A humble book saves mankind"
             ],
-            "formulas": [],
+            "formulas": [
+              "Central Theme & Motif: Primary message and philosophical reflection of author.",
+              "Literary & Poetic Devices: Metaphor, Simile, Personification, Alliteration, Imagery.",
+              "Character Traits & Evolution: Motivations, conflicts, and resolutions.",
+              "High-Yield Vocabulary: Advanced words and contextual synonyms for answers."
+            ],
             "importantQuestions": [
               {
                 "question": "Why did Think-Tank call books 'sandwiches'?",
@@ -2516,7 +2836,9 @@
                 "correctIndex": 2,
                 "explanation": "The nursery rhyme collection 'Mother Goose' caused Think-Tank to panic and flee."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       }
@@ -2545,7 +2867,12 @@
               "Bhramargeet tradition",
               "Vyanga on Nirgun yoga against Sagun love devotion"
             ],
-            "formulas": [],
+            "formulas": [
+              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
+              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
+              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
+              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+            ],
             "importantQuestions": [
               {
                 "question": "गोपियों ने उद्धव की तुलना किन-किन उदाहरणों से की है?",
@@ -2566,7 +2893,9 @@
                 "correctIndex": 1,
                 "explanation": "गोपियों ने उद्धव को व्यंग्य में 'बड़भागी' (भाग्यशाली) कहा है।"
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -2578,7 +2907,12 @@
               "Chaupai and Doha metres from Ramcharitmanas",
               "Veer and Raudra Ras in dialogue"
             ],
-            "formulas": [],
+            "formulas": [
+              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
+              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
+              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
+              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+            ],
             "importantQuestions": [
               {
                 "question": "लक्ष्मण ने परशुराम के क्रोध को शांत करने के स्थान पर किस प्रकार प्रदीप्त किया?",
@@ -2599,7 +2933,9 @@
                 "correctIndex": 1,
                 "explanation": "परशुराम ने अपने भयंकर फरसे का भय बार-बार दिखाया।"
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -2611,7 +2947,12 @@
               "Patriotism belongs to every ordinary citizen",
               "Respect for freedom fighters"
             ],
-            "formulas": [],
+            "formulas": [
+              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
+              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
+              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
+              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+            ],
             "importantQuestions": [
               {
                 "question": "कैप्टन कौन था और वह नेताजी की मूर्ति पर चश्मा क्यों लगाता था?",
@@ -2632,7 +2973,9 @@
                 "correctIndex": 1,
                 "explanation": "कैप्टन चश्मेवाले का नेताजी के प्रति आदर भाव हालदार साहब को सबसे ज्यादा छू गया।"
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -2644,7 +2987,12 @@
               "Rejection of caste and gender orthodoxy",
               "True asceticism is purity of conduct, not wearing saffron robes"
             ],
-            "formulas": [],
+            "formulas": [
+              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
+              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
+              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
+              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+            ],
             "importantQuestions": [
               {
                 "question": "भगत ने अपने पुत्र की मृत्यु पर अपनी भावनाएँ किस प्रकार व्यक्त कीं?",
@@ -2665,7 +3013,9 @@
                 "correctIndex": 1,
                 "explanation": "बालगोबिन भगत कबीर को अपना साहब मानते थे और उन्हीं के पदों को गाते थे।"
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       },
@@ -2684,7 +3034,12 @@
               "Ego destruction: 'Jab main tha tab Hari nahi'",
               "Sadhu bhasha (Sadhukkadi)"
             ],
-            "formulas": [],
+            "formulas": [
+              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
+              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
+              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
+              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+            ],
             "importantQuestions": [
               {
                 "question": "'मीठी वाणी बोलने से औरों को सुख और अपने तन को शीतलता कैसे प्राप्त होती है?'",
@@ -2705,7 +3060,9 @@
                 "correctIndex": 1,
                 "explanation": "कबीर के अनुसार कस्तूरी मृग की नाभि में समाई होती है।"
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -2717,7 +3074,12 @@
               "Rote learning vs true wisdom",
               "Affection beneath strict discipline"
             ],
-            "formulas": [],
+            "formulas": [
+              "केंद्रीय भाव और संदेश: पाठ का मूल उद्देश्य और जीवन मूल्य।",
+              "काव्य सौंदर्य और शिल्प विधान: रस, छंद, अलंकार और प्रतीकात्मकता।",
+              "व्याकरण और पद परिचय: संज्ञा, सर्वनाम, क्रिया, विशेषण के पद परिचय नियम।",
+              "महत्वपूर्ण मुहावरे और शब्दार्थ: परीक्षा में आने वाले शब्द-युग्म एवं अर्थ।"
+            ],
             "importantQuestions": [
               {
                 "question": "छोटे भाई के अव्वल आने पर बड़े भाई साहब ने उसे क्या नसीहत दी?",
@@ -2738,7 +3100,9 @@
                 "correctIndex": 0,
                 "explanation": "यह प्रसिद्ध कहानी मुंशी प्रेमचंद द्वारा लिखी गई है।"
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       }
@@ -2768,7 +3132,12 @@
               "Mail merge for bulk personalized letters",
               "Creating and updating automatic Table of Contents"
             ],
-            "formulas": [],
+            "formulas": [
+              "Keyboard Shortcuts: Critical standard shortcuts tested in Board exam.",
+              "File Formats & Protocols: TCP/IP, HTTP/S, SQL Data Types and Constraints.",
+              "Core Definitions: Artificial Intelligence Domains (CV, NLP, Data Sciences).",
+              "Security & Cyber Ethics: Antivirus, Firewalls, Phishing, Strong Passwords."
+            ],
             "importantQuestions": [
               {
                 "question": "What is Mail Merge? State its two main components.",
@@ -2789,7 +3158,9 @@
                 "correctIndex": 0,
                 "explanation": "F11 opens the Styles and Formatting deck."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 2,
@@ -2825,7 +3196,9 @@
                 "correctIndex": 1,
                 "explanation": "Goal Seek solves for unknown input to match a desired output target."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 3,
@@ -2861,7 +3234,9 @@
                 "correctIndex": 0,
                 "explanation": "A Primary Key must be unique and NOT NULL."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           },
           {
             "number": 4,
@@ -2874,7 +3249,12 @@
               "Network topologies: Star, Bus, Ring",
               "Security: Strong passwords, two-factor authentication, avoiding phishing emails and unsafe downloads"
             ],
-            "formulas": [],
+            "formulas": [
+              "Keyboard Shortcuts: Critical standard shortcuts tested in Board exam.",
+              "File Formats & Protocols: TCP/IP, HTTP/S, SQL Data Types and Constraints.",
+              "Core Definitions: Artificial Intelligence Domains (CV, NLP, Data Sciences).",
+              "Security & Cyber Ethics: Antivirus, Firewalls, Phishing, Strong Passwords."
+            ],
             "importantQuestions": [
               {
                 "question": "What are Sticky Keys and who benefits from them?",
@@ -2895,7 +3275,9 @@
                 "correctIndex": 1,
                 "explanation": "Toggle Keys emits an audio beep when locking keys are toggled."
               }
-            ]
+            ],
+            "progressStatus": "Not Started",
+            "isBookmarked": false
           }
         ]
       }

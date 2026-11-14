@@ -20,13 +20,13 @@ class StudyAlarmReceiver : BroadcastReceiver() {
         val dayIndex = intent.getIntExtra(AlarmScheduler.EXTRA_DAY_INDEX, 1)
         val duration = intent.getIntExtra(AlarmScheduler.EXTRA_DURATION, 60)
 
-        // Acquire WakeLock safely to turn on screen
+        // Acquire partial WakeLock safely to ensure CPU processes alarm notification
         val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
         val wakeLock = powerManager.newWakeLock(
-            PowerManager.FULL_WAKE_LOCK or PowerManager.ACQUIRE_CAUSES_WAKEUP or PowerManager.ON_AFTER_RELEASE,
+            PowerManager.PARTIAL_WAKE_LOCK,
             "GuruStudy:StudyAlarmWakeLock"
         )
-        wakeLock.acquire(10 * 1000L /*10 seconds*/)
+        wakeLock.acquire(3000L /*3 seconds*/)
 
         // Full Screen Intent to bring up custom alarm ringing UI
         val fullScreenIntent = Intent(context, FullScreenAlarmActivity::class.java).apply {

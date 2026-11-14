@@ -18,18 +18,21 @@ data class NcertBook(
 )
 
 data class NcertChapter(
-    val number: Int,
-    val title: String,
-    val titleHi: String,
-    val summary: String,
-    val summaryHi: String,
-    val keyConcepts: List<String>,
-    val formulas: List<String>,
-    val importantQuestions: List<ImportantQuestion>,
-    val mcqs: List<McqQuestion>,
-    var progressStatus: String = "Not Started", // "Not Started", "In Progress", "Completed", "Needs Revision"
+    val number: Int = 1,
+    val title: String = "",
+    val titleHi: String = "",
+    val summary: String = "",
+    val summaryHi: String = "",
+    val keyConcepts: List<String> = emptyList(),
+    val formulas: List<String> = emptyList(),
+    val importantQuestions: List<ImportantQuestion> = emptyList(),
+    val mcqs: List<McqQuestion> = emptyList(),
+    var progressStatus: String? = "Not Started", // "Not Started", "In Progress", "Completed", "Needs Revision"
     var isBookmarked: Boolean = false
-)
+) {
+    val safeStatus: String
+        get() = if (progressStatus.isNullOrBlank()) "Not Started" else progressStatus!!
+}
 
 data class ImportantQuestion(
     val question: String,

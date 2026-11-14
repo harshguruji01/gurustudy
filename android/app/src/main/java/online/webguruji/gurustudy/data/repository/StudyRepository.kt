@@ -29,6 +29,16 @@ class StudyRepository(private val context: Context) {
             val type = object : TypeToken<List<NcertSubject>>() {}.type
             val list: List<NcertSubject> = gson.fromJson(reader, type)
             reader.close()
+            // Defensive normalization: Guarantee non-null progressStatus on all chapters
+            list.forEach { subject ->
+                subject.books.forEach { book ->
+                    book.chapters.forEach { chapter ->
+                        if (chapter.progressStatus.isNullOrBlank()) {
+                            chapter.progressStatus = "Not Started"
+                        }
+                    }
+                }
+            }
             cachedSubjects = list
             list
         } catch (e: Exception) {

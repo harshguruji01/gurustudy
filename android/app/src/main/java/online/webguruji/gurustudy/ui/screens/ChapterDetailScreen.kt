@@ -26,7 +26,7 @@ fun ChapterDetailScreen(
     onStartStudyTimer: (NcertSubject, NcertChapter) -> Unit
 ) {
     var selectedTab by remember { mutableIntStateOf(0) }
-    var currentStatus by remember { mutableStateOf(chapter.progressStatus) }
+    var currentStatus by remember { mutableStateOf(chapter.safeStatus) }
 
     Scaffold(
         topBar = {
