@@ -102,12 +102,4 @@
     <priority>0.95</priority>
   </url>
 
-  <!-- Legacy Release Mirror Binary (v2.1.0) -->
-  <url>
-    <loc>https://gurustudy.webguruji.online/dist/GuruStudy-v2.1.0-release.apk</loc>
-    <lastmod>2026-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
 </urlset>
