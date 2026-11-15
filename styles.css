@@ -2143,3 +2143,170 @@ input, select, textarea {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==============================================================================
+   GURUSTUDY ZERO-OUTWARD-SCROLL & COMPREHENSIVE RESPONSIVE SHIELD
+   Ensures 100% responsiveness on Mobile, Tablet & Desktop with NO outward scroll leakage
+   ============================================================================== */
+
+html {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  width: 100%;
+  overscroll-behavior-x: none;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  overscroll-behavior-x: none;
+}
+
+.site-navbar,
+.nav-container,
+.app-shell,
+.app-workspace,
+.tab-pane,
+.view-header {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app-shell {
+  overflow-x: hidden;
+}
+
+.app-workspace {
+  overflow-x: hidden;
+}
+
+/* Ensure images and videos do not overflow horizontally */
+img, svg, canvas, video, iframe {
+  max-width: 100%;
+}
+
+/* Prevent fixed min-widths from breaking mobile layout */
+@media (max-width: 768px) {
+  .admin-filter-group {
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  .admin-search-input {
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .admin-actions-group {
+    justify-content: flex-start;
+  }
+
+  .modal-content {
+    max-width: calc(100vw - 24px) !important;
+    padding: 16px !important;
+    margin: 8px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .download-modal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .qr-box-container img {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  .session-slot-card {
+    padding: 12px 14px;
+  }
+
+  .slot-time-badge {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 540px) {
+  .nav-container {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .site-brand-text h1 {
+    font-size: 15px;
+  }
+
+  .site-brand-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .streak-pill {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .btn-nav-download {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .btn-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .btn-sidebar-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .app-workspace {
+    padding: 12px 10px 80px 10px;
+  }
+
+  .view-title {
+    font-size: 20px;
+  }
+
+  .admin-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-kpi-value {
+    font-size: 22px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .streak-pill {
+    display: none;
+  }
+
+  .site-brand-text h1 {
+    font-size: 14px;
+  }
+
+  .btn-nav-download span:not(.live-dl-badge) {
+    display: none;
+  }
+}
