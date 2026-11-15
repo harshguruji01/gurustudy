@@ -283,6 +283,14 @@ class StudyRepository(private val context: Context) {
     fun isDashContinueVisible(): Boolean = prefs.isDashContinueVisible()
     fun setDashContinueVisible(visible: Boolean) = prefs.setDashContinueVisible(visible)
 
+    // Daily Alarm Prompt & Sequential Schedule
+    fun getLastDailyAlarmPromptDate(): String = prefs.getLastDailyAlarmPromptDate()
+    fun setLastDailyAlarmPromptDate(dateStr: String) = prefs.setLastDailyAlarmPromptDate(dateStr)
+    fun getDefaultStudyStartTime(): String = prefs.getDefaultStudyStartTime()
+    fun setDefaultStudyStartTime(time: String) = prefs.setDefaultStudyStartTime(time)
+    fun getInterSubjectBreakMins(): Int = prefs.getInterSubjectBreakMins()
+    fun setInterSubjectBreakMins(mins: Int) = prefs.setInterSubjectBreakMins(mins)
+
     fun resetAllData() {
         prefs.clearAllData()
         dbHelper.clearAllData()

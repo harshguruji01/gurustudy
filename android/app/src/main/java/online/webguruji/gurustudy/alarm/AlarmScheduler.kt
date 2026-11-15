@@ -93,6 +93,79 @@ class AlarmScheduler(private val context: Context) {
         }
     }
 
+    /**
+     * Schedules consecutive / sequential study alarms for today starting from a given time.
+     * Each subject slot is chained sequentially one after another with an optional breather break.
+     */
+    fun scheduleSequentialStudyAlarms(
+        item: StudyScheduleItem,
+        studentName: String,
+        startHour: Int,
+        startMinute: Int,
+        breakMins: Int = 5
+    ): List<String> {
+        val todayCal = Calendar.getInstance()
+        val todayDateStr = String.format(
+            "%04d-%02d-%02d",
+            todayCal.get(Calendar.YEAR),
+            todayCal.get(Calendar.MONTH) + 1,
+            todayCal.get(Calendar.DAY_OF_MONTH)
+        )
+
+        val runnerCal = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, startHour)
+            set(Calendar.MINUTE, startMinute)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }
+
+        val scheduledTimesList = mutableListOf<String>()
+
+        if (item.slots.isNotEmpty()) {
+            item.slots.forEachIndexed { slotIndex, slot ->
+                val timeStr = String.format("%02d:%02d", runnerCal.get(Calendar.HOUR_OF_DAY), runnerCal.get(Calendar.MINUTE))
+                slot.scheduledTime = timeStr
+                slot.alarmEnabled = true
+                prefs.setSlotAlarmTime(slotIndex, timeStr)
+                prefs.setSlotAlarmEnabled(slotIndex, true)
+                scheduledTimesList.add(timeStr)
+
+                val subject = slot.subject.ifBlank { item.subject }
+                val chapter = slot.topic.ifBlank { slot.chapter.ifBlank { item.chapterTitle } }
+                val duration = if (slot.durationMinutes > 0) slot.durationMinutes else 45
+
+                scheduleExactAlarm(
+                    dayIndex = item.dayIndex,
+                    slotIndex = slotIndex,
+                    dateStr = todayDateStr,
+                    timeStr = timeStr,
+                    studentName = studentName,
+                    subject = subject,
+                    chapter = chapter,
+                    duration = duration
+                )
+
+                // Advance runner clock by session duration + break duration for next subject
+                runnerCal.add(Calendar.MINUTE, duration + breakMins)
+            }
+        } else {
+            val timeStr = String.format("%02d:%02d", runnerCal.get(Calendar.HOUR_OF_DAY), runnerCal.get(Calendar.MINUTE))
+            scheduledTimesList.add(timeStr)
+            scheduleExactAlarm(
+                dayIndex = item.dayIndex,
+                slotIndex = 0,
+                dateStr = todayDateStr,
+                timeStr = timeStr,
+                studentName = studentName,
+                subject = item.subject,
+                chapter = item.chapterTitle,
+                duration = item.estimatedMinutes
+            )
+        }
+
+        return scheduledTimesList
+    }
+
     private fun scheduleExactAlarm(
         dayIndex: Int,
         slotIndex: Int,

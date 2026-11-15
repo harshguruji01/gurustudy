@@ -596,6 +596,20 @@
             <button class="btn btn-outline" style="min-width: 100px; font-size: 14px;" onclick="resetDedicatedTimer()">🔄 Reset</button>
             <button class="btn btn-green" style="font-size: 14px;" onclick="finishDedicatedTimerManual()">✓ Finish & Log</button>
           </div>
+
+          <!-- Consecutive Subject Queue Banner -->
+          <div id="timerNextSubjectBanner" style="display: none; margin-top: 18px; padding: 14px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(37,99,235,0.12)); border: 1px solid var(--accent); text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <span class="badge badge-accent" style="font-size: 10px;">🔔 NEXT IN QUEUE</span>
+                <div style="font-size: 15px; font-weight: 800; margin-top: 4px;" id="timerNextSubjectTitle">Next Subject</div>
+                <div style="font-size: 12px; color: var(--text-secondary);" id="timerNextTopicSub">Duration: 45 Minutes</div>
+              </div>
+              <button class="btn btn-green btn-sm" onclick="startNextQueuedSubject()" id="btnStartNextQueued">
+                ▶ Start Next Subject Now
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Session History List -->
@@ -1137,6 +1151,56 @@
       </div>
 
       <button class="btn btn-primary btn-block" onclick="saveOnboardingProfile()">Save Profile</button>
+    </div>
+  </div>
+
+  <!-- MODAL: DAILY STUDY ALARM SETUP (PROMPT ON APP OPEN) -->
+  <div id="modalDailyAlarmSetup" class="modal-overlay">
+    <div class="modal-content" style="max-width: 520px; border-top: 5px solid var(--accent);">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 28px;">🌅</span>
+          <div>
+            <h3 style="font-size: 18px; font-weight: 800; margin: 0;">Schedule Today's Study Alarms</h3>
+            <p style="font-size: 12px; color: var(--text-tertiary); margin: 0;" id="dailyAlarmDaySubtitle">Today's Sequential 4-Subject Study Routine</p>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeModal('modalDailyAlarmSetup')">×</button>
+      </div>
+
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">
+        Pick your daily study start time. As each subject finishes, the next alarm will automatically ring and announce: <strong style="color: var(--primary);">"Time ho gaya, go to study!"</strong>
+      </p>
+
+      <!-- Start Time Selector -->
+      <div class="card" style="margin-bottom: 14px; padding: 14px; background: var(--bg-surface);">
+        <label style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--text-tertiary); display: block; margin-bottom: 6px;">
+          Select Study Start Time:
+        </label>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <input type="time" id="inputDailyStartTime" value="17:00" style="padding: 10px 14px; font-size: 18px; font-weight: 800; border-radius: var(--radius-sm); border: 2px solid var(--accent); background: var(--bg-canvas); color: var(--text-primary); outline: none; cursor: pointer;" onchange="updateDailyAlarmPreview()">
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="btn btn-sm btn-outline" type="button" onclick="setDailyStartPreset('17:00')">5:00 PM</button>
+            <button class="btn btn-sm btn-outline" type="button" onclick="setDailyStartPreset('18:00')">6:00 PM</button>
+            <button class="btn btn-sm btn-outline" type="button" onclick="setDailyStartPreset('19:00')">7:00 PM</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview of Chained Today Slots -->
+      <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px;">
+        Chained Subject Schedule:
+      </div>
+      <div id="dailyAlarmSlotsPreview" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px;">
+        <!-- Populated dynamically by app.js -->
+      </div>
+
+      <button class="btn btn-primary btn-block" style="padding: 12px; font-size: 15px; font-weight: 800;" onclick="confirmDailySequentialAlarms()">
+        🔔 Set All Alarms For Today
+      </button>
+      <button class="btn btn-outline btn-block" style="margin-top: 8px;" onclick="dismissDailyAlarmModal()">
+        Remind Me Later
+      </button>
     </div>
   </div>
 

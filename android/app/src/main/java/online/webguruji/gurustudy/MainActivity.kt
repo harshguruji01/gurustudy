@@ -24,8 +24,10 @@ import online.webguruji.gurustudy.data.model.PlanStatusInfo
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
 import online.webguruji.gurustudy.data.model.UserProfile
 import online.webguruji.gurustudy.data.repository.StudyRepository
+import online.webguruji.gurustudy.ui.dialogs.DailyAlarmSetupDialog
 import online.webguruji.gurustudy.ui.screens.*
 import online.webguruji.gurustudy.ui.theme.GuruStudyTheme
+import java.util.Calendar
 
 class MainActivity : ComponentActivity() {
 
@@ -78,11 +80,61 @@ class MainActivity : ComponentActivity() {
             val planStatus = remember(schedules) { try { repository.getPlanStatus() } catch (e: Exception) { PlanStatusInfo(dayIndex = 1, status = "Upcoming", message = "", phase = 1, phaseName = "", isPreview = true) } }
             var selectedDayIndex by remember { mutableIntStateOf(planStatus.dayIndex) }
 
+            val todayDateStr = remember {
+                val cal = Calendar.getInstance()
+                String.format(
+                    "%04d-%02d-%02d",
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH) + 1,
+                    cal.get(Calendar.DAY_OF_MONTH)
+                )
+            }
+            var showDailyAlarmPrompt by remember {
+                mutableStateOf(
+                    isOnboarded && welcomePassed && repository.getLastDailyAlarmPromptDate() != todayDateStr
+                )
+            }
+
             GuruStudyTheme(darkTheme = isDarkMode, accent = accentColor) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    // Daily Study Alarm Prompt Dialog on App Open
+                    if (showDailyAlarmPrompt && welcomePassed && isOnboarded) {
+                        val currentDay = schedules.find { it.dayIndex == selectedDayIndex } ?: schedules.firstOrNull()
+                        DailyAlarmSetupDialog(
+                            todaySchedule = currentDay,
+                            userProfile = userProfile,
+                            defaultStartTime = repository.getDefaultStudyStartTime(),
+                            onSetAlarms = { hour, minute ->
+                                if (currentDay != null) {
+                                    val scheduledTimes = alarmScheduler.scheduleSequentialStudyAlarms(
+                                        item = currentDay,
+                                        studentName = userProfile.fullName,
+                                        startHour = hour,
+                                        startMinute = minute,
+                                        breakMins = repository.getInterSubjectBreakMins()
+                                    )
+                                    repository.updateScheduleItem(currentDay)
+                                    schedules = repository.getAllSchedules()
+                                    repository.setDefaultStudyStartTime(String.format("%02d:%02d", hour, minute))
+                                    repository.setLastDailyAlarmPromptDate(todayDateStr)
+                                    showDailyAlarmPrompt = false
+                                    Toast.makeText(
+                                        this@MainActivity,
+                                        "🔔 Today's sequential study alarms set! First alarm at ${scheduledTimes.firstOrNull() ?: ""}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            },
+                            onDismiss = {
+                                repository.setLastDailyAlarmPromptDate(todayDateStr)
+                                showDailyAlarmPrompt = false
+                            }
+                        )
+                    }
+
                     when {
                         // Flow 1: Welcome Screen
                         !welcomePassed -> {
@@ -114,20 +166,34 @@ class MainActivity : ComponentActivity() {
                         // Flow 3: Active Study Timer
                         activeTimerSession != null -> {
                             val (subj, ch, dur) = activeTimerSession!!
+                            val currentDay = schedules.find { it.dayIndex == selectedDayIndex } ?: schedules.firstOrNull()
+                            val slots = currentDay?.slots ?: emptyList()
+                            val currentSlotIdx = slots.indexOfFirst { it.subject.equals(subj, ignoreCase = true) }
+                            val nextSlot = if (currentSlotIdx >= 0 && currentSlotIdx + 1 < slots.size) slots[currentSlotIdx + 1] else null
+
                             StudyTimerScreen(
                                 subjectName = subj,
                                 chapterTitle = ch,
                                 initialMinutes = dur,
+                                nextSlot = nextSlot,
                                 onBackClicked = { activeTimerSession = null },
                                 onSessionCompleted = {
-                                    // Mark current schedule completed
-                                    val currentDay = repository.getScheduleForDay(selectedDayIndex)
                                     if (currentDay != null) {
-                                        repository.updateScheduleStatus(currentDay.dayIndex, "Completed")
+                                        if (currentSlotIdx >= 0 && currentSlotIdx < currentDay.slots.size) {
+                                            currentDay.slots[currentSlotIdx].completed = true
+                                        }
+                                        if (currentDay.slots.isNotEmpty() && currentDay.slots.all { it.completed }) {
+                                            repository.updateScheduleStatus(currentDay.dayIndex, "Completed")
+                                        } else {
+                                            repository.updateScheduleItem(currentDay)
+                                        }
                                         schedules = repository.getAllSchedules()
                                     }
                                     userProfile = repository.getUserProfile()
                                     activeTimerSession = null
+                                },
+                                onStartNextSubject = { nextSubj, nextTopic, nextDur ->
+                                    activeTimerSession = Triple(nextSubj, nextTopic, nextDur)
                                 }
                             )
                         }

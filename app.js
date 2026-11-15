@@ -210,6 +210,9 @@ document.addEventListener("DOMContentLoaded", () => {
   handleHashNavigation();
   window.addEventListener("hashchange", handleHashNavigation);
 
+  // Check Daily Study Alarm Setup Prompt on App Open
+  checkDailyAlarmPromptOnLaunch();
+
   // Request browser notification permission politely if supported
   if ("Notification" in window && Notification.permission === "default") {
     // Will ask when student clicks test alarm
@@ -2034,9 +2037,9 @@ function triggerAlarmModal(subject, chapter, duration) {
 
   let quote = "";
   if (AppState.currentLang === "hi") {
-    quote = `${name} जी, अब आपका ${subject} का पाठ ${chapter} पढ़ने का समय हो गया है! GuruStudy पर पढ़ाई शुरू करें।`;
+    quote = `Time ho gaya, go to study! ${name} जी, अब आपका ${subject} का पाठ ${chapter} पढ़ने का समय हो गया है. GuruStudy पर पढ़ाई शुरू करें!`;
   } else {
-    quote = `Hello ${name}, it is time to study ${subject}: ${chapter} on GuruStudy! Let's start learning.`;
+    quote = `Time ho gaya, go to study! Hello ${name}, it is time to study ${subject}: ${chapter} on GuruStudy! Let's start learning.`;
   }
   document.getElementById("alarmSpeechQuote").textContent = `"${quote}"`;
 
@@ -2083,6 +2086,142 @@ function alarmSnooze() {
 function alarmDismiss() {
   if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   closeModal("modalAlarmRinging");
+}
+
+// =========================================================
+// DAILY ALARM SETUP (PROMPT ON APP OPEN & CONSECUTIVE ALARMS)
+// =========================================================
+
+function checkDailyAlarmPromptOnLaunch() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const lastPrompt = localStorage.getItem("gurustudy_last_alarm_prompt");
+  if (lastPrompt !== todayStr) {
+    setTimeout(() => {
+      openDailyAlarmModal();
+    }, 1200);
+  }
+}
+
+function openDailyAlarmModal() {
+  const currentDay = (AppState.schedules && AppState.schedules.length > 0)
+    ? (AppState.schedules.find(s => s.dayIndex === (AppState.currentDayIndex || 1)) || AppState.schedules[0])
+    : null;
+
+  const subtitle = document.getElementById("dailyAlarmDaySubtitle");
+  if (subtitle && currentDay) {
+    subtitle.textContent = `Day ${currentDay.dayIndex} • 4 Sequential Subject Sessions`;
+  }
+
+  const savedTime = localStorage.getItem("gurustudy_default_start_time") || "17:00";
+  const input = document.getElementById("inputDailyStartTime");
+  if (input) input.value = savedTime;
+
+  updateDailyAlarmPreview();
+  openModal("modalDailyAlarmSetup");
+}
+
+function setDailyStartPreset(timeStr) {
+  const input = document.getElementById("inputDailyStartTime");
+  if (input) {
+    input.value = timeStr;
+    updateDailyAlarmPreview();
+  }
+}
+
+function updateDailyAlarmPreview() {
+  const container = document.getElementById("dailyAlarmSlotsPreview");
+  if (!container) return;
+
+  const input = document.getElementById("inputDailyStartTime");
+  const startTimeStr = input ? input.value : "17:00";
+  const [startH, startM] = (startTimeStr || "17:00").split(":").map(n => parseInt(n, 10) || 0);
+
+  const currentDay = (AppState.schedules && AppState.schedules.length > 0)
+    ? (AppState.schedules.find(s => s.dayIndex === (AppState.currentDayIndex || 1)) || AppState.schedules[0])
+    : null;
+
+  const slots = (currentDay && currentDay.slots && currentDay.slots.length > 0)
+    ? currentDay.slots
+    : [
+        { subject: "Mathematics", topic: "Real Numbers & Practice", durationMinutes: 60 },
+        { subject: "Science", topic: "Chemical Reactions & Equations", durationMinutes: 60 },
+        { subject: "Social Science", topic: "Resource and Development", durationMinutes: 60 },
+        { subject: "English", topic: "A Letter to God", durationMinutes: 30 }
+      ];
+
+  let curH = startH;
+  let curM = startM;
+  const colors = ["#2563EB", "#059669", "#D97706", "#7C3AED"];
+
+  container.innerHTML = slots.map((slot, idx) => {
+    const ampm = curH >= 12 ? "PM" : "AM";
+    const dispH = curH % 12 === 0 ? 12 : curH % 12;
+    const timeFormatted = `${String(dispH).padStart(2, "0")}:${String(curM).padStart(2, "0")} ${ampm}`;
+    const dur = slot.durationMinutes || 45;
+
+    // advance clock for next slot + 5 min break
+    const nextTotal = curH * 60 + curM + dur + 5;
+    curH = Math.floor(nextTotal / 60) % 24;
+    curM = nextTotal % 60;
+
+    return `
+      <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-surface); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="background: ${colors[idx % colors.length]}; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;">${idx + 1}</span>
+          <div>
+            <div style="font-size: 13px; font-weight: 800;">${slot.subject}</div>
+            <div style="font-size: 11px; color: var(--text-tertiary);">${(slot.topic || slot.chapter || "").slice(0, 28)} (${dur}m)</div>
+          </div>
+        </div>
+        <div style="font-size: 12px; font-weight: 800; color: var(--accent);">
+          🔔 ${timeFormatted}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function confirmDailySequentialAlarms() {
+  const input = document.getElementById("inputDailyStartTime");
+  const startTimeStr = input ? input.value : "17:00";
+  const [startH, startM] = (startTimeStr || "17:00").split(":").map(n => parseInt(n, 10) || 0);
+
+  const todayStr = new Date().toISOString().slice(0, 10);
+  localStorage.setItem("gurustudy_last_alarm_prompt", todayStr);
+  localStorage.setItem("gurustudy_default_start_time", startTimeStr);
+
+  const currentDay = (AppState.schedules && AppState.schedules.length > 0)
+    ? (AppState.schedules.find(s => s.dayIndex === (AppState.currentDayIndex || 1)) || AppState.schedules[0])
+    : null;
+
+  if (currentDay && currentDay.slots) {
+    let curH = startH;
+    let curM = startM;
+    currentDay.slots.forEach(slot => {
+      const dur = slot.durationMinutes || 45;
+      slot.scheduledTime = `${String(curH).padStart(2, "0")}:${String(curM).padStart(2, "0")}`;
+      slot.alarmEnabled = true;
+
+      const nextTotal = curH * 60 + curM + dur + 5;
+      curH = Math.floor(nextTotal / 60) % 24;
+      curM = nextTotal % 60;
+    });
+    saveStudyDataToStorage();
+  }
+
+  // Request browser notification permission if not yet granted
+  if ("Notification" in window && Notification.permission !== "granted" && Notification.permission !== "denied") {
+    Notification.requestPermission();
+  }
+
+  closeModal("modalDailyAlarmSetup");
+  showToast(`🔔 Today's sequential study alarms set! First session starts at ${startTimeStr}`, "success");
+}
+
+function dismissDailyAlarmModal() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  localStorage.setItem("gurustudy_last_alarm_prompt", todayStr);
+  closeModal("modalDailyAlarmSetup");
 }
 
 
@@ -2478,7 +2617,29 @@ function onDedicatedTimerCompleted() {
     // Record session
     recordFocusSession(subj, ch, focusedMins);
 
-    if (AppState.dedicatedTimer.voiceEnabled) {
+    // Look up next subject in today's sequential schedule
+    const currentDay = (AppState.schedules && AppState.schedules.length > 0)
+      ? (AppState.schedules.find(s => s.dayIndex === (AppState.currentDayIndex || 1)) || AppState.schedules[0])
+      : null;
+    const slots = (currentDay && currentDay.slots) ? currentDay.slots : [];
+    const currentSlotIdx = slots.findIndex(s => (s.subject || "").toLowerCase() === (subj || "").toLowerCase());
+    const nextSlot = (currentSlotIdx >= 0 && currentSlotIdx + 1 < slots.length) ? slots[currentSlotIdx + 1] : null;
+
+    if (nextSlot) {
+      if (AppState.dedicatedTimer.voiceEnabled) {
+        speakTimerAnnouncement(`Time ho gaya, go to study! ${subj} session complete. Next subject ${nextSlot.subject} ka time ho gaya hai!`);
+      }
+
+      const banner = document.getElementById("timerNextSubjectBanner");
+      const title = document.getElementById("timerNextSubjectTitle");
+      const sub = document.getElementById("timerNextTopicSub");
+      if (banner && title && sub) {
+        title.textContent = `${nextSlot.subject} • ${nextSlot.topic || nextSlot.chapter || 'Chapter Revision'}`;
+        sub.textContent = `Target Duration: ${nextSlot.durationMinutes || 45} Minutes`;
+        banner.style.display = "block";
+      }
+      AppState.queuedNextSlot = nextSlot;
+    } else if (AppState.dedicatedTimer.voiceEnabled) {
       speakTimerAnnouncement(`Great job! Focus session completed for ${ch}. Time for a short break.`);
     }
 
@@ -2495,7 +2656,11 @@ function onDedicatedTimerCompleted() {
       AppState.dedicatedTimer.remainingSeconds = 10 * 60;
       toggleDedicatedTimer();
     } else {
-      alert(`🎉 Congratulations! You completed your ${focusedMins}-minute study session on ${ch}! Session logged.`);
+      if (nextSlot) {
+        alert(`🎉 Focus Session on ${subj} Completed!\n\n🔔 Next Subject: ${nextSlot.subject}\nTime ho gaya, go to study!`);
+      } else {
+        alert(`🎉 Congratulations! You completed your ${focusedMins}-minute study session on ${ch}! Session logged.`);
+      }
       resetDedicatedTimer();
     }
   } else {
@@ -2507,6 +2672,23 @@ function onDedicatedTimerCompleted() {
     AppState.dedicatedTimer.mode = "focus";
     setTimerPreset(AppState.dedicatedTimer.cycleMode === "pomodoro" ? 25 : 50);
   }
+}
+
+function startNextQueuedSubject() {
+  if (!AppState.queuedNextSlot) return;
+  const slot = AppState.queuedNextSlot;
+  AppState.queuedNextSlot = null;
+  const banner = document.getElementById("timerNextSubjectBanner");
+  if (banner) banner.style.display = "none";
+
+  const selSubj = document.getElementById("dedicatedTimerSelectSubject");
+  if (selSubj) {
+    selSubj.value = slot.subject;
+    onDedicatedTimerSubjectChanged(slot.subject);
+  }
+  setTimerPreset(slot.durationMinutes || 45);
+  toggleDedicatedTimer();
+  showToast(`🚀 Started next subject: ${slot.subject}!`, "info");
 }
 
 function finishDedicatedTimerManual() {

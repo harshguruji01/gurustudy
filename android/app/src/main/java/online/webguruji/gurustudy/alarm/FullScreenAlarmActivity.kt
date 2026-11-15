@@ -84,9 +84,9 @@ class FullScreenAlarmActivity : ComponentActivity() {
         val profile = repository.getUserProfile()
         if (repository.isVoiceAnnouncementEnabled()) {
             val speechText = if (profile.preferredLanguage == "hi") {
-                "$studentName जी, अब आपका $subject का पाठ $chapter पढ़ने का समय हो गया है! GuruStudy पर पढ़ाई शुरू करें।"
+                "Time ho gaya, go to study! $studentName जी, अब आपका $subject का पाठ $chapter पढ़ने का समय हो गया है. GuruStudy पर पढ़ाई शुरू करें!"
             } else {
-                "Hello $studentName, it is time to study $subject: $chapter on GuruStudy! Let's start learning."
+                "Time ho gaya, go to study! Hello $studentName, it is time for $subject: $chapter on GuruStudy. Let's start learning!"
             }
 
             ttsAnnouncer = TTSAnnouncer(this) {

@@ -31,7 +31,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
+import online.webguruji.gurustudy.alarm.TTSAnnouncer
 import online.webguruji.gurustudy.data.model.FocusSessionItem
+import online.webguruji.gurustudy.data.model.StudySlotItem
 import online.webguruji.gurustudy.data.repository.StudyRepository
 import online.webguruji.gurustudy.service.FloatingTimerService
 import online.webguruji.gurustudy.ui.theme.EmeraldGreen
@@ -45,8 +47,10 @@ fun StudyTimerScreen(
     subjectName: String,
     chapterTitle: String,
     initialMinutes: Int = 45,
+    nextSlot: StudySlotItem? = null,
     onBackClicked: () -> Unit,
-    onSessionCompleted: () -> Unit
+    onSessionCompleted: () -> Unit,
+    onStartNextSubject: ((subject: String, chapter: String, duration: Int) -> Unit)? = null
 ) {
     val context = LocalContext.current
     val repository = remember { StudyRepository(context) }
@@ -116,6 +120,24 @@ fun StudyTimerScreen(
                             completed = true
                         )
                     )
+                }
+
+                // Automatic Next Subject Voice Alarm Announcement
+                if (repository.isVoiceAnnouncementEnabled() && nextSlot != null) {
+                    val profile = repository.getUserProfile()
+                    val voiceText = if (profile.preferredLanguage == "hi") {
+                        "Time ho gaya, go to study! $subjectName का समय पूरा हुआ. अब अगले विषय ${nextSlot.subject} का समय हो गया है!"
+                    } else {
+                        "Time ho gaya, go to study! $subjectName session complete. Next subject ${nextSlot.subject} is starting now!"
+                    }
+                    try {
+                        var nextTts: TTSAnnouncer? = null
+                        nextTts = TTSAnnouncer(context, profile.preferredLanguage) {
+                            nextTts?.speak(voiceText)
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }
 
                 showCelebration = true
@@ -569,17 +591,71 @@ fun StudyTimerScreen(
                         fontWeight = FontWeight.SemiBold,
                         lineHeight = 18.sp
                     )
+                    if (nextSlot != null) {
+                        Spacer(modifier = Modifier.height(14.dp))
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = RoyalBlue.copy(alpha = 0.12f),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(12.dp)) {
+                                Text(
+                                    text = "🔔 Next Subject In Sequence:",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = RoyalBlue
+                                )
+                                Text(
+                                    text = "${nextSlot.subject} • ${nextSlot.topic}",
+                                    fontSize = 13.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Text(
+                                    text = "Duration: ${if (nextSlot.durationMinutes > 0) nextSlot.durationMinutes else 45} mins",
+                                    fontSize = 11.sp,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
                 }
             },
             confirmButton = {
-                Button(
-                    onClick = {
-                        showCelebration = false
-                        onSessionCompleted()
-                    },
-                    colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue)
-                ) {
-                    Text("Continue", color = Color.White)
+                if (nextSlot != null && onStartNextSubject != null) {
+                    Button(
+                        onClick = {
+                            showCelebration = false
+                            onSessionCompleted()
+                            val nextDur = if (nextSlot.durationMinutes > 0) nextSlot.durationMinutes else 45
+                            onStartNextSubject(nextSlot.subject, nextSlot.topic, nextDur)
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = EmeraldGreen)
+                    ) {
+                        Text("▶ Start Next: ${nextSlot.subject}", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                } else {
+                    Button(
+                        onClick = {
+                            showCelebration = false
+                            onSessionCompleted()
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = RoyalBlue)
+                    ) {
+                        Text("Continue", color = Color.White)
+                    }
+                }
+            },
+            dismissButton = {
+                if (nextSlot != null && onStartNextSubject != null) {
+                    OutlinedButton(
+                        onClick = {
+                            showCelebration = false
+                            onSessionCompleted()
+                        }
+                    ) {
+                        Text("Finish For Now")
+                    }
                 }
             }
         )

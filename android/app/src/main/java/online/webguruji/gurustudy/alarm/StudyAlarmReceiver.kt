@@ -80,8 +80,8 @@ class StudyAlarmReceiver : BroadcastReceiver() {
         val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
             ?: RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
-        val notificationTitle = "GuruStudy — Study Time, $studentName!"
-        val notificationText = "$subject session is starting: $chapter ($duration mins)."
+        val notificationTitle = "⏰ Time ho gaya, go to study!"
+        val notificationText = "$studentName ji, $subject session is starting: $chapter ($duration mins)."
 
         // Action 1: Start Study
         val startStudyIntent = Intent(context, MainActivity::class.java).apply {

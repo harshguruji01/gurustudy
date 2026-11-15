@@ -29,6 +29,9 @@ class PreferencesManager(context: Context) {
         private const val KEY_SLOT_ENABLED_PREFIX = "key_slot_enabled_"
         private const val KEY_GEMINI_API_KEY = "key_gemini_api_key"
         private const val KEY_ADAPTIVE_PLANNER = "key_adaptive_planner"
+        private const val KEY_LAST_DAILY_ALARM_PROMPT_DATE = "key_last_daily_alarm_prompt_date"
+        private const val KEY_DEFAULT_STUDY_START_TIME = "key_default_study_start_time"
+        private const val KEY_INTER_SUBJECT_BREAK_MINS = "key_inter_subject_break_mins"
 
         // Appearance
         private const val KEY_THEME_MODE = "key_theme_mode" // "system", "light", "dark"
@@ -140,6 +143,24 @@ class PreferencesManager(context: Context) {
 
     fun setSlotAlarmEnabled(slotIndex: Int, enabled: Boolean) {
         prefs.edit().putBoolean(KEY_SLOT_ENABLED_PREFIX + slotIndex, enabled).apply()
+    }
+
+    fun getLastDailyAlarmPromptDate(): String = prefs.getString(KEY_LAST_DAILY_ALARM_PROMPT_DATE, "") ?: ""
+
+    fun setLastDailyAlarmPromptDate(dateStr: String) {
+        prefs.edit().putString(KEY_LAST_DAILY_ALARM_PROMPT_DATE, dateStr).apply()
+    }
+
+    fun getDefaultStudyStartTime(): String = prefs.getString(KEY_DEFAULT_STUDY_START_TIME, "17:00") ?: "17:00"
+
+    fun setDefaultStudyStartTime(time: String) {
+        prefs.edit().putString(KEY_DEFAULT_STUDY_START_TIME, time).apply()
+    }
+
+    fun getInterSubjectBreakMins(): Int = prefs.getInt(KEY_INTER_SUBJECT_BREAK_MINS, 5)
+
+    fun setInterSubjectBreakMins(mins: Int) {
+        prefs.edit().putInt(KEY_INTER_SUBJECT_BREAK_MINS, mins).apply()
     }
 
     fun recordStudySessionCompleted() {
