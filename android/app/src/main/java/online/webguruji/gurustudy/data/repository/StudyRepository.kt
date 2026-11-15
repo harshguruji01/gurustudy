@@ -51,6 +51,7 @@ class StudyRepository(private val context: Context) {
         }
     }
 
+    @Synchronized
     fun initializeRoadmapIfEmpty() {
         val existing = dbHelper.getAllSchedules()
         if (existing.isEmpty() || existing.size < 93) {
@@ -60,9 +61,7 @@ class StudyRepository(private val context: Context) {
                 val type = object : TypeToken<List<StudyScheduleItem>>() {}.type
                 val defaultList: List<StudyScheduleItem> = gson.fromJson(reader, type)
                 reader.close()
-                for (item in defaultList) {
-                    dbHelper.insertOrUpdateSchedule(item)
-                }
+                dbHelper.insertOrUpdateSchedules(defaultList)
             } catch (e: Exception) {
                 e.printStackTrace()
             }

@@ -3,6 +3,7 @@ package online.webguruji.gurustudy.alarm
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.os.Build
@@ -34,6 +35,11 @@ class FullScreenAlarmActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        try {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         // Wake screen and show over keyguard/lock screen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {

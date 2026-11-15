@@ -23,7 +23,7 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
 
     companion object {
         const val DATABASE_NAME = "gurustudy_database.db"
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION = 4
 
         // Table Schedules (93-Day Roadmap)
         const val TABLE_SCHEDULE = "study_schedule"
@@ -154,8 +154,82 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             """.trimIndent()
             db.execSQL(createFocusTable)
         }
+        if (oldVersion < 4) {
+            ensureColumnExists(db, TABLE_SCHEDULE, COL_SLOTS_JSON, "TEXT")
+            ensureColumnExists(db, TABLE_SCHEDULE, COL_CHAPTER_TITLE_HI, "TEXT")
+            ensureColumnExists(db, TABLE_SCHEDULE, COL_PHASE, "TEXT")
+            ensureColumnExists(db, TABLE_SCHEDULE, COL_SCHEDULED_TIME, "TEXT")
+            ensureColumnExists(db, TABLE_SCHEDULE, COL_ALARM_ENABLED, "INTEGER DEFAULT 0")
+        }
     }
 
+    private fun ensureColumnExists(db: SQLiteDatabase, tableName: String, columnName: String, columnType: String) {
+        try {
+            val cursor = db.rawQuery("PRAGMA table_info($tableName)", null)
+            var exists = false
+            cursor.use {
+                val nameIdx = it.getColumnIndex("name")
+                while (it.moveToNext()) {
+                    if (nameIdx != -1 && it.getString(nameIdx).equals(columnName, ignoreCase = true)) {
+                        exists = true
+                        break
+                    }
+                }
+            }
+            if (!exists) {
+                db.execSQL("ALTER TABLE $tableName ADD COLUMN $columnName $columnType")
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun android.database.Cursor.getStringSafe(columnName: String, defaultValue: String = ""): String {
+        val index = getColumnIndex(columnName)
+        return if (index != -1 && !isNull(index)) getString(index) ?: defaultValue else defaultValue
+    }
+
+    private fun android.database.Cursor.getIntSafe(columnName: String, defaultValue: Int = 0): Int {
+        val index = getColumnIndex(columnName)
+        return if (index != -1 && !isNull(index)) getInt(index) else defaultValue
+    }
+
+    @Synchronized
+    fun insertOrUpdateSchedules(items: List<StudyScheduleItem>) {
+        val db = writableDatabase
+        db.beginTransaction()
+        try {
+            for (item in items) {
+                val values = ContentValues().apply {
+                    put(COL_DAY_INDEX, item.dayIndex)
+                    put(COL_DATE, item.date)
+                    put(COL_DAY_OF_WEEK, item.dayOfWeek)
+                    put(COL_PHASE, item.phase)
+                    put(COL_IS_SUNDAY, if (item.isSunday) 1 else 0)
+                    put(COL_SUBJECT, item.subject)
+                    put(COL_BOOK, item.book)
+                    put(COL_CHAPTER_NUM, item.chapterNumber)
+                    put(COL_CHAPTER_TITLE, item.chapterTitle)
+                    put(COL_CHAPTER_TITLE_HI, item.chapterTitleHi)
+                    put(COL_TOPIC, item.topic)
+                    put(COL_LEARNING_TARGET, item.learningTarget)
+                    put(COL_EST_MINUTES, item.estimatedMinutes)
+                    put(COL_REVISION_TARGET, item.revisionTarget)
+                    put(COL_TYPE, item.type)
+                    put(COL_STATUS, item.status)
+                    put(COL_SCHEDULED_TIME, item.scheduledTime)
+                    put(COL_ALARM_ENABLED, if (item.alarmEnabled) 1 else 0)
+                    put(COL_SLOTS_JSON, gson.toJson(item.slots))
+                }
+                db.insertWithOnConflict(TABLE_SCHEDULE, null, values, SQLiteDatabase.CONFLICT_REPLACE)
+            }
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+    }
+
+    @Synchronized
     fun insertOrUpdateSchedule(item: StudyScheduleItem) {
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -182,42 +256,39 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         db.insertWithOnConflict(TABLE_SCHEDULE, null, values, SQLiteDatabase.CONFLICT_REPLACE)
     }
 
+    @Synchronized
     fun getAllSchedules(): List<StudyScheduleItem> {
         val list = mutableListOf<StudyScheduleItem>()
         val db = readableDatabase
         val cursor = db.query(TABLE_SCHEDULE, null, null, null, null, null, "$COL_DAY_INDEX ASC")
         cursor.use {
             while (it.moveToNext()) {
-                val slotsJson = it.getString(it.getColumnIndexOrThrow(COL_SLOTS_JSON))
-                val slots: List<StudySlotItem> = if (!slotsJson.isNullOrBlank()) {
+                val slotsJson = it.getStringSafe(COL_SLOTS_JSON)
+                val slots: List<StudySlotItem> = if (slotsJson.isNotBlank()) {
                     try { gson.fromJson(slotsJson, slotsType) ?: emptyList() } catch (e: Exception) { emptyList() }
                 } else emptyList()
 
-                val phaseStr = try {
-                    it.getString(it.getColumnIndexOrThrow(COL_PHASE)) ?: "Phase 1: Foundation Building"
-                } catch (e: Exception) {
-                    "Phase 1: Foundation Building"
-                }
+                val phaseStr = it.getStringSafe(COL_PHASE, "Phase 1: Foundation Building")
 
                 val item = StudyScheduleItem(
-                    dayIndex = it.getInt(it.getColumnIndexOrThrow(COL_DAY_INDEX)),
-                    date = it.getString(it.getColumnIndexOrThrow(COL_DATE)),
-                    dayOfWeek = it.getString(it.getColumnIndexOrThrow(COL_DAY_OF_WEEK)),
+                    dayIndex = it.getIntSafe(COL_DAY_INDEX),
+                    date = it.getStringSafe(COL_DATE),
+                    dayOfWeek = it.getStringSafe(COL_DAY_OF_WEEK),
                     phase = phaseStr,
-                    isSunday = it.getInt(it.getColumnIndexOrThrow(COL_IS_SUNDAY)) == 1,
-                    subject = it.getString(it.getColumnIndexOrThrow(COL_SUBJECT)),
-                    book = it.getString(it.getColumnIndexOrThrow(COL_BOOK)),
-                    chapterNumber = it.getInt(it.getColumnIndexOrThrow(COL_CHAPTER_NUM)),
-                    chapterTitle = it.getString(it.getColumnIndexOrThrow(COL_CHAPTER_TITLE)),
-                    chapterTitleHi = it.getString(it.getColumnIndexOrThrow(COL_CHAPTER_TITLE_HI)),
-                    topic = it.getString(it.getColumnIndexOrThrow(COL_TOPIC)),
-                    learningTarget = it.getString(it.getColumnIndexOrThrow(COL_LEARNING_TARGET)),
-                    estimatedMinutes = it.getInt(it.getColumnIndexOrThrow(COL_EST_MINUTES)),
-                    revisionTarget = it.getString(it.getColumnIndexOrThrow(COL_REVISION_TARGET)),
-                    type = it.getString(it.getColumnIndexOrThrow(COL_TYPE)),
-                    status = it.getString(it.getColumnIndexOrThrow(COL_STATUS)),
-                    scheduledTime = it.getString(it.getColumnIndexOrThrow(COL_SCHEDULED_TIME)),
-                    alarmEnabled = it.getInt(it.getColumnIndexOrThrow(COL_ALARM_ENABLED)) == 1,
+                    isSunday = it.getIntSafe(COL_IS_SUNDAY) == 1,
+                    subject = it.getStringSafe(COL_SUBJECT),
+                    book = it.getStringSafe(COL_BOOK),
+                    chapterNumber = it.getIntSafe(COL_CHAPTER_NUM),
+                    chapterTitle = it.getStringSafe(COL_CHAPTER_TITLE),
+                    chapterTitleHi = it.getStringSafe(COL_CHAPTER_TITLE_HI),
+                    topic = it.getStringSafe(COL_TOPIC),
+                    learningTarget = it.getStringSafe(COL_LEARNING_TARGET),
+                    estimatedMinutes = it.getIntSafe(COL_EST_MINUTES),
+                    revisionTarget = it.getStringSafe(COL_REVISION_TARGET),
+                    type = it.getStringSafe(COL_TYPE),
+                    status = it.getStringSafe(COL_STATUS),
+                    scheduledTime = it.getStringSafe(COL_SCHEDULED_TIME),
+                    alarmEnabled = it.getIntSafe(COL_ALARM_ENABLED) == 1,
                     slots = slots
                 )
                 list.add(item)
@@ -226,6 +297,7 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         return list
     }
 
+    @Synchronized
     fun getScheduleForDate(dateStr: String): StudyScheduleItem? {
         val db = readableDatabase
         val cursor = db.query(
@@ -239,36 +311,32 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         )
         cursor.use {
             if (it.moveToFirst()) {
-                val slotsJson = it.getString(it.getColumnIndexOrThrow(COL_SLOTS_JSON))
-                val slots: List<StudySlotItem> = if (!slotsJson.isNullOrBlank()) {
+                val slotsJson = it.getStringSafe(COL_SLOTS_JSON)
+                val slots: List<StudySlotItem> = if (slotsJson.isNotBlank()) {
                     try { gson.fromJson(slotsJson, slotsType) ?: emptyList() } catch (e: Exception) { emptyList() }
                 } else emptyList()
 
-                val phaseStr = try {
-                    it.getString(it.getColumnIndexOrThrow(COL_PHASE)) ?: "Phase 1: Foundation Building"
-                } catch (e: Exception) {
-                    "Phase 1: Foundation Building"
-                }
+                val phaseStr = it.getStringSafe(COL_PHASE, "Phase 1: Foundation Building")
 
                 return StudyScheduleItem(
-                    dayIndex = it.getInt(it.getColumnIndexOrThrow(COL_DAY_INDEX)),
-                    date = it.getString(it.getColumnIndexOrThrow(COL_DATE)),
-                    dayOfWeek = it.getString(it.getColumnIndexOrThrow(COL_DAY_OF_WEEK)),
+                    dayIndex = it.getIntSafe(COL_DAY_INDEX),
+                    date = it.getStringSafe(COL_DATE),
+                    dayOfWeek = it.getStringSafe(COL_DAY_OF_WEEK),
                     phase = phaseStr,
-                    isSunday = it.getInt(it.getColumnIndexOrThrow(COL_IS_SUNDAY)) == 1,
-                    subject = it.getString(it.getColumnIndexOrThrow(COL_SUBJECT)),
-                    book = it.getString(it.getColumnIndexOrThrow(COL_BOOK)),
-                    chapterNumber = it.getInt(it.getColumnIndexOrThrow(COL_CHAPTER_NUM)),
-                    chapterTitle = it.getString(it.getColumnIndexOrThrow(COL_CHAPTER_TITLE)),
-                    chapterTitleHi = it.getString(it.getColumnIndexOrThrow(COL_CHAPTER_TITLE_HI)),
-                    topic = it.getString(it.getColumnIndexOrThrow(COL_TOPIC)),
-                    learningTarget = it.getString(it.getColumnIndexOrThrow(COL_LEARNING_TARGET)),
-                    estimatedMinutes = it.getInt(it.getColumnIndexOrThrow(COL_EST_MINUTES)),
-                    revisionTarget = it.getString(it.getColumnIndexOrThrow(COL_REVISION_TARGET)),
-                    type = it.getString(it.getColumnIndexOrThrow(COL_TYPE)),
-                    status = it.getString(it.getColumnIndexOrThrow(COL_STATUS)),
-                    scheduledTime = it.getString(it.getColumnIndexOrThrow(COL_SCHEDULED_TIME)),
-                    alarmEnabled = it.getInt(it.getColumnIndexOrThrow(COL_ALARM_ENABLED)) == 1,
+                    isSunday = it.getIntSafe(COL_IS_SUNDAY) == 1,
+                    subject = it.getStringSafe(COL_SUBJECT),
+                    book = it.getStringSafe(COL_BOOK),
+                    chapterNumber = it.getIntSafe(COL_CHAPTER_NUM),
+                    chapterTitle = it.getStringSafe(COL_CHAPTER_TITLE),
+                    chapterTitleHi = it.getStringSafe(COL_CHAPTER_TITLE_HI),
+                    topic = it.getStringSafe(COL_TOPIC),
+                    learningTarget = it.getStringSafe(COL_LEARNING_TARGET),
+                    estimatedMinutes = it.getIntSafe(COL_EST_MINUTES),
+                    revisionTarget = it.getStringSafe(COL_REVISION_TARGET),
+                    type = it.getStringSafe(COL_TYPE),
+                    status = it.getStringSafe(COL_STATUS),
+                    scheduledTime = it.getStringSafe(COL_SCHEDULED_TIME),
+                    alarmEnabled = it.getIntSafe(COL_ALARM_ENABLED) == 1,
                     slots = slots
                 )
             }

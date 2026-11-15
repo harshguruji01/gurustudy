@@ -1,12 +1,12 @@
 # 🎓 GuruStudy — CBSE Class 10 Board Exam Revision Plan (2026–2027)
 
-[![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg)](GuruStudy-v1.0.0.apk)
-[![Platform](https://img.shields.io/badge/Platform-Android%208.0%2B-green.svg)](GuruStudy-v1.0.0.apk)
+[![Release](https://img.shields.io/badge/Release-v2.2.0-blue.svg)](GuruStudy-v2.2.0-release.apk)
+[![Platform](https://img.shields.io/badge/Platform-Android%208.0%2B-green.svg)](GuruStudy-v2.2.0-release.apk)
 [![License](https://img.shields.io/badge/License-MIT-orange.svg)](#)
 [![CBSE](https://img.shields.io/badge/Curriculum-NCERT%20Class%2010th-purple.svg)](#)
 [![Status](https://img.shields.io/badge/100%25-Offline%20%26%20Ad--Free-brightgreen.svg)](#)
 
-> **Official 62-Day Master Revision Study Plan Companion** engineered strictly according to the CBSE Academic Session 2026–2027 curriculum. Includes intelligent background voice alarms, deep focus timers, NCERT formula sheets, and a 4-hour daily revision commitment.
+> **Official 93-Day Master Revision Study Plan Companion** engineered strictly according to the CBSE Academic Session 2026–2027 curriculum. Includes intelligent background voice alarms, deep focus timers, NCERT formula sheets, and a 4-hour daily revision commitment. Forced portrait orientation & verified release package.
 
 ---
 
@@ -14,8 +14,9 @@
 
 | Resource | Link |
 | :--- | :--- |
-| **Direct APK Download** | [⬇️ **Download GuruStudy-v1.0.0.apk (12.8 MB)**](GuruStudy-v1.0.0.apk) |
-| **Live Web App Planner** | [🌐 **Open Online Study Planner**](https://harshguruji01.github.io/study10/) |
+| **Direct APK Download** | [⬇️ **Download GuruStudy-v2.2.0-release.apk (8.66 MB)**](GuruStudy-v2.2.0-release.apk) |
+| **Live Web App Planner** | [🌐 **Open Online Study Planner**](https://gurustudy.webguruji.online) |
+| **Mirror Download** | [📦 **Download from dist/ (v2.2.0)**](dist/GuruStudy-v2.2.0-release.apk) |
 | **Official PDF Schedule** | 62-Day Master Plan + 31-Day Final Board Sprint (93 Days total) |
 
 ---
@@ -67,7 +68,7 @@ Mapped directly from the **Board Exam Revision Study Plan**:
 
 ## 📥 How to Install the APK
 
-1. Download [`GuruStudy-v1.0.0.apk`](GuruStudy-v1.0.0.apk) to your Android device.
+1. Download [`GuruStudy-v2.2.0-release.apk`](GuruStudy-v2.2.0-release.apk) to your Android device.
 2. Tap the downloaded file in your Notification Bar or Downloads folder.
 3. If prompted by Android, enable **"Allow installation from this source"**.
 4. Tap **Install** and open GuruStudy to start your 93-day revision journey!

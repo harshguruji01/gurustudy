@@ -1,6 +1,7 @@
 package online.webguruji.gurustudy
 
 import android.Manifest
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -9,14 +10,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import online.webguruji.gurustudy.alarm.AlarmScheduler
 import online.webguruji.gurustudy.data.model.NcertChapter
 import online.webguruji.gurustudy.data.model.NcertSubject
+import online.webguruji.gurustudy.data.model.PlanStatusInfo
 import online.webguruji.gurustudy.data.model.StudyScheduleItem
 import online.webguruji.gurustudy.data.model.UserProfile
 import online.webguruji.gurustudy.data.repository.StudyRepository
@@ -35,6 +39,11 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        try {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         repository = StudyRepository(this)
         alarmScheduler = AlarmScheduler(this)
@@ -47,10 +56,10 @@ class MainActivity : ComponentActivity() {
         val alarmDur = intent.getIntExtra("DURATION", 45)
 
         setContent {
-            var isDarkMode by remember { mutableStateOf<Boolean>(repository.isDarkMode()) }
-            var accentColor by remember { mutableStateOf<String>(repository.getAccentColor()) }
-            var userProfile by remember { mutableStateOf(repository.getUserProfile()) }
-            var isOnboarded by remember { mutableStateOf(repository.isOnboarded()) }
+            var isDarkMode by remember { mutableStateOf<Boolean>(try { repository.isDarkMode() } catch (e: Exception) { false }) }
+            var accentColor by remember { mutableStateOf<String>(try { repository.getAccentColor() } catch (e: Exception) { "royal_blue" }) }
+            var userProfile by remember { mutableStateOf(try { repository.getUserProfile() } catch (e: Exception) { UserProfile() }) }
+            var isOnboarded by remember { mutableStateOf(try { repository.isOnboarded() } catch (e: Exception) { false }) }
             var welcomePassed by remember { mutableStateOf(isOnboarded) }
 
             var currentNavTab by remember { mutableIntStateOf(0) } // 0: Home, 1: Books, 2: Calendar, 3: Practice, 4: Profile
@@ -62,11 +71,11 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            var schedules by remember { mutableStateOf(repository.getAllSchedules()) }
-            val subjects by remember { mutableStateOf(repository.getSubjects()) }
-            var mistakes by remember { mutableStateOf(repository.getAllMistakes()) }
+            var schedules by remember { mutableStateOf(try { repository.getAllSchedules() } catch (e: Exception) { emptyList() }) }
+            val subjects by remember { mutableStateOf(try { repository.getSubjects() } catch (e: Exception) { emptyList() }) }
+            var mistakes by remember { mutableStateOf(try { repository.getAllMistakes() } catch (e: Exception) { emptyList() }) }
 
-            val planStatus = remember(schedules) { repository.getPlanStatus() }
+            val planStatus = remember(schedules) { try { repository.getPlanStatus() } catch (e: Exception) { PlanStatusInfo(dayIndex = 1, status = "Upcoming", message = "", phase = 1, phaseName = "", isPreview = true) } }
             var selectedDayIndex by remember { mutableIntStateOf(planStatus.dayIndex) }
 
             GuruStudyTheme(darkTheme = isDarkMode, accent = accentColor) {
@@ -155,40 +164,51 @@ class MainActivity : ComponentActivity() {
                         else -> {
                             Scaffold(
                                 bottomBar = {
-                                    NavigationBar(
-                                        containerColor = MaterialTheme.colorScheme.surface,
-                                        tonalElevation = 8.dp
+                                    Surface(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(horizontal = 16.dp, vertical = 10.dp)
+                                            .navigationBarsPadding(),
+                                        shape = RoundedCornerShape(28.dp),
+                                        shadowElevation = 12.dp,
+                                        tonalElevation = 6.dp,
+                                        color = MaterialTheme.colorScheme.surface
                                     ) {
-                                        NavigationBarItem(
-                                            selected = currentNavTab == 0,
-                                            onClick = { currentNavTab = 0 },
-                                            icon = { Text("🏠") },
-                                            label = { Text("Home") }
-                                        )
-                                        NavigationBarItem(
-                                            selected = currentNavTab == 1,
-                                            onClick = { currentNavTab = 1 },
-                                            icon = { Text("📚") },
-                                            label = { Text("Books") }
-                                        )
-                                        NavigationBarItem(
-                                            selected = currentNavTab == 2,
-                                            onClick = { currentNavTab = 2 },
-                                            icon = { Text("📅") },
-                                            label = { Text("Calendar") }
-                                        )
-                                        NavigationBarItem(
-                                            selected = currentNavTab == 3,
-                                            onClick = { currentNavTab = 3 },
-                                            icon = { Text("✍️") },
-                                            label = { Text("Practice") }
-                                        )
-                                        NavigationBarItem(
-                                            selected = currentNavTab == 4,
-                                            onClick = { currentNavTab = 4 },
-                                            icon = { Text("👤") },
-                                            label = { Text("Profile") }
-                                        )
+                                        NavigationBar(
+                                            containerColor = Color.Transparent,
+                                            tonalElevation = 0.dp
+                                        ) {
+                                            NavigationBarItem(
+                                                selected = currentNavTab == 0,
+                                                onClick = { currentNavTab = 0 },
+                                                icon = { Text("🏠") },
+                                                label = { Text("Home") }
+                                            )
+                                            NavigationBarItem(
+                                                selected = currentNavTab == 1,
+                                                onClick = { currentNavTab = 1 },
+                                                icon = { Text("📚") },
+                                                label = { Text("Books") }
+                                            )
+                                            NavigationBarItem(
+                                                selected = currentNavTab == 2,
+                                                onClick = { currentNavTab = 2 },
+                                                icon = { Text("📅") },
+                                                label = { Text("Calendar") }
+                                            )
+                                            NavigationBarItem(
+                                                selected = currentNavTab == 3,
+                                                onClick = { currentNavTab = 3 },
+                                                icon = { Text("✍️") },
+                                                label = { Text("Practice") }
+                                            )
+                                            NavigationBarItem(
+                                                selected = currentNavTab == 4,
+                                                onClick = { currentNavTab = 4 },
+                                                icon = { Text("👤") },
+                                                label = { Text("Profile") }
+                                            )
+                                        }
                                     }
                                 }
                             ) { paddingValues ->

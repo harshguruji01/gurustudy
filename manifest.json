@@ -2,21 +2,35 @@
   "name": "GuruStudy - NCERT Class 10 Study Planner",
   "short_name": "GuruStudy",
   "description": "NCERT-based smart study companion and 93-day exam syllabus manager for CBSE Class 10 by HarshGuruJi",
+  "id": "/?source=pwa",
   "start_url": "index.html",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#1e3a8a",
   "theme_color": "#1e3a8a",
+  "categories": ["education", "productivity"],
+  "lang": "en",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "online.webguruji.gurustudy",
+      "url": "https://gurustudy.webguruji.online/GuruStudy-v2.2.0-release.apk"
     }
   ]
 }

@@ -28,11 +28,22 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:theme="@style/Theme.GuruStudy"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Google Search App Indexing & Universal Deep Linking -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="gurustudy.webguruji.online" />
+                <data android:scheme="http" android:host="gurustudy.webguruji.online" />
             </intent-filter>
         </activity>
 
@@ -40,6 +51,8 @@
         <activity
             android:name=".alarm.FullScreenAlarmActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:showWhenLocked="true"
             android:turnScreenOn="true"
             android:theme="@style/Theme.GuruStudy.FullScreenAlarm"

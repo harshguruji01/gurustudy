@@ -19,17 +19,6 @@ class GuruStudyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannels()
-
-        // Background preload of database so app is instantly fast
-        Thread {
-            try {
-                val repository = StudyRepository(this)
-                repository.initializeRoadmapIfEmpty()
-                repository.getSubjects()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }.start()
     }
 
     private fun createNotificationChannels() {
