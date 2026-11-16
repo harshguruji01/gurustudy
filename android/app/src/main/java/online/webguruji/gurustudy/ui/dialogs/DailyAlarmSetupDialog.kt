@@ -148,7 +148,7 @@ fun DailyAlarmSetupDialog(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Column {
+                        Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                             Text(
                                 text = "Daily Start Time",
                                 fontSize = 11.sp,
@@ -173,7 +173,9 @@ fun DailyAlarmSetupDialog(
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = RoyalBlue,
-                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                                maxLines = 1,
+                                softWrap = false
                             )
                         }
                     }
@@ -267,7 +269,7 @@ fun DailyAlarmSetupDialog(
                         ) {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f).padding(end = 8.dp)
                             ) {
                                 Surface(
                                     shape = CircleShape,
@@ -291,17 +293,19 @@ fun DailyAlarmSetupDialog(
 
                                 Spacer(modifier = Modifier.width(8.dp))
 
-                                Column {
+                                Column(modifier = Modifier.weight(1f, fill = false)) {
                                     Text(
                                         text = slot.subject,
                                         fontSize = 12.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = MaterialTheme.colorScheme.onSurface
+                                        color = MaterialTheme.colorScheme.onSurface,
+                                        maxLines = 1
                                     )
                                     Text(
                                         text = "${slot.topic.take(24)} (${duration}m)",
                                         fontSize = 10.sp,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        maxLines = 1
                                     )
                                 }
                             }
@@ -310,7 +314,9 @@ fun DailyAlarmSetupDialog(
                                 text = "🔔 $slotTimeStr",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = RoyalBlue
+                                color = RoyalBlue,
+                                maxLines = 1,
+                                softWrap = false
                             )
                         }
                     }

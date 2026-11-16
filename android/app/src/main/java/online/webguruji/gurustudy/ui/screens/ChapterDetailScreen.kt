@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -136,7 +137,9 @@ fun ChapterDetailScreen(
                             text = "📖 Fullscreen Reading Mode • Ch ${chapter.number}: ${chapter.title}",
                             fontSize = 12.sp,
                             color = Color.White,
-                            fontWeight = FontWeight.SemiBold
+                            fontWeight = FontWeight.SemiBold,
+                            modifier = Modifier.weight(1f).padding(end = 8.dp),
+                            softWrap = true
                         )
                         IconButton(onClick = { isFullScreen = false }, modifier = Modifier.size(28.dp)) {
                             Text("✕", color = Color.White, fontSize = 14.sp)
@@ -154,6 +157,7 @@ fun ChapterDetailScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())
                         .padding(horizontal = 14.dp, vertical = 8.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
@@ -186,6 +190,8 @@ fun ChapterDetailScreen(
                         )
                     }
 
+                    Spacer(modifier = Modifier.width(8.dp))
+
                     // Font Resizer & Timer Button
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
@@ -214,7 +220,7 @@ fun ChapterDetailScreen(
                             contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
                             modifier = Modifier.height(32.dp)
                         ) {
-                            Text("⏱️ Focus", fontSize = 11.sp, color = Color.White)
+                            Text("⏱️ Focus", fontSize = 11.sp, color = Color.White, maxLines = 1, softWrap = false)
                         }
                     }
                 }

@@ -261,7 +261,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("Dark Theme", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text("Easier on eyes during late-night revision", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -306,7 +306,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("App Language / भाषा", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text(if (userProfile.preferredLanguage == "hi") "हिन्दी (Hindi)" else "English", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -332,7 +332,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("Reduced Motion", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text("Disables non-essential transition animations", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -403,7 +403,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("Timer Completion Chime", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text("Play audible chime when session ends", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -423,7 +423,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("Timer Vibration Alert", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text("Vibrate phone on focus session finish", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -601,7 +601,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("NCERT Offline Content", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text("Class 10 CBSE 2026–27 verified syllabus", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -609,7 +609,7 @@ fun ProfileScreen(
                                     shape = RoundedCornerShape(8.dp),
                                     color = Color(0xFFDCFCE7)
                                 ) {
-                                    Text("✓ 100% Offline", color = Color(0xFF16A34A), fontSize = 11.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp))
+                                    Text("✓ 100% Offline", color = Color(0xFF16A34A), fontSize = 11.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp), maxLines = 1, softWrap = false)
                                 }
                             }
                         }
@@ -634,7 +634,7 @@ fun ProfileScreen(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Column {
+                                Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                     Text("Local Storage Usage", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                                     Text("Database: ~${dbSizeKb} KB • Cache: ~${cacheSizeKb} KB", fontSize = 12.sp, color = Color(0xFF64748B))
                                 }
@@ -650,7 +650,7 @@ fun ProfileScreen(
                                     shape = RoundedCornerShape(8.dp),
                                     contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
                                 ) {
-                                    Text("Clear Cache", fontSize = 11.sp)
+                                    Text("Clear Cache", fontSize = 11.sp, maxLines = 1, softWrap = false)
                                 }
                             }
 

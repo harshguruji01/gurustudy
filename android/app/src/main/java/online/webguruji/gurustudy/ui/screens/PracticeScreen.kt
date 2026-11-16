@@ -2,6 +2,7 @@ package online.webguruji.gurustudy.ui.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -255,7 +256,10 @@ fun MockQuizTab(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Row(
+                modifier = Modifier.weight(1f).horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
                 listOf("All", "Mathematics", "Science", "Social Science").forEach { subj ->
                     FilterChip(
                         selected = selectedSubjectFilter == subj,
@@ -265,7 +269,7 @@ fun MockQuizTab(
                             selectedOption = null
                             score = 0
                         },
-                        label = { Text(if (subj == "Mathematics") "Maths" else subj, fontSize = 11.sp) }
+                        label = { Text(if (subj == "Mathematics") "Maths" else subj, fontSize = 11.sp, maxLines = 1, softWrap = false) }
                     )
                 }
             }
@@ -273,6 +277,7 @@ fun MockQuizTab(
             if (testDurationMode == "Timed Mock 20") {
                 val m = timerSeconds / 60
                 val s = timerSeconds % 60
+                Spacer(modifier = Modifier.width(6.dp))
                 Surface(
                     shape = RoundedCornerShape(8.dp),
                     color = Color(0xFFFEF2F2)
@@ -282,7 +287,9 @@ fun MockQuizTab(
                         color = Color(0xFFDC2626),
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
             }
@@ -759,7 +766,10 @@ fun AiAssistantTab(prefilledQuery: String = "") {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                    Row(
+                        modifier = Modifier.weight(1f).padding(end = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
                         Text(if (hasKey) "🟢" else "⚠️", fontSize = 14.sp)
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
@@ -772,7 +782,9 @@ fun AiAssistantTab(prefilledQuery: String = "") {
                     Text(
                         text = if (hasKey) "Custom Key Loaded" else "Offline Fallback Ready",
                         fontSize = 11.sp,
-                        color = Color(0xFF64748B)
+                        color = Color(0xFF64748B),
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
 
@@ -866,7 +878,7 @@ fun AiAssistantTab(prefilledQuery: String = "") {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("Explanation Language:", fontSize = 12.sp, color = Color(0xFF64748B))
+                    Text("Explanation Language:", fontSize = 12.sp, color = Color(0xFF64748B), modifier = Modifier.weight(1f, fill = false).padding(end = 8.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         FilterChip(
                             selected = selectedLanguage == "en",

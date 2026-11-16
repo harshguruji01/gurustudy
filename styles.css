@@ -702,6 +702,18 @@ input, select, textarea {
   justify-content: space-between;
   margin-bottom: 16px;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card-header-row > .card-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.card-header-row > .btn,
+.card-header-row > button {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .card-title {

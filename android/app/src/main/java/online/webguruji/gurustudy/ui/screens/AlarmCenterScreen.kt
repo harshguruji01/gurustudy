@@ -288,10 +288,13 @@ fun AlarmCenterScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.weight(1f).padding(end = 8.dp)
+                        ) {
                             Text("📱", fontSize = 20.sp)
                             Spacer(modifier = Modifier.width(10.dp))
-                            Column {
+                            Column(modifier = Modifier.weight(1f, fill = false)) {
                                 Text(
                                     text = "Floating Study Reminder Card",
                                     fontWeight = FontWeight.SemiBold,
@@ -375,7 +378,7 @@ fun AlarmCenterScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Column {
+                        Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                             Text("Personalized Spoken Announcements", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
                             Text("Speaks student name, subject & chapter", fontSize = 12.sp, color = Color(0xFF64748B))
                         }
@@ -395,7 +398,7 @@ fun AlarmCenterScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Speech Language", fontSize = 14.sp, fontWeight = FontWeight.Medium)
+                        Text("Speech Language", fontSize = 14.sp, fontWeight = FontWeight.Medium, modifier = Modifier.weight(1f, fill = false).padding(end = 8.dp))
                         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             FilterChip(
                                 selected = userProfile.preferredLanguage == "en",
@@ -612,7 +615,7 @@ fun AlarmCenterScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Column(modifier = Modifier.weight(1f)) {
+                        Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                             Text(
                                 text = "Battery Optimization Exemption",
                                 fontWeight = FontWeight.SemiBold,
@@ -633,7 +636,9 @@ fun AlarmCenterScreen(
                                 color = if (isBatteryExempt) Color(0xFF16A34A) else Color(0xFFD97706),
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                maxLines = 1,
+                                softWrap = false
                             )
                         }
                     }
@@ -794,7 +799,7 @@ fun PermissionDiagnosticRow(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(modifier = Modifier.weight(1f)) {
+            Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                 Text(text = title, fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
                 Text(
                     text = subtitle,
@@ -813,7 +818,9 @@ fun PermissionDiagnosticRow(
                         color = Color(0xFF16A34A),
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
             } else {
@@ -824,7 +831,7 @@ fun PermissionDiagnosticRow(
                     contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
                     modifier = Modifier.height(32.dp)
                 ) {
-                    Text("Grant", fontSize = 11.sp, color = Color.White)
+                    Text("Grant", fontSize = 11.sp, color = Color.White, maxLines = 1, softWrap = false)
                 }
             }
         }

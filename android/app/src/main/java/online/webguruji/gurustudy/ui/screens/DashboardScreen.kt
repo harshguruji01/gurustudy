@@ -112,7 +112,7 @@ fun DashboardScreen(
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f).padding(end = 8.dp)
                         ) {
                             Surface(
                                 shape = CircleShape,
@@ -136,7 +136,8 @@ fun DashboardScreen(
                                     text = "Namaste, ${userProfile.fullName.ifBlank { "Student" }}! 🙏",
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color.White
+                                    color = Color.White,
+                                    softWrap = true
                                 )
                                 Text(
                                     text = currentDateStr,
@@ -161,7 +162,9 @@ fun DashboardScreen(
                                     text = "${userProfile.studyStreak}d Streak",
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color.White
+                                    color = Color.White,
+                                    maxLines = 1,
+                                    softWrap = false
                                 )
                             }
                         }
@@ -176,14 +179,16 @@ fun DashboardScreen(
                     ) {
                         Surface(
                             shape = RoundedCornerShape(8.dp),
-                            color = Color(0x26FFFFFF)
+                            color = Color(0x26FFFFFF),
+                            modifier = Modifier.weight(1f, fill = false).padding(end = 8.dp)
                         ) {
                             Text(
                                 text = "Class 10 CBSE (2026–2027) • ${planStatus.phaseName}",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Medium,
                                 color = Color(0xFFF1F5F9),
-                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                                softWrap = true
                             )
                         }
 
@@ -299,7 +304,7 @@ fun DashboardScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Column {
+                        Column(modifier = Modifier.weight(1f).padding(end = 12.dp)) {
                             Text(
                                 text = "Today's Study Overview",
                                 fontWeight = FontWeight.Bold,
@@ -324,7 +329,9 @@ fun DashboardScreen(
                                     text = "$dailyPct%",
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 13.sp,
-                                    color = RoyalBlue
+                                    color = RoyalBlue,
+                                    maxLines = 1,
+                                    softWrap = false
                                 )
                             }
                         }
@@ -351,7 +358,8 @@ fun DashboardScreen(
                             text = "✓ Tasks Done: $doneTasks / ${slots.size}",
                             fontSize = 12.sp,
                             color = Color(0xFF16A34A),
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
+                            modifier = Modifier.weight(1f, fill = false).padding(end = 6.dp)
                         )
                         Text(
                             text = "⏳ Left: $remainingMinutes mins ($pendingTasks tasks)",
@@ -381,7 +389,7 @@ fun DashboardScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.weight(1f).padding(end = 8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Surface(
@@ -405,7 +413,8 @@ fun DashboardScreen(
                                 text = lastReadCh,
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onSurface
+                                color = MaterialTheme.colorScheme.onSurface,
+                                softWrap = true
                             )
                             Text(
                                 text = "$lastReadSubj • NCERT Class 10",
@@ -421,7 +430,7 @@ fun DashboardScreen(
                         shape = RoundedCornerShape(10.dp),
                         contentPadding = PaddingValues(horizontal = 14.dp, vertical = 6.dp)
                     ) {
-                        Text("Resume", fontSize = 12.sp, color = Color.White)
+                        Text("Resume", fontSize = 12.sp, color = Color.White, maxLines = 1, softWrap = false)
                     }
                 }
             }
@@ -523,7 +532,9 @@ fun DashboardScreen(
                 text = "Today's Schedule (4-Hour Routine)",
                 fontSize = 17.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.weight(1f).padding(end = 8.dp),
+                softWrap = true
             )
 
             if (schedule != null) {
@@ -536,7 +547,9 @@ fun DashboardScreen(
                         color = if (schedule.status == "Completed") Color(0xFF16A34A) else RoyalBlue,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
             }
@@ -576,7 +589,9 @@ fun DashboardScreen(
                 Text(
                     text = "All 4 sessions done for Day ${schedule.dayIndex}?",
                     fontSize = 12.sp,
-                    color = Color(0xFF64748B)
+                    color = Color(0xFF64748B),
+                    modifier = Modifier.weight(1f).padding(end = 8.dp),
+                    softWrap = true
                 )
                 Button(
                     onClick = {
@@ -591,7 +606,9 @@ fun DashboardScreen(
                     Text(
                         text = if (schedule.status == "Completed") "✓ Completed" else "Mark Day Done",
                         fontSize = 12.sp,
-                        color = Color.White
+                        color = Color.White,
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
             }
@@ -741,21 +758,25 @@ fun DashboardScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                        Row(
+                            modifier = Modifier.weight(1f).padding(end = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
                             Text("🎯 ", fontSize = 16.sp)
                             Text(
                                 text = "Focus & Weak Spot Remediation",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 14.sp,
-                                color = Color(0xFF9F1239)
+                                color = Color(0xFF9F1239),
+                                softWrap = true
                             )
                         }
                         OutlinedButton(
                             onClick = onNavigateToPractice,
-                            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
                             shape = RoundedCornerShape(6.dp)
                         ) {
-                            Text("Review All", fontSize = 10.sp)
+                            Text("Review All", fontSize = 11.sp, maxLines = 1, softWrap = false)
                         }
                     }
                     Spacer(modifier = Modifier.height(8.dp))
@@ -942,7 +963,7 @@ fun DashboardScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Continue Studying Card", fontSize = 13.sp)
+                        Text("Continue Studying Card", fontSize = 13.sp, modifier = Modifier.weight(1f).padding(end = 8.dp))
                         Switch(checked = dashContinueVisible, onCheckedChange = {
                             dashContinueVisible = it
                             repository.setDashContinueVisible(it)
@@ -953,7 +974,7 @@ fun DashboardScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Weekly Consistency Chart", fontSize = 13.sp)
+                        Text("Weekly Consistency Chart", fontSize = 13.sp, modifier = Modifier.weight(1f).padding(end = 8.dp))
                         Switch(checked = dashWeeklyVisible, onCheckedChange = {
                             dashWeeklyVisible = it
                             repository.setDashWeeklyVisible(it)
@@ -964,7 +985,7 @@ fun DashboardScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Weak Chapters & Remediation", fontSize = 13.sp)
+                        Text("Weak Chapters & Remediation", fontSize = 13.sp, modifier = Modifier.weight(1f).padding(end = 8.dp))
                         Switch(checked = dashWeakChVisible, onCheckedChange = {
                             dashWeakChVisible = it
                             repository.setDashWeakChVisible(it)
@@ -975,7 +996,7 @@ fun DashboardScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Real Achievements", fontSize = 13.sp)
+                        Text("Real Achievements", fontSize = 13.sp, modifier = Modifier.weight(1f).padding(end = 8.dp))
                         Switch(checked = dashAchieveVisible, onCheckedChange = {
                             dashAchieveVisible = it
                             repository.setDashAchieveVisible(it)
@@ -1045,14 +1066,19 @@ fun SessionSlotCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    modifier = Modifier.weight(1f).padding(end = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(icon, fontSize = 18.sp)
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
                         text = slot.subject,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp,
-                        color = badgeColor
+                        color = badgeColor,
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
 
@@ -1067,7 +1093,9 @@ fun SessionSlotCard(
                             fontSize = 11.sp,
                             fontWeight = FontWeight.SemiBold,
                             color = Color(0xFF475569),
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                            maxLines = 1,
+                            softWrap = false
                         )
                     }
                 }
@@ -1079,7 +1107,8 @@ fun SessionSlotCard(
                 text = slot.topic.ifBlank { slot.target },
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                softWrap = true
             )
 
             if (slot.target.isNotBlank() && slot.target != slot.topic) {
@@ -1087,7 +1116,8 @@ fun SessionSlotCard(
                     text = slot.target,
                     fontSize = 12.sp,
                     color = Color(0xFF64748B),
-                    modifier = Modifier.padding(top = 2.dp)
+                    modifier = Modifier.padding(top = 2.dp),
+                    softWrap = true
                 )
             }
 
@@ -1100,7 +1130,7 @@ fun SessionSlotCard(
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.clickable { onToggleComplete(!slot.completed) }
+                    modifier = Modifier.weight(1f).padding(end = 8.dp).clickable { onToggleComplete(!slot.completed) }
                 ) {
                     Checkbox(
                         checked = slot.completed,
@@ -1110,7 +1140,9 @@ fun SessionSlotCard(
                         text = if (slot.completed) "Completed" else "Mark Done",
                         fontSize = 12.sp,
                         color = if (slot.completed) Color(0xFF16A34A) else Color(0xFF64748B),
-                        fontWeight = if (slot.completed) FontWeight.Bold else FontWeight.Normal
+                        fontWeight = if (slot.completed) FontWeight.Bold else FontWeight.Normal,
+                        maxLines = 1,
+                        softWrap = false
                     )
                 }
 
@@ -1120,7 +1152,7 @@ fun SessionSlotCard(
                     shape = RoundedCornerShape(8.dp),
                     contentPadding = PaddingValues(horizontal = 14.dp, vertical = 6.dp)
                 ) {
-                    Text("▶ Start (${slot.durationMinutes}m)", fontSize = 12.sp, color = Color.White)
+                    Text("▶ Start (${slot.durationMinutes}m)", fontSize = 12.sp, color = Color.White, maxLines = 1, softWrap = false)
                 }
             }
         }
@@ -1198,17 +1230,21 @@ fun QuickCard(
                 }
             }
             Spacer(modifier = Modifier.width(12.dp))
-            Column {
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = title,
                     fontWeight = FontWeight.Bold,
                     fontSize = 13.sp,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    softWrap = false
                 )
                 Text(
                     text = subtitle,
                     fontSize = 11.sp,
-                    color = Color(0xFF64748B)
+                    color = Color(0xFF64748B),
+                    maxLines = 1,
+                    softWrap = false
                 )
             }
         }

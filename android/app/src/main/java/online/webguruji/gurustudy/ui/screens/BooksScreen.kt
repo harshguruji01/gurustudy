@@ -89,7 +89,7 @@ fun BooksScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.weight(1f).padding(end = 8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Surface(
@@ -102,7 +102,7 @@ fun BooksScreen(
                             }
                         }
                         Spacer(modifier = Modifier.width(12.dp))
-                        Column {
+                        Column(modifier = Modifier.weight(1f)) {
                             Text(
                                 text = "Continue Reading",
                                 fontSize = 11.sp,
@@ -113,7 +113,8 @@ fun BooksScreen(
                                 text = lastReadCh,
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onSurface
+                                color = MaterialTheme.colorScheme.onSurface,
+                                softWrap = true
                             )
                             Text(
                                 text = "$lastReadSubj • NCERT Class 10",
@@ -138,7 +139,7 @@ fun BooksScreen(
                         shape = RoundedCornerShape(10.dp),
                         contentPadding = PaddingValues(horizontal = 14.dp, vertical = 6.dp)
                     ) {
-                        Text("Resume", fontSize = 12.sp, color = Color.White)
+                        Text("Resume", fontSize = 12.sp, color = Color.White, maxLines = 1, softWrap = false)
                     }
                 }
             }

@@ -170,7 +170,7 @@ fun CalendarScreen(
                             Spacer(modifier = Modifier.width(12.dp))
 
                             // Details
-                            Column(modifier = Modifier.weight(1f)) {
+                            Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
                                     horizontalArrangement = Arrangement.spacedBy(6.dp)
@@ -184,13 +184,15 @@ fun CalendarScreen(
                                             fontSize = 11.sp,
                                             fontWeight = FontWeight.Bold,
                                             color = RoyalBlue,
-                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                            maxLines = 1
                                         )
                                     }
                                     Text(
                                         text = "Day ${item.dayIndex}",
                                         fontSize = 11.sp,
-                                        color = Color(0xFF94A3B8)
+                                        color = Color(0xFF94A3B8),
+                                        maxLines = 1
                                     )
                                     if (item.isSunday) {
                                         Surface(
@@ -214,7 +216,8 @@ fun CalendarScreen(
                                     text = item.chapterTitle,
                                     fontSize = 14.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = MaterialTheme.colorScheme.onSurface
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    softWrap = true
                                 )
 
                                 Text(
@@ -235,7 +238,9 @@ fun CalendarScreen(
                                         color = if (item.status == "Completed") Color(0xFF16A34A) else Color(0xFFD97706),
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Medium,
-                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 }
                             }
@@ -322,7 +327,7 @@ fun CalendarScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Column {
+                        Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
                             Text("Scheduled Alarm Time", fontSize = 12.sp, color = Color(0xFF64748B))
                             Text(editedTime, fontSize = 16.sp, fontWeight = FontWeight.Bold, color = RoyalBlue)
                         }
@@ -331,7 +336,7 @@ fun CalendarScreen(
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEFF6FF)),
                             shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text("Change Time", color = RoyalBlue, fontSize = 12.sp)
+                            Text("Change Time", color = RoyalBlue, fontSize = 12.sp, maxLines = 1, softWrap = false)
                         }
                     }
 
@@ -343,7 +348,7 @@ fun CalendarScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Voice Alarm Enabled", fontSize = 13.sp)
+                        Text("Voice Alarm Enabled", fontSize = 13.sp, modifier = Modifier.weight(1f).padding(end = 8.dp))
                         Switch(
                             checked = alarmToggle,
                             onCheckedChange = { alarmToggle = it }
@@ -358,7 +363,7 @@ fun CalendarScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Mark as Completed", fontSize = 13.sp)
+                        Text("Mark as Completed", fontSize = 13.sp, modifier = Modifier.weight(1f).padding(end = 8.dp))
                         Checkbox(
                             checked = editedStatus == "Completed",
                             onCheckedChange = { isChecked ->
