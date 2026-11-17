@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/global-layout-fix.css">
 </head>
-<body>
+<body class="gurustudy-app-shell">
 
   <!-- Confetti Canvas for Session Victory -->
   <canvas id="confetti-canvas"></canvas>
@@ -1076,11 +1076,27 @@
       const contextBadge = document.getElementById('guru-ai-context-badge');
 
       const openAI = () => {
+        triggerHaptic();
+        // Connect "Ask Guru AI" floating button directly to HarshGuruJi Main Site Botpress Chat Widget
+        if (navigator.onLine && window.botpress) {
+          try {
+            if (typeof window.botpress.toggle === 'function') {
+              window.botpress.toggle();
+              return;
+            }
+            if (typeof window.botpress.open === 'function') {
+              window.botpress.open();
+              return;
+            }
+          } catch (err) {
+            console.warn('[GuruStudy] Botpress toggle failed, falling back to offline Guru AI:', err);
+          }
+        }
+        // Offline / fallback: open built-in CBSE Guru AI drawer
         const activeSubj = document.getElementById('focus-subject-badge')?.textContent || 'Mathematics';
         const activeChap = document.getElementById('focus-chapter-goal')?.textContent || 'Real Numbers';
         if (contextBadge) contextBadge.textContent = `${activeSubj.replace(/[^\w\s]/gi, '').trim()} • ${activeChap.replace('Chapter: ', '').trim()}`;
         if (aiModal) aiModal.classList.add('active');
-        triggerHaptic();
       };
 
       if (btnOpenAI) btnOpenAI.addEventListener('click', openAI);
@@ -2426,5 +2442,9 @@
       GuruAnalytics.renderMockTrendlineSVG('mock-trendline-container');
     });
   </script>
+
+  <!-- Botpress Webchat Floating Widget (HarshGuruJi Main Site Bot) -->
+  <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2026/11/14/13/20261114133455-OVF8F1K0.js" defer></script>
 </body>
 </html>

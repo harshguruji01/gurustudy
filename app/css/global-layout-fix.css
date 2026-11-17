@@ -318,3 +318,18 @@ button {
   word-break: normal;
   overflow-wrap: break-word;
 }
+
+/* 10. Botpress Webchat Integration with "Ask Guru AI" Button (/app/) */
+body.gurustudy-app-shell .bpFabContainer,
+body.gurustudy-app-shell .bpFabWrapper,
+body.gurustudy-app-shell .bpFab {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.bpWebchat,
+.bpContainer,
+#bp-web-widget-container {
+  z-index: 99999 !important;
+}

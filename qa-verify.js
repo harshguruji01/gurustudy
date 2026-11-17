@@ -224,6 +224,13 @@ assert(dcfSrc.includes('#060B19'), 'Doodle Crew Footer matches main site Midnigh
 assert(typeof dcfMod.layoutWord === 'function' && dcfMod.layoutWord([100, 100], 0, 200).width === 200, 'Doodle Crew Footer layoutWord math works');
 assert(typeof dcfMod.lookAt === 'function' && dcfMod.lookAt(0, 0, 100, 0, 5, 100).x === 5, 'Doodle Crew Footer eye lookAt math works');
 
+// 7. Botpress Webchat Integration Verification
+assert(indexHtml.includes('cdn.botpress.cloud/webchat/v5.0/inject.js'), 'app/index.html loads Botpress Webchat v5.0 inject.js');
+assert(indexHtml.includes('20261114133455-OVF8F1K0.js'), 'app/index.html loads HarshGuruJi main site Botpress config');
+assert(indexHtml.includes('window.botpress.toggle'), 'Ask Guru AI button triggers window.botpress.toggle()');
+assert(rootIndex.includes('20261114133455-OVF8F1K0.js'), 'Landing page loads HarshGuruJi Botpress Webchat widget');
+assert(globalCss.includes('body.gurustudy-app-shell .bpFabContainer'), 'global-layout-fix.css hides duplicate Botpress FAB inside /app/');
+
 // Summary
 console.log('\n====================================================');
 console.log(`📊 QA RESULTS: ${passedTests} / ${totalTests} TESTS PASSED`);
