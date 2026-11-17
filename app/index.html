@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>GuruStudy - CBSE Class 10 NCERT 88-Day Blueprint</title>
+  <meta name="description" content="Master CBSE Class 10 NCERT in 88 Days (20 Nov 2026 - 15 Feb 2027) with Smart Voice Timetable Alarms, 5-Hour Daily Study, and Sunday AI 417 Boost.">
+  <meta name="theme-color" content="#0B1120">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/icon-192.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core App Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Confetti Canvas for Session Victory -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- Top Sticky Header -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <img src="../icon-192.png" alt="GuruStudy Logo" class="brand-logo-img" onerror="this.style.display='none'">
+        <div class="brand-text-col">
+          <span class="greeting-text" id="header-greeting">Namaste, Student</span>
+          <h1 class="user-name-title" id="header-name">GuruStudy <span class="pill-badge" id="header-day-pill">Day 1/88</span></h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" id="btn-theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">🌙</button>
+        <button class="btn-icon" id="btn-sound-alarm-test" title="Quick Voice Alarm Test" aria-label="Alarm Test">🔔</button>
+        <div class="pill-badge" id="sync-status-pill" title="Offline-First Storage">Saved Locally</div>
+      </div>
+    </header>
+
+    <!-- ==================== TAB 1: TODAY (DASHBOARD) ==================== -->
+    <main class="tab-page active" id="tab-today">
+      <!-- Mission 88-Day Countdown Card -->
+      <section class="glass-card mission-card">
+        <div class="mission-header">
+          <div>
+            <div class="mission-title">Mission CBSE Board Exams 2026-27</div>
+            <div class="mission-sub">20 Nov 2026 — 15 Feb 2027 (Strict 88-Day Cycle)</div>
+          </div>
+          <div class="mission-days-left" id="dash-days-left">88</div>
+        </div>
+        <div style="font-size: 0.76rem; color: #E0E7FF; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
+          <span id="dash-current-phase">Phase 1: Deep NCERT Concept Mastery</span>
+          <span id="dash-weekday-type" style="font-weight: 700; color: #FBBF24;">Mon–Sat (5.0h)</span>
+        </div>
+      </section>
+
+      <!-- Daily Progress Ring Hero Card -->
+      <section class="glass-card progress-hero-card">
+        <div class="progress-ring-box">
+          <svg class="progress-ring-svg" viewBox="0 0 100 100">
+            <circle class="ring-bg" cx="50" cy="50" r="42" />
+            <circle class="ring-bar" id="today-ring-bar" cx="50" cy="50" r="42" stroke-dasharray="263.89" stroke-dashoffset="263.89" />
+          </svg>
+          <div class="ring-text">
+            <div class="ring-pct" id="today-ring-pct">0%</div>
+            <div class="ring-lbl">Completed</div>
+          </div>
+        </div>
+        <div class="progress-details-col">
+          <div class="progress-main-stat" id="today-studied-stat">0h 00m / 5h 00m</div>
+          <div class="progress-sub-stat" id="today-remaining-stat">5 hours left to complete today's mission</div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-primary" id="btn-quick-focus-launch">⚡ Start Focus</button>
+            <button class="btn-secondary" id="btn-open-manual-log">+ Log Offline</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subject Mini Progress Bars -->
+      <section class="glass-card" style="padding: 14px 18px;">
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase;">
+          Today's Subject Targets
+        </div>
+        <div class="subject-bars-list" id="dash-subject-bars">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- Sunday Special Boost Banner (Hidden on Mon-Sat, active on Sundays) -->
+      <section class="glass-card" id="sunday-boost-banner" style="display: none; background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(245, 158, 11, 0.4);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 0.78rem; font-weight: 800; color: #FBBF24; text-transform: uppercase;">⚡ Sunday 6.5-Hour Boost Active!</div>
+            <div style="font-size: 0.82rem; color: #F8FAFC; margin-top: 4px;">Includes Artificial Intelligence (Code 417) + Full Revision</div>
+          </div>
+          <span class="pill-badge sunday-pill">6.5 Hours Target</span>
+        </div>
+      </section>
+
+      <!-- Today's Sequential Schedule -->
+      <div class="section-heading-row">
+        <h2 class="section-heading-title">📅 Today's Study Roadmap</h2>
+        <span style="font-size: 0.74rem; color: var(--text-muted);" id="today-date-readable">Loading...</span>
+      </div>
+
+      <div id="today-schedule-cards-list">
+        <!-- Rendered by timetable engine -->
+      </div>
+    </main>
+
+    <!-- ==================== TAB 2: 88-DAY PLAN ==================== -->
+    <main class="tab-page" id="tab-plan">
+      <div class="section-heading-row">
+        <h2 class="section-heading-title">🗺️ Complete 88-Day Blueprint</h2>
+        <span class="pill-badge">20 Nov 2026 – 15 Feb 2027</span>
+      </div>
+
+      <!-- Phase Indicator Filter -->
+      <div class="syllabus-filter-chips" style="margin-bottom: 12px;">
+        <button class="chip-btn active" data-phase="all">All 88 Days</button>
+        <button class="chip-btn" data-phase="1">Phase 1: Concepts (1–50)</button>
+        <button class="chip-btn" data-phase="2">Phase 2: Exemplar (51–75)</button>
+        <button class="chip-btn" data-phase="3">Phase 3: Pre-Board (76–88)</button>
+      </div>
+
+      <div class="glass-card" style="padding: 12px 16px; margin-bottom: 16px;">
+        <input type="text" id="plan-search-input" class="form-input" placeholder="🔍 Search chapter or topic (e.g. Triangles, Electricity, AI)...">
+      </div>
+
+      <div id="full-plan-days-container">
+        <!-- Dynamically generated list of all 88 days -->
+      </div>
+    </main>
+
+    <!-- ==================== TAB 3: FOCUS TIMER ==================== -->
+    <main class="tab-page" id="tab-focus">
+      <div class="focus-container">
+        <!-- Mode Selector -->
+        <div class="mode-pill-selector">
+          <button class="mode-pill-btn active" id="btn-mode-target" data-mode="target">Target Session Mode</button>
+          <button class="mode-pill-btn" id="btn-mode-pomodoro" data-mode="pomodoro">Smart Pomodoro (50+10m)</button>
+        </div>
+
+        <!-- Subject Badge & Chapter Goal -->
+        <div>
+          <span class="focus-subject-tag" id="focus-subject-badge" style="background: rgba(59, 130, 246, 0.15); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.3);">
+            📐 Mathematics
+          </span>
+          <div class="focus-goal-text" id="focus-chapter-goal">Chapter: Real Numbers & Polynomials</div>
+        </div>
+
+        <!-- Large Tabular Clock -->
+        <div class="focus-timer-clock" id="focus-clock-display">02:00:00</div>
+
+        <!-- Controls -->
+        <div class="focus-controls-row">
+          <button class="btn-timer-action btn-timer-aux" id="btn-timer-reset" title="Reset Timer">↺</button>
+          <button class="btn-timer-action btn-timer-play" id="btn-timer-toggle" title="Start/Pause">▶</button>
+          <button class="btn-timer-action btn-timer-aux" id="btn-timer-finish" title="Complete Session Early">✓</button>
+        </div>
+
+        <!-- Ambient Sound Generator (Pure Web Audio) -->
+        <div class="ambient-bar">
+          <span style="font-size: 0.74rem; color: var(--text-secondary); font-weight: 600;">Ambient Focus:</span>
+          <button class="ambient-chip active" data-ambient="none">None</button>
+          <button class="ambient-chip" data-ambient="rain">🌧️ Soft Rain</button>
+          <button class="ambient-chip" data-ambient="whitenoise">🌊 White Noise</button>
+        </div>
+
+        <div style="margin-top: 18px; font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <span id="focus-wakelock-status">🔒 Screen WakeLock Enabled</span>
+          <span>•</span>
+          <span>💾 Auto-saving studied minutes</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== TAB 4: SYLLABUS ==================== -->
+    <main class="tab-page" id="tab-syllabus">
+      <div class="section-heading-row">
+        <h2 class="section-heading-title">📚 NCERT Class 10 Syllabus</h2>
+        <span class="pill-badge" id="syllabus-overall-badge">0/78 Done</span>
+      </div>
+
+      <!-- Subject Filter Chips -->
+      <div class="syllabus-filter-chips" id="syllabus-subject-chips">
+        <button class="chip-btn active" data-subj="all">All Subjects</button>
+        <button class="chip-btn" data-subj="maths">Maths (14)</button>
+        <button class="chip-btn" data-subj="science">Science (13)</button>
+        <button class="chip-btn" data-subj="sst">Social Science (20)</button>
+        <button class="chip-btn" data-subj="language">Language</button>
+        <button class="chip-btn" data-subj="ai">AI 417 (13)</button>
+      </div>
+
+      <div id="syllabus-chapters-container">
+        <!-- Rendered chapters list -->
+      </div>
+    </main>
+
+    <!-- ==================== TAB 5: STATS & SUNDAY MOCK ==================== -->
+    <main class="tab-page" id="tab-stats">
+      <div class="section-heading-row">
+        <h2 class="section-heading-title">📊 Analytics & Consistency</h2>
+        <span class="pill-badge" id="stats-streak-pill">🔥 0-Day Streak</span>
+      </div>
+
+      <!-- 88-Day Heatmap Card -->
+      <section class="glass-card">
+        <div style="font-size: 0.84rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
+          88-Day Consistency Heatmap (20 Nov 2026 – 15 Feb 2027)
+        </div>
+        <div id="heatmap-container" style="overflow-x: auto; padding-bottom: 8px;">
+          <!-- Heatmap SVG -->
+        </div>
+        <div style="display: flex; gap: 12px; font-size: 0.68rem; color: var(--text-muted); margin-top: 10px; justify-content: flex-end; align-items: center;">
+          <span>Less</span>
+          <span style="display:inline-block; width:10px; height:10px; background:#1E293B; border-radius:2px;"></span>
+          <span style="display:inline-block; width:10px; height:10px; background:#065F46; border-radius:2px;"></span>
+          <span style="display:inline-block; width:10px; height:10px; background:#059669; border-radius:2px;"></span>
+          <span style="display:inline-block; width:10px; height:10px; background:#10B981; border-radius:2px;"></span>
+          <span style="display:inline-block; width:10px; height:10px; background:#F59E0B; border-radius:2px;"></span>
+          <span>More (100% / Sunday)</span>
+        </div>
+      </section>
+
+      <!-- Subject Study Hours Donut -->
+      <section class="glass-card">
+        <div style="font-size: 0.84rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
+          Subject Hours Distribution
+        </div>
+        <div id="donut-chart-container" style="min-height: 180px; display: flex; align-items: center; justify-content: center;">
+          <!-- Donut SVG -->
+        </div>
+      </section>
+
+      <!-- Sunday Mock Test Command Center -->
+      <section class="glass-card" style="border-color: rgba(245, 158, 11, 0.3);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <div style="font-size: 0.84rem; font-weight: 700; color: #FBBF24;">Weekly Sunday Mock Tests</div>
+            <div style="font-size: 0.74rem; color: var(--text-muted);">13 Weekly Full-Length Practice Exams</div>
+          </div>
+          <button class="btn-primary" id="btn-open-mock-logger" style="font-size: 0.75rem; padding: 6px 12px;">+ Log Test</button>
+        </div>
+
+        <!-- Mock Score Trendline -->
+        <div id="mock-trendline-container" style="overflow-x: auto;">
+          <!-- Trendline SVG -->
+        </div>
+      </section>
+
+      <!-- Milestone Badges Grid -->
+      <section class="glass-card">
+        <div style="font-size: 0.84rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">
+          🏆 CBSE Board Milestones & Badges
+        </div>
+        <div id="milestones-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+          <!-- Badges -->
+        </div>
+      </section>
+
+      <!-- Share Report Card CTA -->
+      <div style="text-align: center; margin: 16px 0 24px 0;">
+        <button class="btn-primary" id="btn-download-report-card" style="width: 100%; justify-content: center; padding: 14px; font-size: 0.95rem;">
+          📸 Download & Share Progress Report Card
+        </button>
+      </div>
+    </main>
+
+    <!-- ==================== BOTTOM NAVIGATION (5 TABS) ==================== -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="tab-today">
+        <span class="nav-item-icon">🏠</span>
+        <span>Today</span>
+      </button>
+      <button class="nav-item" data-tab="tab-plan">
+        <span class="nav-item-icon">🗺️</span>
+        <span>88-Day Plan</span>
+      </button>
+      <button class="nav-item" data-tab="tab-focus">
+        <span class="nav-item-icon">⚡</span>
+        <span>Focus</span>
+      </button>
+      <button class="nav-item" data-tab="tab-syllabus">
+        <span class="nav-item-icon">📚</span>
+        <span>Syllabus</span>
+      </button>
+      <button class="nav-item" data-tab="tab-stats">
+        <span class="nav-item-icon">📊</span>
+        <span>Stats</span>
+      </button>
+    </nav>
+
+  </div> <!-- End App Container -->
+
+  <!-- ==================== FULLSCREEN RINGING ALARM OVERLAY ==================== -->
+  <div class="alarm-overlay" id="alarm-ringing-overlay">
+    <div class="alarm-bell-icon">🔔</div>
+    <div>
+      <div class="alarm-headline" id="alarm-ring-title">Time to Study!</div>
+      <div class="alarm-time-display" id="alarm-ring-time">05:00 PM</div>
+    </div>
+
+    <div class="alarm-subject-card">
+      <div style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;" id="alarm-ring-subject">Mathematics</div>
+      <div style="font-size: 0.88rem; color: #A5B4FC; margin-top: 6px;" id="alarm-ring-chapter">Chapter 1: Real Numbers</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;" id="alarm-ring-duration">Target: 120 Minutes</div>
+    </div>
+
+    <div class="alarm-actions-row">
+      <button class="btn-alarm-start" id="btn-alarm-action-start">▶ Start Studying Now</button>
+      <button class="btn-alarm-snooze" id="btn-alarm-action-snooze">⏱ Snooze 5 Mins (Max 2)</button>
+      <button class="btn-alarm-dismiss" id="btn-alarm-action-dismiss">Dismiss</button>
+    </div>
+  </div>
+
+  <!-- ==================== SESSION COMPLETION MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-session-complete">
+    <div class="modal-box">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-size: 2.8rem; margin-bottom: 8px;">🎉</div>
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">Study Session Completed!</h3>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);" id="complete-modal-subtitle">Great job on finishing your target block!</p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">What did you complete today?</label>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="chk-ncert-theory" checked> NCERT Theory & Concepts Read
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="chk-solved-examples" checked> Solved Examples Practiced
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="chk-exercise-qs"> Exercise Questions Solved
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Confidence Rating</label>
+        <select class="form-select" id="select-session-confidence">
+          <option value="easy">🟢 Easy (Solid Grip)</option>
+          <option value="medium" selected>🟡 Medium (Moderate)</option>
+          <option value="hard">🔴 Needs Revision Before Boards</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-top: 18px;">
+        <button class="btn-primary" id="btn-save-session-completion" style="flex: 1; justify-content: center;">Save & Record</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MANUAL LOG MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-manual-log">
+    <div class="modal-box">
+      <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--text-primary);">Log Offline Study Hours</h3>
+      <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px;">
+        Studied at school, coaching, or offline? Record your minutes here to keep your daily target and streak updated!
+      </p>
+
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <select class="form-select" id="manual-log-subject">
+          <option value="Mathematics">Mathematics</option>
+          <option value="Science">Science</option>
+          <option value="Social Science">Social Science</option>
+          <option value="Language">English / Hindi</option>
+          <option value="Artificial Intelligence">AI (Code 417)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Duration (Minutes)</label>
+        <input type="number" id="manual-log-minutes" class="form-input" min="5" max="360" value="60" placeholder="Minutes (e.g. 60)">
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-top: 18px;">
+        <button class="btn-secondary" id="btn-cancel-manual-log" style="flex: 1;">Cancel</button>
+        <button class="btn-primary" id="btn-confirm-manual-log" style="flex: 1; justify-content: center;">Log Minutes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SUNDAY MOCK TEST LOG MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-mock-test">
+    <div class="modal-box">
+      <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 12px; color: var(--text-primary);">Log Sunday Mock Test Score</h3>
+
+      <div class="form-group">
+        <label class="form-label">Sunday Week (1 to 13)</label>
+        <select class="form-select" id="mock-test-week">
+          <!-- Populated 1 to 13 -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Test / Paper Name</label>
+        <input type="text" id="mock-test-name" class="form-input" placeholder="e.g. CBSE Sample Paper 2026 - Maths">
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div class="form-group">
+          <label class="form-label">Marks Obtained</label>
+          <input type="number" id="mock-marks-obtained" class="form-input" min="0" max="100" placeholder="e.g. 74">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Total Marks</label>
+          <input type="number" id="mock-marks-total" class="form-input" min="10" max="100" value="80">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-top: 18px;">
+        <button class="btn-secondary" id="btn-cancel-mock-test" style="flex: 1;">Cancel</button>
+        <button class="btn-primary" id="btn-save-mock-test" style="flex: 1; justify-content: center;">Save Test Score</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ONBOARDING WIZARD MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-onboarding">
+    <div class="modal-box">
+      <div id="onboarding-step-1">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <div style="font-size: 2.8rem;">🚀</div>
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary);">Welcome to GuruStudy</h2>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 6px;">
+            The 88-Day NCERT Blueprint (20 Nov 2026 – 15 Feb 2027) built for 95%+ in Class 10 CBSE Boards.
+          </p>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" id="onboard-student-name" class="form-input" placeholder="Enter student name" value="Student">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Language Subject Medium</label>
+          <select class="form-select" id="onboard-language">
+            <option value="Hindi Course A">Hindi Course A + English</option>
+            <option value="Hindi Course B">Hindi Course B + English</option>
+            <option value="English Only">English Focus Only</option>
+          </select>
+        </div>
+        <button class="btn-primary" id="btn-onboard-next-1" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">Next: Set Daily Start Time →</button>
+      </div>
+
+      <div id="onboarding-step-2" style="display: none;">
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Daily Study Calibration</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Choose your daily study start time. We will calibrate all alarms, breaks, and subject intervals automatically!
+        </p>
+        <div class="form-group">
+          <label class="form-label">Start Time</label>
+          <input type="time" id="onboard-start-time" class="form-input" value="17:00">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Alarm Tone</label>
+          <select class="form-select" id="onboard-alarm-tone">
+            <option value="morning_bell">Morning Bell (Ascending Chime)</option>
+            <option value="digital_pulse">Digital Pulse (Modern High-Priority)</option>
+            <option value="temple_chime">Temple Chime (Calm Resonant)</option>
+            <option value="soft_piano">Soft Piano (Gentle Acoustic)</option>
+          </select>
+        </div>
+        <button class="btn-primary" id="btn-onboard-finish" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">Launch My 88-Day Blueprint 🎯</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Script Dependencies -->
+  <script src="js/db-sync.js"></script>
+  <script src="js/syllabus-data.js"></script>
+  <script src="js/timetable-engine.js"></script>
+  <script src="js/alarm-engine.js"></script>
+  <script src="js/focus-timer.js"></script>
+  <script src="js/analytics.js"></script>
+
+  <!-- App Main Orchestrator -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Check Onboarding
+      const profile = await GuruDB.getProfile();
+      if (!profile || !profile.student_name) {
+        document.getElementById('modal-onboarding').classList.add('active');
+      } else {
+        applyProfileToUI(profile);
+      }
+
+      // 2. Wire Tab Navigation
+      const navButtons = document.querySelectorAll('.nav-item');
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          navButtons.forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+
+          btn.classList.add('active');
+          const targetId = btn.getAttribute('data-tab');
+          const targetPage = document.getElementById(targetId);
+          if (targetPage) targetPage.classList.add('active');
+
+          // Trigger tab-specific renders
+          if (targetId === 'tab-stats') {
+            GuruAnalytics.renderHeatmapSVG('heatmap-container');
+            GuruAnalytics.renderSubjectDonutSVG('donut-chart-container');
+            GuruAnalytics.renderMockTrendlineSVG('mock-trendline-container');
+            renderMilestonesUI();
+          } else if (targetId === 'tab-syllabus') {
+            renderSyllabusUI('all');
+          } else if (targetId === 'tab-plan') {
+            renderFullPlanUI('all');
+          }
+        });
+      });
+
+      // 3. Theme Toggle
+      const themeBtn = document.getElementById('btn-theme-toggle');
+      themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        themeBtn.textContent = next === 'dark' ? '🌙' : '☀️';
+      });
+
+      // 4. Alarm Test Button
+      document.getElementById('btn-sound-alarm-test').addEventListener('click', () => {
+        GuruAlarmEngine.testVoiceAlarm();
+      });
+
+      // 5. Populate Sunday Mock Test Week dropdown (1-13)
+      const mockWeekSelect = document.getElementById('mock-test-week');
+      for (let i = 1; i <= 13; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `Sunday Week ${i}`;
+        mockWeekSelect.appendChild(opt);
+      }
+
+      // 6. Initialize Dashboard & Schedule
+      await renderDashboard();
+
+      // 7. Initialize Focus Timer Callbacks
+      setupFocusTimerUI();
+
+      // 8. Register Service Worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').catch(err => {
+          console.log('[SW] Registration failed:', err);
+        });
+      }
+
+      // 9. Listen for live progress updates
+      window.addEventListener('gurustudy:progress-updated', () => {
+        updateDailyProgressRing();
+      });
+    });
+
+    function applyProfileToUI(profile) {
+      document.getElementById('header-greeting').textContent = `Namaste, ${profile.student_name}`;
+      document.getElementById('header-name').childNodes[0].nodeValue = `${profile.student_name} `;
+    }
+
+    async function renderDashboard() {
+      const now = new Date();
+      const todaySchedule = GuruTimetable.getDaySchedule(now);
+
+      // Header Day badge
+      document.getElementById('header-day-pill').textContent = `Day ${todaySchedule.dayNumber}/88`;
+      document.getElementById('dash-days-left').textContent = `${88 - todaySchedule.dayNumber + 1}`;
+      document.getElementById('dash-current-phase').textContent = `${todaySchedule.phase} • Day ${todaySchedule.dayNumber}`;
+      document.getElementById('dash-weekday-type').textContent = todaySchedule.isSunday ? 'Sunday Boost (6.5h)' : 'Mon–Sat (5.0h)';
+      document.getElementById('dash-weekday-type').style.color = todaySchedule.isSunday ? '#F59E0B' : '#60A5FA';
+
+      // Sunday Boost Banner
+      const sundayBanner = document.getElementById('sunday-boost-banner');
+      if (todaySchedule.isSunday) {
+        sundayBanner.style.display = 'block';
+      } else {
+        sundayBanner.style.display = 'none';
+      }
+
+      // Render today's timetable cards
+      const listEl = document.getElementById('today-schedule-cards-list');
+      listEl.innerHTML = '';
+
+      todaySchedule.schedule.forEach(slot => {
+        const card = document.createElement('div');
+        const subjSlug = getSubjectSlug(slot.subject);
+        card.className = `glass-card schedule-card ${subjSlug}`;
+
+        card.innerHTML = `
+          <div class="schedule-top">
+            <div>
+              <div class="schedule-subject-name">${slot.subject}</div>
+              <div class="schedule-chapter-text">${slot.chapter}</div>
+            </div>
+            <div class="schedule-time-badge">${slot.startTime} – ${slot.endTime} (${slot.durationMinutes}m)</div>
+          </div>
+          <div class="schedule-desc-text">${slot.description}</div>
+          <div class="schedule-bottom">
+            <span style="font-size: 0.76rem; color: var(--text-secondary);">Target: ${slot.durationMinutes} Minutes</span>
+            <button class="btn-primary btn-start-card-study" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}">
+              ⚡ Start Studying
+            </button>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+
+      // Bind Start Studying buttons
+      document.querySelectorAll('.btn-start-card-study').forEach(b => {
+        b.addEventListener('click', () => {
+          const subj = b.getAttribute('data-subject');
+          const dur = parseInt(b.getAttribute('data-duration'), 10);
+          const chap = b.getAttribute('data-chapter');
+          startFocusSessionFromCard(subj, dur, chap);
+        });
+      });
+
+      // Quick focus launch
+      document.getElementById('btn-quick-focus-launch').addEventListener('click', () => {
+        const firstSlot = todaySchedule.schedule[0];
+        startFocusSessionFromCard(firstSlot.subject, firstSlot.durationMinutes, firstSlot.chapter);
+      });
+
+      await updateDailyProgressRing();
+    }
+
+    async function updateDailyProgressRing() {
+      const todaySchedule = GuruTimetable.getDaySchedule(new Date());
+      const todayStr = new Date().toISOString().split('T')[0];
+      const log = await GuruDB.getDailyLog(todayStr);
+
+      const totalTargetMins = todaySchedule.totalHours * 60;
+      const studiedMins = log.total_minutes || 0;
+      const pct = Math.min(100, Math.round((studiedMins / totalTargetMins) * 100));
+
+      // Circular ring stroke
+      const circumference = 263.89; // 2 * pi * 42
+      const offset = circumference - (pct / 100) * circumference;
+      const ringBar = document.getElementById('today-ring-bar');
+      if (ringBar) ringBar.style.strokeDashoffset = offset;
+
+      document.getElementById('today-ring-pct').textContent = `${pct}%`;
+
+      const studiedHrs = Math.floor(studiedMins / 60);
+      const studiedM = studiedMins % 60;
+      const targetHrs = Math.floor(totalTargetMins / 60);
+      const targetM = totalTargetMins % 60;
+
+      document.getElementById('today-studied-stat').textContent =
+        `${studiedHrs}h ${String(studiedM).padStart(2,'0')}m / ${targetHrs}h ${String(targetM).padStart(2,'0')}m`;
+
+      const leftMins = Math.max(0, totalTargetMins - studiedMins);
+      const leftH = Math.floor(leftMins / 60);
+      const leftM = leftMins % 60;
+      document.getElementById('today-remaining-stat').textContent =
+        leftMins > 0 ? `${leftH}h ${leftM}m left to complete today's mission` : '🎉 Mission Achieved for Today!';
+
+      // Subject mini bars
+      const barsContainer = document.getElementById('dash-subject-bars');
+      barsContainer.innerHTML = '';
+
+      const subjects = [
+        { name: 'Maths', key: 'maths_minutes', target: 120, color: '#3B82F6' },
+        { name: 'Science', key: 'science_minutes', target: todaySchedule.isSunday ? 120 : 90, color: '#10B981' },
+        { name: 'SST', key: 'sst_minutes', target: todaySchedule.isSunday ? 90 : 60, color: '#F59E0B' },
+        { name: 'Language', key: 'language_minutes', target: 30, color: '#EC4899' }
+      ];
+      if (todaySchedule.isSunday) {
+        subjects.push({ name: 'AI 417', key: 'ai_minutes', target: 30, color: '#8B5CF6' });
+      }
+
+      subjects.forEach(s => {
+        const done = log[s.key] || 0;
+        const subPct = Math.min(100, Math.round((done / s.target) * 100));
+        const row = document.createElement('div');
+        row.className = 'subject-bar-row';
+        row.innerHTML = `
+          <span class="subject-bar-name">${s.name}</span>
+          <div class="subject-bar-track">
+            <div class="subject-bar-fill" style="width: ${subPct}%; background: ${s.color};"></div>
+          </div>
+          <span class="subject-bar-val">${done}/${s.target}m</span>
+        `;
+        barsContainer.appendChild(row);
+      });
+    }
+
+    function startFocusSessionFromCard(subject, durationMins, chapter) {
+      // Switch to Focus Tab
+      document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+
+      const focusNav = document.querySelector('[data-tab="tab-focus"]');
+      if (focusNav) focusNav.classList.add('active');
+      document.getElementById('tab-focus').classList.add('active');
+
+      GuruFocusTimer.loadSession(subject, durationMins, chapter, 'target');
+      GuruFocusTimer.start();
+    }
+
+    function setupFocusTimerUI() {
+      const clockEl = document.getElementById('focus-clock-display');
+      const badgeEl = document.getElementById('focus-subject-badge');
+      const goalEl = document.getElementById('focus-chapter-goal');
+      const toggleBtn = document.getElementById('btn-timer-toggle');
+
+      GuruFocusTimer.onTick = (state) => {
+        clockEl.textContent = state.formattedRemaining;
+        goalEl.textContent = state.chapterGoal || `Focusing on ${state.subject}`;
+        badgeEl.textContent = state.subject;
+        toggleBtn.textContent = state.isRunning ? '⏸' : '▶';
+      };
+
+      GuruFocusTimer.onComplete = (summary) => {
+        triggerConfetti();
+        document.getElementById('complete-modal-subtitle').textContent =
+          `Target reached for ${summary.subject}! (${summary.durationMinutes} mins)`;
+        document.getElementById('modal-session-complete').classList.add('active');
+      };
+
+      toggleBtn.addEventListener('click', () => {
+        if (GuruFocusTimer.isRunning) {
+          GuruFocusTimer.pause();
+        } else {
+          GuruFocusTimer.start();
+        }
+      });
+
+      document.getElementById('btn-timer-reset').addEventListener('click', () => {
+        GuruFocusTimer.reset();
+      });
+
+      document.getElementById('btn-timer-finish').addEventListener('click', () => {
+        GuruFocusTimer.handleTimerEnd();
+      });
+
+      // Ambient sounds
+      document.querySelectorAll('.ambient-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.ambient-chip').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const type = btn.getAttribute('data-ambient');
+          GuruFocusTimer.setAmbientSound(type);
+        });
+      });
+
+      // Mode toggles
+      document.getElementById('btn-mode-target').addEventListener('click', () => {
+        document.getElementById('btn-mode-target').classList.add('active');
+        document.getElementById('btn-mode-pomodoro').classList.remove('active');
+        GuruFocusTimer.setMode('target');
+      });
+      document.getElementById('btn-mode-pomodoro').addEventListener('click', () => {
+        document.getElementById('btn-mode-pomodoro').classList.add('active');
+        document.getElementById('btn-mode-target').classList.remove('active');
+        GuruFocusTimer.setMode('pomodoro');
+      });
+
+      // Session complete save
+      document.getElementById('btn-save-session-completion').addEventListener('click', () => {
+        document.getElementById('modal-session-complete').classList.remove('active');
+      });
+    }
+
+    function renderSyllabusUI(filterSubj) {
+      const container = document.getElementById('syllabus-chapters-container');
+      container.innerHTML = '';
+
+      const all = GURU_SYLLABUS.getAllChapters();
+      let items = all;
+
+      if (filterSubj === 'maths') items = all.filter(c => c.subject === 'Maths');
+      else if (filterSubj === 'science') items = all.filter(c => c.subject === 'Science');
+      else if (filterSubj === 'sst') items = all.filter(c => c.subject === 'SST');
+      else if (filterSubj === 'language') items = all.filter(c => c.subject === 'English' || c.subject === 'Hindi');
+      else if (filterSubj === 'ai') items = all.filter(c => c.subject === 'AI');
+
+      items.forEach(ch => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'chapter-item';
+        itemEl.innerHTML = `
+          <input type="checkbox" class="chapter-checkbox" data-id="${ch.id}">
+          <div class="chapter-content-col">
+            <div class="chapter-title">${ch.chapterName}</div>
+            <div class="chapter-meta">
+              <span style="color: ${ch.color}; font-weight: 600;">${ch.icon} ${ch.subject}</span>
+              <span class="revision-badge">Revision 0/3</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(itemEl);
+      });
+    }
+
+    // Syllabus Filter Chips event listeners
+    document.querySelectorAll('#syllabus-subject-chips .chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#syllabus-subject-chips .chip-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const subj = btn.getAttribute('data-subj');
+        renderSyllabusUI(subj);
+      });
+    });
+
+    // Plan Phase Filter Chips event listeners
+    document.querySelectorAll('#tab-plan .chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#tab-plan .chip-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const phase = btn.getAttribute('data-phase');
+        renderFullPlanUI(phase);
+      });
+    });
+
+    function renderFullPlanUI(phaseFilter) {
+      const container = document.getElementById('full-plan-days-container');
+      container.innerHTML = '';
+      const allDays = GuruTimetable.getAllDays();
+
+      allDays.forEach(day => {
+        if (phaseFilter !== 'all' && String(day.phaseNumber) !== phaseFilter) return;
+
+        const card = document.createElement('div');
+        card.className = 'glass-card';
+        card.style.padding = '14px';
+        card.style.marginBottom = '10px';
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-weight: 700; color: ${day.isSunday ? '#F59E0B' : '#60A5FA'}; font-size: 0.9rem;">
+              Day ${day.dayNumber} • ${day.formattedDate}
+            </span>
+            <span class="pill-badge ${day.isSunday ? 'sunday-pill' : ''}">${day.totalHours} Hours</span>
+          </div>
+          <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">
+            ${day.schedule.map(s => `<strong>${s.subject}:</strong> ${s.chapter} (${s.durationMinutes}m)`).join('<br>')}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    async function renderMilestonesUI() {
+      const grid = document.getElementById('milestones-grid');
+      grid.innerHTML = '';
+      const badges = await GuruAnalytics.evaluateMilestones();
+
+      badges.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'glass-card';
+        card.style.padding = '12px';
+        card.style.textAlign = 'center';
+        card.style.opacity = b.unlocked ? '1' : '0.45';
+
+        card.innerHTML = `
+          <div style="font-size: 2rem; margin-bottom: 4px;">${b.icon}</div>
+          <div style="font-size: 0.8rem; font-weight: 700; color: #FFFFFF;">${b.name}</div>
+          <div style="font-size: 0.68rem; color: var(--text-secondary); margin-top: 4px;">${b.desc}</div>
+          <div style="font-size: 0.65rem; margin-top: 6px; font-weight: 700; color: ${b.unlocked ? '#10B981' : '#64748B'};">
+            ${b.unlocked ? '✓ UNLOCKED' : 'LOCKED'}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Shareable report card image download
+    document.getElementById('btn-download-report-card').addEventListener('click', async () => {
+      const profile = await GuruDB.getProfile();
+      const studentName = profile.student_name || 'Student';
+      const todaySchedule = GuruTimetable.getDaySchedule(new Date());
+
+      const dataUrl = await GuruAnalytics.generateReportCardImage(studentName, todaySchedule.dayNumber);
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = `GuruStudy-Report-Day${todaySchedule.dayNumber}.png`;
+      a.click();
+    });
+
+    // Helper: subject slug
+    function getSubjectSlug(subject) {
+      const s = (subject || '').toLowerCase();
+      if (s.includes('math')) return 'maths';
+      if (s.includes('scien')) return 'science';
+      if (s.includes('social') || s.includes('sst')) return 'sst';
+      if (s.includes('eng') || s.includes('hin') || s.includes('lang')) return 'language';
+      if (s.includes('ai') || s.includes('intell') || s.includes('417')) return 'ai';
+      return 'maths';
+    }
+
+    // Confetti canvas animation
+    function triggerConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const colors = ['#6366F1', '#10B981', '#F59E0B', '#EC4899', '#8B5CF6'];
+
+      for (let i = 0; i < 70; i++) {
+        particles.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 12,
+          vy: (Math.random() - 0.7) * 14,
+          size: Math.random() * 6 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          alpha: 1
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let active = false;
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.35; // gravity
+          p.alpha -= 0.015;
+          if (p.alpha > 0) {
+            active = true;
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.alpha;
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+          }
+        });
+        if (active) requestAnimationFrame(render);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      render();
+    }
+
+    // Onboarding handlers
+    document.getElementById('btn-onboard-next-1').addEventListener('click', () => {
+      const name = document.getElementById('onboard-student-name').value.trim() || 'Student';
+      document.getElementById('onboarding-step-1').style.display = 'none';
+      document.getElementById('onboarding-step-2').style.display = 'block';
+    });
+
+    document.getElementById('btn-onboard-finish').addEventListener('click', async () => {
+      const name = document.getElementById('onboard-student-name').value.trim() || 'Student';
+      const lang = document.getElementById('onboard-language').value;
+      const startTime = document.getElementById('onboard-start-time').value || '17:00';
+      const tone = document.getElementById('onboard-alarm-tone').value;
+
+      await GuruDB.saveProfile({
+        student_name: name,
+        language_stream: lang,
+        target_score: '95%+'
+      });
+
+      await GuruDB.saveAlarmSettings({
+        daily_start_time: startTime,
+        alarm_tone: tone,
+        voice_tts_enabled: true
+      });
+
+      document.getElementById('modal-onboarding').classList.remove('active');
+      applyProfileToUI({ student_name: name });
+      await renderDashboard();
+    });
+
+    // Manual Log Handlers
+    document.getElementById('btn-open-manual-log').addEventListener('click', () => {
+      document.getElementById('modal-manual-log').classList.add('active');
+    });
+    document.getElementById('btn-cancel-manual-log').addEventListener('click', () => {
+      document.getElementById('modal-manual-log').classList.remove('active');
+    });
+    document.getElementById('btn-confirm-manual-log').addEventListener('click', async () => {
+      const subj = document.getElementById('manual-log-subject').value;
+      const mins = parseInt(document.getElementById('manual-log-minutes').value, 10);
+      if (mins > 0) {
+        await GuruFocusTimer.logManualMinutes(subj, mins);
+        document.getElementById('modal-manual-log').classList.remove('active');
+        await updateDailyProgressRing();
+      }
+    });
+
+    // Sunday Mock Test Handlers
+    document.getElementById('btn-open-mock-logger').addEventListener('click', () => {
+      document.getElementById('modal-mock-test').classList.add('active');
+    });
+    document.getElementById('btn-cancel-mock-test').addEventListener('click', () => {
+      document.getElementById('modal-mock-test').classList.remove('active');
+    });
+    document.getElementById('btn-save-mock-test').addEventListener('click', async () => {
+      const week = parseInt(document.getElementById('mock-test-week').value, 10);
+      const name = document.getElementById('mock-test-name').value.trim() || `Sunday Mock Week ${week}`;
+      const marks = parseFloat(document.getElementById('mock-marks-obtained').value) || 0;
+      const total = parseFloat(document.getElementById('mock-marks-total').value) || 80;
+      const pct = (marks / total) * 100;
+      const grade = GuruAnalytics.calculateGrade(pct).grade;
+
+      await GuruDB.saveSundayMockScore({
+        week_number: week,
+        test_name: name,
+        subject: 'General Mock',
+        marks_obtained: marks,
+        total_marks: total,
+        percentage: Math.round(pct * 10) / 10,
+        grade
+      });
+
+      document.getElementById('modal-mock-test').classList.remove('active');
+      GuruAnalytics.renderMockTrendlineSVG('mock-trendline-container');
+    });
+  </script>
+</body>
+</html>
