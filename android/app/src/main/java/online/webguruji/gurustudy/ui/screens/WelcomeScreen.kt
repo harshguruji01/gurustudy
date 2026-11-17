@@ -105,7 +105,7 @@ fun WelcomeScreen(
             Spacer(modifier = Modifier.height(28.dp))
 
             Text(
-                text = "Your journey towards better learning and academic success starts here. Master your Class 10 NCERT syllabus with our 93-day exam roadmap (15 Nov 2026 – 15 Feb 2027) and personalized study alarms.",
+                text = "Your journey towards better learning and academic success starts here. Master your Class 10 NCERT syllabus with our 88-day exam roadmap (20 Nov 2026 – 15 Feb 2027) and personalized study alarms.",
                 fontSize = 15.sp,
                 lineHeight = 22.sp,
                 fontWeight = FontWeight.Normal,

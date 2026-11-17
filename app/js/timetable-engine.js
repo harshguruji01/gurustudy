@@ -443,6 +443,66 @@ class TimetableEngine {
       })
     };
   }
+
+  /**
+   * Three-State Streak Calculation Engine (Prompt Requirement 2)
+   * Window: 20 November 2026 to 15 February 2027 (88 Days)
+   */
+  calculateMissionStreak(customDate = null, currentStudyStreak = 0) {
+    const today = customDate ? (customDate instanceof Date ? customDate : new Date(customDate)) : new Date();
+    const todayZero = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const startZero = new Date(2026, 10, 20); // 20 Nov 2026
+    const endZero = new Date(2027, 1, 15, 23, 59, 59); // 15 Feb 2027
+    const MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+    if (todayZero < startZero) {
+      const diffDays = Math.max(1, Math.ceil((startZero.getTime() - todayZero.getTime()) / MS_PER_DAY));
+      return {
+        phase: 'BEFORE_MISSION',
+        streakDays: 0,
+        totalMissionDays: 88,
+        profileBadgeText: '⏳ Starts 20 Nov',
+        homeHeaderText: diffDays <= 1 ? 'Starts Tomorrow (20 Nov)' : `Starts in ${diffDays} Days (20 Nov)`,
+        statsPillText: '⏳ Starts 20 Nov',
+        daysUntilStart: diffDays,
+        daysElapsed: 0,
+        daysRemaining: 88,
+        isWarmupMode: true
+      };
+    } else if (todayZero > endZero) {
+      const finalStreak = Math.min(88, Math.max(0, currentStudyStreak || 88));
+      const badgeText = `🏆 Mission Completed • Final Streak: ${finalStreak}d / 88d`;
+      return {
+        phase: 'COMPLETED_MISSION',
+        streakDays: finalStreak,
+        totalMissionDays: 88,
+        profileBadgeText: badgeText,
+        homeHeaderText: badgeText,
+        statsPillText: `🏆 Final Streak: ${finalStreak}d / 88d`,
+        daysUntilStart: 0,
+        daysElapsed: 88,
+        daysRemaining: 0,
+        isWarmupMode: false
+      };
+    } else {
+      const diffDays = Math.floor((todayZero.getTime() - startZero.getTime()) / MS_PER_DAY);
+      const dayIndex = Math.min(88, Math.max(1, diffDays + 1));
+      const activeStreak = currentStudyStreak > 0 ? Math.min(dayIndex, currentStudyStreak) : dayIndex;
+      const badgeText = `🔥 ${activeStreak}d / 88d Streak`;
+      return {
+        phase: 'ACTIVE_MISSION',
+        streakDays: activeStreak,
+        totalMissionDays: 88,
+        profileBadgeText: badgeText,
+        homeHeaderText: badgeText,
+        statsPillText: badgeText,
+        daysUntilStart: 0,
+        daysElapsed: dayIndex,
+        daysRemaining: Math.max(0, 88 - dayIndex),
+        isWarmupMode: false
+      };
+    }
+  }
 }
 
 // Global instance

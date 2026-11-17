@@ -264,7 +264,7 @@ fun OnboardingScreen(
                         preferredLanguage = preferredLang,
                         dailyStudyGoalMinutes = dailyGoalMinutes,
                         hindiCourse = hindiCourse,
-                        studyStreak = 1,
+                        studyStreak = 0,
                         isOnboarded = true
                     )
                     onSaveProfile(profile)

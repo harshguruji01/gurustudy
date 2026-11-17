@@ -233,15 +233,16 @@ fun ProfileScreen(
                                     )
                                 }
 
+                                val streakInfo = remember(userProfile.studyStreak) { online.webguruji.gurustudy.data.model.MissionEngine.calculateMissionStreak(userProfile.studyStreak) }
                                 Surface(
                                     shape = RoundedCornerShape(9999.dp),
-                                    color = Color(0xFFFEF3C7)
+                                    color = if (streakInfo.phaseState == online.webguruji.gurustudy.data.model.MissionPhaseState.BEFORE_MISSION) Color(0xFFEFF6FF) else Color(0xFFFEF3C7)
                                 ) {
                                     Text(
-                                        text = "🔥 ${userProfile.studyStreak}d Streak",
+                                        text = streakInfo.profileBadgeText,
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.SemiBold,
-                                        color = Color(0xFFD97706),
+                                        color = if (streakInfo.phaseState == online.webguruji.gurustudy.data.model.MissionPhaseState.BEFORE_MISSION) RoyalBlue else Color(0xFFD97706),
                                         maxLines = 1,
                                         softWrap = false,
                                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)

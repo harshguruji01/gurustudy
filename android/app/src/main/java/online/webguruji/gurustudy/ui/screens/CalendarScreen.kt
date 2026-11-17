@@ -33,9 +33,18 @@ fun CalendarScreen(
     var selectedSubjectFilter by remember { mutableStateOf("All") }
     var editingItem by remember { mutableStateOf<StudyScheduleItem?>(null) }
 
+    // Lock 88-Day Plan Calendar range strictly between 20 Nov 2026 and 15 Feb 2027 (Requirement 3)
+    val officialSchedules = remember(schedules) {
+        val filtered = schedules.filter { item ->
+            item.date >= online.webguruji.gurustudy.data.model.MissionConstants.MISSION_START_DATE &&
+            item.date <= online.webguruji.gurustudy.data.model.MissionConstants.MISSION_END_DATE
+        }
+        if (filtered.isNotEmpty()) filtered else schedules
+    }
+
     // Filter schedules by month and subject
-    val filteredSchedules = remember(selectedMonthFilter, selectedSubjectFilter, schedules) {
-        schedules.filter { item ->
+    val filteredSchedules = remember(selectedMonthFilter, selectedSubjectFilter, officialSchedules) {
+        officialSchedules.filter { item ->
             val monthMatch = when (selectedMonthFilter) {
                 "Nov 2026" -> item.date.startsWith("2026-11")
                 "Dec 2026" -> item.date.startsWith("2026-12")
@@ -57,13 +66,13 @@ fun CalendarScreen(
                 title = {
                     Column {
                         Text(
-                            text = "93-Day Master Study Plan (2026–27)",
+                            text = "88-Day Master Study Plan (2026–27)",
                             fontWeight = FontWeight.Bold,
                             fontSize = 17.sp,
                             color = Color.White
                         )
                         Text(
-                            text = "15 Nov 2026 – 15 Feb 2027 • 5 Structured Phases",
+                            text = "20 Nov 2026 – 15 Feb 2027 • 3 Structured Phases",
                             fontSize = 11.sp,
                             color = Color(0xFFBAE6FD)
                         )
@@ -79,12 +88,88 @@ fun CalendarScreen(
                 .padding(paddingValues)
                 .background(MaterialTheme.colorScheme.background)
         ) {
+            // Strict Mission Progress Card (Requirement 3: Compute Days Elapsed and Days Remaining against 2026-11-20 & 2027-02-15)
+            val streakInfo = remember { online.webguruji.gurustudy.data.model.MissionEngine.calculateMissionStreak() }
+            val completedDays = remember(officialSchedules) { officialSchedules.count { it.status == "Completed" } }
+            Card(
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 6.dp)
+            ) {
+                Column(modifier = Modifier.padding(12.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = if (streakInfo.phaseState == online.webguruji.gurustudy.data.model.MissionPhaseState.BEFORE_MISSION) {
+                                "⏳ Mission Starts in ${streakInfo.daysUntilStart} Days (20 Nov)"
+                            } else if (streakInfo.phaseState == online.webguruji.gurustudy.data.model.MissionPhaseState.COMPLETED_MISSION) {
+                                "🏆 Mission Completed (88/88 Days)"
+                            } else {
+                                "🎯 Day ${streakInfo.daysElapsed} of 88 • Active Mission"
+                            },
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp,
+                            color = RoyalBlue
+                        )
+                        Surface(
+                            shape = RoundedCornerShape(6.dp),
+                            color = Color(0xFFEFF6FF)
+                        ) {
+                            Text(
+                                text = "88 Days Total",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = RoyalBlue,
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    LinearProgressIndicator(
+                        progress = {
+                            if (streakInfo.phaseState == online.webguruji.gurustudy.data.model.MissionPhaseState.BEFORE_MISSION) 0f
+                            else (streakInfo.daysElapsed.toFloat() / 88f).coerceIn(0f, 1f)
+                        },
+                        modifier = Modifier.fillMaxWidth().height(6.dp),
+                        color = RoyalBlue,
+                        trackColor = Color(0xFFE2E8F0)
+                    )
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "Elapsed: ${streakInfo.daysElapsed}d • Remaining: ${streakInfo.daysRemaining}d",
+                            fontSize = 11.sp,
+                            color = Color(0xFF64748B)
+                        )
+                        Text(
+                            text = "Completed: $completedDays / 88",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = Color(0xFF16A34A)
+                        )
+                    }
+                }
+            }
+
             // Month Filter Chips
             LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 6.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 4.dp),
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                val months = listOf("All (93 Days)", "Nov 2026", "Dec 2026", "Jan 2027", "Feb 2027")
+                val months = listOf("All (88 Days)", "Nov 2026", "Dec 2026", "Jan 2027", "Feb 2027")
                 items(months) { month ->
                     val isSelected = (month.startsWith("All") && selectedMonthFilter == "All") || month == selectedMonthFilter
                     FilterChip(

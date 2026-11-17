@@ -90,7 +90,7 @@ class PreferencesManager(context: Context) {
             preferredLanguage = prefs.getString(KEY_LANG, "en") ?: "en",
             dailyStudyGoalMinutes = prefs.getInt(KEY_DAILY_GOAL, 120),
             hindiCourse = prefs.getString(KEY_HINDI_COURSE, "Course A") ?: "Course A",
-            studyStreak = prefs.getInt(KEY_STREAK, 1),
+            studyStreak = prefs.getInt(KEY_STREAK, 0),
             lastStudyDate = prefs.getString(KEY_LAST_STUDY_DATE, "") ?: "",
             isOnboarded = prefs.getBoolean(KEY_ONBOARDED, false)
         )
@@ -166,8 +166,19 @@ class PreferencesManager(context: Context) {
     fun recordStudySessionCompleted() {
         val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val lastDate = prefs.getString(KEY_LAST_STUDY_DATE, "")
-        var currentStreak = prefs.getInt(KEY_STREAK, 1)
 
+        // Before official mission start (today < 2026-11-20): Warm-up mode, do not increment streak
+        if (today < online.webguruji.gurustudy.data.model.MissionConstants.MISSION_START_DATE) {
+            prefs.edit().putString(KEY_LAST_STUDY_DATE, today).apply()
+            return
+        }
+
+        // After mission end (today > 2027-02-15): Mission completed, do not increment streak
+        if (today > online.webguruji.gurustudy.data.model.MissionConstants.MISSION_END_DATE) {
+            return
+        }
+
+        var currentStreak = prefs.getInt(KEY_STREAK, 0)
         if (lastDate != today) {
             currentStreak += 1
             prefs.edit()

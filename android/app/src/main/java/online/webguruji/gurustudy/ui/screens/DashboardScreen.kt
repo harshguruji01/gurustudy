@@ -61,7 +61,7 @@ fun DashboardScreen(
     val repository = remember { StudyRepository(context) }
 
     val completedCount = allSchedules.count { it.status == "Completed" }
-    val totalCount = if (allSchedules.isEmpty()) 93 else allSchedules.size
+    val totalCount = if (allSchedules.isEmpty()) 88 else allSchedules.size
     val progressPct = (completedCount.toFloat() / totalCount.toFloat() * 100).toInt()
 
     val currentDateStr = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale.getDefault()).format(Date())
@@ -147,7 +147,8 @@ fun DashboardScreen(
                             }
                         }
 
-                        // Streak Pill
+                        // Streak Pill (Home header)
+                        val streakInfo = remember(userProfile.studyStreak) { repository.calculateMissionStreak(userProfile.studyStreak) }
                         Surface(
                             shape = RoundedCornerShape(16.dp),
                             color = Color(0x33FFFFFF)
@@ -156,10 +157,13 @@ fun DashboardScreen(
                                 modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Text(text = "🔥", fontSize = 13.sp)
+                                Text(
+                                    text = if (streakInfo.phaseState == online.webguruji.gurustudy.data.model.MissionPhaseState.BEFORE_MISSION) "⏳" else "🔥",
+                                    fontSize = 13.sp
+                                )
                                 Spacer(modifier = Modifier.width(4.dp))
                                 Text(
-                                    text = "${userProfile.studyStreak}d Streak",
+                                    text = streakInfo.homeHeaderText,
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.White,
@@ -183,7 +187,11 @@ fun DashboardScreen(
                             modifier = Modifier.weight(1f, fill = false).padding(end = 8.dp)
                         ) {
                             Text(
-                                text = "Class 10 CBSE (2026–2027) • ${planStatus.phaseName}",
+                                text = if (planStatus.isPreview) {
+                                    "Class 10 CBSE (2026–2027) • Warm-up Mode (Starts 20 Nov)"
+                                } else {
+                                    "Class 10 CBSE (2026–2027) • ${planStatus.phaseName}"
+                                },
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Medium,
                                 color = Color(0xFFF1F5F9),
@@ -205,7 +213,7 @@ fun DashboardScreen(
 
         Spacer(modifier = Modifier.height(14.dp))
 
-        // 2. Day Navigator Bar (All 93 Days)
+        // 2. Day Navigator Bar (All 88 Days)
         Card(
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -227,7 +235,7 @@ fun DashboardScreen(
 
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            text = "Day $selectedDayIndex of 93",
+                            text = "Day $selectedDayIndex of 88",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface
@@ -242,10 +250,10 @@ fun DashboardScreen(
                     }
 
                     IconButton(
-                        onClick = { if (selectedDayIndex < 93) onSelectDay(selectedDayIndex + 1) },
-                        enabled = selectedDayIndex < 93
+                        onClick = { if (selectedDayIndex < 88) onSelectDay(selectedDayIndex + 1) },
+                        enabled = selectedDayIndex < 88
                     ) {
-                        Text("▶", fontSize = 18.sp, color = if (selectedDayIndex < 93) RoyalBlue else Color.Gray)
+                        Text("▶", fontSize = 18.sp, color = if (selectedDayIndex < 88) RoyalBlue else Color.Gray)
                     }
                 }
 
@@ -920,7 +928,7 @@ fun DashboardScreen(
             )
             QuickCard(
                 title = "Study Plan",
-                subtitle = "93 Days Plan",
+                subtitle = "88 Days Plan",
                 icon = "📅",
                 color = Color(0xFF10B981),
                 modifier = Modifier.weight(1f),

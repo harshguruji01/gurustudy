@@ -83,6 +83,64 @@ class GuruAnalyticsEngine {
   }
 
   /**
+   * Calculate Mission Streak across the 3 strict date phases (Prompt Requirement 2)
+   */
+  calculateMissionStreak(customDate = null, currentStudyStreak = 0) {
+    if (typeof GuruTimetable !== 'undefined' && typeof GuruTimetable.calculateMissionStreak === 'function') {
+      return GuruTimetable.calculateMissionStreak(customDate, currentStudyStreak);
+    }
+    const today = customDate ? (customDate instanceof Date ? customDate : new Date(customDate)) : new Date();
+    const todayZero = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const startZero = new Date(2026, 10, 20);
+    const endZero = new Date(2027, 1, 15, 23, 59, 59);
+    const MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+    if (todayZero < startZero) {
+      const diffDays = Math.max(1, Math.ceil((startZero.getTime() - todayZero.getTime()) / MS_PER_DAY));
+      return {
+        phase: 'BEFORE_MISSION',
+        streakDays: 0,
+        totalMissionDays: 88,
+        profileBadgeText: '⏳ Starts 20 Nov',
+        homeHeaderText: diffDays <= 1 ? 'Starts Tomorrow (20 Nov)' : `Starts in ${diffDays} Days (20 Nov)`,
+        statsPillText: '⏳ Starts 20 Nov',
+        daysUntilStart: diffDays,
+        daysElapsed: 0,
+        daysRemaining: 88,
+        isWarmupMode: true
+      };
+    } else if (todayZero > endZero) {
+      return {
+        phase: 'COMPLETED_MISSION',
+        streakDays: 88,
+        totalMissionDays: 88,
+        profileBadgeText: '🏆 Mission Completed • Final Streak: 88d / 88d',
+        homeHeaderText: '🏆 Mission Completed • Final Streak: 88d / 88d',
+        statsPillText: '🏆 Final Streak: 88d / 88d',
+        daysUntilStart: 0,
+        daysElapsed: 88,
+        daysRemaining: 0,
+        isWarmupMode: false
+      };
+    } else {
+      const diffDays = Math.floor((todayZero.getTime() - startZero.getTime()) / MS_PER_DAY);
+      const dayIndex = Math.min(88, Math.max(1, diffDays + 1));
+      return {
+        phase: 'ACTIVE_MISSION',
+        streakDays: dayIndex,
+        totalMissionDays: 88,
+        profileBadgeText: `🔥 ${dayIndex}d / 88d Streak`,
+        homeHeaderText: `🔥 ${dayIndex}d / 88d Streak`,
+        statsPillText: `🔥 ${dayIndex}d / 88d Streak`,
+        daysUntilStart: 0,
+        daysElapsed: dayIndex,
+        daysRemaining: Math.max(0, 88 - dayIndex),
+        isWarmupMode: false
+      };
+    }
+  }
+
+  /**
    * Compute subject planned vs studied hours
    */
   async getSubjectStats() {

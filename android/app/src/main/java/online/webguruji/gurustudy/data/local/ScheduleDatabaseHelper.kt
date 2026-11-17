@@ -25,7 +25,7 @@ class ScheduleDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         const val DATABASE_NAME = "gurustudy_database.db"
         const val DATABASE_VERSION = 4
 
-        // Table Schedules (93-Day Roadmap)
+        // Table Schedules (88-Day Roadmap)
         const val TABLE_SCHEDULE = "study_schedule"
         const val COL_DAY_INDEX = "day_index"
         const val COL_DATE = "date_str"

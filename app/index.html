@@ -568,6 +568,11 @@
 
           // Trigger tab-specific renders
           if (targetId === 'tab-stats') {
+            const streakPill = document.getElementById('stats-streak-pill');
+            if (streakPill && typeof GuruTimetable !== 'undefined') {
+              const missionStreak = GuruTimetable.calculateMissionStreak(new Date());
+              streakPill.textContent = missionStreak.statsPillText;
+            }
             GuruAnalytics.renderHeatmapSVG('heatmap-container');
             GuruAnalytics.renderSubjectDonutSVG('donut-chart-container');
             GuruAnalytics.renderMockTrendlineSVG('mock-trendline-container');
@@ -630,11 +635,28 @@
     async function renderDashboard() {
       const now = new Date();
       const todaySchedule = GuruTimetable.getDaySchedule(now);
+      const missionStreak = GuruTimetable.calculateMissionStreak(now);
 
-      // Header Day badge
-      document.getElementById('header-day-pill').textContent = `Day ${todaySchedule.dayNumber}/88`;
-      document.getElementById('dash-days-left').textContent = `${88 - todaySchedule.dayNumber + 1}`;
-      document.getElementById('dash-current-phase').textContent = `${todaySchedule.phase} • Day ${todaySchedule.dayNumber}`;
+      // Header Day badge & Mission countdown synced to strict 20 Nov 2026 - 15 Feb 2027 window
+      if (missionStreak.isWarmupMode) {
+        document.getElementById('header-day-pill').textContent = missionStreak.homeHeaderText;
+        document.getElementById('dash-days-left').textContent = `${missionStreak.daysUntilStart}d to Start`;
+        document.getElementById('dash-current-phase').textContent = `Warm-up Mode • Official Mission Starts 20 Nov 2026`;
+      } else if (missionStreak.phase === 'COMPLETED_MISSION') {
+        document.getElementById('header-day-pill').textContent = 'Mission Done';
+        document.getElementById('dash-days-left').textContent = '0';
+        document.getElementById('dash-current-phase').textContent = '88-Day Revision Plan Completed!';
+      } else {
+        document.getElementById('header-day-pill').textContent = `Day ${missionStreak.daysElapsed}/88`;
+        document.getElementById('dash-days-left').textContent = `${missionStreak.daysRemaining}`;
+        document.getElementById('dash-current-phase').textContent = `${todaySchedule.phase} • Day ${missionStreak.daysElapsed}`;
+      }
+
+      // Also update Stats streak pill
+      const statsPill = document.getElementById('stats-streak-pill');
+      if (statsPill) {
+        statsPill.textContent = missionStreak.statsPillText;
+      }
       document.getElementById('dash-weekday-type').textContent = todaySchedule.isSunday ? 'Sunday Boost (6.5h)' : 'Mon–Sat (5.0h)';
       document.getElementById('dash-weekday-type').style.color = todaySchedule.isSunday ? '#F59E0B' : '#60A5FA';
 

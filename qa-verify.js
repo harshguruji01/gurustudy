@@ -115,6 +115,25 @@ assert(s1Videos.length >= 3, `Chemical Reactions has >= 3 curated lectures (got 
 assert(ai1Videos.length >= 3, `AI Project Cycle has >= 3 curated lectures (got ${ai1Videos.length})`);
 assert(m1Videos[0].embedUrl.includes('youtube-nocookie.com'), `Embed URL uses safe nocookie domain`);
 
+// TEST 7: Three-State Streak & Study Mission Engine Verification
+console.log('\nTEST 7: Three-State Streak & Study Mission Engine Verification');
+const streakBefore = GuruTimetable.calculateMissionStreak(new Date('2026-11-17T12:00:00'));
+assert(streakBefore.phase === 'BEFORE_MISSION', `Phase before 20 Nov must be BEFORE_MISSION (got ${streakBefore.phase})`);
+assert(streakBefore.streakDays === 0, `Streak before 20 Nov must strictly be 0d (got ${streakBefore.streakDays})`);
+assert(streakBefore.profileBadgeText === '⏳ Starts 20 Nov', `Profile badge before 20 Nov must be '⏳ Starts 20 Nov' (got ${streakBefore.profileBadgeText})`);
+assert(streakBefore.homeHeaderText.includes('Starts in 3 Days (20 Nov)'), `Home header on Nov 17 must say 'Starts in 3 Days (20 Nov)' (got ${streakBefore.homeHeaderText})`);
+assert(streakBefore.isWarmupMode === true, `isWarmupMode must be true before 20 Nov`);
+
+const streakDay1 = GuruTimetable.calculateMissionStreak(new Date('2026-11-20T12:00:00'));
+assert(streakDay1.phase === 'ACTIVE_MISSION', `Phase on 20 Nov must be ACTIVE_MISSION (got ${streakDay1.phase})`);
+assert(streakDay1.daysElapsed === 1, `Days elapsed on 20 Nov must be 1 (got ${streakDay1.daysElapsed})`);
+assert(streakDay1.profileBadgeText === '🔥 1d / 88d Streak', `Badge on 20 Nov must be '🔥 1d / 88d Streak' (got ${streakDay1.profileBadgeText})`);
+
+const streakAfter = GuruTimetable.calculateMissionStreak(new Date('2027-02-16T12:00:00'), 88);
+assert(streakAfter.phase === 'COMPLETED_MISSION', `Phase after 15 Feb must be COMPLETED_MISSION (got ${streakAfter.phase})`);
+assert(streakAfter.streakDays === 88, `Final streak after 15 Feb locked at 88 (got ${streakAfter.streakDays})`);
+assert(streakAfter.profileBadgeText.includes('Mission Completed'), `Badge after 15 Feb includes 'Mission Completed'`);
+
 // Summary
 console.log('\n====================================================');
 console.log(`📊 QA RESULTS: ${passedTests} / ${totalTests} TESTS PASSED`);

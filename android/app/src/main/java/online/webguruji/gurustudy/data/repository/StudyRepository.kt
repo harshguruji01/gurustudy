@@ -54,9 +54,13 @@ class StudyRepository(private val context: Context) {
     @Synchronized
     fun initializeRoadmapIfEmpty() {
         val existing = dbHelper.getAllSchedules()
-        if (existing.isEmpty() || existing.size < 93) {
+        if (existing.isEmpty() || existing.size < online.webguruji.gurustudy.data.model.MissionConstants.TOTAL_MISSION_DAYS) {
             try {
-                val inputStream = context.assets.open("default_roadmap_93days.json")
+                val inputStream = try {
+                    context.assets.open("default_roadmap_88days.json")
+                } catch (e: Exception) {
+                    context.assets.open("default_roadmap_93days.json")
+                }
                 val reader = InputStreamReader(inputStream, "UTF-8")
                 val type = object : TypeToken<List<StudyScheduleItem>>() {}.type
                 val defaultList: List<StudyScheduleItem> = gson.fromJson(reader, type)
@@ -83,11 +87,16 @@ class StudyRepository(private val context: Context) {
         return all.find { it.dayIndex == dayIndex } ?: all.firstOrNull()
     }
 
+    fun calculateMissionStreak(userStreak: Int? = null): online.webguruji.gurustudy.data.model.MissionStreakInfo {
+        val streak = userStreak ?: prefs.getProfile().studyStreak
+        return online.webguruji.gurustudy.data.model.MissionEngine.calculateMissionStreak(streak)
+    }
+
     fun getPlanStatus(): PlanStatusInfo {
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         val todayStr = sdf.format(Date())
-        val startStr = "2026-11-15"
-        val endStr = "2027-02-15"
+        val startStr = online.webguruji.gurustudy.data.model.MissionConstants.MISSION_START_DATE
+        val endStr = online.webguruji.gurustudy.data.model.MissionConstants.MISSION_END_DATE
 
         val todayDate = sdf.parse(todayStr) ?: Date()
         val startDate = sdf.parse(startStr) ?: Date()
@@ -95,48 +104,45 @@ class StudyRepository(private val context: Context) {
 
         return when {
             todayDate.before(startDate) -> {
-                val diffDays = ((startDate.time - todayDate.time) / (1000 * 60 * 60 * 24)).toInt()
-                val msg = if (diffDays <= 1) "Revision plan starts tomorrow! (15 Nov 2026)" else "Revision plan starts in $diffDays days (15 Nov 2026)"
+                val diffMs = startDate.time - todayDate.time
+                val diffDays = ((diffMs + 1000 * 60 * 60 * 12) / (1000 * 60 * 60 * 24)).toInt().coerceAtLeast(1)
+                val msg = if (diffDays <= 1) "Revision mission starts tomorrow! (20 Nov 2026)" else "Revision mission starts in $diffDays days (20 Nov 2026)"
                 PlanStatusInfo(
                     dayIndex = 1,
                     status = "Upcoming",
                     message = msg,
                     phase = 1,
-                    phaseName = "Foundation Building",
+                    phaseName = "Phase 1: Deep NCERT Concepts & Mastery",
                     isPreview = true
                 )
             }
             todayDate.after(endDate) -> {
                 PlanStatusInfo(
-                    dayIndex = 93,
+                    dayIndex = 88,
                     status = "Completed",
-                    message = "93-Day Revision Plan Finished! Best of luck for CBSE Board Exams 2027!",
-                    phase = 5,
-                    phaseName = "Final Board Sprint",
+                    message = "88-Day Revision Plan Finished! Best of luck for CBSE Board Exams 2027!",
+                    phase = 3,
+                    phaseName = "Phase 3: High-Yield Revision & Pre-Board Mocks",
                     isPreview = false
                 )
             }
             else -> {
                 val diffDays = ((todayDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt()
-                val currentDay = (diffDays + 1).coerceIn(1, 93)
+                val currentDay = (diffDays + 1).coerceIn(1, 88)
                 val phase = when {
-                    currentDay <= 16 -> 1
-                    currentDay <= 31 -> 2
-                    currentDay <= 47 -> 3
-                    currentDay <= 62 -> 4
-                    else -> 5
+                    currentDay <= 50 -> 1
+                    currentDay <= 75 -> 2
+                    else -> 3
                 }
                 val phaseName = when (phase) {
-                    1 -> "Foundation Building"
-                    2 -> "Core Consolidation"
-                    3 -> "Advanced Application"
-                    4 -> "Full Revision & Weak Spot Remediation"
-                    else -> "Final Board Sprint"
+                    1 -> "Phase 1: Deep NCERT Concepts & Mastery"
+                    2 -> "Phase 2: Question Bank & Exemplar Revision"
+                    else -> "Phase 3: High-Yield Revision & Pre-Board Mocks"
                 }
                 PlanStatusInfo(
                     dayIndex = currentDay,
                     status = "Active",
-                    message = "Active Revision Day $currentDay of 93",
+                    message = "Active Revision Day $currentDay of 88",
                     phase = phase,
                     phaseName = phaseName,
                     isPreview = false
