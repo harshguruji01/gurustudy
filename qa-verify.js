@@ -212,6 +212,17 @@ assert(rootIndex.includes('btn-launch-personalized'), 'Landing page contains per
 assert(rootIndex.includes('comp-table'), 'Landing page contains comparison table');
 assert(rootIndex.includes('marquee-track'), 'Landing page contains student wall marquee');
 assert(rootIndex.includes('store.webguruji.online'), 'Landing page contains HarshGuruJi ecosystem links');
+assert(rootIndex.includes('gurustudy-doodle-footer'), 'Landing page mounts GuruStudy Doodle Crew Footer');
+assert(rootIndex.includes('doodle-crew-footer.js'), 'Landing page loads doodle-crew-footer.js');
+
+// 6. Doodle Crew Footer Unit & Branding Verification
+const dcfSrc = fs.readFileSync(path.join(__dirname, 'app', 'js', 'doodle-crew-footer.js'), 'utf-8');
+const dcfMod = require('./app/js/doodle-crew-footer.js');
+assert(dcfSrc.includes("wordmark = 'GURUSTUDY'"), 'Doodle Crew Footer uses GURUSTUDY wordmark');
+assert(!/mischief/i.test(dcfSrc), 'Doodle Crew Footer contains zero Mischief placeholder text');
+assert(dcfSrc.includes('#060B19'), 'Doodle Crew Footer matches main site Midnight Indigo theme');
+assert(typeof dcfMod.layoutWord === 'function' && dcfMod.layoutWord([100, 100], 0, 200).width === 200, 'Doodle Crew Footer layoutWord math works');
+assert(typeof dcfMod.lookAt === 'function' && dcfMod.lookAt(0, 0, 100, 0, 5, 100).x === 5, 'Doodle Crew Footer eye lookAt math works');
 
 // Summary
 console.log('\n====================================================');

@@ -617,8 +617,8 @@
       max-height: 250px;
     }
 
-    /* Footer */
-    footer {
+    /* Footer (fallback for non-doodle footers) */
+    footer:not(.dcf) {
       border-top: 1px solid var(--border-glass);
       padding: 50px 0 24px;
       background: rgba(6, 11, 25, 0.95);
@@ -1042,55 +1042,22 @@
     </div>
   </div>
 
-  <!-- HarshGuruJi Ecosystem Multi-Column Footer (Web App UI Prompt 5) -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-            <img src="/gurustudy_logo.png" alt="Logo" style="width: 28px; height: 28px; border-radius: 8px;">
-            <strong style="font-size: 1.1rem; color: #FFFFFF;">GuruStudy</strong>
-          </div>
-          <p style="font-size: 0.84rem; color: var(--text-gray); line-height: 1.5;">
-            The official CBSE Class 10 Board Exam preparation platform by HarshGuruJi. Strict 88-day study discipline.
-          </p>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Applications</div>
-          <ul class="footer-links">
-            <li><a href="/app/">Launch Web App</a></li>
-            <li><a href="/downloads/GuruStudy-v1.0.apk" download>Download Android APK</a></li>
-            <li><a href="/downloads/GuruStudy-v1.0.apk" download>Release Changelog (v2.1)</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">HarshGuruJi Ecosystem</div>
-          <ul class="footer-links">
-            <li><a href="https://webguruji.online" target="_blank" rel="noopener">WebGuruJi Online</a></li>
-            <li><a href="https://store.webguruji.online" target="_blank" rel="noopener">GuruStore Products</a></li>
-            <li><a href="https://books.webguruji.online" target="_blank" rel="noopener">NCERT Digital Books</a></li>
-            <li><a href="https://ai.webguruji.online" target="_blank" rel="noopener">Guru AI Tools</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Contact & Support</div>
-          <ul class="footer-links">
-            <li><a href="mailto:contact@webguruji.online">contact@webguruji.online</a></li>
-            <li><a href="/docs/PRIVACY_POLICY_AND_PERMISSIONS.md">Privacy Policy</a></li>
-            <li><a href="/docs/PLAY_STORE_LISTING.md">Play Store Specification</a></li>
-          </ul>
-        </div>
+  <!-- GuruStudy Interactive Doodle Crew Footer (Midnight Indigo Main Site Theme) -->
+  <footer id="gurustudy-doodle-footer" class="dcf">
+    <noscript>
+      <div class="container" style="padding: 40px 24px;">
+        <strong>GuruStudy</strong> by HarshGuruJi •
+        <a href="/app/">Launch Web App</a> •
+        <a href="/downloads/GuruStudy-v1.0.apk" download>Download APK</a> •
+        <a href="https://webguruji.online" target="_blank" rel="noopener">WebGuruJi Online</a> •
+        <a href="https://store.webguruji.online" target="_blank" rel="noopener">GuruStore</a> •
+        <a href="https://books.webguruji.online" target="_blank" rel="noopener">NCERT Books</a> •
+        <a href="https://ai.webguruji.online" target="_blank" rel="noopener">Guru AI</a> •
+        <a href="mailto:contact@webguruji.online">contact@webguruji.online</a>
       </div>
-
-      <div style="border-top: 1px solid var(--border-glass); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 0.8rem; color: #64748B;">
-        <div>© 2026–2027 GuruStudy by HarshGuruJi. All Rights Reserved.</div>
-        <div>Strict Mission Window: 20 November 2026 – 15 February 2027 (88 Days)</div>
-      </div>
-    </div>
+    </noscript>
   </footer>
+  <script src="app/js/doodle-crew-footer.js"></script>
 
   <!-- Interactive Scripts for Landing Page -->
   <script>
