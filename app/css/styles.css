@@ -1235,3 +1235,311 @@ body {
   outline: none;
   border-color: var(--color-primary);
 }
+
+/* ==========================================================================
+   Phases 16–25 Visual Enhancements: Bento-Grid, Skins, AI Drawer, 3D Flashcards
+   ========================================================================== */
+
+/* 4 Selectable Theme Skins (Prompt 16) */
+[data-skin="academic"], html[data-theme="light"] {
+  --bg-app: #F8FAFC;
+  --bg-gradient: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 100%);
+  --surface-glass: rgba(255, 255, 255, 0.85);
+  --surface-glass-hover: rgba(255, 255, 255, 0.95);
+  --surface-glass-elevated: #FFFFFF;
+  --border-glass: rgba(0, 0, 0, 0.08);
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+}
+
+[data-skin="midnight"] {
+  --bg-app: #050811;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #0A0F1D 0%, #050811 100%);
+  --surface-glass: rgba(15, 23, 42, 0.7);
+  --surface-glass-hover: rgba(15, 23, 42, 0.9);
+  --surface-glass-elevated: #0B0F19;
+  --border-glass: rgba(255, 255, 255, 0.05);
+}
+
+[data-skin="indigo"] {
+  --bg-app: #0B0F19;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #312E81 0%, #0F172A 60%, #070A12 100%);
+  --surface-glass: rgba(49, 46, 129, 0.25);
+  --surface-glass-hover: rgba(49, 46, 129, 0.45);
+  --surface-glass-elevated: rgba(30, 27, 75, 0.85);
+  --border-glass: rgba(165, 180, 252, 0.15);
+}
+
+[data-skin="forest"] {
+  --bg-app: #061A14;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #064E3B 0%, #061A14 70%);
+  --surface-glass: rgba(6, 78, 59, 0.25);
+  --surface-glass-hover: rgba(6, 78, 59, 0.45);
+  --surface-glass-elevated: rgba(6, 78, 59, 0.65);
+  --border-glass: rgba(52, 211, 153, 0.15);
+  --color-primary: #10B981;
+}
+
+/* Bento Grid Home Dashboard (Prompt 16) */
+.bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+  animation: bentoFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes bentoFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bento-hero-card {
+  background: var(--surface-glass-elevated);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-glass);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-tiles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 360px) {
+  .bento-tiles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-tile {
+  background: var(--surface-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 105px;
+}
+
+.bento-tile.active-subject {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.08));
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.bento-tile.streak-xp {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.08));
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Timeline study cards */
+.timeline-list {
+  position: relative;
+  padding-left: 28px;
+  margin-top: 14px;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 12px;
+  bottom: 24px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1E293B;
+  border: 2px solid #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #FFFFFF;
+}
+
+.timeline-item.active .timeline-dot {
+  background: #3B82F6;
+  border-color: #60A5FA;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+  animation: pulseDot 2s infinite;
+}
+
+.timeline-item.completed .timeline-dot {
+  background: #10B981;
+  border-color: #34D399;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+/* Floating Guru AI Spark Button (Prompt 17) */
+.floating-ai-btn {
+  position: fixed;
+  bottom: 84px;
+  right: 18px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.82rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.floating-ai-btn:hover {
+  transform: scale(1.05);
+}
+
+.ai-drawer-box {
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  border-radius: 24px 24px 0 0;
+  background: var(--surface-glass-elevated);
+  border-top: 1px solid var(--border-glass);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  box-shadow: var(--shadow-glass);
+}
+
+.ai-chat-bubble {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  max-width: 90%;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.ai-chat-bubble.ai {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #E2E8F0;
+  align-self: flex-start;
+}
+
+.ai-chat-bubble.user {
+  background: #3B82F6;
+  color: #FFFFFF;
+  align-self: flex-end;
+}
+
+/* 3D-Flip Flashcard (Prompt 18) */
+.flashcard-stage {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 440px;
+  margin: 16px auto;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+  color: #FFFFFF;
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, #1E1B4B, #0F172A);
+  color: #E2E8F0;
+  transform: rotateY(180deg);
+}
+
+/* Due for Revision Strip (Prompt 23) */
+.due-revision-strip {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Zen Mode (Prompt 21) */
+body.zen-active .app-header,
+body.zen-active .bottom-nav,
+body.zen-active .floating-ai-btn {
+  display: none !important;
+}
+
+.zen-overlay {
+  position: fixed;
+  inset: 0;
+  background: #050811;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+body.zen-active .zen-overlay {
+  display: flex;
+}
+

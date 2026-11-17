@@ -26,21 +26,21 @@
   ],
   "shortcuts": [
     {
-      "name": "Today's Schedule",
-      "short_name": "Today",
-      "url": "/app/#tab-today",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Focus Timer",
-      "short_name": "Focus",
+      "name": "▶ Start Focus Timer",
+      "short_name": "Focus Timer",
       "url": "/app/#tab-focus",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "NCERT Syllabus",
-      "short_name": "Syllabus",
+      "name": "📺 Watch Chapter Lectures",
+      "short_name": "Lectures",
       "url": "/app/#tab-syllabus",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "📅 88-Day Timetable",
+      "short_name": "Timetable",
+      "url": "/app/#tab-plan",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ]

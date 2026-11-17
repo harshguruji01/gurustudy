@@ -1,0 +1,47 @@
+{
+  "name": "GuruStudy - Class 10 NCERT 88-Day Blueprint",
+  "short_name": "GuruStudy",
+  "description": "Master CBSE Class 10 NCERT in 88 Days (20 Nov 2026 – 15 Feb 2027) with Smart Voice Alarms and 5-Hour Daily Discipline.",
+  "start_url": "/app/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B1120",
+  "theme_color": "#0B1120",
+  "lang": "en-IN",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "▶ Start Focus Timer",
+      "short_name": "Focus Timer",
+      "url": "/app/#tab-focus",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "📺 Watch Chapter Lectures",
+      "short_name": "Lectures",
+      "url": "/app/#tab-syllabus",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "📅 88-Day Timetable",
+      "short_name": "Timetable",
+      "url": "/app/#tab-plan",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

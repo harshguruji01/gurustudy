@@ -42,47 +42,92 @@
       </div>
     </header>
 
-    <!-- ==================== TAB 1: TODAY (DASHBOARD) ==================== -->
+    <!-- ==================== TAB 1: TODAY (BENTO-GRID DASHBOARD) ==================== -->
     <main class="tab-page active" id="tab-today">
-      <!-- Mission 88-Day Countdown Card -->
-      <section class="glass-card mission-card">
-        <div class="mission-header">
+      <!-- Prompt 23: Due for Revision Strip -->
+      <div class="due-revision-strip" id="due-revision-strip" style="display: none;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.3rem;">🧠</span>
           <div>
-            <div class="mission-title">Mission CBSE Board Exams 2026-27</div>
-            <div class="mission-sub">20 Nov 2026 — 15 Feb 2027 (Strict 88-Day Cycle)</div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: #FFFFFF;" id="due-revision-title">2 Chapters Due for Revision</div>
+            <div style="font-size: 0.68rem; color: #CBD5E1;" id="due-revision-sub">Spaced-repetition checkpoints for 100% board retention</div>
           </div>
-          <div class="mission-days-left" id="dash-days-left">88</div>
         </div>
-        <div style="font-size: 0.76rem; color: #E0E7FF; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
-          <span id="dash-current-phase">Phase 1: Deep NCERT Concept Mastery</span>
-          <span id="dash-weekday-type" style="font-weight: 700; color: #FBBF24;">Mon–Sat (5.0h)</span>
-        </div>
-      </section>
+        <button class="btn-primary" id="btn-quick-revise-now" style="font-size: 0.72rem; padding: 4px 10px;">Revise Now →</button>
+      </div>
 
-      <!-- Daily Progress Ring Hero Card -->
-      <section class="glass-card progress-hero-card">
-        <div class="progress-ring-box">
-          <svg class="progress-ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="42" />
-            <circle class="ring-bar" id="today-ring-bar" cx="50" cy="50" r="42" stroke-dasharray="263.89" stroke-dashoffset="263.89" />
-          </svg>
-          <div class="ring-text">
-            <div class="ring-pct" id="today-ring-pct">0%</div>
-            <div class="ring-lbl">Completed</div>
+      <!-- Prompt 16: Bento Grid Layout -->
+      <div class="bento-grid">
+        <!-- Hero Bento Card (Mission Command) -->
+        <section class="bento-hero-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;" id="bento-greeting">Namaste, Student</div>
+              <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 2px;">
+                20 Nov 2026 – 15 Feb 2027 • <span style="color: #FBBF24; font-weight: 700;">88 Days Mission</span>
+              </div>
+            </div>
+            <span class="pill-badge" id="bento-mission-day-badge">Day 1/88</span>
           </div>
-        </div>
-        <div class="progress-details-col">
-          <div class="progress-main-stat" id="today-studied-stat">0h 00m / 5h 00m</div>
-          <div class="progress-sub-stat" id="today-remaining-stat">5 hours left to complete today's mission</div>
-          <div style="display: flex; gap: 8px;">
+
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px; flex-wrap: wrap;">
+            <div class="progress-ring-box" style="width: 84px; height: 84px; flex-shrink: 0;">
+              <svg class="progress-ring-svg" viewBox="0 0 100 100">
+                <circle class="ring-bg" cx="50" cy="50" r="42" />
+                <circle class="ring-bar" id="today-ring-bar" cx="50" cy="50" r="42" stroke-dasharray="263.89" stroke-dashoffset="263.89" />
+              </svg>
+              <div class="ring-text">
+                <div class="ring-pct" id="today-ring-pct" style="font-size: 1.15rem;">0%</div>
+                <div class="ring-lbl" style="font-size: 0.58rem;">Completed</div>
+              </div>
+            </div>
+            <div style="min-width: 0; flex: 1;">
+              <div class="progress-main-stat" id="today-studied-stat" style="font-size: 1.05rem;">0h 00m / 5h 00m</div>
+              <div class="progress-sub-stat" id="today-remaining-stat" style="font-size: 0.74rem;">5 hours left to complete today's mission</div>
+              <div style="font-size: 0.72rem; color: #60A5FA; margin-top: 4px; font-weight: 600;" id="bento-next-alarm-countdown">
+                🔔 Next Alarm: Mathematics
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
             <button class="btn-primary" id="btn-quick-focus-launch">⚡ Start Focus</button>
             <button class="btn-secondary" id="btn-open-manual-log">+ Log Offline</button>
+            <button class="btn-secondary" id="btn-share-today-progress" title="Share Instagram/WhatsApp Progress Story">📤 Share Progress</button>
+          </div>
+        </section>
+
+        <!-- Quick-Action Bento Tiles (2-Column Grid) -->
+        <div class="bento-tiles-grid">
+          <!-- Tile 1: Active Subject -->
+          <div class="bento-tile active-subject">
+            <div>
+              <div style="font-size: 0.68rem; font-weight: 700; color: #60A5FA; text-transform: uppercase; letter-spacing: 0.5px;">ACTIVE SUBJECT</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;" id="bento-active-subject-name">Mathematics • 2.0h</div>
+              <div style="font-size: 0.74rem; color: #94A3B8; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" id="bento-active-chapter-title">Real Numbers</div>
+            </div>
+            <button class="btn-primary" id="btn-bento-focus-launch" style="width: 100%; justify-content: center; padding: 6px; font-size: 0.74rem; margin-top: 8px;">
+              ⚡ Launch Focus
+            </button>
+          </div>
+
+          <!-- Tile 2: Mission Streak & XP -->
+          <div class="bento-tile streak-xp">
+            <div>
+              <div style="font-size: 0.68rem; font-weight: 700; color: #FBBF24; text-transform: uppercase; letter-spacing: 0.5px;">STREAK & RANK</div>
+              <div style="margin-top: 6px;">
+                <span class="profile-badge-pill streak-pill" id="bento-streak-pill" style="white-space: nowrap; font-size: 0.72rem; padding: 3px 8px;">⏳ Starts 20 Nov</span>
+              </div>
+            </div>
+            <div style="font-size: 0.75rem; color: #E2E8F0; font-weight: 700; margin-top: 8px;" id="bento-xp-rank">
+              🌱 NCERT Rookie • 450 XP
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- Subject Mini Progress Bars -->
-      <section class="glass-card" style="padding: 14px 18px;">
+      <section class="glass-card" style="padding: 14px 18px; margin-bottom: 16px;">
         <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase;">
           Today's Subject Targets
         </div>
@@ -92,8 +137,8 @@
       </section>
 
       <!-- Sunday Special Boost Banner (Hidden on Mon-Sat, active on Sundays) -->
-      <section class="glass-card" id="sunday-boost-banner" style="display: none; background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(245, 158, 11, 0.4);">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <section class="glass-card" id="sunday-boost-banner" style="display: none; background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(245, 158, 11, 0.4); margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
           <div>
             <div style="font-size: 0.78rem; font-weight: 800; color: #FBBF24; text-transform: uppercase;">⚡ Sunday 6.5-Hour Boost Active!</div>
             <div style="font-size: 0.82rem; color: #F8FAFC; margin-top: 4px;">Includes Artificial Intelligence (Code 417) + Full Revision</div>
@@ -117,7 +162,7 @@
         <span style="font-size: 0.74rem; color: var(--text-muted);" id="today-date-readable">Loading...</span>
       </div>
 
-      <div id="today-schedule-cards-list">
+      <div class="timeline-list" id="today-schedule-cards-list">
         <!-- Rendered by timetable engine -->
       </div>
     </main>
@@ -173,13 +218,27 @@
           <button class="btn-timer-action btn-timer-aux" id="btn-timer-finish" title="Complete Session Early">✓</button>
         </div>
 
-        <!-- Ambient Sound Generator (Pure Web Audio) -->
-        <div class="ambient-bar">
-          <span style="font-size: 0.74rem; color: var(--text-secondary); font-weight: 600;">Ambient Focus:</span>
-          <button class="ambient-chip active" data-ambient="none">None</button>
-          <button class="ambient-chip" data-ambient="rain">🌧️ Soft Rain</button>
-          <button class="ambient-chip" data-ambient="whitenoise">🌊 White Noise</button>
+        <!-- Ambient Sound Generator (Pure Web Audio - Prompt 21) -->
+        <div class="glass-card" style="padding: 12px 14px; margin-top: 14px; width: 100%;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF;">🎧 Zero-Download Web Audio Soundscapes</span>
+            <button class="btn-icon" id="btn-soundscape-mute" title="Toggle Mute" style="width: 28px; height: 28px;">🔊</button>
+          </div>
+          <div class="ambient-bar" style="margin-bottom: 10px;">
+            <button class="ambient-chip active" data-sound="silent">Silent</button>
+            <button class="ambient-chip" data-sound="rain">🌧️ Soft Rain</button>
+            <button class="ambient-chip" data-sound="binaural_gamma">🧠 40Hz Gamma Focus</button>
+            <button class="ambient-chip" data-sound="library">📚 Library White Noise</button>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.68rem; color: var(--text-muted);">Volume:</span>
+            <input type="range" id="soundscape-volume-slider" min="0" max="1" step="0.05" value="0.5" style="flex: 1; accent-color: #6366F1;">
+          </div>
         </div>
+
+        <button class="btn-secondary" id="btn-toggle-zen-mode" style="width: 100%; justify-content: center; padding: 10px; margin-top: 12px;">
+          🧘 Enter Full-Screen Zen Mode
+        </button>
 
         <div style="margin-top: 18px; font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px;">
           <span id="focus-wakelock-status">🔒 Screen WakeLock Enabled</span>
@@ -187,6 +246,74 @@
           <span>💾 Auto-saving studied minutes</span>
         </div>
       </div>
+
+      <!-- Prompt 20: Chapter-Wise Interactive MCQ & Assertion-Reason Quiz Engine -->
+      <section class="glass-card" style="margin-top: 20px; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">🎯 Chapter Practice Quiz Engine</h3>
+            <span style="font-size: 0.72rem; color: #94A3B8;">CBSE Competency, MCQs & Assertion-Reasoning</span>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button class="chip-btn active" id="btn-quiz-mode-quick" data-qmode="quick">10-Min Quick</button>
+            <button class="chip-btn" id="btn-quiz-mode-full" data-qmode="full">Sunday Full</button>
+          </div>
+        </div>
+
+        <div id="quiz-active-card" style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-glass); border-radius: 12px; padding: 14px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span class="profile-badge-pill" id="quiz-question-subject-badge" style="font-size: 0.68rem; padding: 2px 8px;">Mathematics</span>
+            <span style="font-size: 0.72rem; color: #94A3B8;" id="quiz-question-counter">Question 1 of 5</span>
+          </div>
+          <div style="font-size: 0.85rem; font-weight: 600; color: #FFFFFF; line-height: 1.5; margin-bottom: 14px;" id="quiz-question-text">
+            Loading CBSE Question...
+          </div>
+          <div id="quiz-options-container" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+            <!-- Rendered Options -->
+          </div>
+          <div id="quiz-explanation-box" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 10px; font-size: 0.76rem; color: #D1FAE5; margin-bottom: 10px;">
+            <!-- Step-by-Step NCERT Explanation -->
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button class="btn-secondary" id="btn-quiz-mark-review" style="font-size: 0.72rem; padding: 6px 10px;">🚩 Mark for Review</button>
+            <button class="btn-primary" id="btn-quiz-next-question" style="font-size: 0.75rem; padding: 6px 14px;">Next Question →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prompt 22: CBSE Board Percentage Predictor & 3-Hour Exam Simulator -->
+      <section class="glass-card" style="margin-top: 16px; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">📊 Board Percentage Predictor</h3>
+            <span style="font-size: 0.72rem; color: #94A3B8;">Theory (80) + Internal (20) Distinction Calculator</span>
+          </div>
+          <span class="pill-badge" id="predicted-percentage-badge">93.4%</span>
+        </div>
+
+        <div id="predictor-inputs-table" style="font-size: 0.75rem; margin-bottom: 12px;">
+          <!-- Dynamically populated subject rows -->
+        </div>
+
+        <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 8px; padding: 10px; font-size: 0.75rem; color: #E0E7FF;" id="predictor-recommendation-box">
+          🎯 <strong>Target 95%+:</strong> Scoring +8 marks in Mathematics theory will secure your 95%+ Board Distinction!
+        </div>
+
+        <!-- 3-Hour Sunday Exam Hall Simulator -->
+        <div style="border-top: 1px solid var(--border-glass); margin-top: 14px; padding-top: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: #F59E0B;">⏱ 3-Hour Exam Hall Simulator</span>
+            <span class="profile-badge-pill" id="exam-phase-badge" style="font-size: 0.68rem; padding: 2px 8px; background: rgba(245,158,11,0.15); color: #FBBF24;">Ready to Start</span>
+          </div>
+          <div style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF; font-variant-numeric: tabular-nums; text-align: center; margin: 8px 0;" id="exam-simulator-clock">
+            03:00:00
+          </div>
+          <div style="display: flex; gap: 8px; justify-content: center;">
+            <button class="btn-primary" id="btn-exam-sim-start">▶ Start 3-Hour Mock</button>
+            <button class="btn-secondary" id="btn-exam-sim-reset">Reset</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ==================== TAB 4: SYLLABUS ==================== -->
@@ -196,18 +323,61 @@
         <span class="pill-badge" id="syllabus-overall-badge">0/78 Done</span>
       </div>
 
-      <!-- Subject Filter Chips -->
-      <div class="syllabus-filter-chips" id="syllabus-subject-chips">
-        <button class="chip-btn active" data-subj="all">All Subjects</button>
-        <button class="chip-btn" data-subj="maths">Maths (14)</button>
-        <button class="chip-btn" data-subj="science">Science (13)</button>
-        <button class="chip-btn" data-subj="sst">Social Science (20)</button>
-        <button class="chip-btn" data-subj="language">Language</button>
-        <button class="chip-btn" data-subj="ai">AI 417 (13)</button>
+      <!-- Segmented Vault Selector (Prompt 18) -->
+      <div class="mode-pill-selector" id="vault-mode-selector" style="margin-bottom: 14px;">
+        <button class="mode-pill-btn active" data-vmode="chapters">Chapters & Lectures</button>
+        <button class="mode-pill-btn" data-vmode="formulas">Formulas Vault</button>
+        <button class="mode-pill-btn" data-vmode="flashcards">3D Flashcards</button>
       </div>
 
-      <div id="syllabus-chapters-container">
-        <!-- Rendered chapters list -->
+      <!-- View 1: Chapters & Lectures -->
+      <div id="vault-view-chapters">
+        <!-- Subject Filter Chips -->
+        <div class="syllabus-filter-chips" id="syllabus-subject-chips">
+          <button class="chip-btn active" data-subj="all">All Subjects</button>
+          <button class="chip-btn" data-subj="maths">Maths (14)</button>
+          <button class="chip-btn" data-subj="science">Science (13)</button>
+          <button class="chip-btn" data-subj="sst">Social Science (20)</button>
+          <button class="chip-btn" data-subj="language">Language</button>
+          <button class="chip-btn" data-subj="ai">AI 417 (13)</button>
+        </div>
+
+        <div id="syllabus-chapters-container">
+          <!-- Rendered chapters list -->
+        </div>
+      </div>
+
+      <!-- View 2: Formulas & Reactions Vault (Prompt 18) -->
+      <div id="vault-view-formulas" style="display: none;">
+        <div class="syllabus-filter-chips" id="formula-vault-chips" style="margin-bottom: 12px;">
+          <button class="chip-btn active" data-fsubj="maths">📐 Maths Formulas</button>
+          <button class="chip-btn" data-fsubj="science">🧪 Science Reactions & Optics</button>
+          <button class="chip-btn" data-fsubj="sst">🗺️ SST Dates & Maps</button>
+        </div>
+        <div id="vault-formula-cards-container">
+          <!-- Formula cards rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- View 3: 3D-Flip Flashcards (Prompt 18) -->
+      <div id="vault-view-flashcards" style="display: none;">
+        <div style="text-align: center; margin-bottom: 8px;">
+          <span style="font-size: 0.76rem; color: #94A3B8;">Tap card to flip • 5-min rapid revision</span>
+        </div>
+        <div class="flashcard-stage" id="flashcard-stage-container">
+          <!-- Rendered 3D Flashcard -->
+        </div>
+        <div style="display: flex; gap: 12px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+          <button class="btn-secondary" id="btn-fc-review" style="padding: 8px 16px; border-color: rgba(239,68,68,0.4); color: #F87171;">
+            🔄 Need Review
+          </button>
+          <button class="btn-primary" id="btn-fc-mastered" style="padding: 8px 16px; background: #10B981;">
+            ✓ Mastered
+          </button>
+          <button class="btn-secondary" id="btn-fc-next" style="padding: 8px 16px;">
+            Next Card →
+          </button>
+        </div>
       </div>
     </main>
 
@@ -217,6 +387,33 @@
         <h2 class="section-heading-title">📊 Analytics & Consistency</h2>
         <span class="pill-badge" id="stats-streak-pill">🔥 0-Day Streak</span>
       </div>
+
+      <!-- Prompt 19: Board Exam Readiness Meter & Level Card -->
+      <section class="glass-card" style="padding: 18px; margin-bottom: 16px; text-align: center;">
+        <div style="font-size: 0.78rem; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 1px;">
+          CBSE Board Exam Readiness Gauge
+        </div>
+        <div style="font-size: 3rem; font-weight: 800; color: #60A5FA; margin: 8px 0;" id="readiness-total-score">
+          68%
+        </div>
+        <div style="font-size: 0.8rem; font-weight: 700; color: #F59E0B;" id="readiness-rank-pill">
+          ⚔️ Level 3: Syllabus Warrior
+        </div>
+        <div style="display: flex; justify-content: space-around; margin-top: 14px; border-top: 1px solid var(--border-glass); padding-top: 10px; font-size: 0.74rem;">
+          <div>
+            <div style="color: #94A3B8;">Timetable (40%)</div>
+            <div style="font-weight: 700; color: #FFFFFF;" id="readiness-adherence-stat">75%</div>
+          </div>
+          <div>
+            <div style="color: #94A3B8;">Syllabus (35%)</div>
+            <div style="font-weight: 700; color: #FFFFFF;" id="readiness-syllabus-stat">65%</div>
+          </div>
+          <div>
+            <div style="color: #94A3B8;">Mocks (25%)</div>
+            <div style="font-weight: 700; color: #FFFFFF;" id="readiness-mock-stat">70%</div>
+          </div>
+        </div>
+      </section>
 
       <!-- 88-Day Heatmap Card -->
       <section class="glass-card">
@@ -274,9 +471,12 @@
       </section>
 
       <!-- Share Report Card CTA -->
-      <div style="text-align: center; margin: 16px 0 24px 0;">
+      <div style="text-align: center; margin: 16px 0 24px 0; display: flex; flex-direction: column; gap: 8px;">
         <button class="btn-primary" id="btn-download-report-card" style="width: 100%; justify-content: center; padding: 14px; font-size: 0.95rem;">
           📸 Download & Share Progress Report Card
+        </button>
+        <button class="btn-secondary" id="btn-export-mission-report-stats" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.88rem;">
+          📄 Export Mission Summary Report (PDF)
         </button>
       </div>
     </main>
@@ -511,6 +711,35 @@
         <button class="btn-primary" id="btn-profile-edit-details" style="justify-content: center; padding: 10px;">
           ✏️ Edit Student Profile Details
         </button>
+
+        <!-- Prompt 16: Appearance & 4 Dynamic Skins -->
+        <div style="background: rgba(0,0,0,0.25); border-radius: 10px; padding: 10px; border: 1px solid var(--border-glass);">
+          <div style="font-size: 0.76rem; font-weight: 700; color: #E2E8F0; margin-bottom: 6px;">
+            🎨 Appearance Skin
+          </div>
+          <div class="chips-row" id="profile-skin-chips" style="gap: 6px;">
+            <button class="chip-btn active" data-skin="midnight" style="font-size: 0.7rem; padding: 4px 8px;">Midnight OLED</button>
+            <button class="chip-btn" data-skin="indigo" style="font-size: 0.7rem; padding: 4px 8px;">Indigo Glass</button>
+            <button class="chip-btn" data-skin="forest" style="font-size: 0.7rem; padding: 4px 8px;">Forest Focus</button>
+            <button class="chip-btn" data-skin="academic" style="font-size: 0.7rem; padding: 4px 8px;">Academic Light</button>
+          </div>
+        </div>
+
+        <!-- Prompt 17: Optional Guru AI Key -->
+        <div style="background: rgba(0,0,0,0.25); border-radius: 10px; padding: 10px; border: 1px solid var(--border-glass);">
+          <div style="font-size: 0.76rem; font-weight: 700; color: #E2E8F0; margin-bottom: 4px;">
+            ✨ Guru AI Custom API Key (Optional)
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <input type="password" id="input-guru-ai-key" class="form-input" placeholder="Google Gemini API Key" style="font-size: 0.72rem; padding: 6px;">
+            <button class="btn-secondary" id="btn-save-ai-key" style="font-size: 0.72rem; padding: 6px 10px;">Save</button>
+          </div>
+          <span style="font-size: 0.65rem; color: #64748B;">Offline built-in expert cards work 100% without an API key!</span>
+        </div>
+
+        <button class="btn-secondary" id="btn-export-mission-report-profile" style="justify-content: center; padding: 9px;">
+          📄 Export Mission Summary Report (PDF)
+        </button>
         <button class="btn-secondary" id="btn-profile-sync-now" style="justify-content: center; padding: 9px;">
           ☁️ Sync Cloud & Offline Storage
         </button>
@@ -523,6 +752,69 @@
         <button class="legal-btn-link" id="link-terms-of-use">Terms of Use</button>
         <span style="color: var(--text-muted); font-size: 0.7rem;">•</span>
         <button class="legal-btn-link" id="link-support">Support</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PROMPT 17: FLOATING GURU AI BUTTON & BOTTOM SHEET ==================== -->
+  <button class="floating-ai-btn" id="btn-floating-guru-ai" title="Ask Guru AI (CBSE Expert)">
+    <span>✨ Ask Guru AI</span>
+  </button>
+
+  <div class="modal-backdrop" id="modal-guru-ai" style="align-items: flex-end;">
+    <div class="ai-drawer-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <div>
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">✨ Guru AI Study Mentor</h3>
+          <span class="profile-badge-pill" id="guru-ai-context-badge" style="font-size: 0.68rem; padding: 2px 8px; margin-top: 4px;">Mathematics • Real Numbers</span>
+        </div>
+        <button class="btn-icon" id="btn-close-guru-ai" style="width: 30px; height: 30px;">✕</button>
+      </div>
+
+      <!-- Quick Prompts Chips -->
+      <div class="chips-row" style="margin-bottom: 12px;">
+        <button class="chip-btn btn-ai-quick" data-prompt="hinglish">Explain in Hinglish</button>
+        <button class="chip-btn btn-ai-quick" data-prompt="questions">5 Board Questions</button>
+        <button class="chip-btn btn-ai-quick" data-prompt="formulas">Key Formulas</button>
+        <button class="chip-btn btn-ai-quick" data-prompt="memory">Memory Trick</button>
+      </div>
+
+      <!-- Messages Container -->
+      <div id="guru-ai-messages" style="flex: 1; overflow-y: auto; max-height: 48vh; min-height: 180px; padding: 6px 0; display: flex; flex-direction: column;">
+        <div class="ai-chat-bubble ai">
+          Namaste! I am your CBSE Class 10 NCERT Guru AI. Select a quick prompt above or ask any question about formulas, chemical reactions, or board exam questions!
+        </div>
+      </div>
+
+      <!-- Input Box -->
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
+        <input type="text" id="guru-ai-input" class="form-input" placeholder="Ask Guru AI anything..." style="flex: 1; font-size: 0.82rem;">
+        <button class="btn-primary" id="btn-guru-ai-send" style="padding: 0 16px;">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PROMPT 21: FULLSCREEN ZEN MODE OVERLAY ==================== -->
+  <div class="zen-overlay" id="zen-fullscreen-overlay">
+    <div style="font-size: 0.8rem; color: #94A3B8; text-transform: uppercase; letter-spacing: 2px;">Zen Focus Mode</div>
+    <div style="font-size: 1.15rem; color: #60A5FA; font-weight: 700; margin-top: 6px;" id="zen-target-subject">Mathematics • Real Numbers</div>
+    <div style="font-size: 4.5rem; font-weight: 800; color: #FFFFFF; font-variant-numeric: tabular-nums; margin: 24px 0;" id="zen-clock-display">02:00:00</div>
+    <p style="font-size: 0.85rem; color: #CBD5E1; max-width: 340px; font-style: italic; margin-bottom: 30px;" id="zen-quote">"Discipline is the bridge between goals and accomplishment."</p>
+    <button class="btn-secondary" id="btn-exit-zen" style="padding: 10px 24px; font-size: 0.85rem;">✕ Exit Zen Mode</button>
+  </div>
+
+  <!-- ==================== PROMPT 21: 45-MIN EYE & POSTURE BREAK MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-micro-break">
+    <div class="modal-box" style="text-align: center; max-width: 360px;">
+      <div style="font-size: 2.5rem; margin-bottom: 8px;">💧🧘</div>
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">5-Minute Eye & Posture Break</h3>
+      <p style="font-size: 0.8rem; color: #94A3B8; line-height: 1.5; margin-bottom: 16px;">
+        Great job studying for 45 minutes! Follow the <strong>20-20-20 rule</strong>: Look 20 feet away for 20 seconds, stretch your shoulders, and drink water.
+      </p>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #F59E0B; margin-bottom: 16px;" id="break-timer-display">05:00</div>
+      <div style="display: flex; gap: 8px; justify-content: center;">
+        <button class="btn-primary" id="btn-break-resume">Resume Study ⚡</button>
+        <button class="btn-secondary" id="btn-break-snooze">+2 Mins</button>
       </div>
     </div>
   </div>
@@ -589,6 +881,14 @@
   <script src="js/alarm-engine.js"></script>
   <script src="js/focus-timer.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/guru-ai-knowledge.js"></script>
+  <script src="js/cbse-vault-data.js"></script>
+  <script src="js/gamification-engine.js"></script>
+  <script src="js/cbse-quiz-bank.js"></script>
+  <script src="js/audio-soundscapes.js"></script>
+  <script src="js/marks-calculator.js"></script>
+  <script src="js/spaced-repetition.js"></script>
+  <script src="js/social-share.js"></script>
 
   <!-- App Main Orchestrator -->
   <script>
@@ -724,7 +1024,575 @@
 
       const linkSupport = document.getElementById('link-support');
       if (linkSupport) linkSupport.addEventListener('click', () => alert('GuruStudy Support:\n\nFor questions, issues, or syllabus updates, reach out to HarshGuruJi via official GitHub or community portal.'));
+
+      // 11. Initialize Phases 16–25 Engines
+      initThemeSkins();
+      initGuruAI();
+      initVaultAndFlashcards();
+      initSoundscapesAndZen();
+      initQuizEngine();
+      initBoardMarksPredictor();
+      initSpacedRepetitionDueStrip();
+      initSocialShareAndPrint();
+      await renderReadinessGauge();
     });
+
+    function triggerHaptic() {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        navigator.vibrate(15);
+      }
+    }
+
+    function initThemeSkins() {
+      const savedSkin = localStorage.getItem('gurustudy_theme_skin') || 'midnight';
+      document.documentElement.setAttribute('data-skin', savedSkin);
+      document.querySelectorAll('#profile-skin-chips .chip-btn').forEach(btn => {
+        const skin = btn.getAttribute('data-skin');
+        if (skin === savedSkin) btn.classList.add('active');
+        else btn.classList.remove('active');
+
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#profile-skin-chips .chip-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.documentElement.setAttribute('data-skin', skin);
+          localStorage.setItem('gurustudy_theme_skin', skin);
+          triggerHaptic();
+        });
+      });
+    }
+
+    function initGuruAI() {
+      const aiModal = document.getElementById('modal-guru-ai');
+      const btnOpenAI = document.getElementById('btn-floating-guru-ai');
+      const btnCloseAI = document.getElementById('btn-close-guru-ai');
+      const aiMessages = document.getElementById('guru-ai-messages');
+      const aiInput = document.getElementById('guru-ai-input');
+      const btnSendAI = document.getElementById('btn-guru-ai-send');
+      const contextBadge = document.getElementById('guru-ai-context-badge');
+
+      const openAI = () => {
+        const activeSubj = document.getElementById('focus-subject-badge')?.textContent || 'Mathematics';
+        const activeChap = document.getElementById('focus-chapter-goal')?.textContent || 'Real Numbers';
+        if (contextBadge) contextBadge.textContent = `${activeSubj.replace(/[^\w\s]/gi, '').trim()} • ${activeChap.replace('Chapter: ', '').trim()}`;
+        if (aiModal) aiModal.classList.add('active');
+        triggerHaptic();
+      };
+
+      if (btnOpenAI) btnOpenAI.addEventListener('click', openAI);
+      if (btnCloseAI) btnCloseAI.addEventListener('click', () => aiModal.classList.remove('active'));
+
+      const sendQuery = async (promptType, customText = '') => {
+        const activeSubj = contextBadge?.textContent.split('•')[0]?.trim() || 'Mathematics';
+        const activeChap = contextBadge?.textContent.split('•')[1]?.trim() || 'Real Numbers';
+        const userQuery = customText || (aiInput ? aiInput.value.trim() : '');
+        if (!userQuery && !promptType) return;
+
+        if (userQuery && customText) {
+          const userMsg = document.createElement('div');
+          userMsg.className = 'ai-chat-bubble user';
+          userMsg.textContent = userQuery;
+          aiMessages.appendChild(userMsg);
+          if (aiInput) aiInput.value = '';
+        }
+
+        const typingMsg = document.createElement('div');
+        typingMsg.className = 'ai-chat-bubble ai';
+        typingMsg.textContent = 'Thinking... ✨';
+        aiMessages.appendChild(typingMsg);
+        aiMessages.scrollTop = aiMessages.scrollHeight;
+
+        const answer = await guruAI.answerQuestion(promptType, userQuery || promptType, activeSubj, activeChap);
+        typingMsg.innerHTML = answer;
+        aiMessages.scrollTop = aiMessages.scrollHeight;
+        triggerHaptic();
+      };
+
+      document.querySelectorAll('.btn-ai-quick').forEach(b => {
+        b.addEventListener('click', () => {
+          const pType = b.getAttribute('data-prompt');
+          sendQuery(pType, b.textContent);
+        });
+      });
+
+      if (btnSendAI) {
+        btnSendAI.addEventListener('click', () => sendQuery('custom'));
+      }
+      if (aiInput) {
+        aiInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') sendQuery('custom');
+        });
+      }
+
+      const btnSaveKey = document.getElementById('btn-save-ai-key');
+      const inputKey = document.getElementById('input-guru-ai-key');
+      if (btnSaveKey && inputKey) {
+        inputKey.value = guruAI.getApiKey();
+        btnSaveKey.addEventListener('click', () => {
+          guruAI.setApiKey(inputKey.value);
+          btnSaveKey.textContent = '✓ Saved';
+          setTimeout(() => { btnSaveKey.textContent = 'Save'; }, 1500);
+        });
+      }
+    }
+
+    let currentFlashcardIdx = 0;
+    function initVaultAndFlashcards() {
+      const modeBtns = document.querySelectorAll('#vault-mode-selector .mode-pill-btn');
+      const viewChapters = document.getElementById('vault-view-chapters');
+      const viewFormulas = document.getElementById('vault-view-formulas');
+      const viewFlashcards = document.getElementById('vault-view-flashcards');
+
+      modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const vmode = btn.getAttribute('data-vmode');
+          if (vmode === 'chapters') {
+            if (viewChapters) viewChapters.style.display = 'block';
+            if (viewFormulas) viewFormulas.style.display = 'none';
+            if (viewFlashcards) viewFlashcards.style.display = 'none';
+          } else if (vmode === 'formulas') {
+            if (viewChapters) viewChapters.style.display = 'none';
+            if (viewFormulas) viewFormulas.style.display = 'block';
+            if (viewFlashcards) viewFlashcards.style.display = 'none';
+            renderFormulaVault('maths');
+          } else if (vmode === 'flashcards') {
+            if (viewChapters) viewChapters.style.display = 'none';
+            if (viewFormulas) viewFormulas.style.display = 'none';
+            if (viewFlashcards) viewFlashcards.style.display = 'block';
+            renderFlashcardUI();
+          }
+          triggerHaptic();
+        });
+      });
+
+      document.querySelectorAll('#formula-vault-chips .chip-btn').forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll('#formula-vault-chips .chip-btn').forEach(cb => cb.classList.remove('active'));
+          b.classList.add('active');
+          const fsubj = b.getAttribute('data-fsubj');
+          renderFormulaVault(fsubj);
+        });
+      });
+
+      const btnReview = document.getElementById('btn-fc-review');
+      const btnMastered = document.getElementById('btn-fc-mastered');
+      const btnNext = document.getElementById('btn-fc-next');
+
+      if (btnReview) {
+        btnReview.addEventListener('click', () => {
+          triggerHaptic();
+          currentFlashcardIdx = (currentFlashcardIdx + 1) % CBSE_VAULT_DATA.flashcards.length;
+          renderFlashcardUI();
+        });
+      }
+      if (btnMastered) {
+        btnMastered.addEventListener('click', () => {
+          triggerHaptic();
+          CBSE_VAULT_DATA.flashcards[currentFlashcardIdx].mastered = true;
+          guruGamification.addXP(25, 'Mastered Flashcard');
+          currentFlashcardIdx = (currentFlashcardIdx + 1) % CBSE_VAULT_DATA.flashcards.length;
+          renderFlashcardUI();
+        });
+      }
+      if (btnNext) {
+        btnNext.addEventListener('click', () => {
+          triggerHaptic();
+          currentFlashcardIdx = (currentFlashcardIdx + 1) % CBSE_VAULT_DATA.flashcards.length;
+          renderFlashcardUI();
+        });
+      }
+    }
+
+    function renderFormulaVault(subjectKey) {
+      const container = document.getElementById('vault-formula-cards-container');
+      if (!container) return;
+      container.innerHTML = '';
+      const items = CBSE_VAULT_DATA.formulas[subjectKey] || [];
+
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'glass-card';
+        card.style.padding = '14px';
+        card.style.marginBottom = '12px';
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <div>
+              <h4 style="font-size: 0.92rem; font-weight: 700; color: #FFFFFF;">${item.title}</h4>
+              <span style="font-size: 0.72rem; color: #94A3B8;">${item.chapter}</span>
+            </div>
+            <button class="btn-icon btn-pin-formula" data-id="${item.id}" title="Pin to Today's Revision" style="font-size: 1.1rem; width: 32px; height: 32px;">
+              ${item.pinned ? '⭐' : '☆'}
+            </button>
+          </div>
+          <pre style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); border-radius: 8px; padding: 10px; font-family: monospace; font-size: 0.78rem; color: #A5B4FC; white-space: pre-wrap; line-height: 1.5;">${item.content}</pre>
+        `;
+        container.appendChild(card);
+      });
+
+      container.querySelectorAll('.btn-pin-formula').forEach(b => {
+        b.addEventListener('click', () => {
+          const id = b.getAttribute('data-id');
+          const formula = items.find(i => i.id === id);
+          if (formula) {
+            formula.pinned = !formula.pinned;
+            b.textContent = formula.pinned ? '⭐' : '☆';
+            triggerHaptic();
+          }
+        });
+      });
+    }
+
+    function renderFlashcardUI() {
+      const stage = document.getElementById('flashcard-stage-container');
+      if (!stage) return;
+      const card = CBSE_VAULT_DATA.flashcards[currentFlashcardIdx] || CBSE_VAULT_DATA.flashcards[0];
+
+      stage.innerHTML = `
+        <div class="flashcard-inner" id="active-flashcard-inner">
+          <div class="flashcard-front">
+            <span class="profile-badge-pill" style="font-size: 0.68rem; margin-bottom: 12px;">${card.subject} • ${card.chapter}</span>
+            <div style="font-size: 1.05rem; font-weight: 700; line-height: 1.5; color: #FFFFFF;">${card.front}</div>
+            <span style="font-size: 0.7rem; color: #64748B; margin-top: 16px;">(Tap card to reveal answer 🔄)</span>
+          </div>
+          <div class="flashcard-back">
+            <span class="profile-badge-pill" style="font-size: 0.68rem; margin-bottom: 12px; background: rgba(16,185,129,0.15); color: #34D399;">Answer & Explanation</span>
+            <div style="font-size: 0.95rem; font-weight: 600; line-height: 1.5; color: #E2E8F0; white-space: pre-wrap;">${card.back}</div>
+            <span style="font-size: 0.7rem; color: #94A3B8; margin-top: 16px;">(Tap to flip back)</span>
+          </div>
+        </div>
+      `;
+
+      const inner = document.getElementById('active-flashcard-inner');
+      inner.addEventListener('click', () => {
+        inner.classList.toggle('flipped');
+        triggerHaptic();
+      });
+    }
+
+    function initSoundscapesAndZen() {
+      document.querySelectorAll('.ambient-chip[data-sound]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.ambient-chip[data-sound]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const snd = btn.getAttribute('data-sound');
+          guruAudioSoundscapes.playMode(snd);
+          triggerHaptic();
+        });
+      });
+
+      const btnMute = document.getElementById('btn-soundscape-mute');
+      if (btnMute) {
+        btnMute.addEventListener('click', () => {
+          const muted = guruAudioSoundscapes.toggleMute();
+          btnMute.textContent = muted ? '🔇' : '🔊';
+        });
+      }
+
+      const volSlider = document.getElementById('soundscape-volume-slider');
+      if (volSlider) {
+        volSlider.addEventListener('input', (e) => {
+          guruAudioSoundscapes.setVolume(parseFloat(e.target.value));
+        });
+      }
+
+      const btnZen = document.getElementById('btn-toggle-zen-mode');
+      const btnExitZen = document.getElementById('btn-exit-zen');
+      if (btnZen) {
+        btnZen.addEventListener('click', () => {
+          document.body.classList.add('zen-active');
+          const targetSubj = document.getElementById('focus-subject-badge')?.textContent || 'Mathematics';
+          const targetGoal = document.getElementById('focus-chapter-goal')?.textContent || 'Real Numbers';
+          const zenSubj = document.getElementById('zen-target-subject');
+          if (zenSubj) zenSubj.textContent = `${targetSubj} • ${targetGoal}`;
+          triggerHaptic();
+        });
+      }
+      if (btnExitZen) {
+        btnExitZen.addEventListener('click', () => {
+          document.body.classList.remove('zen-active');
+        });
+      }
+
+      const btnResume = document.getElementById('btn-break-resume');
+      const btnSnooze = document.getElementById('btn-break-snooze');
+      if (btnResume) {
+        btnResume.addEventListener('click', () => {
+          document.getElementById('modal-micro-break').classList.remove('active');
+        });
+      }
+      if (btnSnooze) {
+        btnSnooze.addEventListener('click', () => {
+          document.getElementById('modal-micro-break').classList.remove('active');
+        });
+      }
+    }
+
+    let currentQuizQuestionIdx = 0;
+    let activeQuizList = [];
+
+    function initQuizEngine() {
+      activeQuizList = guruQuizEngine.getQuestions('all', 'quick');
+      renderCurrentQuiz();
+
+      const btnNext = document.getElementById('btn-quiz-next-question');
+      if (btnNext) {
+        btnNext.addEventListener('click', () => {
+          currentQuizQuestionIdx++;
+          if (currentQuizQuestionIdx >= activeQuizList.length) {
+            currentQuizQuestionIdx = 0;
+            triggerConfetti();
+            guruGamification.addXP(75, 'Completed Practice Quiz');
+            alert('🎉 Congratulations! You completed today\'s practice quiz! +75 XP earned.');
+          }
+          renderCurrentQuiz();
+          triggerHaptic();
+        });
+      }
+
+      const btnModeQuick = document.getElementById('btn-quiz-mode-quick');
+      const btnModeFull = document.getElementById('btn-quiz-mode-full');
+      if (btnModeQuick && btnModeFull) {
+        btnModeQuick.addEventListener('click', () => {
+          btnModeQuick.classList.add('active');
+          btnModeFull.classList.remove('active');
+          activeQuizList = guruQuizEngine.getQuestions('all', 'quick');
+          currentQuizQuestionIdx = 0;
+          renderCurrentQuiz();
+        });
+        btnModeFull.addEventListener('click', () => {
+          btnModeFull.classList.add('active');
+          btnModeQuick.classList.remove('active');
+          activeQuizList = guruQuizEngine.getQuestions('all', 'full');
+          currentQuizQuestionIdx = 0;
+          renderCurrentQuiz();
+        });
+      }
+    }
+
+    function renderCurrentQuiz() {
+      const q = activeQuizList[currentQuizQuestionIdx];
+      if (!q) return;
+
+      const badgeEl = document.getElementById('quiz-question-subject-badge');
+      if (badgeEl) badgeEl.textContent = `${q.subject} • ${q.chapter}`;
+      const counterEl = document.getElementById('quiz-question-counter');
+      if (counterEl) counterEl.textContent = `Question ${currentQuizQuestionIdx + 1} of ${activeQuizList.length}`;
+      const textEl = document.getElementById('quiz-question-text');
+      if (textEl) textEl.textContent = q.question;
+
+      const explBox = document.getElementById('quiz-explanation-box');
+      if (explBox) explBox.style.display = 'none';
+
+      const optsBox = document.getElementById('quiz-options-container');
+      if (!optsBox) return;
+      optsBox.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-secondary';
+        btn.style.cssText = 'justify-content: flex-start; text-align: left; padding: 10px 14px; font-size: 0.8rem; border-radius: 8px; width: 100%; white-space: normal;';
+        btn.innerHTML = `<strong>${letters[idx]}.</strong>&nbsp; ${opt}`;
+
+        btn.addEventListener('click', () => {
+          optsBox.querySelectorAll('button').forEach(b => b.disabled = true);
+          if (idx === q.correctIndex) {
+            btn.style.background = 'rgba(16, 185, 129, 0.25)';
+            btn.style.borderColor = '#10B981';
+            btn.style.color = '#34D399';
+            guruGamification.addXP(15, 'Correct Answer');
+          } else {
+            btn.style.background = 'rgba(239, 68, 68, 0.25)';
+            btn.style.borderColor = '#EF4444';
+            btn.style.color = '#F87171';
+            const correctBtn = optsBox.querySelectorAll('button')[q.correctIndex];
+            if (correctBtn) {
+              correctBtn.style.background = 'rgba(16, 185, 129, 0.25)';
+              correctBtn.style.borderColor = '#10B981';
+            }
+            guruQuizEngine.logWeakTopic(q.subject, q.chapter, 50);
+          }
+          if (explBox) {
+            explBox.innerHTML = `<strong>💡 NCERT Explanation:</strong> ${q.explanation}`;
+            explBox.style.display = 'block';
+          }
+          triggerHaptic();
+        });
+        optsBox.appendChild(btn);
+      });
+    }
+
+    function initBoardMarksPredictor() {
+      const container = document.getElementById('predictor-inputs-table');
+      if (!container) return;
+      const scores = guruMarksPredictor.loadScores();
+
+      container.innerHTML = '';
+      scores.forEach((s, idx) => {
+        const row = document.createElement('div');
+        row.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 8px; flex-wrap: wrap;';
+        row.innerHTML = `
+          <span style="font-weight: 600; color: #FFFFFF; min-width: 140px; flex: 1;">${s.subject}</span>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <input type="number" class="form-input pred-theory" data-idx="${idx}" min="0" max="80" value="${s.theory}" style="width: 58px; padding: 4px 6px; text-align: center;" title="Theory /80">
+            <span style="color: var(--text-muted);">+</span>
+            <input type="number" class="form-input pred-internal" data-idx="${idx}" min="0" max="20" value="${s.internal}" style="width: 54px; padding: 4px 6px; text-align: center;" title="Internal /20">
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      const updatePrediction = () => {
+        const updated = scores.map((s, idx) => {
+          const t = document.querySelector(`.pred-theory[data-idx="${idx}"]`)?.value || s.theory;
+          const i = document.querySelector(`.pred-internal[data-idx="${idx}"]`)?.value || s.internal;
+          return { subject: s.subject, theory: parseFloat(t), internal: parseFloat(i) };
+        });
+        guruMarksPredictor.saveScores(updated);
+        const result = guruMarksPredictor.calculatePrediction(updated, 95);
+        const badge = document.getElementById('predicted-percentage-badge');
+        if (badge) badge.textContent = `${result.overallPct}%`;
+        const recBox = document.getElementById('predictor-recommendation-box');
+        if (recBox) {
+          recBox.innerHTML = `🎯 <strong>Overall: ${result.overallPct}% | Best-of-5: ${result.best5Pct}%</strong><br>${result.recommendations.join('<br>')}`;
+        }
+      };
+
+      container.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('input', updatePrediction);
+      });
+      updatePrediction();
+
+      const btnStartSim = document.getElementById('btn-exam-sim-start');
+      const btnResetSim = document.getElementById('btn-exam-sim-reset');
+      const simClock = document.getElementById('exam-simulator-clock');
+      const simPhase = document.getElementById('exam-phase-badge');
+
+      if (btnStartSim) {
+        btnStartSim.addEventListener('click', () => {
+          if (guruExamSimulator.isRunning) {
+            guruExamSimulator.pause();
+            btnStartSim.textContent = '▶ Resume Mock';
+          } else {
+            guruExamSimulator.start(
+              (formatted, phase) => {
+                if (simClock) simClock.textContent = formatted;
+                if (simPhase) {
+                  simPhase.textContent = phase.name;
+                  simPhase.style.color = phase.badgeColor;
+                }
+              },
+              () => {
+                alert('🔔 3-Hour Examination Completed! Time to review and self-evaluate.');
+              }
+            );
+            btnStartSim.textContent = '⏸ Pause';
+          }
+          triggerHaptic();
+        });
+      }
+      if (btnResetSim) {
+        btnResetSim.addEventListener('click', () => {
+          guruExamSimulator.stop();
+          if (simClock) simClock.textContent = '03:00:00';
+          if (simPhase) simPhase.textContent = 'Ready to Start';
+          if (btnStartSim) btnStartSim.textContent = '▶ Start 3-Hour Mock';
+        });
+      }
+    }
+
+    function initSpacedRepetitionDueStrip() {
+      const strip = document.getElementById('due-revision-strip');
+      const title = document.getElementById('due-revision-title');
+      const sub = document.getElementById('due-revision-sub');
+      const btnRevise = document.getElementById('btn-quick-revise-now');
+
+      const checkDue = () => {
+        const dueList = guruSpacedRevision.getDueRevisions();
+        if (dueList.length > 0) {
+          if (strip) strip.style.display = 'flex';
+          if (title) title.textContent = `${dueList.length} Chapters Due for Revision Today`;
+          if (sub) sub.textContent = `${dueList[0].subject} (${dueList[0].chapter}) • ${dueList[0].checkpoint}`;
+        } else {
+          if (strip) strip.style.display = 'none';
+        }
+      };
+
+      checkDue();
+      window.addEventListener('gurustudy:revisions-updated', checkDue);
+
+      if (btnRevise) {
+        btnRevise.addEventListener('click', () => {
+          const dueList = guruSpacedRevision.getDueRevisions();
+          if (dueList.length > 0) {
+            const first = dueList[0];
+            guruSpacedRevision.markCompleted(first.id);
+            guruGamification.addXP(40, 'Completed Spaced Revision');
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+            document.querySelector('[data-tab="tab-syllabus"]')?.classList.add('active');
+            document.getElementById('tab-syllabus')?.classList.add('active');
+            renderSyllabusUI('all');
+          }
+          triggerHaptic();
+        });
+      }
+    }
+
+    function initSocialShareAndPrint() {
+      const btnShare = document.getElementById('btn-share-today-progress');
+      if (btnShare) {
+        btnShare.addEventListener('click', async () => {
+          btnShare.textContent = '⏳ Rendering Story Card...';
+          const prof = await GuruDB.getProfile();
+          const mission = GuruTimetable.calculateMissionStreak(new Date());
+          const todaySchedule = GuruTimetable.getDaySchedule(new Date());
+
+          const dataUrl = await guruSocialShare.generateStoryCard({
+            studentName: prof?.student_name || 'Class 10 Student',
+            dayNumber: mission.daysElapsed || 1,
+            hoursStudied: todaySchedule.isSunday ? '6.5h' : '5.0h',
+            streakDays: mission.streakDays || 0,
+            phaseName: todaySchedule.phase
+          });
+
+          await guruSocialShare.shareOrDownload(dataUrl, `GuruStudy-Day${mission.daysElapsed || 1}-Progress.png`);
+          btnShare.textContent = '📤 Share Progress';
+          triggerHaptic();
+        });
+      }
+
+      const btnExportP = document.getElementById('btn-export-mission-report-profile');
+      const btnExportS = document.getElementById('btn-export-mission-report-stats');
+      const triggerPrint = () => {
+        guruSocialShare.exportPrintableReport();
+      };
+      if (btnExportP) btnExportP.addEventListener('click', triggerPrint);
+      if (btnExportS) btnExportS.addEventListener('click', triggerPrint);
+    }
+
+    async function renderReadinessGauge() {
+      if (typeof guruGamification === 'undefined') return;
+      const score = await guruGamification.calculateReadinessScore();
+      const scoreEl = document.getElementById('readiness-total-score');
+      if (scoreEl) scoreEl.textContent = `${score.totalReadiness}%`;
+
+      const rankPill = document.getElementById('readiness-rank-pill');
+      if (rankPill) {
+        const r = guruGamification.getRank();
+        rankPill.textContent = `${r.icon} ${r.title} • Level ${r.level}`;
+        rankPill.style.color = r.color;
+      }
+
+      const adh = document.getElementById('readiness-adherence-stat');
+      if (adh) adh.textContent = `${score.adherenceScore}%`;
+      const syl = document.getElementById('readiness-syllabus-stat');
+      if (syl) syl.textContent = `${score.syllabusScore}%`;
+      const mck = document.getElementById('readiness-mock-stat');
+      if (mck) mck.textContent = `${score.mockScore}%`;
+    }
 
     function formatDurationBadge(mins) {
       if (mins === 120) return '2.0 hrs';
@@ -803,6 +1671,45 @@
         document.getElementById('dash-current-phase').textContent = `${todaySchedule.phase} • Day ${missionStreak.daysElapsed}`;
       }
 
+      // Bento Grid Sync (Prompt 16)
+      const bentoGreeting = document.getElementById('bento-greeting');
+      if (bentoGreeting) {
+        const prof = await GuruDB.getProfile();
+        bentoGreeting.textContent = `Namaste, ${prof?.student_name || 'Student'}`;
+      }
+      const bentoDayBadge = document.getElementById('bento-mission-day-badge');
+      if (bentoDayBadge) {
+        bentoDayBadge.textContent = missionStreak.isWarmupMode ? 'Warm-up Mode' : `Day ${missionStreak.daysElapsed}/88`;
+      }
+      const bentoActiveSubj = document.getElementById('bento-active-subject-name');
+      const bentoActiveCh = document.getElementById('bento-active-chapter-title');
+      const firstSlot = todaySchedule.schedule[0];
+      if (bentoActiveSubj && firstSlot) {
+        bentoActiveSubj.textContent = `${firstSlot.subject} • ${formatDurationBadge(firstSlot.durationMinutes)}`;
+      }
+      if (bentoActiveCh && firstSlot) {
+        bentoActiveCh.textContent = firstSlot.chapter;
+      }
+      const bentoStreakPill = document.getElementById('bento-streak-pill');
+      if (bentoStreakPill) {
+        bentoStreakPill.textContent = missionStreak.profileBadgeText;
+      }
+      const bentoXpRank = document.getElementById('bento-xp-rank');
+      if (bentoXpRank && typeof guruGamification !== 'undefined') {
+        const rank = guruGamification.getRank();
+        bentoXpRank.textContent = `${rank.icon} ${rank.title} • ${guruGamification.state.xp} XP`;
+      }
+      const bentoCountdown = document.getElementById('bento-next-alarm-countdown');
+      if (bentoCountdown && firstSlot) {
+        bentoCountdown.textContent = `🔔 Next Alarm: ${firstSlot.subject} (${firstSlot.startTime})`;
+      }
+      const btnBentoFocus = document.getElementById('btn-bento-focus-launch');
+      if (btnBentoFocus && firstSlot) {
+        btnBentoFocus.onclick = () => {
+          startFocusSessionFromCard(firstSlot.subject, firstSlot.durationMinutes, firstSlot.chapter);
+        };
+      }
+
       // Also update Stats streak pill
       const statsPill = document.getElementById('stats-streak-pill');
       if (statsPill) {
@@ -848,11 +1755,19 @@
         }
       }
 
-      // Render today's timetable cards
+      // Render today's timetable cards with vertical timeline connectors (Prompt 16)
       const listEl = document.getElementById('today-schedule-cards-list');
       listEl.innerHTML = '';
 
-      todaySchedule.schedule.forEach(slot => {
+      todaySchedule.schedule.forEach((slot, index) => {
+        const itemWrap = document.createElement('div');
+        itemWrap.className = `timeline-item ${index === 0 ? 'active' : ''}`;
+
+        const dot = document.createElement('div');
+        dot.className = 'timeline-dot';
+        dot.innerHTML = index === 0 ? '▶' : `${index + 1}`;
+        itemWrap.appendChild(dot);
+
         const card = document.createElement('div');
         const subjSlug = getSubjectSlug(slot.subject);
         card.className = `glass-card schedule-card ${subjSlug}`;
@@ -881,7 +1796,8 @@
             </div>
           </div>
         `;
-        listEl.appendChild(card);
+        itemWrap.appendChild(card);
+        listEl.appendChild(itemWrap);
       });
 
       // Bind Watch Lecture buttons

@@ -149,6 +149,28 @@ assert(indexHtml.includes('global-layout-fix.css'), 'index.html links global-lay
 assert(indexHtml.includes('modal-profile-center'), 'index.html contains Student Control Center modal');
 assert(indexHtml.includes('profile-badges-row'), 'index.html contains profile-badges-row wrapper');
 
+// TEST 9: Prompts 16–25 Feature Verification
+console.log('\nTEST 9: Prompts 16–25 Feature Verification');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'guru-ai-knowledge.js')), 'guru-ai-knowledge.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'cbse-vault-data.js')), 'cbse-vault-data.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'gamification-engine.js')), 'gamification-engine.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'cbse-quiz-bank.js')), 'cbse-quiz-bank.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'audio-soundscapes.js')), 'audio-soundscapes.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'marks-calculator.js')), 'marks-calculator.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'spaced-repetition.js')), 'spaced-repetition.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'social-share.js')), 'social-share.js exists');
+
+const manifestContent = fs.readFileSync(path.join(__dirname, 'manifest.json'), 'utf-8');
+assert(manifestContent.includes('Start Focus Timer'), 'manifest.json contains Start Focus Timer shortcut');
+assert(manifestContent.includes('Watch Chapter Lectures'), 'manifest.json contains Watch Chapter Lectures shortcut');
+assert(manifestContent.includes('88-Day Timetable'), 'manifest.json contains 88-Day Timetable shortcut');
+
+const widgetFile = path.join(__dirname, 'android', 'app', 'src', 'main', 'java', 'online', 'webguruji', 'gurustudy', 'widget', 'GuruStudyWidget.kt');
+assert(fs.existsSync(widgetFile), 'GuruStudyWidget.kt exists in android widget package');
+
+const androidManifest = fs.readFileSync(path.join(__dirname, 'android', 'app', 'src', 'main', 'AndroidManifest.xml'), 'utf-8');
+assert(androidManifest.includes('GuruStudyWidget'), 'AndroidManifest.xml registers GuruStudyWidget');
+
 // Summary
 console.log('\n====================================================');
 console.log(`📊 QA RESULTS: ${passedTests} / ${totalTests} TESTS PASSED`);
