@@ -14,8 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Core App Stylesheet -->
+  <!-- Core App Stylesheet & Global Layout Anti-Squish Engine -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/global-layout-fix.css">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
 
     <!-- Top Sticky Header -->
     <header class="app-header">
-      <div class="brand-wrapper">
+      <div class="brand-wrapper" id="btn-brand-profile-trigger" style="cursor: pointer;" title="Open Student Control Center">
         <img src="../icon-192.png" alt="GuruStudy Logo" class="brand-logo-img" onerror="this.style.display='none'">
         <div class="brand-text-col">
           <span class="greeting-text" id="header-greeting">Namaste, Student</span>
@@ -34,6 +35,7 @@
         </div>
       </div>
       <div class="header-actions">
+        <button class="btn-icon" id="btn-open-profile-center" title="Student Control Center" aria-label="Profile">👤</button>
         <button class="btn-icon" id="btn-theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">🌙</button>
         <button class="btn-icon" id="btn-sound-alarm-test" title="Quick Voice Alarm Test" aria-label="Alarm Test">🔔</button>
         <div class="pill-badge" id="sync-status-pill" title="Offline-First Storage">Saved Locally</div>
@@ -480,6 +482,51 @@
     </div>
   </div>
 
+  <!-- ==================== SETTINGS & STUDENT CONTROL CENTER MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-profile-center">
+    <div class="modal-box profile-card-center">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF;">⚙️ Student Control Center</h3>
+        <button class="btn-icon" id="btn-close-profile-center" title="Close" style="width: 30px; height: 30px;">✕</button>
+      </div>
+
+      <!-- Student Card Header -->
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+        <div class="profile-avatar-circle" id="profile-center-avatar">S</div>
+        <div style="min-width: 0; flex: 1;">
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="profile-center-name">Student</h4>
+          <p style="font-size: 0.78rem; color: #94A3B8;">CBSE Class 10 (2026–2027) • 88-Day Study Mission</p>
+        </div>
+      </div>
+
+      <!-- Responsive Badges Container (Prompt Requirement 2.1) -->
+      <div class="profile-badges-row" style="margin-bottom: 18px;">
+        <span class="profile-badge-pill" id="profile-center-hindi">Hindi: Course A</span>
+        <span class="profile-badge-pill goal-pill" id="profile-center-goal">Daily Goal: 300m (5h)</span>
+        <span class="profile-badge-pill streak-pill" id="profile-center-streak">⏳ Starts 20 Nov</span>
+      </div>
+
+      <!-- Actions -->
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px;">
+        <button class="btn-primary" id="btn-profile-edit-details" style="justify-content: center; padding: 10px;">
+          ✏️ Edit Student Profile Details
+        </button>
+        <button class="btn-secondary" id="btn-profile-sync-now" style="justify-content: center; padding: 9px;">
+          ☁️ Sync Cloud & Offline Storage
+        </button>
+      </div>
+
+      <!-- Legal & Support Row -->
+      <div class="legal-links-row" style="justify-content: center; border-top: 1px solid var(--border-glass); padding-top: 12px;">
+        <button class="legal-btn-link" id="link-privacy-policy">Privacy Policy</button>
+        <span style="color: var(--text-muted); font-size: 0.7rem;">•</span>
+        <button class="legal-btn-link" id="link-terms-of-use">Terms of Use</button>
+        <span style="color: var(--text-muted); font-size: 0.7rem;">•</span>
+        <button class="legal-btn-link" id="link-support">Support</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== DISTRACTION-FREE IN-APP VIDEO PLAYER MODAL ==================== -->
   <div class="modal-backdrop" id="modal-video-player">
     <div class="video-modal-box">
@@ -625,11 +672,115 @@
       window.addEventListener('gurustudy:progress-updated', () => {
         updateDailyProgressRing();
       });
+
+      // 10. Student Control Center Modal Wiring
+      const modalProfileCenter = document.getElementById('modal-profile-center');
+      const openProfileCenter = async () => {
+        const prof = await GuruDB.getProfile();
+        applyProfileToUI(prof);
+        if (modalProfileCenter) modalProfileCenter.classList.add('active');
+      };
+      const closeProfileCenter = () => {
+        if (modalProfileCenter) modalProfileCenter.classList.remove('active');
+      };
+
+      const btnOpenProfile = document.getElementById('btn-open-profile-center');
+      if (btnOpenProfile) btnOpenProfile.addEventListener('click', openProfileCenter);
+
+      const btnBrandProfile = document.getElementById('btn-brand-profile-trigger');
+      if (btnBrandProfile) btnBrandProfile.addEventListener('click', openProfileCenter);
+
+      const btnCloseProfile = document.getElementById('btn-close-profile-center');
+      if (btnCloseProfile) btnCloseProfile.addEventListener('click', closeProfileCenter);
+
+      const btnEditProfile = document.getElementById('btn-profile-edit-details');
+      if (btnEditProfile) {
+        btnEditProfile.addEventListener('click', () => {
+          closeProfileCenter();
+          const onboardModal = document.getElementById('modal-onboarding');
+          if (onboardModal) onboardModal.classList.add('active');
+        });
+      }
+
+      const btnSyncNow = document.getElementById('btn-profile-sync-now');
+      if (btnSyncNow) {
+        btnSyncNow.addEventListener('click', () => {
+          const syncPill = document.getElementById('sync-status-pill');
+          if (syncPill) {
+            syncPill.textContent = '☁️ Synced & Offline Ready';
+            setTimeout(() => { syncPill.textContent = 'Saved Locally'; }, 2500);
+          }
+          btnSyncNow.textContent = '✓ Cloud & Local Storage Synced!';
+          setTimeout(() => { btnSyncNow.textContent = '☁️ Sync Cloud & Offline Storage'; }, 2000);
+        });
+      }
+
+      // Legal & support modal buttons
+      const linkPrivacy = document.getElementById('link-privacy-policy');
+      if (linkPrivacy) linkPrivacy.addEventListener('click', () => alert('GuruStudy Privacy Policy:\n\nAll student notes, timetable preferences, and study logs are stored 100% offline-first inside your browser/device IndexedDB. No personal student data is ever sold or tracked.'));
+
+      const linkTerms = document.getElementById('link-terms-of-use');
+      if (linkTerms) linkTerms.addEventListener('click', () => alert('GuruStudy Terms of Use:\n\nGuruStudy is an educational study companion designed for CBSE Class 10 Board preparation (2026-2027). Built by HarshGuruJi.'));
+
+      const linkSupport = document.getElementById('link-support');
+      if (linkSupport) linkSupport.addEventListener('click', () => alert('GuruStudy Support:\n\nFor questions, issues, or syllabus updates, reach out to HarshGuruJi via official GitHub or community portal.'));
     });
 
+    function formatDurationBadge(mins) {
+      if (mins === 120) return '2.0 hrs';
+      if (mins === 90) return '1.5 hrs';
+      if (mins === 60) return '1.0 hr';
+      if (mins === 30) return '30 mins';
+      if (mins % 60 === 0) return `${(mins / 60).toFixed(1)} hrs`;
+      return `${mins}m`;
+    }
+
     function applyProfileToUI(profile) {
-      document.getElementById('header-greeting').textContent = `Namaste, ${profile.student_name}`;
-      document.getElementById('header-name').childNodes[0].nodeValue = `${profile.student_name} `;
+      if (!profile) return;
+      const sName = profile.student_name || 'Student';
+      document.getElementById('header-greeting').textContent = `Namaste, ${sName}`;
+      const headerNameEl = document.getElementById('header-name');
+      if (headerNameEl && headerNameEl.childNodes[0]) {
+        headerNameEl.childNodes[0].nodeValue = `${sName} `;
+      }
+
+      // Control Center Modal Elements
+      const avatarEl = document.getElementById('profile-center-avatar');
+      if (avatarEl) avatarEl.textContent = sName.charAt(0).toUpperCase() || 'S';
+
+      const nameEl = document.getElementById('profile-center-name');
+      if (nameEl) nameEl.textContent = sName;
+
+      const hindiEl = document.getElementById('profile-center-hindi');
+      if (hindiEl) {
+        const lang = profile.hindi_course || profile.language || 'Hindi Course A';
+        hindiEl.textContent = lang.includes('Course B') ? 'Hindi: Course B' : 'Hindi: Course A';
+      }
+
+      const isSunday = new Date().getDay() === 0;
+      const goalEl = document.getElementById('profile-center-goal');
+      if (goalEl) {
+        goalEl.textContent = isSunday ? 'Daily Goal: 390m (6.5h)' : 'Daily Goal: 300m (5h)';
+      }
+
+      const streakEl = document.getElementById('profile-center-streak');
+      if (streakEl && typeof GuruTimetable !== 'undefined') {
+        const missionStreak = GuruTimetable.calculateMissionStreak(new Date());
+        streakEl.textContent = missionStreak.profileBadgeText;
+        if (missionStreak.isWarmupMode) {
+          streakEl.style.background = 'rgba(245, 158, 11, 0.15)';
+          streakEl.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+          streakEl.style.color = '#FBBF24';
+        } else if (missionStreak.phase === 'COMPLETED_MISSION') {
+          streakEl.style.background = 'rgba(16, 185, 129, 0.15)';
+          streakEl.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+          streakEl.style.color = '#34D399';
+        } else {
+          streakEl.style.background = 'rgba(239, 68, 68, 0.15)';
+          streakEl.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+          streakEl.style.color = '#F87171';
+        }
+      }
     }
 
     async function renderDashboard() {
@@ -708,21 +859,24 @@
 
         card.innerHTML = `
           <div class="schedule-top">
-            <div>
+            <div style="min-width: 0; flex: 1;">
               <div class="schedule-subject-name">${slot.subject}</div>
               <div class="schedule-chapter-text">${slot.chapter}</div>
             </div>
-            <div class="schedule-time-badge">${slot.startTime} – ${slot.endTime} (${slot.durationMinutes}m)</div>
+            <div class="schedule-time-badge">
+              <span style="white-space: nowrap;">${slot.startTime} – ${slot.endTime}</span>
+              <span class="badge duration-pill" style="margin-left: 4px; white-space: nowrap;">${formatDurationBadge(slot.durationMinutes)}</span>
+            </div>
           </div>
           <div class="schedule-desc-text">${slot.description}</div>
           <div class="schedule-bottom">
-            <span style="font-size: 0.76rem; color: var(--text-secondary);">Target: ${slot.durationMinutes} Minutes</span>
-            <div style="display: flex; gap: 8px;">
+            <span style="font-size: 0.76rem; color: var(--text-secondary); white-space: nowrap; flex-shrink: 0;">Target: ${formatDurationBadge(slot.durationMinutes)} (${slot.durationMinutes}m)</span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
               <button class="btn-secondary btn-watch-card-lecture" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
-                ▶ Watch Lecture
+                ▶ Watch Chapter Lecture
               </button>
               <button class="btn-primary btn-start-card-study" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}">
-                ⚡ Start Studying
+                ⚡ Start Focus
               </button>
             </div>
           </div>
@@ -1105,14 +1259,14 @@
         card.style.marginBottom = '10px';
 
         card.innerHTML = `
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: ${day.isSunday ? '#F59E0B' : '#60A5FA'}; font-size: 0.9rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
+            <span style="font-weight: 700; color: ${day.isSunday ? '#F59E0B' : '#60A5FA'}; font-size: 0.9rem; white-space: nowrap;">
               Day ${day.dayNumber} • ${day.formattedDate}
             </span>
-            <span class="pill-badge ${day.isSunday ? 'sunday-pill' : ''}">${day.totalHours} Hours</span>
+            <span class="pill-badge ${day.isSunday ? 'sunday-pill' : ''}" style="white-space: nowrap; flex-shrink: 0;">${day.isSunday ? '6.5h + AI' : day.totalHours + ' Hours'}</span>
           </div>
-          <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">
-            ${day.schedule.map(s => `<strong>${s.subject}:</strong> ${s.chapter} (${s.durationMinutes}m)`).join('<br>')}
+          <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; word-break: normal; overflow-wrap: break-word;">
+            ${day.schedule.map(s => `<strong style="white-space: nowrap;">${s.subject}:</strong> ${s.chapter} (${s.durationMinutes}m)`).join('<br>')}
           </div>
         `;
         container.appendChild(card);

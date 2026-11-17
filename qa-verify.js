@@ -134,6 +134,21 @@ assert(streakAfter.phase === 'COMPLETED_MISSION', `Phase after 15 Feb must be CO
 assert(streakAfter.streakDays === 88, `Final streak after 15 Feb locked at 88 (got ${streakAfter.streakDays})`);
 assert(streakAfter.profileBadgeText.includes('Mission Completed'), `Badge after 15 Feb includes 'Mission Completed'`);
 
+// TEST 8: Responsive Layout & Anti-Squish Protection Verification
+console.log('\nTEST 8: Responsive Layout & Anti-Squish Protection Verification');
+const globalCss = fs.readFileSync(path.join(__dirname, 'app', 'css', 'global-layout-fix.css'), 'utf-8');
+const mainCss = fs.readFileSync(path.join(__dirname, 'app', 'css', 'styles.css'), 'utf-8');
+const indexHtml = fs.readFileSync(path.join(__dirname, 'app', 'index.html'), 'utf-8');
+
+assert(globalCss.includes('white-space: nowrap !important'), 'global-layout-fix.css enforces white-space: nowrap on pills and badges');
+assert(globalCss.includes('flex-wrap: wrap !important'), 'global-layout-fix.css enforces flex-wrap: wrap on pill containers');
+assert(globalCss.includes('overflow-x: hidden !important'), 'global-layout-fix.css enforces overflow-x: hidden on viewport');
+assert(!globalCss.includes('word-break: break-all'), 'global-layout-fix.css never uses word-break: break-all');
+assert(!mainCss.includes('word-break: break-all'), 'styles.css never uses word-break: break-all');
+assert(indexHtml.includes('global-layout-fix.css'), 'index.html links global-layout-fix.css');
+assert(indexHtml.includes('modal-profile-center'), 'index.html contains Student Control Center modal');
+assert(indexHtml.includes('profile-badges-row'), 'index.html contains profile-badges-row wrapper');
+
 // Summary
 console.log('\n====================================================');
 console.log(`📊 QA RESULTS: ${passedTests} / ${totalTests} TESTS PASSED`);
