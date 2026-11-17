@@ -171,6 +171,48 @@ assert(fs.existsSync(widgetFile), 'GuruStudyWidget.kt exists in android widget p
 const androidManifest = fs.readFileSync(path.join(__dirname, 'android', 'app', 'src', 'main', 'AndroidManifest.xml'), 'utf-8');
 assert(androidManifest.includes('GuruStudyWidget'), 'AndroidManifest.xml registers GuruStudyWidget');
 
+// TEST 10: Web App UI & Android App 25-Prompt Suite Verification
+console.log('\nTEST 10: Web App UI & Android App 25-Prompt Suite Verification');
+
+// 1. Teacher videos DB
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'chapter_teachers_db.js')), 'chapter_teachers_db.js exists');
+const teacherDb = require('./app/js/chapter_teachers_db.js');
+assert(teacherDb.CHAPTER_TEACHER_VIDEOS.sci_1 !== undefined, 'Science Ch 1 mapped in teacher DB');
+assert(teacherDb.CHAPTER_TEACHER_VIDEOS.maths_1 !== undefined, 'Maths Ch 1 mapped in teacher DB');
+assert(teacherDb.CHAPTER_TEACHER_VIDEOS.sst_1 !== undefined, 'SST Ch 1 mapped in teacher DB');
+assert(teacherDb.CHAPTER_TEACHER_VIDEOS.ai_1 !== undefined, 'AI Unit 1 mapped in teacher DB');
+
+// 2. YouTube Launcher & Store & Cloud Sync & NCERT Data
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'youtube-launcher.js')), 'youtube-launcher.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'store.js')), 'store.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'cloud-sync.js')), 'cloud-sync.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'ncert-data.js')), 'ncert-data.js exists in app/js/');
+
+// 3. AndroidManifest.xml package queries for YouTube
+assert(androidManifest.includes('com.google.android.youtube'), 'AndroidManifest.xml includes YouTube package query');
+assert(androidManifest.includes('android:scheme="https"'), 'AndroidManifest.xml includes https scheme query');
+
+// 4. Android Kotlin screens
+const booksScreen = fs.readFileSync(path.join(__dirname, 'android', 'app', 'src', 'main', 'java', 'online', 'webguruji', 'gurustudy', 'ui', 'screens', 'BooksScreen.kt'), 'utf-8');
+assert(booksScreen.includes('Shobhit Nirwan') && booksScreen.includes('Prashant Kirad'), 'BooksScreen.kt contains teacher video action buttons');
+
+const dashScreen = fs.readFileSync(path.join(__dirname, 'android', 'app', 'src', 'main', 'java', 'online', 'webguruji', 'gurustudy', 'ui', 'screens', 'DashboardScreen.kt'), 'utf-8');
+assert(dashScreen.includes('Watch $teacherName') || dashScreen.includes('Watch '), 'DashboardScreen.kt contains teacher video action button');
+
+const mainActivity = fs.readFileSync(path.join(__dirname, 'android', 'app', 'src', 'main', 'java', 'online', 'webguruji', 'gurustudy', 'MainActivity.kt'), 'utf-8');
+assert(mainActivity.includes('launchYouTubeUrl'), 'MainActivity.kt includes launchYouTubeUrl');
+
+// 5. Root Landing Page index.html
+const rootIndex = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
+assert(rootIndex.includes('countdown-ticker-box'), 'Landing page contains countdown-ticker-box');
+assert(rootIndex.includes('phone-mockup'), 'Landing page contains phone-mockup');
+assert(rootIndex.includes('routine-explorer'), 'Landing page contains routine-explorer');
+assert(rootIndex.includes('btn-demo-test-voice'), 'Landing page contains test voice button');
+assert(rootIndex.includes('btn-launch-personalized'), 'Landing page contains personalized plan configurator');
+assert(rootIndex.includes('comp-table'), 'Landing page contains comparison table');
+assert(rootIndex.includes('marquee-track'), 'Landing page contains student wall marquee');
+assert(rootIndex.includes('store.webguruji.online'), 'Landing page contains HarshGuruJi ecosystem links');
+
 // Summary
 console.log('\n====================================================');
 console.log(`📊 QA RESULTS: ${passedTests} / ${totalTests} TESTS PASSED`);

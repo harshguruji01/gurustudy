@@ -405,4 +405,25 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    /**
+     * Launch YouTube app smoothly or fallback cleanly to browser (Android App Prompt 4)
+     */
+    fun launchYouTubeUrl(url: String) {
+        try {
+            val uri = android.net.Uri.parse(url)
+            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, uri)
+            if (url.contains("youtube.com") || url.contains("youtu.be")) {
+                intent.setPackage("com.google.android.youtube")
+            }
+            startActivity(intent)
+        } catch (e: Exception) {
+            try {
+                val fallback = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url))
+                startActivity(fallback)
+            } catch (_: Exception) {
+                Toast.makeText(this, "Could not open YouTube", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }

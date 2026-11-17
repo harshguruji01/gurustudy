@@ -889,6 +889,11 @@
   <script src="js/marks-calculator.js"></script>
   <script src="js/spaced-repetition.js"></script>
   <script src="js/social-share.js"></script>
+  <script src="js/ncert-data.js"></script>
+  <script src="js/chapter_teachers_db.js"></script>
+  <script src="js/youtube-launcher.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/cloud-sync.js"></script>
 
   <!-- App Main Orchestrator -->
   <script>
@@ -1772,6 +1777,17 @@
         const subjSlug = getSubjectSlug(slot.subject);
         card.className = `glass-card schedule-card ${subjSlug}`;
 
+        const teacherVids = window.getChapterTeacherVideos ? window.getChapterTeacherVideos(slot.chapter || slot.subject) : [];
+        const topTeacher = teacherVids[0] || null;
+        const teacherBtnHtml = topTeacher ? `
+          <a href="${topTeacher.youtubeUrl}" target="_blank" rel="noopener noreferrer" 
+             class="yt-teacher-btn ${topTeacher.teacherName.includes('Pandey') ? 'btn-pw' : ''}" 
+             data-chapter-id="${slot.chapter}" data-yt-url="${topTeacher.youtubeUrl}"
+             style="font-size: 0.72rem; padding: 4px 10px;">
+            ▶ Watch ${topTeacher.teacherName}
+          </a>
+        ` : '';
+
         card.innerHTML = `
           <div class="schedule-top">
             <div style="min-width: 0; flex: 1;">
@@ -1784,20 +1800,50 @@
             </div>
           </div>
           <div class="schedule-desc-text">${slot.description}</div>
-          <div class="schedule-bottom">
+          <div class="active-chapter-banner">
+            <span class="active-chapter-title-text">📌 Active Chapter: ${slot.chapter}</span>
+            ${teacherBtnHtml}
+          </div>
+          <div class="schedule-bottom" style="margin-top: 10px;">
             <span style="font-size: 0.76rem; color: var(--text-secondary); white-space: nowrap; flex-shrink: 0;">Target: ${formatDurationBadge(slot.durationMinutes)} (${slot.durationMinutes}m)</span>
             <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-              <button class="btn-secondary btn-watch-card-lecture" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
-                ▶ Watch Chapter Lecture
-              </button>
               <button class="btn-primary btn-start-card-study" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}">
                 ⚡ Start Focus
+              </button>
+              <button class="btn-secondary btn-watch-card-lecture" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
+                📺 Watch Lecture
+              </button>
+              <button class="btn-secondary btn-mark-done-slot" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}" style="border-color: rgba(16, 185, 129, 0.4); color: #34D399;">
+                ✓ Mark Done
               </button>
             </div>
           </div>
         `;
         itemWrap.appendChild(card);
         listEl.appendChild(itemWrap);
+      });
+
+      // Bind Mark Done buttons (Web App UI Prompt 8)
+      document.querySelectorAll('.btn-mark-done-slot').forEach(b => {
+        b.addEventListener('click', async () => {
+          const subj = b.getAttribute('data-subject');
+          const dur = parseInt(b.getAttribute('data-duration'), 10) || 60;
+          if (window.GuruStore) {
+            window.GuruStore.addStudyMinutes(dur, subj);
+          }
+          if (window.GuruFocusTimer) {
+            await GuruFocusTimer.logManualMinutes(subj, dur);
+          }
+          b.textContent = '✓ Done';
+          b.disabled = true;
+          b.style.background = '#10B981';
+          b.style.borderColor = '#10B981';
+          b.style.color = '#FFFFFF';
+          await updateDailyProgressRing();
+          if (window.showGuruToast) {
+            window.showGuruToast(`✓ Completed ${dur}m of ${subj}!`);
+          }
+        });
       });
 
       // Bind Watch Lecture buttons
@@ -2033,6 +2079,26 @@
           `;
         });
 
+        const teacherVideos = window.getChapterTeacherVideos ? window.getChapterTeacherVideos(ch.id || ch.chapterName) : [];
+        let teacherBtnsHtml = '';
+        if (teacherVideos && teacherVideos.length > 0) {
+          teacherBtnsHtml = `
+            <div class="chapter-video-links-box">
+              <div class="chapter-video-links-label">🎥 Watch Chapter Video Lectures (Top Teachers):</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; width: 100%;">
+                ${teacherVideos.map((tv, idx) => `
+                  <a href="${tv.youtubeUrl}" target="_blank" rel="noopener noreferrer" 
+                     class="yt-teacher-btn ${tv.teacherName.includes('Pandey') || tv.teacherName.includes('PW') ? 'btn-pw' : (tv.badgeLabel.includes('PYQ') ? 'btn-pyq' : '')}"
+                     data-chapter-id="${ch.id}" data-video-idx="${idx}" data-yt-url="${tv.youtubeUrl}"
+                     onclick="event.stopPropagation();">
+                    ▶ ${tv.teacherName} • ${tv.badgeLabel}
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+
         itemEl.innerHTML = `
           <div style="display: flex; align-items: flex-start; gap: 12px; width: 100%;">
             <input type="checkbox" class="chapter-checkbox" data-id="${ch.id}">
@@ -2045,6 +2111,9 @@
               </div>
             </div>
           </div>
+
+          <!-- Top Teacher Video Buttons (Android Prompts 1, 2, 5, 6, 7, 8) -->
+          ${teacherBtnsHtml}
 
           <!-- Video Shelf -->
           <div class="chapter-video-shelf" id="shelf-${ch.id}" style="width: 100%;">

@@ -278,6 +278,58 @@ fun ChapterDetailScreen(
                             }
                         }
 
+                        Spacer(modifier = Modifier.height(14.dp))
+                        Text(
+                            text = "🎥 Top Teacher Video Lectures",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFEF4444)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        val (t1, t2) = when (subject.id.lowercase()) {
+                            "maths" -> Pair("Shobhit Nirwan • One-Shot", "Ritik Sir (PW) • NCERT")
+                            "science" -> Pair("Prashant Kirad • One-Shot", "Alakh Pandey • NCERT Concept")
+                            "sst", "social_science" -> Pair("Digraj Sir • Full Chapter", "Digraj Sir • Map & PYQs")
+                            "english" -> Pair("Dear Sir • Summary", "Magnet Brains • Line-by-Line")
+                            "hindi" -> Pair("Hindi Adhyapak • Full Explanation", "Magnet Brains • Revision")
+                            else -> Pair("CBSE Infotech • One-Shot", "Magnet Brains • AI Lecture")
+                        }
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Button(
+                                onClick = {
+                                    val q = "Class 10 CBSE ${subject.name} ${chapter.title} $t1"
+                                    try {
+                                        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.youtube.com/results?search_query=" + android.net.Uri.encode(q)))
+                                        intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        context.startActivity(intent)
+                                    } catch (_: Exception) {}
+                                },
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEF4444)),
+                                shape = RoundedCornerShape(8.dp),
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Text("▶ $t1", fontSize = 11.sp, color = Color.White, maxLines = 1, softWrap = false)
+                            }
+                            Button(
+                                onClick = {
+                                    val q = "Class 10 CBSE ${subject.name} ${chapter.title} $t2"
+                                    try {
+                                        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.youtube.com/results?search_query=" + android.net.Uri.encode(q)))
+                                        intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        context.startActivity(intent)
+                                    } catch (_: Exception) {}
+                                },
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4F46E5)),
+                                shape = RoundedCornerShape(8.dp),
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Text("▶ $t2", fontSize = 11.sp, color = Color.White, maxLines = 1, softWrap = false)
+                            }
+                        }
+
                         Spacer(modifier = Modifier.height(20.dp))
 
                         Text(

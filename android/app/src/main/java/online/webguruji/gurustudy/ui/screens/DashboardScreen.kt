@@ -1135,7 +1135,55 @@ fun SessionSlotCard(
                 )
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Direct Teacher Video Action Button on Today's Subject Card (Android Prompt 9)
+            val ctx = LocalContext.current
+            val teacherName = when (slot.subject.lowercase()) {
+                "mathematics" -> "Shobhit Nirwan"
+                "science" -> "Prashant Kirad"
+                "social science" -> "Digraj Sir"
+                "english" -> "Dear Sir"
+                "hindi" -> "Hindi Adhyapak"
+                else -> "Top Teacher"
+            }
+            val ytQuery = "Class 10 CBSE ${slot.subject} ${slot.topic.ifBlank { slot.target }} $teacherName One Shot"
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                OutlinedButton(
+                    onClick = {
+                        try {
+                            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://www.youtube.com/results?search_query=" + android.net.Uri.encode(ytQuery)))
+                            intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                            ctx.startActivity(intent)
+                        } catch (e: Exception) {
+                            android.widget.Toast.makeText(ctx, "Could not open YouTube", android.widget.Toast.LENGTH_SHORT).show()
+                        }
+                    },
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFFEF4444)),
+                    border = BorderStroke(1.dp, Color(0xFFEF4444).copy(alpha = 0.6f)),
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 2.dp),
+                    modifier = Modifier.height(28.dp)
+                ) {
+                    Text(
+                        text = "▶ Watch $teacherName",
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFFEF4444),
+                        maxLines = 1,
+                        softWrap = false
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(6.dp))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),

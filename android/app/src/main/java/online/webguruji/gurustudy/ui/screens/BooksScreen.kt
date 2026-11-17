@@ -1,5 +1,8 @@
 package online.webguruji.gurustudy.ui.screens
 
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -305,92 +308,150 @@ fun BooksScreen(
                         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        Row(
-                            modifier = Modifier.padding(14.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            // Chapter Number Box
-                            Surface(
-                                shape = RoundedCornerShape(10.dp),
-                                color = if (chapter.safeStatus == "Completed") Color(0xFFDCFCE7) else Color(0xFFEFF6FF),
-                                modifier = Modifier.size(52.dp)
+                        Column(modifier = Modifier.padding(14.dp)) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Text(
-                                        text = "${chapter.number}",
-                                        fontSize = 18.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = if (chapter.safeStatus == "Completed") Color(0xFF16A34A) else RoyalBlue
-                                    )
-                                }
-                            }
-
-                            Spacer(modifier = Modifier.width(14.dp))
-
-                            // Details
-                            Column(modifier = Modifier.weight(1f)) {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Text(
-                                        text = chapter.title,
-                                        fontSize = 15.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = MaterialTheme.colorScheme.onSurface,
-                                        modifier = Modifier.weight(1f, fill = false)
-                                    )
-                                    if (chapter.isBookmarked) {
-                                        Text(" ⭐", fontSize = 12.sp)
+                                // Chapter Number Box
+                                Surface(
+                                    shape = RoundedCornerShape(10.dp),
+                                    color = if (chapter.safeStatus == "Completed") Color(0xFFDCFCE7) else Color(0xFFEFF6FF),
+                                    modifier = Modifier.size(52.dp)
+                                ) {
+                                    Box(contentAlignment = Alignment.Center) {
+                                        Text(
+                                            text = "${chapter.number}",
+                                            fontSize = 18.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = if (chapter.safeStatus == "Completed") Color(0xFF16A34A) else RoyalBlue
+                                        )
                                     }
                                 }
 
-                                if (chapter.titleHi.isNotBlank()) {
-                                    Text(
-                                        text = chapter.titleHi,
-                                        fontSize = 12.sp,
-                                        color = Color(0xFF64748B),
-                                        modifier = Modifier.padding(top = 2.dp)
-                                    )
-                                }
+                                Spacer(modifier = Modifier.width(14.dp))
 
-                                Spacer(modifier = Modifier.height(6.dp))
-
-                                FlowRow(
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                                ) {
-                                    Surface(
-                                        shape = RoundedCornerShape(4.dp),
-                                        color = when (chapter.safeStatus) {
-                                            "Completed" -> Color(0xFFDCFCE7)
-                                            "In Progress" -> Color(0xFFEFF6FF)
-                                            else -> Color(0xFFF1F5F9)
-                                        }
-                                    ) {
+                                // Details
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
                                         Text(
-                                            text = chapter.safeStatus,
-                                            fontSize = 11.sp,
-                                            fontWeight = FontWeight.SemiBold,
+                                            text = chapter.title,
+                                            fontSize = 15.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.onSurface,
+                                            modifier = Modifier.weight(1f, fill = false)
+                                        )
+                                        if (chapter.isBookmarked) {
+                                            Text(" ⭐", fontSize = 12.sp)
+                                        }
+                                    }
+
+                                    if (chapter.titleHi.isNotBlank()) {
+                                        Text(
+                                            text = chapter.titleHi,
+                                            fontSize = 12.sp,
+                                            color = Color(0xFF64748B),
+                                            modifier = Modifier.padding(top = 2.dp)
+                                        )
+                                    }
+
+                                    Spacer(modifier = Modifier.height(6.dp))
+
+                                    FlowRow(
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                                    ) {
+                                        Surface(
+                                            shape = RoundedCornerShape(4.dp),
                                             color = when (chapter.safeStatus) {
-                                                "Completed" -> Color(0xFF16A34A)
-                                                "In Progress" -> RoyalBlue
-                                                else -> Color(0xFF64748B)
-                                            },
-                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                                "Completed" -> Color(0xFFDCFCE7)
+                                                "In Progress" -> Color(0xFFEFF6FF)
+                                                else -> Color(0xFFF1F5F9)
+                                            }
+                                        ) {
+                                            Text(
+                                                text = chapter.safeStatus,
+                                                fontSize = 11.sp,
+                                                fontWeight = FontWeight.SemiBold,
+                                                color = when (chapter.safeStatus) {
+                                                    "Completed" -> Color(0xFF16A34A)
+                                                    "In Progress" -> RoyalBlue
+                                                    else -> Color(0xFF64748B)
+                                                },
+                                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                                maxLines = 1,
+                                                softWrap = false
+                                            )
+                                        }
+
+                                        Text(
+                                            text = "• ${chapter.keyConcepts.size} concepts • ${chapter.mcqs.size} MCQs",
+                                            fontSize = 11.sp,
+                                            color = Color(0xFF94A3B8),
                                             maxLines = 1,
                                             softWrap = false
                                         )
                                     }
-
-                                    Text(
-                                        text = "• ${chapter.keyConcepts.size} concepts • ${chapter.mcqs.size} MCQs",
-                                        fontSize = 11.sp,
-                                        color = Color(0xFF94A3B8),
-                                        maxLines = 1,
-                                        softWrap = false
-                                    )
                                 }
+
+                                Text("›", fontSize = 24.sp, color = Color(0xFF94A3B8))
                             }
 
-                            Text("›", fontSize = 24.sp, color = Color(0xFF94A3B8))
+                            // Top Teacher Video Buttons (Prompts 1, 2, 5, 6, 7, 8)
+                            val (t1, t2) = when (subj.id.lowercase()) {
+                                "maths" -> Pair("Shobhit Nirwan • One-Shot", "Ritik Sir (PW) • NCERT")
+                                "science" -> Pair("Prashant Kirad • One-Shot", "Alakh Pandey • NCERT Concept")
+                                "sst", "social_science" -> Pair("Digraj Sir • Full Chapter", "Digraj Sir • Map & PYQs")
+                                "english" -> Pair("Dear Sir • Summary", "Magnet Brains • Line-by-Line")
+                                "hindi" -> Pair("Hindi Adhyapak • Full Explanation", "Magnet Brains • Revision")
+                                else -> Pair("CBSE Infotech • One-Shot", "Magnet Brains • AI Lecture")
+                            }
+
+                            Spacer(modifier = Modifier.height(10.dp))
+
+                            FlowRow(
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(6.dp),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Button(
+                                    onClick = {
+                                        val q = "Class 10 CBSE ${subj.name} ${chapter.title} $t1"
+                                        try {
+                                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results?search_query=" + Uri.encode(q)))
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            context.startActivity(intent)
+                                        } catch (e: Exception) {
+                                            Toast.makeText(context, "Could not launch YouTube", Toast.LENGTH_SHORT).show()
+                                        }
+                                    },
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEF4444)),
+                                    shape = RoundedCornerShape(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
+                                    modifier = Modifier.height(30.dp)
+                                ) {
+                                    Text("▶ $t1", fontSize = 10.sp, color = Color.White, maxLines = 1, softWrap = false)
+                                }
+
+                                Button(
+                                    onClick = {
+                                        val q = "Class 10 CBSE ${subj.name} ${chapter.title} $t2"
+                                        try {
+                                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results?search_query=" + Uri.encode(q)))
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            context.startActivity(intent)
+                                        } catch (e: Exception) {
+                                            Toast.makeText(context, "Could not launch YouTube", Toast.LENGTH_SHORT).show()
+                                        }
+                                    },
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4F46E5)),
+                                    shape = RoundedCornerShape(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
+                                    modifier = Modifier.height(30.dp)
+                                ) {
+                                    Text("▶ $t2", fontSize = 10.sp, color = Color.White, maxLines = 1, softWrap = false)
+                                }
+                            }
                         }
                     }
                 }
