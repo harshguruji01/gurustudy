@@ -23,7 +23,7 @@ import online.webguruji.gurustudy.data.repository.StudyRepository
 import online.webguruji.gurustudy.ui.theme.EmeraldGreen
 import online.webguruji.gurustudy.ui.theme.RoyalBlue
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun BooksScreen(
     subjects: List<NcertSubject>,
@@ -353,9 +353,9 @@ fun BooksScreen(
 
                                 Spacer(modifier = Modifier.height(6.dp))
 
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                FlowRow(
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                    verticalArrangement = Arrangement.spacedBy(4.dp)
                                 ) {
                                     Surface(
                                         shape = RoundedCornerShape(4.dp),
@@ -374,14 +374,18 @@ fun BooksScreen(
                                                 "In Progress" -> RoyalBlue
                                                 else -> Color(0xFF64748B)
                                             },
-                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                                            maxLines = 1,
+                                            softWrap = false
                                         )
                                     }
 
                                     Text(
                                         text = "• ${chapter.keyConcepts.size} concepts • ${chapter.mcqs.size} MCQs",
                                         fontSize = 11.sp,
-                                        color = Color(0xFF94A3B8)
+                                        color = Color(0xFF94A3B8),
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                 }
                             }

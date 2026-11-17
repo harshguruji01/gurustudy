@@ -654,7 +654,7 @@ fun MistakeNotebookTab(
                         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 2.dp),
                         modifier = Modifier.height(32.dp)
                     ) {
-                        Text("🤖 Explain Mistake with AI", fontSize = 11.sp, color = RoyalBlue)
+                        Text("🤖 Explain Mistake with AI", fontSize = 11.sp, color = RoyalBlue, maxLines = 1, softWrap = false)
                     }
                 }
             }

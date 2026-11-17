@@ -33,8 +33,9 @@ import online.webguruji.gurustudy.data.repository.StudyRepository
 import online.webguruji.gurustudy.ui.theme.EmeraldGreen
 import online.webguruji.gurustudy.ui.theme.RoyalBlue
 import java.io.File
+import java.util.Calendar
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun ProfileScreen(
     userProfile: UserProfile,
@@ -184,12 +185,26 @@ fun ProfileScreen(
 
                             Spacer(modifier = Modifier.height(14.dp))
 
-                            Row(
+                            // Dynamic Daily Goal calculation (Prompt Requirement 3)
+                            val calendar = Calendar.getInstance()
+                            val isSunday = calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY
+                            val targetGoalMinutes = if (isSunday) {
+                                390 // Sunday 6.5h
+                            } else {
+                                if (userProfile.dailyStudyGoalMinutes > 0) userProfile.dailyStudyGoalMinutes else 300 // Mon–Sat 5h
+                            }
+                            val goalHours = targetGoalMinutes / 60.0
+                            val goalHoursDisplay = if (goalHours % 1.0 == 0.0) "${goalHours.toInt()}h" else "${goalHours}h"
+                            val dailyGoalText = "Daily Goal: ${targetGoalMinutes}m ($goalHoursDisplay)"
+
+                            // Badge Row Wrapping & No-Wrap Text (Prompt Requirement 1)
+                            FlowRow(
                                 modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
                                 Surface(
-                                    shape = RoundedCornerShape(8.dp),
+                                    shape = RoundedCornerShape(9999.dp),
                                     color = Color(0xFFEFF6FF)
                                 ) {
                                     Text(
@@ -197,25 +212,29 @@ fun ProfileScreen(
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.SemiBold,
                                         color = RoyalBlue,
-                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                        maxLines = 1,
+                                        softWrap = false,
+                                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                                     )
                                 }
 
                                 Surface(
-                                    shape = RoundedCornerShape(8.dp),
+                                    shape = RoundedCornerShape(9999.dp),
                                     color = Color(0xFFDCFCE7)
                                 ) {
                                     Text(
-                                        text = "Daily Goal: ${userProfile.dailyStudyGoalMinutes}m (4h)",
+                                        text = dailyGoalText,
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.SemiBold,
                                         color = Color(0xFF16A34A),
-                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                        maxLines = 1,
+                                        softWrap = false,
+                                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                                     )
                                 }
 
                                 Surface(
-                                    shape = RoundedCornerShape(8.dp),
+                                    shape = RoundedCornerShape(9999.dp),
                                     color = Color(0xFFFEF3C7)
                                 ) {
                                     Text(
@@ -223,7 +242,9 @@ fun ProfileScreen(
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.SemiBold,
                                         color = Color(0xFFD97706),
-                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                        maxLines = 1,
+                                        softWrap = false,
+                                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                                     )
                                 }
                             }
@@ -749,30 +770,31 @@ fun ProfileScreen(
 
                             Spacer(modifier = Modifier.height(14.dp))
 
-                            Row(
+                            FlowRow(
                                 modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
                                 OutlinedButton(
                                     onClick = { showPrivacyPolicyDialog = true },
                                     shape = RoundedCornerShape(8.dp),
-                                    modifier = Modifier.weight(1f)
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp)
                                 ) {
-                                    Text("Privacy Policy", fontSize = 11.sp)
+                                    Text("Privacy Policy", fontSize = 11.sp, maxLines = 1, softWrap = false)
                                 }
                                 OutlinedButton(
                                     onClick = { showTermsDialog = true },
                                     shape = RoundedCornerShape(8.dp),
-                                    modifier = Modifier.weight(1f)
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp)
                                 ) {
-                                    Text("Terms of Use", fontSize = 11.sp)
+                                    Text("Terms of Use", fontSize = 11.sp, maxLines = 1, softWrap = false)
                                 }
                                 OutlinedButton(
                                     onClick = { showSupportDialog = true },
                                     shape = RoundedCornerShape(8.dp),
-                                    modifier = Modifier.weight(1f)
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp)
                                 ) {
-                                    Text("Support", fontSize = 11.sp)
+                                    Text("Support", fontSize = 11.sp, maxLines = 1, softWrap = false)
                                 }
                             }
                         }

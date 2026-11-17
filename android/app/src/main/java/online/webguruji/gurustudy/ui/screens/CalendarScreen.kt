@@ -21,7 +21,7 @@ import online.webguruji.gurustudy.data.model.StudyScheduleItem
 import online.webguruji.gurustudy.ui.theme.EmeraldGreen
 import online.webguruji.gurustudy.ui.theme.RoyalBlue
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun CalendarScreen(
     schedules: List<StudyScheduleItem>,
@@ -171,9 +171,9 @@ fun CalendarScreen(
 
                             // Details
                             Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                FlowRow(
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                    verticalArrangement = Arrangement.spacedBy(4.dp)
                                 ) {
                                     Surface(
                                         shape = RoundedCornerShape(4.dp),
@@ -185,14 +185,16 @@ fun CalendarScreen(
                                             fontWeight = FontWeight.Bold,
                                             color = RoyalBlue,
                                             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
-                                            maxLines = 1
+                                            maxLines = 1,
+                                            softWrap = false
                                         )
                                     }
                                     Text(
                                         text = "Day ${item.dayIndex}",
                                         fontSize = 11.sp,
                                         color = Color(0xFF94A3B8),
-                                        maxLines = 1
+                                        maxLines = 1,
+                                        softWrap = false
                                     )
                                     if (item.isSunday) {
                                         Surface(
@@ -204,7 +206,9 @@ fun CalendarScreen(
                                                 fontSize = 10.sp,
                                                 fontWeight = FontWeight.Bold,
                                                 color = Color(0xFFD97706),
-                                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp),
+                                                maxLines = 1,
+                                                softWrap = false
                                             )
                                         }
                                     }

@@ -36,7 +36,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun DashboardScreen(
     userProfile: UserProfile,
@@ -251,9 +251,10 @@ fun DashboardScreen(
 
                 Spacer(modifier = Modifier.height(6.dp))
 
-                Row(
+                FlowRow(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     if (planStatus.dayIndex != selectedDayIndex) {
                         OutlinedButton(
@@ -261,7 +262,7 @@ fun DashboardScreen(
                             shape = RoundedCornerShape(8.dp),
                             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
                         ) {
-                            Text("📍 Jump to Today's Day", fontSize = 12.sp)
+                            Text("📍 Jump to Today's Day", fontSize = 12.sp, maxLines = 1, softWrap = false)
                         }
                     }
 
@@ -274,6 +275,8 @@ fun DashboardScreen(
                             fontSize = 11.sp,
                             color = RoyalBlue,
                             fontWeight = FontWeight.SemiBold,
+                            maxLines = 1,
+                            softWrap = false,
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
                         )
                     }
@@ -286,7 +289,9 @@ fun DashboardScreen(
         // 3. Today's Study Overview Card
         if (schedule != null) {
             val slots = if (schedule.slots.isNotEmpty()) schedule.slots else getDefaultSlotsForSchedule(schedule)
-            val plannedMinutes = 240
+            val isSunday = schedule.dayOfWeek.equals("Sunday", ignoreCase = true) || schedule.isSunday
+            val plannedMinutes = if (isSunday) 390 else 300
+            val plannedHoursText = if (isSunday) "6.5h" else "5h"
             val completedMinutes = slots.filter { it.completed }.sumOf { it.durationMinutes }
             val remainingMinutes = (plannedMinutes - completedMinutes).coerceAtLeast(0)
             val doneTasks = slots.count { it.completed }
@@ -311,7 +316,7 @@ fun DashboardScreen(
                                 fontSize = 16.sp
                             )
                             Text(
-                                text = "Target: $plannedMinutes min (4h) • Done: $completedMinutes min",
+                                text = "Target: $plannedMinutes min ($plannedHoursText) • Done: $completedMinutes min",
                                 fontSize = 12.sp,
                                 color = Color(0xFF64748B)
                             )
@@ -505,14 +510,15 @@ fun DashboardScreen(
                                     text = "• Day ${backlog.dayIndex}: ${backlog.subject} - ${backlog.chapterTitle}",
                                     fontSize = 12.sp,
                                     color = Color(0xFF78350F),
-                                    modifier = Modifier.weight(1f)
+                                    modifier = Modifier.weight(1f).padding(end = 8.dp),
+                                    softWrap = true
                                 )
                                 OutlinedButton(
                                     onClick = { onToggleDayComplete(backlog.dayIndex, true) },
-                                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
+                                    contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
                                     shape = RoundedCornerShape(6.dp)
                                 ) {
-                                    Text("Mark Done", fontSize = 10.sp)
+                                    Text("Mark Done", fontSize = 11.sp, maxLines = 1, softWrap = false)
                                 }
                             }
                         }
@@ -710,7 +716,7 @@ fun DashboardScreen(
                     Spacer(modifier = Modifier.height(14.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        horizontalArrangement = Arrangement.SpaceEvenly,
                         verticalAlignment = Alignment.Bottom
                     ) {
                         val recentDays = allSchedules.take(selectedDayIndex).takeLast(7)
@@ -753,14 +759,14 @@ fun DashboardScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Row(
+                    FlowRow(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Row(
-                            modifier = Modifier.weight(1f).padding(end = 8.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(end = 8.dp)
                         ) {
                             Text("🎯 ", fontSize = 16.sp)
                             Text(
@@ -773,10 +779,10 @@ fun DashboardScreen(
                         }
                         OutlinedButton(
                             onClick = onNavigateToPractice,
-                            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
-                            shape = RoundedCornerShape(6.dp)
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
+                            shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text("Review All", fontSize = 11.sp, maxLines = 1, softWrap = false)
+                            Text("Review All", fontSize = 12.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, softWrap = false)
                         }
                     }
                     Spacer(modifier = Modifier.height(8.dp))
