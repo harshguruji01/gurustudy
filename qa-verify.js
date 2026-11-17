@@ -22,8 +22,12 @@ vm.runInContext(syllabusCode, context);
 const timetableCode = fs.readFileSync(path.join(__dirname, 'app/js/timetable-engine.js'), 'utf8');
 vm.runInContext(timetableCode, context);
 
+const videoLecturesCode = fs.readFileSync(path.join(__dirname, 'app/js/youtube_lectures_db.js'), 'utf8');
+vm.runInContext(videoLecturesCode, context);
+
 const GuruTimetable = context.window.GuruTimetable;
 const GURU_SYLLABUS = context.window.GURU_SYLLABUS;
+const GURUSTUDY_LECTURES = context.window.GURUSTUDY_LECTURES;
 
 let passedTests = 0;
 let totalTests = 0;
@@ -99,6 +103,17 @@ assert(phase3Days.length === 13, `Phase 3 Pre-Board & Revision has 13 days (got 
 console.log('\nTEST 5: Total Preparation Hours');
 const totalPlannedHours = (75 * 5.0) + (13 * 6.5);
 assert(totalPlannedHours === 459.5, `Total preparation time is exactly 459.5 Hours (got ${totalPlannedHours})`);
+
+// TEST 6: YouTube Lecture Database Verification (Phases 11-15)
+console.log('\nTEST 6: YouTube Lecture Database Verification');
+const m1Videos = GURUSTUDY_LECTURES.resolveChapterVideos('Mathematics', 'maths_1');
+const s1Videos = GURUSTUDY_LECTURES.resolveChapterVideos('Science', 'science_1');
+const ai1Videos = GURUSTUDY_LECTURES.resolveChapterVideos('Artificial Intelligence', 'ai_1');
+
+assert(m1Videos.length >= 3, `Real Numbers has >= 3 curated lectures (got ${m1Videos.length})`);
+assert(s1Videos.length >= 3, `Chemical Reactions has >= 3 curated lectures (got ${s1Videos.length})`);
+assert(ai1Videos.length >= 3, `AI Project Cycle has >= 3 curated lectures (got ${ai1Videos.length})`);
+assert(m1Videos[0].embedUrl.includes('youtube-nocookie.com'), `Embed URL uses safe nocookie domain`);
 
 // Summary
 console.log('\n====================================================');

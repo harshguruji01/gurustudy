@@ -13,6 +13,8 @@ const STATIC_ASSETS = [
   '/app/css/styles.css',
   '/app/js/db-sync.js',
   '/app/js/syllabus-data.js',
+  '/app/js/youtube_lectures_db.js',
+  '/app/js/video-manager.js',
   '/app/js/timetable-engine.js',
   '/app/js/alarm-engine.js',
   '/app/js/focus-timer.js',

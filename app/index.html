@@ -91,12 +91,21 @@
 
       <!-- Sunday Special Boost Banner (Hidden on Mon-Sat, active on Sundays) -->
       <section class="glass-card" id="sunday-boost-banner" style="display: none; background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(245, 158, 11, 0.4);">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
           <div>
             <div style="font-size: 0.78rem; font-weight: 800; color: #FBBF24; text-transform: uppercase;">⚡ Sunday 6.5-Hour Boost Active!</div>
             <div style="font-size: 0.82rem; color: #F8FAFC; margin-top: 4px;">Includes Artificial Intelligence (Code 417) + Full Revision</div>
           </div>
           <span class="pill-badge sunday-pill">6.5 Hours Target</span>
+        </div>
+        <!-- Sunday One-Shot Video Revision Queue (Prompt 15) -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #FDE68A; margin-bottom: 8px;">
+            📺 Sunday One-Shot Video Revision Queue (Week's Bookmarks)
+          </div>
+          <div id="sunday-revision-queue-list" style="display: flex; flex-direction: column; gap: 6px;">
+            <!-- Populated with bookmarked & watched lectures -->
+          </div>
         </div>
       </section>
 
@@ -471,9 +480,64 @@
     </div>
   </div>
 
+  <!-- ==================== DISTRACTION-FREE IN-APP VIDEO PLAYER MODAL ==================== -->
+  <div class="modal-backdrop" id="modal-video-player">
+    <div class="video-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+        <div>
+          <span class="pill-badge" id="video-player-badge">Subject • Chapter</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-top: 4px;" id="video-player-title">Lecture Title</h3>
+        </div>
+        <button class="btn-icon" id="btn-close-video-player" style="font-size: 1.2rem;">✕</button>
+      </div>
+
+      <!-- 16:9 Video Container -->
+      <div class="video-iframe-container">
+        <div id="video-offline-notice" style="display: none; padding: 40px 20px; text-align: center; color: #94A3B8;">
+          <div style="font-size: 2.2rem; margin-bottom: 8px;">📡</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #FFFFFF;">Offline Mode</div>
+          <div style="font-size: 0.8rem; margin-top: 4px;">Internet connection required for video streaming. Your notes and progress are safe!</div>
+        </div>
+        <iframe id="video-player-iframe" src="about:blank" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      <!-- Action Controls -->
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+        <button class="btn-primary" id="btn-player-mark-watched" style="font-size: 0.8rem; padding: 8px 14px;">
+          ✓ Mark Completed (+20%)
+        </button>
+        <button class="btn-secondary" id="btn-player-add-time" style="font-size: 0.8rem; padding: 8px 12px;">
+          ⏱ +45m to Today
+        </button>
+        <button class="btn-secondary" id="btn-player-bookmark" style="font-size: 0.8rem; padding: 8px 12px;">
+          ⭐ Bookmark Sunday
+        </button>
+        <button class="btn-secondary" id="btn-player-open-external" style="font-size: 0.8rem; padding: 8px 12px; margin-left: auto;">
+          Open in YouTube ↗
+        </button>
+      </div>
+
+      <!-- Quick Notes & Formulas Pad (Prompt 13) -->
+      <div class="notes-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #A5B4FC;">📝 Quick Lecture Notes & Formulas</span>
+          <span style="font-size: 0.68rem; color: #64748B;" id="notes-save-indicator">Auto-saving...</span>
+        </div>
+        <div class="notes-toolbar">
+          <button class="notes-btn-snippet" data-snippet="[Formula]: ">+ Key Formula</button>
+          <button class="notes-btn-snippet" data-snippet="[Def]: ">+ Important Definition</button>
+          <button class="notes-btn-snippet" data-snippet="[PYQ Alert]: ">+ Board PYQ Alert</button>
+        </div>
+        <textarea id="video-quick-notes" class="notes-textarea" placeholder="Type key formulas, definitions, and doubts here..."></textarea>
+      </div>
+    </div>
+  </div>
+
   <!-- Core Script Dependencies -->
   <script src="js/db-sync.js"></script>
   <script src="js/syllabus-data.js"></script>
+  <script src="js/youtube_lectures_db.js"></script>
+  <script src="js/video-manager.js"></script>
   <script src="js/timetable-engine.js"></script>
   <script src="js/alarm-engine.js"></script>
   <script src="js/focus-timer.js"></script>
@@ -582,6 +646,35 @@
         sundayBanner.style.display = 'none';
       }
 
+      // Populate Sunday One-Shot Video Revision Queue (Prompt 15)
+      const queueList = document.getElementById('sunday-revision-queue-list');
+      if (queueList) {
+        queueList.innerHTML = '';
+        const bookmarks = GuruVideoManager.getSundayRevisionQueue();
+        if (bookmarks.length === 0) {
+          queueList.innerHTML = '<div style="font-size: 0.72rem; color: #E2E8F0;">No bookmarked lectures yet. Tap ⭐ on any chapter video to add it to your Sunday Revision!</div>';
+        } else {
+          bookmarks.forEach(bm => {
+            const item = document.createElement('div');
+            item.style.cssText = 'display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 6px 10px; border-radius: 8px; font-size: 0.74rem;';
+            item.innerHTML = `
+              <span style="color: #FFFFFF; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px;">${bm.title}</span>
+              <button class="btn-primary btn-play-rev-bm" data-ch="${bm.chapterId}" style="padding: 2px 8px; font-size: 0.68rem;">▶ Revise</button>
+            `;
+            queueList.appendChild(item);
+          });
+          queueList.querySelectorAll('.btn-play-rev-bm').forEach(b => {
+            b.addEventListener('click', () => {
+              const chId = b.getAttribute('data-ch');
+              const videos = GURUSTUDY_LECTURES.resolveChapterVideos('', chId);
+              if (videos.length > 0) {
+                GuruVideoManager.openPlayer(videos[0], chId, 'Sunday Revision', 'All Subjects');
+              }
+            });
+          });
+        }
+      }
+
       // Render today's timetable cards
       const listEl = document.getElementById('today-schedule-cards-list');
       listEl.innerHTML = '';
@@ -602,12 +695,29 @@
           <div class="schedule-desc-text">${slot.description}</div>
           <div class="schedule-bottom">
             <span style="font-size: 0.76rem; color: var(--text-secondary);">Target: ${slot.durationMinutes} Minutes</span>
-            <button class="btn-primary btn-start-card-study" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}">
-              ⚡ Start Studying
-            </button>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-secondary btn-watch-card-lecture" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
+                ▶ Watch Lecture
+              </button>
+              <button class="btn-primary btn-start-card-study" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}">
+                ⚡ Start Studying
+              </button>
+            </div>
           </div>
         `;
         listEl.appendChild(card);
+      });
+
+      // Bind Watch Lecture buttons
+      document.querySelectorAll('.btn-watch-card-lecture').forEach(b => {
+        b.addEventListener('click', () => {
+          const subj = b.getAttribute('data-subject');
+          const chap = b.getAttribute('data-chapter');
+          const videos = GURUSTUDY_LECTURES.resolveChapterVideos(subj, getChapterIdFromTitle(chap, subj));
+          if (videos && videos.length > 0) {
+            GuruVideoManager.openPlayer(videos[0], getChapterIdFromTitle(chap, subj), chap, subj);
+          }
+        });
       });
 
       // Bind Start Studying buttons
@@ -767,6 +877,19 @@
       });
     }
 
+    function getChapterIdFromTitle(title, subject) {
+      const s = (subject || '').toLowerCase();
+      let prefix = 'maths';
+      if (s.includes('scien')) prefix = 'science';
+      else if (s.includes('social') || s.includes('sst') || s.includes('hist') || s.includes('geo') || s.includes('civic') || s.includes('eco')) prefix = 'sst';
+      else if (s.includes('ai') || s.includes('intell') || s.includes('417')) prefix = 'ai';
+
+      // Look up in syllabus
+      const all = GURU_SYLLABUS.getAllChapters();
+      const match = all.find(c => title.toLowerCase().includes(c.chapterName.toLowerCase()) || c.chapterName.toLowerCase().includes(title.toLowerCase()));
+      return match ? match.id : `${prefix}_1`;
+    }
+
     function renderSyllabusUI(filterSubj) {
       const container = document.getElementById('syllabus-chapters-container');
       container.innerHTML = '';
@@ -783,19 +906,148 @@
       items.forEach(ch => {
         const itemEl = document.createElement('div');
         itemEl.className = 'chapter-item';
-        itemEl.innerHTML = `
-          <input type="checkbox" class="chapter-checkbox" data-id="${ch.id}">
-          <div class="chapter-content-col">
-            <div class="chapter-title">${ch.chapterName}</div>
-            <div class="chapter-meta">
-              <span style="color: ${ch.color}; font-weight: 600;">${ch.icon} ${ch.subject}</span>
-              <span class="revision-badge">Revision 0/3</span>
+        itemEl.style.flexDirection = 'column';
+
+        const notesText = GuruVideoManager.getChapterNotes(ch.id);
+        const videos = GURUSTUDY_LECTURES.resolveChapterVideos(ch.subject, ch.id);
+
+        let videoCardsHtml = '';
+        videos.forEach(v => {
+          const isWatched = GuruVideoManager.isWatched(v.id || v.videoId);
+          const isBookmarked = GuruVideoManager.isBookmarked(v.id || v.videoId);
+          const thumb = v.thumbnailUrl || 'https://img.youtube.com/vi/zU9p0Y0Z5nU/hqdefault.jpg';
+
+          videoCardsHtml += `
+            <div class="video-card">
+              <div class="video-thumb-wrap">
+                <img src="${thumb}" alt="${v.title}" class="video-thumb-img" onerror="this.src='/icon-192.png'">
+                <div class="video-play-overlay">▶</div>
+                <div class="video-tag-badge">${v.teacherTag}</div>
+                <div class="video-duration-badge">${v.duration}</div>
+              </div>
+              <div class="video-card-body">
+                <div class="video-card-title">${v.title}</div>
+                <div class="video-card-actions">
+                  <button class="btn-primary btn-play-lecture" data-vid="${v.id || v.videoId}" data-ch="${ch.id}" data-chname="${ch.chapterName}" data-subj="${ch.subject}" style="font-size: 0.72rem; padding: 4px 10px;">
+                    ▶ Watch
+                  </button>
+                  <button class="btn-secondary btn-bookmark-lecture" data-vid="${v.id || v.videoId}" data-ch="${ch.id}" style="font-size: 0.72rem; padding: 4px 8px;" title="Bookmark for Sunday Revision">
+                    ${isBookmarked ? '⭐' : '☆'}
+                  </button>
+                  ${isWatched ? '<span style="font-size: 0.65rem; color: #10B981; font-weight: 700;">✓ Watched</span>' : ''}
+                </div>
+              </div>
             </div>
+          `;
+        });
+
+        itemEl.innerHTML = `
+          <div style="display: flex; align-items: flex-start; gap: 12px; width: 100%;">
+            <input type="checkbox" class="chapter-checkbox" data-id="${ch.id}">
+            <div class="chapter-content-col">
+              <div class="chapter-title">${ch.chapterName}</div>
+              <div class="chapter-meta">
+                <span style="color: ${ch.color}; font-weight: 600;">${ch.icon} ${ch.subject}</span>
+                <span class="revision-badge">Revision 0/3</span>
+                <span class="pill-badge" style="font-size: 0.62rem; padding: 2px 6px;">${videos.length} Lectures</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Shelf -->
+          <div class="chapter-video-shelf" id="shelf-${ch.id}" style="width: 100%;">
+            <div class="video-shelf-header">
+              <span class="video-shelf-title">📺 Recommended Teacher Lectures</span>
+              <span style="font-size: 0.68rem; color: #94A3B8;">One-Shot • NCERT • PYQs</span>
+            </div>
+            <div class="video-carousel-row">
+              ${videoCardsHtml}
+            </div>
+            ${notesText ? `<div style="font-size: 0.72rem; color: #A5B4FC; margin-top: 6px; padding: 4px 8px; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">📝 Saved Notes: ${notesText.substring(0, 80)}...</div>` : ''}
           </div>
         `;
         container.appendChild(itemEl);
       });
+
+      // Bind Play Video buttons
+      container.querySelectorAll('.btn-play-lecture').forEach(b => {
+        b.addEventListener('click', () => {
+          const vId = b.getAttribute('data-vid');
+          const chId = b.getAttribute('data-ch');
+          const chName = b.getAttribute('data-chname');
+          const subj = b.getAttribute('data-subj');
+          const videos = GURUSTUDY_LECTURES.resolveChapterVideos(subj, chId);
+          const found = videos.find(v => (v.id || v.videoId) === vId) || videos[0];
+          GuruVideoManager.openPlayer(found, chId, chName, subj);
+        });
+      });
+
+      // Bind Bookmark buttons
+      container.querySelectorAll('.btn-bookmark-lecture').forEach(b => {
+        b.addEventListener('click', () => {
+          const vId = b.getAttribute('data-vid');
+          const chId = b.getAttribute('data-ch');
+          const videos = GURUSTUDY_LECTURES.resolveChapterVideos('', chId);
+          const found = videos.find(v => (v.id || v.videoId) === vId) || { id: vId, videoId: vId };
+          const bookmarked = GuruVideoManager.toggleBookmark(found, chId);
+          b.textContent = bookmarked ? '⭐' : '☆';
+        });
+      });
     }
+
+    // Initialize Video Player Modal Controls
+    document.getElementById('btn-close-video-player').addEventListener('click', () => {
+      GuruVideoManager.closePlayer();
+    });
+
+    document.getElementById('btn-player-mark-watched').addEventListener('click', () => {
+      if (GuruVideoManager.currentPlayingVideo) {
+        const vId = GuruVideoManager.currentPlayingVideo.id || GuruVideoManager.currentPlayingVideo.videoId;
+        GuruVideoManager.toggleWatched(vId, GuruVideoManager.currentChapterId);
+        GuruVideoManager.updateWatchedButtonUI();
+      }
+    });
+
+    document.getElementById('btn-player-add-time').addEventListener('click', () => {
+      GuruVideoManager.addVideoTimeToToday(45);
+    });
+
+    document.getElementById('btn-player-bookmark').addEventListener('click', () => {
+      if (GuruVideoManager.currentPlayingVideo) {
+        const isBm = GuruVideoManager.toggleBookmark(GuruVideoManager.currentPlayingVideo, GuruVideoManager.currentChapterId);
+        document.getElementById('btn-player-bookmark').textContent = isBm ? '⭐ Bookmarked' : '⭐ Bookmark Sunday';
+      }
+    });
+
+    document.getElementById('btn-player-open-external').addEventListener('click', () => {
+      if (GuruVideoManager.currentPlayingVideo) {
+        const vId = GuruVideoManager.currentPlayingVideo.videoId;
+        const url = vId ? `https://www.youtube.com/watch?v=${vId}` : `https://www.youtube.com/results?search_query=${encodeURIComponent(GuruVideoManager.currentPlayingVideo.searchQuery)}`;
+        window.open(url, '_blank');
+      }
+    });
+
+    // Quick Notes shortcuts & autosave
+    document.querySelectorAll('.notes-btn-snippet').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const snippet = btn.getAttribute('data-snippet');
+        const textarea = document.getElementById('video-quick-notes');
+        textarea.value += (textarea.value ? '\n' : '') + snippet;
+        textarea.focus();
+        if (GuruVideoManager.currentChapterId) {
+          GuruVideoManager.saveChapterNotes(GuruVideoManager.currentChapterId, textarea.value);
+        }
+      });
+    });
+
+    document.getElementById('video-quick-notes').addEventListener('input', (e) => {
+      if (GuruVideoManager.currentChapterId) {
+        GuruVideoManager.saveChapterNotes(GuruVideoManager.currentChapterId, e.target.value);
+        const indicator = document.getElementById('notes-save-indicator');
+        indicator.textContent = 'Saved ✓';
+        setTimeout(() => { indicator.textContent = ''; }, 1200);
+      }
+    });
 
     // Syllabus Filter Chips event listeners
     document.querySelectorAll('#syllabus-subject-chips .chip-btn').forEach(btn => {
