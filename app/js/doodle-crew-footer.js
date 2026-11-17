@@ -803,10 +803,10 @@
     {
       title: 'HarshGuruJi Ecosystem',
       links: [
-        { label: 'WebGuruJi Online', href: 'https://webguruji.online', external: true },
-        { label: 'GuruStore Products', href: 'https://store.webguruji.online', external: true },
-        { label: 'NCERT Digital Books', href: 'https://books.webguruji.online', external: true },
-        { label: 'Guru AI Tools', href: 'https://ai.webguruji.online', external: true },
+        { label: 'HarshGuruJi', href: 'https://webguruji.online/', external: true },
+        { label: 'GuruStore', href: 'https://store.webguruji.online/', external: true },
+        { label: 'NCERT Books', href: 'https://books.webguruji.online/', external: true },
+        { label: 'GuruAI', href: 'https://ai.webguruji.online/', external: true },
       ],
     },
     {
@@ -827,10 +827,10 @@
   ];
 
   const GURU_SOCIALS = [
-    { label: 'WebGuruJi', href: 'https://webguruji.online', external: true },
-    { label: 'GuruStore', href: 'https://store.webguruji.online', external: true },
-    { label: 'Books', href: 'https://books.webguruji.online', external: true },
-    { label: 'AI Tools', href: 'https://ai.webguruji.online', external: true },
+    { label: 'HarshGuruJi', href: 'https://webguruji.online/', external: true },
+    { label: 'GuruStore', href: 'https://store.webguruji.online/', external: true },
+    { label: 'NCERT Books', href: 'https://books.webguruji.online/', external: true },
+    { label: 'GuruAI', href: 'https://ai.webguruji.online/', external: true },
   ];
 
   function renderLinkHtml(l) {
