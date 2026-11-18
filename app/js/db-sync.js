@@ -4,7 +4,7 @@
  * Author: HarshGuruJi (contact@webguruji.online)
  */
 
-class GuruDB {
+class GuruDBEngine {
   constructor() {
     this.STORAGE_KEY = 'gurustudy_db_v1';
     this.PROFILE_KEY = 'gurustudy_user_profile';
@@ -12,17 +12,22 @@ class GuruDB {
     this.QUEUE_KEY = 'gurustudy_sync_queue';
     
     // Supabase Configuration (configurable by user or environment)
-    this.supabaseUrl = localStorage.getItem('gurustudy_supabase_url') || 'https://wazbcvnypaeywghxocqu.supabase.co';
-    this.supabaseAnonKey = localStorage.getItem('gurustudy_supabase_key') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.fake_anon_fallback';
+    this.supabaseUrl = (typeof localStorage !== 'undefined' ? localStorage.getItem('gurustudy_supabase_url') : null) || 'https://wazbcvnypaeywghxocqu.supabase.co';
+    this.supabaseAnonKey = (typeof localStorage !== 'undefined' ? localStorage.getItem('gurustudy_supabase_key') : null) || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.fake_anon_fallback';
     this.supabaseClient = null;
+    this.supabase = null;
 
-    this.isOnline = navigator.onLine;
+    this.isOnline = typeof navigator !== 'undefined' ? navigator.onLine : true;
     this.isSyncing = false;
     this.listeners = [];
 
-    this.initDatabase();
-    this.initNetworkListeners();
-    this.initSupabase();
+    if (typeof localStorage !== 'undefined') {
+      this.initDatabase();
+    }
+    if (typeof window !== 'undefined') {
+      this.initNetworkListeners();
+      this.initSupabase();
+    }
   }
 
   /**
@@ -106,25 +111,61 @@ class GuruDB {
   // PROFILE & ONBOARDING OPERATIONS
   // ----------------------------------------------------------------------------
   getProfile() {
-    const data = this.getRawData();
-    return data?.profile || {};
+    const data = this.getRawData() || { profile: {} };
+    let preConfig = {};
+    try {
+      if (typeof localStorage !== 'undefined') {
+        const pre = localStorage.getItem(this.PROFILE_KEY);
+        if (pre) preConfig = JSON.parse(pre);
+      }
+    } catch (_) {}
+    const p = { ...(data.profile || {}), ...preConfig };
+    const name = p.student_name || p.fullName || p.name || '';
+    const hindiCourse = p.hindi_course || (String(p.secondLanguage || '').includes('B') ? 'B' : 'A');
+    const startTime = p.daily_start_time || p.dailyStartTime || '16:00';
+    return {
+      ...p,
+      student_name: name,
+      fullName: name || 'Class 10 Topper',
+      hindi_course: hindiCourse,
+      secondLanguage: p.secondLanguage || `Hindi Course ${hindiCourse}`,
+      daily_start_time: startTime,
+      dailyStartTime: startTime,
+      target_percentage: p.target_percentage || p.targetPercentage || 95
+    };
   }
 
   updateProfile(profileUpdates) {
-    const data = this.getRawData();
-    data.profile = { ...data.profile, ...profileUpdates, updatedAt: new Date().toISOString() };
+    const data = this.getRawData() || { profile: {}, dailyLogs: {}, syllabusProgress: {}, alarmSettings: {}, sundayMockScores: [] };
+    const merged = { ...(data.profile || {}), ...(profileUpdates || {}), updatedAt: new Date().toISOString() };
+    if (merged.student_name && !merged.fullName) merged.fullName = merged.student_name;
+    if (merged.fullName && !merged.student_name) merged.student_name = merged.fullName;
+    if (merged.daily_start_time) merged.dailyStartTime = merged.daily_start_time;
+    if (merged.hindi_course) merged.secondLanguage = `Hindi Course ${merged.hindi_course}`;
+    data.profile = merged;
     this.saveRawData(data);
+    try {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(this.PROFILE_KEY, JSON.stringify(merged));
+      }
+    } catch (_) {}
     this.enqueueSync('profile', data.profile);
     return data.profile;
   }
 
+  async saveProfile(profileUpdates) {
+    return this.updateProfile(profileUpdates);
+  }
+
   isOnboardingCompleted() {
-    return localStorage.getItem('gurustudy_onboarding_completed') === 'true';
+    return typeof localStorage !== 'undefined' && localStorage.getItem('gurustudy_onboarding_completed') === 'true';
   }
 
   completeOnboarding(profileData) {
     this.updateProfile(profileData);
-    localStorage.setItem('gurustudy_onboarding_completed', 'true');
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('gurustudy_onboarding_completed', 'true');
+    }
     this.notifyListeners('onboarding_completed', profileData);
   }
 
@@ -132,8 +173,8 @@ class GuruDB {
   // DAILY LOGS (STUDY MINUTES & TARGETS)
   // ----------------------------------------------------------------------------
   getDailyLog(dateKey) {
-    const data = this.getRawData();
-    return data.dailyLogs[dateKey] || {
+    const data = this.getRawData() || { dailyLogs: {} };
+    const existing = (data.dailyLogs && data.dailyLogs[dateKey]) || {
       studyDate: dateKey,
       mathsMins: 0,
       scienceMins: 0,
@@ -143,6 +184,54 @@ class GuruDB {
       targetMins: 300,
       isCompleted: false
     };
+    const subMins = existing.subject_minutes || {
+      maths: existing.mathsMins || 0,
+      science: existing.scienceMins || 0,
+      sst: existing.sstMins || 0,
+      language: existing.langMins || 0,
+      ai: existing.aiMins || 0
+    };
+    const totalMins = typeof existing.total_minutes === 'number'
+      ? existing.total_minutes
+      : (subMins.maths + subMins.science + subMins.sst + subMins.language + subMins.ai);
+    return {
+      ...existing,
+      studyDate: dateKey,
+      mathsMins: subMins.maths,
+      scienceMins: subMins.science,
+      sstMins: subMins.sst,
+      langMins: subMins.language,
+      aiMins: subMins.ai,
+      subject_minutes: subMins,
+      total_minutes: totalMins
+    };
+  }
+
+  async saveDailyLog(dateKey, logObj) {
+    const data = this.getRawData() || { dailyLogs: {} };
+    if (!data.dailyLogs) data.dailyLogs = {};
+    const sub = (logObj && logObj.subject_minutes) || {};
+    const maths = sub.maths ?? logObj.mathsMins ?? 0;
+    const science = sub.science ?? logObj.scienceMins ?? 0;
+    const sst = sub.sst ?? logObj.sstMins ?? 0;
+    const language = sub.language ?? logObj.langMins ?? 0;
+    const ai = sub.ai ?? logObj.aiMins ?? 0;
+    const total = typeof logObj.total_minutes === 'number' ? logObj.total_minutes : (maths + science + sst + language + ai);
+    const normalized = {
+      ...logObj,
+      studyDate: dateKey,
+      mathsMins: maths,
+      scienceMins: science,
+      sstMins: sst,
+      langMins: language,
+      aiMins: ai,
+      subject_minutes: { maths, science, sst, language, ai },
+      total_minutes: total
+    };
+    data.dailyLogs[dateKey] = normalized;
+    this.saveRawData(data);
+    this.enqueueSync('daily_log', normalized);
+    return normalized;
   }
 
   logStudyMinutes(dateKey, subjectName, minutesAdded) {
@@ -379,6 +468,39 @@ class GuruDB {
     this.listeners = this.listeners.filter(cb => cb !== callback);
   }
 
+  async saveAlarmSettings(settings) {
+    const data = this.getRawData() || {};
+    data.alarmSettings = { ...(data.alarmSettings || {}), ...(settings || {}) };
+    this.saveRawData(data);
+    return data.alarmSettings;
+  }
+
+  async saveSundayMockScore(scoreItem) {
+    const normalized = {
+      week: scoreItem.week_number || scoreItem.week || 1,
+      testName: scoreItem.test_name || scoreItem.testName || 'Sunday Mock',
+      subject: scoreItem.subject || 'General Mock',
+      marksScored: scoreItem.marks_obtained ?? scoreItem.marksScored ?? 0,
+      maxMarks: scoreItem.total_marks ?? scoreItem.maxMarks ?? 80,
+      percentage: scoreItem.percentage ?? 0,
+      grade: scoreItem.grade || 'A1',
+      ...scoreItem
+    };
+    return this.addSundayMockScore(normalized);
+  }
+
+  getAllMockResults() {
+    return this.getSundayMockScores();
+  }
+
+  getAllChapterStatuses() {
+    return this.getAllSyllabusProgress();
+  }
+
+  markChapterProgress(chapterId, fieldName, value = true) {
+    return this.toggleChapterCheckbox(chapterId, fieldName, value);
+  }
+
   notifyListeners(eventType, payload) {
     this.listeners.forEach(cb => {
       try {
@@ -390,9 +512,15 @@ class GuruDB {
   }
 }
 
-// Global instance
-const guruDB = new GuruDB();
+// Global singleton instance (both GuruDB & guruDB point to the same instance — zero class shadowing)
+const guruDB = new GuruDBEngine();
+const GuruDB = guruDB;
+
+if (typeof window !== 'undefined') {
+  window.GuruDB = guruDB;
+  window.guruDB = guruDB;
+}
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { GuruDB, guruDB };
+  module.exports = { GuruDBEngine, GuruDB, guruDB };
 }

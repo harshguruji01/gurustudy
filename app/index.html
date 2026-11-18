@@ -1836,19 +1836,28 @@
       const todaySchedule = GuruTimetable.getDaySchedule(now);
       const missionStreak = GuruTimetable.calculateMissionStreak(now);
 
+      // Update Today readable date
+      const readableDateEl = document.getElementById('today-date-readable');
+      if (readableDateEl) {
+        readableDateEl.textContent = now.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+      }
+
       // Header Day badge & Mission countdown synced to strict 20 Nov 2026 - 15 Feb 2027 window
+      const headerDayPill = document.getElementById('header-day-pill');
+      const dashDaysLeft = document.getElementById('dash-days-left');
+      const dashCurrentPhase = document.getElementById('dash-current-phase');
       if (missionStreak.isWarmupMode) {
-        document.getElementById('header-day-pill').textContent = missionStreak.homeHeaderText;
-        document.getElementById('dash-days-left').textContent = `${missionStreak.daysUntilStart}d to Start`;
-        document.getElementById('dash-current-phase').textContent = `Warm-up Mode • Official Mission Starts 20 Nov 2026`;
+        if (headerDayPill) headerDayPill.textContent = missionStreak.homeHeaderText;
+        if (dashDaysLeft) dashDaysLeft.textContent = `${missionStreak.daysUntilStart}d to Start`;
+        if (dashCurrentPhase) dashCurrentPhase.textContent = `Warm-up Mode • Official Mission Starts 20 Nov 2026`;
       } else if (missionStreak.phase === 'COMPLETED_MISSION') {
-        document.getElementById('header-day-pill').textContent = 'Mission Done';
-        document.getElementById('dash-days-left').textContent = '0';
-        document.getElementById('dash-current-phase').textContent = '88-Day Revision Plan Completed!';
+        if (headerDayPill) headerDayPill.textContent = 'Mission Done';
+        if (dashDaysLeft) dashDaysLeft.textContent = '0';
+        if (dashCurrentPhase) dashCurrentPhase.textContent = '88-Day Revision Plan Completed!';
       } else {
-        document.getElementById('header-day-pill').textContent = `Day ${missionStreak.daysElapsed}/88`;
-        document.getElementById('dash-days-left').textContent = `${missionStreak.daysRemaining}`;
-        document.getElementById('dash-current-phase').textContent = `${todaySchedule.phase} • Day ${missionStreak.daysElapsed}`;
+        if (headerDayPill) headerDayPill.textContent = `Day ${missionStreak.daysElapsed}/88`;
+        if (dashDaysLeft) dashDaysLeft.textContent = `${missionStreak.daysRemaining}`;
+        if (dashCurrentPhase) dashCurrentPhase.textContent = `${todaySchedule.phase} • Day ${missionStreak.daysElapsed}`;
       }
 
       // Bento Grid Sync (Prompt 16)
@@ -1895,8 +1904,11 @@
       if (statsPill) {
         statsPill.textContent = missionStreak.statsPillText;
       }
-      document.getElementById('dash-weekday-type').textContent = todaySchedule.isSunday ? 'Sunday Boost (6.5h)' : 'Mon–Sat (5.0h)';
-      document.getElementById('dash-weekday-type').style.color = todaySchedule.isSunday ? '#F59E0B' : '#60A5FA';
+      const dashWeekdayEl = document.getElementById('dash-weekday-type');
+      if (dashWeekdayEl) {
+        dashWeekdayEl.textContent = todaySchedule.isSunday ? 'Sunday Boost (6.5h)' : 'Mon–Sat (5.0h)';
+        dashWeekdayEl.style.color = todaySchedule.isSunday ? '#F59E0B' : '#60A5FA';
+      }
 
       // Sunday Boost Banner
       const sundayBanner = document.getElementById('sunday-boost-banner');
@@ -2120,11 +2132,16 @@
         });
       });
 
-      // Quick focus launch
-      document.getElementById('btn-quick-focus-launch').addEventListener('click', () => {
-        const firstSlot = todaySchedule.schedule[0];
-        startFocusSessionFromCard(firstSlot.subject, firstSlot.durationMinutes, firstSlot.chapter);
-      });
+      // Quick focus launch (use onclick to prevent duplicate listener stacking on re-render)
+      const quickFocusBtn = document.getElementById('btn-quick-focus-launch');
+      if (quickFocusBtn) {
+        quickFocusBtn.onclick = () => {
+          const firstSlot = activeDayObj.schedule[0] || todaySchedule.schedule[0];
+          if (firstSlot) {
+            startFocusSessionFromCard(firstSlot.subject, firstSlot.durationMinutes, firstSlot.chapter);
+          }
+        };
+      }
 
       await updateDailyProgressRing();
     }
@@ -2239,13 +2256,17 @@
         GuruFocusTimer.handleTimerEnd();
       });
 
-      // Ambient sounds
+      // Ambient sounds (supports both data-sound and data-ambient)
       document.querySelectorAll('.ambient-chip').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('.ambient-chip').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          const type = btn.getAttribute('data-ambient');
-          GuruFocusTimer.setAmbientSound(type);
+          const type = btn.getAttribute('data-sound') || btn.getAttribute('data-ambient') || 'silent';
+          if (typeof guruAudioSoundscapes !== 'undefined' && typeof guruAudioSoundscapes.playMode === 'function') {
+            guruAudioSoundscapes.playMode(type);
+          } else {
+            GuruFocusTimer.setAmbientSound(type);
+          }
         });
       });
 
@@ -2385,6 +2406,14 @@
       renderSyllabusUI(currentSyllabusSubjectFilter);
     };
     window.startFocusSessionFromCard = startFocusSessionFromCard;
+    window.guruLaunchFocusSession = (slot) => {
+      if (!slot) return;
+      startFocusSessionFromCard(
+        slot.subject || 'Mathematics',
+        slot.durationMinutes || 60,
+        slot.chapter || slot.assignedChapter || slot.focusGoal || ''
+      );
+    };
 
     function renderSyllabusUI(filterSubj) {
       if (typeof filterSubj === 'string') currentSyllabusSubjectFilter = filterSubj;

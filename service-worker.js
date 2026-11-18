@@ -3,7 +3,7 @@
  * URL: https://gurustudy.webguruji.online
  */
 
-const CACHE_NAME = 'gurustudy-v1.0.0';
+const CACHE_NAME = 'gurustudy-v2.3.0';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -11,6 +11,7 @@ const STATIC_ASSETS = [
   '/app/',
   '/app/index.html',
   '/app/css/styles.css',
+  '/app/css/global-layout-fix.css',
   '/app/js/db-sync.js',
   '/app/js/syllabus-data.js',
   '/app/js/youtube_lectures_db.js',
@@ -19,6 +20,23 @@ const STATIC_ASSETS = [
   '/app/js/alarm-engine.js',
   '/app/js/focus-timer.js',
   '/app/js/analytics.js',
+  '/app/js/guru-ai-knowledge.js',
+  '/app/js/cbse-vault-data.js',
+  '/app/js/gamification-engine.js',
+  '/app/js/cbse-quiz-bank.js',
+  '/app/js/audio-soundscapes.js',
+  '/app/js/marks-calculator.js',
+  '/app/js/spaced-repetition.js',
+  '/app/js/social-share.js',
+  '/app/js/ncert-data.js',
+  '/app/js/chapter_teachers_db.js',
+  '/app/js/youtube-launcher.js',
+  '/app/js/store.js',
+  '/app/js/cloud-sync.js',
+  '/app/js/completion-manager.js',
+  '/app/js/alarm-center-ui.js',
+  '/app/js/chapter-reader.js',
+  '/app/js/doodle-crew-footer.js',
   '/icon-192.png',
   '/icon-512.png'
 ];

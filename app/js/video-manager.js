@@ -1,9 +1,9 @@
 /**
  * GuruStudy - Video Lectures, In-App Player & Notes Manager (Phases 12, 13, 14, 15)
- * URL: https://gurustuji.webguruji.online
+ * URL: https://gurustudy.webguruji.online
  */
 
-class GuruVideoManager {
+class GuruVideoManagerEngine {
   constructor() {
     this.watchedKey = 'gurustudy_watched_videos';
     this.bookmarksKey = 'gurustudy_bookmarked_videos';
@@ -181,5 +181,8 @@ class GuruVideoManager {
   }
 }
 
-// Global Singleton Instance
-window.GuruVideoManager = new GuruVideoManager();
+// Global Singleton Instance (no class shadowing)
+const GuruVideoManager = new GuruVideoManagerEngine();
+if (typeof window !== 'undefined') {
+  window.GuruVideoManager = GuruVideoManager;
+}
