@@ -333,3 +333,309 @@ body.gurustudy-app-shell .bpFab {
 #bp-web-widget-container {
   z-index: 99999 !important;
 }
+
+/* 11. Web App Android Parity UI: Timer Setup, Alarm Center, NCERT Chapter Reader & Work Completion */
+.timer-setup-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timer-presets-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Alarm Center Modal */
+.alarm-center-box {
+  width: 100%;
+  max-width: 500px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #0B132B;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+}
+
+.alarm-section-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.alarm-slot-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.alarm-toggle-wrap {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.alarm-toggle-wrap input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.alarm-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #334155;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+
+.alarm-toggle-slider::before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.alarm-toggle-wrap input:checked + .alarm-toggle-slider {
+  background: #10B981;
+}
+
+.alarm-toggle-wrap input:checked + .alarm-toggle-slider::before {
+  transform: translateX(18px);
+}
+
+/* NCERT Chapter Reader Modal */
+.reader-shell {
+  width: 100%;
+  max-width: 560px;
+  height: 92vh;
+  max-height: 820px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+}
+
+.reader-shell[data-reader-theme="dark"] {
+  background: #0B132B;
+  color: #F8FAFC;
+  --r-surface: rgba(30, 41, 59, 0.72);
+  --r-border: rgba(255, 255, 255, 0.1);
+}
+
+.reader-shell[data-reader-theme="sepia"] {
+  background: #F4ECD8;
+  color: #3E2F1C;
+  --r-surface: #FFF9EB;
+  --r-border: #DFCBB0;
+}
+
+.reader-shell[data-reader-theme="light"] {
+  background: #F8FAFC;
+  color: #0F172A;
+  --r-surface: #FFFFFF;
+  --r-border: #E2E8F0;
+}
+
+.reader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #4F46E5, #2563EB);
+  color: #FFFFFF;
+}
+
+.reader-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--r-surface);
+  border-bottom: 1px solid var(--r-border);
+}
+
+.reader-tabs-bar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 14px;
+  background: var(--r-surface);
+  border-bottom: 1px solid var(--r-border);
+  scrollbar-width: none;
+}
+
+.reader-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.reader-scroll-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reader-card {
+  background: var(--r-surface);
+  border: 1px solid var(--r-border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.reader-section-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #6366F1;
+  margin-bottom: 6px;
+}
+
+.reader-prose {
+  line-height: 1.65;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.reader-concepts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+.reader-concept-item {
+  line-height: 1.5;
+}
+
+.reader-formula-chip {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.12);
+  border-left: 3px solid #6366F1;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 600;
+}
+
+.reader-solution-details {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.reader-mcq-opt {
+  text-align: left;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--r-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.reader-mcq-opt.is-correct {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10B981;
+  font-weight: 700;
+}
+
+.reader-mcq-opt.is-wrong {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #EF4444;
+}
+
+.reader-mcq-exp {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.12);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.reader-step-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--r-border);
+  cursor: pointer;
+}
+
+.reader-step-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #10B981;
+  flex-shrink: 0;
+}
+
+/* Day Switcher & Completed Card States */
+.day-switcher-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.schedule-card.is-slot-done {
+  border-color: rgba(16, 185, 129, 0.55) !important;
+  background: rgba(16, 185, 129, 0.06) !important;
+}
+
+.continue-reading-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16), rgba(37, 99, 235, 0.12));
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 14px;
+  flex-wrap: wrap;
+}

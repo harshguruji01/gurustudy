@@ -231,6 +231,44 @@ assert(indexHtml.includes('window.botpress.toggle'), 'Ask Guru AI button trigger
 assert(rootIndex.includes('20261114133455-OVF8F1K0.js'), 'Landing page loads HarshGuruJi Botpress Webchat widget');
 assert(globalCss.includes('body.gurustudy-app-shell .bpFabContainer'), 'global-layout-fix.css hides duplicate Botpress FAB inside /app/');
 
+// TEST 11: Web App Android Feature Parity Verification (Timer Setup, Alarm Setup, Chapter Reader, Work Completion)
+console.log('\nTEST 11: Web App Android Feature Parity Verification');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'completion-manager.js')), 'completion-manager.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'alarm-center-ui.js')), 'alarm-center-ui.js exists');
+assert(fs.existsSync(path.join(__dirname, 'app', 'js', 'chapter-reader.js')), 'chapter-reader.js exists');
+
+const { CompletionManager } = require('./app/js/completion-manager.js');
+const cm = new CompletionManager();
+assert(cm.getChapterProgressPct('maths_1') === 0, 'New chapter starts at 0% mastery');
+cm.toggleChapterStep('maths_1', 'ncertRead', true);
+assert(cm.getChapterProgressPct('maths_1') === 25, '1 step completed equals 25% mastery');
+cm.toggleChapterStep('maths_1', 'exercisesDone', true);
+cm.toggleChapterStep('maths_1', 'pyqDone', true);
+cm.toggleChapterStep('maths_1', 'revisionDone', true);
+assert(cm.getChapterProgressPct('maths_1') === 100 && cm.getChapterStatus('maths_1') === 'Completed', 'All 4 steps equal 100% Completed');
+assert(cm.toggleSlotDone('2026-11-20', 0) === true && cm.isSlotDone('2026-11-20', 0) === true, 'Slot completion toggles and persists');
+assert(cm.toggleDayDone(1) === true && cm.isDayDone(1) === true, 'Day completion toggles and persists');
+cm.setLastRead('Science', 'sci_11', 'Electricity');
+assert(cm.getLastRead().chapterTitle === 'Electricity', 'Continue Reading tracks last opened chapter');
+
+const { AlarmEngine } = require('./app/js/alarm-engine.js');
+const ae = new AlarmEngine();
+assert(ae.parseTimeToMinutes('16:00') === 960, 'AlarmEngine parses 24h time (16:00 -> 960m)');
+assert(ae.parseTimeToMinutes('04:30 PM') === 990, 'AlarmEngine parses 12h time (04:30 PM -> 990m)');
+
+global.NCERT_DATA = require('./app/js/ncert-data.js');
+const { resolveNcertChapterData } = require('./app/js/chapter-reader.js');
+const realNumData = resolveNcertChapterData({ subject: 'Maths', chapterName: 'Real Numbers' });
+assert(realNumData.title === 'Real Numbers' && realNumData.formulas.length > 0 && realNumData.mcqs.length > 0, 'ChapterReader resolves full NCERT data for Real Numbers');
+const elecData = resolveNcertChapterData({ subject: 'Science', chapterName: 'Electricity' });
+assert(elecData.title === 'Electricity' && elecData.summaryHi && elecData.importantQuestions.length > 0, 'ChapterReader resolves bilingual NCERT data for Electricity');
+
+assert(indexHtml.includes('timer-setup-subject') && indexHtml.includes('timer-duration-presets') && indexHtml.includes('btn-mode-stopwatch'), 'app/index.html contains full Timer Setup UI & Stopwatch mode');
+assert(indexHtml.includes('modal-alarm-center') && indexHtml.includes('btn-open-alarm-center-home'), 'app/index.html contains Alarm Center modal & triggers');
+assert(indexHtml.includes('modal-chapter-reader') && indexHtml.includes('syllabus-continue-card') && indexHtml.includes('syllabus-search-input'), 'app/index.html contains NCERT Chapter Reader, Continue Reading & Search');
+assert(indexHtml.includes('home-day-switcher') && indexHtml.includes('btn-mark-whole-day-done') && indexHtml.includes('btn-plan-toggle-done'), 'app/index.html contains Day Switcher & persistent Work Completion controls');
+assert(indexHtml.includes('btn-export-json-backup') && indexHtml.includes('btn-restore-json-backup'), 'app/index.html contains JSON Backup & Restore controls in Profile');
+
 // Summary
 console.log('\n====================================================');
 console.log(`📊 QA RESULTS: ${passedTests} / ${totalTests} TESTS PASSED`);

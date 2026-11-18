@@ -21,6 +21,7 @@ class AlarmEngine {
   }
 
   initAudioContext() {
+    if (typeof window === 'undefined') return;
     try {
       const AudioContextClass = window.AudioContext || window.webkitAudioContext;
       if (AudioContextClass) {
@@ -348,46 +349,159 @@ class AlarmEngine {
   }
 
   // ----------------------------------------------------------------------------
+  // PERSISTED ALARM CONFIG & TIME PARSING (Web App Android Parity)
+  // ----------------------------------------------------------------------------
+  getConfigKey() {
+    return 'gurustudy_alarm_config_v1';
+  }
+
+  loadConfig() {
+    const defaults = {
+      masterEnabled: true,
+      dailyStartTime: '16:00',
+      ringtone: 'Morning Bell',
+      voiceEnabled: true,
+      voiceLang: 'en-IN',
+      preWarningEnabled: true,
+      slotOverrides: {} // { '0': { enabled: true, time: '16:00' }, ... }
+    };
+    try {
+      if (typeof localStorage !== 'undefined') {
+        const raw = localStorage.getItem(this.getConfigKey());
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          const merged = { ...defaults, ...parsed, slotOverrides: parsed.slotOverrides || {} };
+          this.currentTone = merged.ringtone || 'Morning Bell';
+          this.voiceLang = merged.voiceEnabled ? (merged.voiceLang || 'en-IN') : 'chime-only';
+          return merged;
+        }
+      }
+    } catch (_) {}
+    return defaults;
+  }
+
+  saveConfig(patch) {
+    const cur = this.loadConfig();
+    const next = {
+      ...cur,
+      ...(patch || {}),
+      slotOverrides: {
+        ...cur.slotOverrides,
+        ...((patch && patch.slotOverrides) || {})
+      }
+    };
+    this.currentTone = next.ringtone || 'Morning Bell';
+    this.voiceLang = next.voiceEnabled ? (next.voiceLang || 'en-IN') : 'chime-only';
+    try {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(this.getConfigKey(), JSON.stringify(next));
+      }
+    } catch (_) {}
+    return next;
+  }
+
+  parseTimeToMinutes(timeStr) {
+    if (!timeStr) return null;
+    const str = String(timeStr).trim().toUpperCase();
+    const match = str.match(/^(\d{1,2}):(\d{2})(?:\s*(AM|PM))?$/);
+    if (!match) return null;
+    let h = parseInt(match[1], 10);
+    const m = parseInt(match[2], 10);
+    const mer = match[3];
+    if (mer === 'PM' && h < 12) h += 12;
+    if (mer === 'AM' && h === 12) h = 0;
+    if (Number.isNaN(h) || Number.isNaN(m)) return null;
+    return h * 60 + m;
+  }
+
+  minutesTo24h(totalMins) {
+    const wrapped = ((totalMins % 1440) + 1440) % 1440;
+    const h = Math.floor(wrapped / 60);
+    const m = wrapped % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+  }
+
+  getEffectiveSlots(todaySchedule) {
+    const cfg = this.loadConfig();
+    const rawSlots = (todaySchedule && (todaySchedule.schedule || todaySchedule.slots)) || [];
+    const baseStartMins = this.parseTimeToMinutes(cfg.dailyStartTime);
+    let cursorMins = baseStartMins !== null ? baseStartMins : 16 * 60;
+
+    return rawSlots.map((slot, idx) => {
+      const dur = parseInt(slot.durationMinutes, 10) || 60;
+      const computed24 = this.minutesTo24h(cursorMins);
+      cursorMins += dur + 10; // 10-min refresh break between blocks
+
+      const override = cfg.slotOverrides[String(idx)] || {};
+      const finalTime24 = override.time || computed24;
+      const enabled = typeof override.enabled === 'boolean' ? override.enabled : true;
+
+      return {
+        ...slot,
+        slotIndex: idx,
+        alarmTime24: finalTime24,
+        alarmEnabled: cfg.masterEnabled && enabled
+      };
+    });
+  }
+
+  getArmedCount() {
+    return this.armedSlotCount || 0;
+  }
+
+  // ----------------------------------------------------------------------------
   // AUTOMATIC TIMETABLE MONITORING & ALARM ARMING
   // ----------------------------------------------------------------------------
   armTodayAlarms(todaySchedule, studentName = 'Student') {
-    // Clear any previous interval timers
     this.alarmTimers.forEach(t => clearTimeout(t));
     this.alarmTimers = [];
+    this.armedSlotCount = 0;
 
-    if (!todaySchedule || !todaySchedule.slots) return;
+    const cfg = this.loadConfig();
+    if (!cfg.masterEnabled || !todaySchedule) return 0;
+
+    const effectiveSlots = this.getEffectiveSlots(todaySchedule);
+    if (!effectiveSlots.length) return 0;
 
     const now = new Date();
     const currentMins = now.getHours() * 60 + now.getMinutes();
     const currentSecs = now.getSeconds();
 
-    todaySchedule.slots.forEach(slot => {
-      const [sh, sm] = slot.startTime.split(':').map(Number);
-      const targetSlotMins = sh * 60 + sm;
+    effectiveSlots.forEach(slot => {
+      if (!slot.alarmEnabled) return;
+      const targetSlotMins = this.parseTimeToMinutes(slot.alarmTime24);
+      if (targetSlotMins === null) return;
 
-      // 1. Exact Start Alarm
       const diffMs = ((targetSlotMins - currentMins) * 60 - currentSecs) * 1000;
       if (diffMs > 0) {
+        this.armedSlotCount++;
         const timerId = setTimeout(() => {
           this.triggerAlarm(slot, studentName, false);
         }, diffMs);
         this.alarmTimers.push(timerId);
       }
 
-      // 2. 5-Minute Pre-warning Chime
-      const warningDiffMs = diffMs - (5 * 60 * 1000);
-      if (warningDiffMs > 0) {
-        const warnTimerId = setTimeout(() => {
-          this.triggerAlarm(slot, studentName, true);
-        }, warningDiffMs);
-        this.alarmTimers.push(warnTimerId);
+      if (cfg.preWarningEnabled) {
+        const warningDiffMs = diffMs - (5 * 60 * 1000);
+        if (warningDiffMs > 0) {
+          const warnTimerId = setTimeout(() => {
+            this.triggerAlarm(slot, studentName, true);
+          }, warningDiffMs);
+          this.alarmTimers.push(warnTimerId);
+        }
       }
     });
+
+    return this.armedSlotCount;
   }
 }
 
 // Global instance
 const guruAlarms = new AlarmEngine();
+if (typeof window !== 'undefined') {
+  window.guruAlarms = guruAlarms;
+  window.GuruAlarm = guruAlarms;
+}
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { AlarmEngine, guruAlarms };

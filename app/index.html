@@ -92,8 +92,9 @@
 
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
             <button class="btn-primary" id="btn-quick-focus-launch">⚡ Start Focus</button>
+            <button class="btn-secondary" id="btn-open-alarm-center-home">🔔 Alarm Setup</button>
             <button class="btn-secondary" id="btn-open-manual-log">+ Log Offline</button>
-            <button class="btn-secondary" id="btn-share-today-progress" title="Share Instagram/WhatsApp Progress Story">📤 Share Progress</button>
+            <button class="btn-secondary" id="btn-share-today-progress" title="Share Instagram/WhatsApp Progress Story">📤 Share</button>
           </div>
         </section>
 
@@ -162,8 +163,28 @@
         <span style="font-size: 0.74rem; color: var(--text-muted);" id="today-date-readable">Loading...</span>
       </div>
 
+      <!-- Day Switcher Bar (Android Dashboard Parity) -->
+      <div class="day-switcher-bar" id="home-day-switcher">
+        <button type="button" class="btn-secondary" id="btn-home-prev-day" style="padding: 5px 10px; font-size: 0.74rem;">◀ Prev</button>
+        <div style="text-align: center; min-width: 0; flex: 1;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #FFFFFF;" id="home-active-day-label">Day 1 of 88</div>
+          <div style="font-size: 0.68rem; color: #94A3B8;" id="home-active-day-sub">20 Nov 2026 • Mon–Sat (5.0h)</div>
+        </div>
+        <button type="button" class="btn-secondary" id="btn-home-next-day" style="padding: 5px 10px; font-size: 0.74rem;">Next ▶</button>
+      </div>
+
       <div class="timeline-list" id="today-schedule-cards-list">
         <!-- Rendered by timetable engine -->
+      </div>
+
+      <!-- Mark Whole Day Done Bar -->
+      <div class="glass-card" style="padding: 12px 14px; margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <div style="font-size: 0.78rem; color: #CBD5E1; min-width: 0; flex: 1;" id="home-day-done-summary">
+          Finished all subjects for this day?
+        </div>
+        <button type="button" class="btn-primary" id="btn-mark-whole-day-done" style="padding: 8px 14px; font-size: 0.78rem;">
+          ✓ Mark Day Done
+        </button>
       </div>
     </main>
 
@@ -194,10 +215,47 @@
     <!-- ==================== TAB 3: FOCUS TIMER ==================== -->
     <main class="tab-page" id="tab-focus">
       <div class="focus-container">
+        <!-- Timer Setup Panel (Android StudyTimerScreen Parity) -->
+        <div class="timer-setup-card" id="timer-setup-panel">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 0.82rem; font-weight: 800; color: #FFFFFF;">⏱️ Study Timer Setup</span>
+            <span class="pill-badge" style="font-size: 0.68rem;">Auto-Logs to Today</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;">
+            <select id="timer-setup-subject" class="form-input" style="font-size: 0.78rem; padding: 7px 10px;" aria-label="Select Subject">
+              <option value="Mathematics">📐 Mathematics</option>
+              <option value="Science">🔬 Science</option>
+              <option value="Social Science">🌍 Social Science</option>
+              <option value="English">📖 English</option>
+              <option value="Hindi">🇮🇳 Hindi</option>
+              <option value="Artificial Intelligence">🤖 AI (Code 417)</option>
+            </select>
+            <select id="timer-setup-chapter" class="form-input" style="font-size: 0.78rem; padding: 7px 10px;" aria-label="Select Chapter">
+              <option value="Real Numbers">Real Numbers</option>
+            </select>
+          </div>
+
+          <div class="timer-presets-row" id="timer-duration-presets">
+            <button type="button" class="chip-btn" data-mins="15" style="font-size: 0.72rem; padding: 4px 10px;">15m</button>
+            <button type="button" class="chip-btn" data-mins="30" style="font-size: 0.72rem; padding: 4px 10px;">30m</button>
+            <button type="button" class="chip-btn active" data-mins="45" style="font-size: 0.72rem; padding: 4px 10px;">45m</button>
+            <button type="button" class="chip-btn" data-mins="60" style="font-size: 0.72rem; padding: 4px 10px;">60m</button>
+            <button type="button" class="chip-btn" data-mins="90" style="font-size: 0.72rem; padding: 4px 10px;">90m</button>
+            <button type="button" class="chip-btn" data-mins="120" style="font-size: 0.72rem; padding: 4px 10px;">120m</button>
+            <div style="display: flex; gap: 4px; align-items: center; margin-left: auto;">
+              <input type="number" id="timer-custom-mins" class="form-input" min="1" max="240" placeholder="Min" style="width: 66px; padding: 4px 8px; font-size: 0.74rem;">
+              <button type="button" class="btn-secondary" id="btn-timer-apply-custom" style="font-size: 0.72rem; padding: 5px 10px;">Set</button>
+            </div>
+          </div>
+        </div>
+
         <!-- Mode Selector -->
         <div class="mode-pill-selector">
-          <button class="mode-pill-btn active" id="btn-mode-target" data-mode="target">Target Session Mode</button>
-          <button class="mode-pill-btn" id="btn-mode-pomodoro" data-mode="pomodoro">Smart Pomodoro (50+10m)</button>
+          <button class="mode-pill-btn active" id="btn-mode-target" data-mode="target">Target Countdown</button>
+          <button class="mode-pill-btn" id="btn-mode-pomodoro" data-mode="pomodoro">Pomodoro (50+10m)</button>
+          <button class="mode-pill-btn" id="btn-mode-pomodoro25" data-mode="pomodoro25">Pomodoro (25+5m)</button>
+          <button class="mode-pill-btn" id="btn-mode-stopwatch" data-mode="stopwatch">Free Stopwatch</button>
         </div>
 
         <!-- Subject Badge & Chapter Goal -->
@@ -332,6 +390,21 @@
 
       <!-- View 1: Chapters & Lectures -->
       <div id="vault-view-chapters">
+        <!-- Continue Reading Hero Card (Android BooksScreen Parity) -->
+        <div id="syllabus-continue-card" class="continue-reading-card" style="display: none;">
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 0.68rem; font-weight: 800; color: #818CF8; text-transform: uppercase;">📖 Continue Reading</div>
+            <div style="font-size: 0.9rem; font-weight: 800; color: #FFFFFF;" id="syllabus-continue-title">Real Numbers</div>
+            <div style="font-size: 0.72rem; color: #94A3B8;" id="syllabus-continue-sub">Mathematics • Class 10 NCERT</div>
+          </div>
+          <button type="button" class="btn-primary" id="btn-syllabus-resume-read" style="font-size: 0.76rem; padding: 7px 14px;">Resume →</button>
+        </div>
+
+        <!-- Chapter Search Bar -->
+        <div class="glass-card" style="padding: 10px 12px; margin-bottom: 10px;">
+          <input type="text" id="syllabus-search-input" class="form-input" placeholder="🔍 Search NCERT chapter, topic, or subject..." style="font-size: 0.82rem;">
+        </div>
+
         <!-- Subject Filter Chips -->
         <div class="syllabus-filter-chips" id="syllabus-subject-chips">
           <button class="chip-btn active" data-subj="all">All Subjects</button>
@@ -340,6 +413,15 @@
           <button class="chip-btn" data-subj="sst">Social Science (20)</button>
           <button class="chip-btn" data-subj="language">Language</button>
           <button class="chip-btn" data-subj="ai">AI 417 (13)</button>
+        </div>
+
+        <!-- Completion Status Filter Chips -->
+        <div class="syllabus-filter-chips" id="syllabus-status-chips" style="margin-top: 8px; margin-bottom: 12px;">
+          <button class="chip-btn active" data-status="all" style="font-size: 0.72rem; padding: 4px 10px;">All Status</button>
+          <button class="chip-btn" data-status="Not Started" style="font-size: 0.72rem; padding: 4px 10px;">Not Started</button>
+          <button class="chip-btn" data-status="In Progress" style="font-size: 0.72rem; padding: 4px 10px;">In Progress</button>
+          <button class="chip-btn" data-status="Completed" style="font-size: 0.72rem; padding: 4px 10px;">✓ Completed</button>
+          <button class="chip-btn" data-status="Bookmarked" style="font-size: 0.72rem; padding: 4px 10px;">⭐ Bookmarked</button>
         </div>
 
         <div id="syllabus-chapters-container">
@@ -711,6 +793,20 @@
         <button class="btn-primary" id="btn-profile-edit-details" style="justify-content: center; padding: 10px;">
           ✏️ Edit Student Profile Details
         </button>
+        <button class="btn-secondary" id="btn-profile-open-alarm-center" style="justify-content: center; padding: 10px; border-color: rgba(99, 102, 241, 0.45); color: #A5B4FC;">
+          🔔 Open Alarm Setup Center
+        </button>
+
+        <!-- Data Backup & Restore (Android Parity) -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="btn-secondary" id="btn-export-json-backup" style="flex: 1 1 130px; justify-content: center; font-size: 0.76rem; padding: 8px 10px;">
+            💾 Export Backup (.json)
+          </button>
+          <button type="button" class="btn-secondary" id="btn-restore-json-backup" style="flex: 1 1 130px; justify-content: center; font-size: 0.76rem; padding: 8px 10px;">
+            📂 Restore Backup
+          </button>
+          <input type="file" id="input-restore-json-file" accept=".json,application/json" style="display: none;">
+        </div>
 
         <!-- Prompt 16: Appearance & 4 Dynamic Skins -->
         <div style="background: rgba(0,0,0,0.25); border-radius: 10px; padding: 10px; border: 1px solid var(--border-glass);">
@@ -872,6 +968,29 @@
     </div>
   </div>
 
+  <!-- ==================== ALARM CENTER & SETUP MODAL (Android Parity) ==================== -->
+  <div class="modal-backdrop" id="modal-alarm-center">
+    <div class="alarm-center-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div>
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">🔔 Study Alarm Setup Center</h3>
+          <div style="font-size: 0.72rem; color: #94A3B8;">Customize slot times, ringtones & voice alerts</div>
+        </div>
+        <button type="button" class="btn-icon" id="btn-close-alarm-center" title="Close" style="width: 32px; height: 32px;">✕</button>
+      </div>
+      <div id="alarm-center-body">
+        <!-- Rendered by alarm-center-ui.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FULL-SCREEN NCERT CHAPTER READER MODAL (Android Parity) ==================== -->
+  <div class="modal-backdrop" id="modal-chapter-reader" style="padding: 12px;">
+    <div class="reader-shell" id="chapter-reader-shell" data-reader-theme="dark">
+      <!-- Rendered by chapter-reader.js -->
+    </div>
+  </div>
+
   <!-- Core Script Dependencies -->
   <script src="js/db-sync.js"></script>
   <script src="js/syllabus-data.js"></script>
@@ -894,6 +1013,9 @@
   <script src="js/youtube-launcher.js"></script>
   <script src="js/store.js"></script>
   <script src="js/cloud-sync.js"></script>
+  <script src="js/completion-manager.js"></script>
+  <script src="js/alarm-center-ui.js"></script>
+  <script src="js/chapter-reader.js"></script>
 
   <!-- App Main Orchestrator -->
   <script>
@@ -946,10 +1068,47 @@
         themeBtn.textContent = next === 'dark' ? '🌙' : '☀️';
       });
 
-      // 4. Alarm Test Button
-      document.getElementById('btn-sound-alarm-test').addEventListener('click', () => {
-        GuruAlarmEngine.testVoiceAlarm();
-      });
+      // 4. Alarm Center Triggers & Auto-Arm (Android Parity)
+      const openAlarmCenter = () => {
+        if (window.GuruAlarmCenter) window.GuruAlarmCenter.open();
+      };
+      const btnHeaderBell = document.getElementById('btn-sound-alarm-test');
+      if (btnHeaderBell) btnHeaderBell.addEventListener('click', openAlarmCenter);
+      const btnHomeAlarm = document.getElementById('btn-open-alarm-center-home');
+      if (btnHomeAlarm) btnHomeAlarm.addEventListener('click', openAlarmCenter);
+      const btnProfileAlarm = document.getElementById('btn-profile-open-alarm-center');
+      if (btnProfileAlarm) {
+        btnProfileAlarm.addEventListener('click', () => {
+          document.getElementById('modal-profile-center')?.classList.remove('active');
+          openAlarmCenter();
+        });
+      }
+      const btnCloseAlarmCenter = document.getElementById('btn-close-alarm-center');
+      if (btnCloseAlarmCenter) {
+        btnCloseAlarmCenter.addEventListener('click', () => {
+          if (window.GuruAlarmCenter) window.GuruAlarmCenter.close();
+        });
+      }
+      if (window.GuruAlarmCenter) {
+        window.GuruAlarmCenter.rearmNow();
+      }
+
+      // 4b. Profile JSON Export & Restore Wiring
+      const btnExportJson = document.getElementById('btn-export-json-backup');
+      const btnRestoreJson = document.getElementById('btn-restore-json-backup');
+      const inputRestoreFile = document.getElementById('input-restore-json-file');
+      if (btnExportJson) {
+        btnExportJson.addEventListener('click', () => {
+          if (window.GuruCloudSync) window.GuruCloudSync.exportBackupJson();
+        });
+      }
+      if (btnRestoreJson && inputRestoreFile) {
+        btnRestoreJson.addEventListener('click', () => inputRestoreFile.click());
+        inputRestoreFile.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (file && window.GuruCloudSync) window.GuruCloudSync.restoreBackupJson(file);
+        });
+      }
 
       // 5. Populate Sunday Mock Test Week dropdown (1-13)
       const mockWeekSelect = document.getElementById('mock-test-week');
@@ -1776,22 +1935,61 @@
         }
       }
 
-      // Render today's timetable cards with vertical timeline connectors (Prompt 16)
+      // Render today's timetable cards with vertical timeline connectors & persistent completion (Android Parity)
+      const allPlanDays = GuruTimetable.getAllDays();
+      if (typeof window.selectedHomeDayNumber !== 'number') {
+        window.selectedHomeDayNumber = todaySchedule.dayNumber || 1;
+      }
+      window.selectedHomeDayNumber = Math.max(1, Math.min(allPlanDays.length, window.selectedHomeDayNumber));
+      const activeDayObj = allPlanDays[window.selectedHomeDayNumber - 1] || todaySchedule;
+      const activeDateKey = activeDayObj.dateStr || new Date().toISOString().split('T')[0];
+
+      // Update Day Switcher Bar
+      const dayLabelEl = document.getElementById('home-active-day-label');
+      const daySubEl = document.getElementById('home-active-day-sub');
+      const prevDayBtn = document.getElementById('btn-home-prev-day');
+      const nextDayBtn = document.getElementById('btn-home-next-day');
+      if (dayLabelEl) dayLabelEl.textContent = `Day ${activeDayObj.dayNumber} of 88`;
+      if (daySubEl) daySubEl.textContent = `${activeDayObj.formattedDate} • ${activeDayObj.isSunday ? 'Sunday (6.5h + AI)' : 'Mon–Sat (5.0h)'}`;
+      if (prevDayBtn) {
+        prevDayBtn.disabled = window.selectedHomeDayNumber <= 1;
+        prevDayBtn.onclick = () => {
+          if (window.selectedHomeDayNumber > 1) {
+            window.selectedHomeDayNumber--;
+            renderDashboard();
+          }
+        };
+      }
+      if (nextDayBtn) {
+        nextDayBtn.disabled = window.selectedHomeDayNumber >= allPlanDays.length;
+        nextDayBtn.onclick = () => {
+          if (window.selectedHomeDayNumber < allPlanDays.length) {
+            window.selectedHomeDayNumber++;
+            renderDashboard();
+          }
+        };
+      }
+
       const listEl = document.getElementById('today-schedule-cards-list');
       listEl.innerHTML = '';
 
-      todaySchedule.schedule.forEach((slot, index) => {
+      activeDayObj.schedule.forEach((slot, index) => {
+        const isDone = window.GuruCompletion ? window.GuruCompletion.isSlotDone(activeDateKey, index) : false;
         const itemWrap = document.createElement('div');
-        itemWrap.className = `timeline-item ${index === 0 ? 'active' : ''}`;
+        itemWrap.className = `timeline-item ${isDone ? 'completed' : (index === 0 ? 'active' : '')}`;
 
         const dot = document.createElement('div');
         dot.className = 'timeline-dot';
-        dot.innerHTML = index === 0 ? '▶' : `${index + 1}`;
+        dot.innerHTML = isDone ? '✓' : (index === 0 ? '▶' : `${index + 1}`);
+        if (isDone) {
+          dot.style.background = '#10B981';
+          dot.style.color = '#FFFFFF';
+        }
         itemWrap.appendChild(dot);
 
         const card = document.createElement('div');
         const subjSlug = getSubjectSlug(slot.subject);
-        card.className = `glass-card schedule-card ${subjSlug}`;
+        card.className = `glass-card schedule-card ${subjSlug}${isDone ? ' is-slot-done' : ''}`;
 
         const teacherVids = window.getChapterTeacherVideos ? window.getChapterTeacherVideos(slot.chapter || slot.subject) : [];
         const topTeacher = teacherVids[0] || null;
@@ -1807,7 +2005,7 @@
         card.innerHTML = `
           <div class="schedule-top">
             <div style="min-width: 0; flex: 1;">
-              <div class="schedule-subject-name">${slot.subject}</div>
+              <div class="schedule-subject-name">${slot.subject} ${isDone ? '<span style="color:#34D399; font-size:0.72rem;">✓ Done</span>' : ''}</div>
               <div class="schedule-chapter-text">${slot.chapter}</div>
             </div>
             <div class="schedule-time-badge">
@@ -1826,11 +2024,14 @@
               <button class="btn-primary btn-start-card-study" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}">
                 ⚡ Start Focus
               </button>
-              <button class="btn-secondary btn-watch-card-lecture" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
-                📺 Watch Lecture
+              <button class="btn-secondary btn-read-card-ncert" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
+                📖 Read NCERT
               </button>
-              <button class="btn-secondary btn-mark-done-slot" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}" style="border-color: rgba(16, 185, 129, 0.4); color: #34D399;">
-                ✓ Mark Done
+              <button class="btn-secondary btn-watch-card-lecture" data-subject="${slot.subject}" data-chapter="${slot.chapter}">
+                📺 Lecture
+              </button>
+              <button class="btn-secondary btn-mark-done-slot" data-slot-index="${index}" data-subject="${slot.subject}" data-duration="${slot.durationMinutes}" data-chapter="${slot.chapter}" style="${isDone ? 'background:#10B981; border-color:#10B981; color:#FFFFFF;' : 'border-color: rgba(16, 185, 129, 0.4); color: #34D399;'}">
+                ${isDone ? '✓ Completed' : '✓ Mark Done'}
               </button>
             </div>
           </div>
@@ -1839,28 +2040,63 @@
         listEl.appendChild(itemWrap);
       });
 
-      // Bind Mark Done buttons (Web App UI Prompt 8)
-      document.querySelectorAll('.btn-mark-done-slot').forEach(b => {
-        b.addEventListener('click', async () => {
+      // Bind Read NCERT buttons on Home Cards
+      document.querySelectorAll('.btn-read-card-ncert').forEach(b => {
+        b.addEventListener('click', () => {
           const subj = b.getAttribute('data-subject');
-          const dur = parseInt(b.getAttribute('data-duration'), 10) || 60;
-          if (window.GuruStore) {
-            window.GuruStore.addStudyMinutes(dur, subj);
-          }
-          if (window.GuruFocusTimer) {
-            await GuruFocusTimer.logManualMinutes(subj, dur);
-          }
-          b.textContent = '✓ Done';
-          b.disabled = true;
-          b.style.background = '#10B981';
-          b.style.borderColor = '#10B981';
-          b.style.color = '#FFFFFF';
-          await updateDailyProgressRing();
-          if (window.showGuruToast) {
-            window.showGuruToast(`✓ Completed ${dur}m of ${subj}!`);
+          const chap = b.getAttribute('data-chapter');
+          const chId = getChapterIdFromTitle(chap, subj);
+          if (window.GuruChapterReader) {
+            window.GuruChapterReader.open({ id: chId, subject: subj, chapterName: chap });
           }
         });
       });
+
+      // Bind Mark Done buttons with persistent state (Android Parity)
+      document.querySelectorAll('.btn-mark-done-slot').forEach(b => {
+        b.addEventListener('click', async () => {
+          const idx = parseInt(b.getAttribute('data-slot-index'), 10);
+          const subj = b.getAttribute('data-subject');
+          const dur = parseInt(b.getAttribute('data-duration'), 10) || 60;
+          const nowDone = window.GuruCompletion
+            ? window.GuruCompletion.toggleSlotDone(activeDateKey, idx)
+            : true;
+
+          if (nowDone) {
+            if (window.GuruStore) window.GuruStore.addStudyMinutes(dur, subj);
+            if (window.GuruFocusTimer) await GuruFocusTimer.logManualMinutes(subj, dur);
+            if (window.showGuruToast) window.showGuruToast(`✓ Completed ${dur}m of ${subj}!`);
+          } else {
+            if (window.showGuruToast) window.showGuruToast(`↺ Marked ${subj} slot as pending`);
+          }
+          await renderDashboard();
+        });
+      });
+
+      // Bind Mark Whole Day Done Button
+      const btnWholeDay = document.getElementById('btn-mark-whole-day-done');
+      const dayDoneSummary = document.getElementById('home-day-done-summary');
+      const isWholeDayDone = window.GuruCompletion ? window.GuruCompletion.isDayDone(activeDayObj.dayNumber) : false;
+      const doneSlotCount = window.GuruCompletion ? window.GuruCompletion.getCompletedSlotsCount(activeDateKey) : 0;
+      if (dayDoneSummary) {
+        dayDoneSummary.textContent = `Day ${activeDayObj.dayNumber}: ${doneSlotCount}/${activeDayObj.schedule.length} slots completed`;
+      }
+      if (btnWholeDay) {
+        btnWholeDay.textContent = isWholeDayDone ? '✓ Day Completed' : '✓ Mark Day Done';
+        btnWholeDay.style.background = isWholeDayDone ? '#10B981' : '';
+        btnWholeDay.onclick = async () => {
+          if (!window.GuruCompletion) return;
+          const next = window.GuruCompletion.toggleDayDone(activeDayObj.dayNumber);
+          activeDayObj.schedule.forEach((_, idx) => {
+            window.GuruCompletion.toggleSlotDone(activeDateKey, idx, next);
+          });
+          if (next) triggerConfetti();
+          if (window.showGuruToast) {
+            window.showGuruToast(next ? `🎉 Day ${activeDayObj.dayNumber} marked 100% completed!` : `↺ Day ${activeDayObj.dayNumber} reopened`);
+          }
+          await renderDashboard();
+        };
+      }
 
       // Bind Watch Lecture buttons
       document.querySelectorAll('.btn-watch-card-lecture').forEach(b => {
@@ -2013,17 +2249,84 @@
         });
       });
 
-      // Mode toggles
-      document.getElementById('btn-mode-target').addEventListener('click', () => {
-        document.getElementById('btn-mode-target').classList.add('active');
-        document.getElementById('btn-mode-pomodoro').classList.remove('active');
-        GuruFocusTimer.setMode('target');
+      // Mode toggles (Target, Pomodoro 50+10, Pomodoro 25+5, Free Stopwatch)
+      const modeButtons = document.querySelectorAll('#tab-focus .mode-pill-btn');
+      modeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const mode = btn.getAttribute('data-mode') || 'target';
+          GuruFocusTimer.setMode(mode);
+        });
       });
-      document.getElementById('btn-mode-pomodoro').addEventListener('click', () => {
-        document.getElementById('btn-mode-pomodoro').classList.add('active');
-        document.getElementById('btn-mode-target').classList.remove('active');
-        GuruFocusTimer.setMode('pomodoro');
+
+      // Timer Setup Panel: Subject, Chapter & Custom Duration Presets (Android Parity)
+      const subjSelect = document.getElementById('timer-setup-subject');
+      const chapSelect = document.getElementById('timer-setup-chapter');
+      const customMinsInput = document.getElementById('timer-custom-mins');
+      const applyCustomBtn = document.getElementById('btn-timer-apply-custom');
+      let selectedTimerMins = 45;
+
+      const populateChaptersForSubject = (subjName) => {
+        if (!chapSelect || typeof GURU_SYLLABUS === 'undefined') return;
+        const allCh = GURU_SYLLABUS.getAllChapters();
+        const sLower = (subjName || '').toLowerCase();
+        const filtered = allCh.filter(c => {
+          const cs = (c.subject || '').toLowerCase();
+          if (sLower.includes('math')) return cs.includes('math');
+          if (sLower.includes('sci') && !sLower.includes('social')) return cs.includes('sci') && !cs.includes('social');
+          if (sLower.includes('social') || sLower.includes('sst')) return cs.includes('sst') || cs.includes('social');
+          if (sLower.includes('eng')) return cs.includes('eng');
+          if (sLower.includes('hin')) return cs.includes('hin');
+          if (sLower.includes('ai') || sLower.includes('intel')) return cs.includes('ai');
+          return true;
+        });
+        chapSelect.innerHTML = filtered.length
+          ? filtered.map(c => `<option value="${c.chapterName}">${c.chapterName}</option>`).join('')
+          : `<option value="${subjName} Practice">${subjName} Practice</option>`;
+      };
+
+      const applyTimerSetup = (minsOverride) => {
+        const subj = subjSelect ? subjSelect.value : 'Mathematics';
+        const chap = chapSelect ? chapSelect.value : 'Real Numbers';
+        const mins = minsOverride || selectedTimerMins || 45;
+        selectedTimerMins = mins;
+        const activeModeBtn = document.querySelector('#tab-focus .mode-pill-btn.active');
+        const mode = activeModeBtn ? activeModeBtn.getAttribute('data-mode') : 'target';
+        GuruFocusTimer.loadSession(subj, mins, chap, mode);
+      };
+
+      if (subjSelect) {
+        populateChaptersForSubject(subjSelect.value);
+        subjSelect.addEventListener('change', () => {
+          populateChaptersForSubject(subjSelect.value);
+          applyTimerSetup();
+        });
+      }
+      if (chapSelect) {
+        chapSelect.addEventListener('change', () => applyTimerSetup());
+      }
+
+      document.querySelectorAll('#timer-duration-presets .chip-btn').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('#timer-duration-presets .chip-btn').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          const mins = parseInt(chip.getAttribute('data-mins'), 10) || 45;
+          applyTimerSetup(mins);
+          if (window.showGuruToast) window.showGuruToast(`⏱️ Timer set to ${mins} mins`);
+        });
       });
+
+      if (applyCustomBtn && customMinsInput) {
+        applyCustomBtn.addEventListener('click', () => {
+          const mins = parseInt(customMinsInput.value, 10);
+          if (mins >= 1 && mins <= 240) {
+            document.querySelectorAll('#timer-duration-presets .chip-btn').forEach(c => c.classList.remove('active'));
+            applyTimerSetup(mins);
+            if (window.showGuruToast) window.showGuruToast(`⏱️ Custom timer set to ${mins} mins`);
+          }
+        });
+      }
 
       // Session complete save
       document.getElementById('btn-save-session-completion').addEventListener('click', () => {
@@ -2044,25 +2347,95 @@
       return match ? match.id : `${prefix}_1`;
     }
 
+    let currentSyllabusSubjectFilter = 'all';
+    let currentSyllabusStatusFilter = 'all';
+    let currentSyllabusSearchQuery = '';
+
+    function refreshSyllabusOverallBadge() {
+      const badge = document.getElementById('syllabus-overall-badge');
+      if (!badge || !window.GuruCompletion) return;
+      const stats = window.GuruCompletion.getOverallSyllabusStats();
+      badge.textContent = `${stats.completedCount}/${stats.totalCount} Done (${stats.overallPct}%)`;
+    }
+
+    function renderContinueReadingCard() {
+      const card = document.getElementById('syllabus-continue-card');
+      if (!card || !window.GuruCompletion) return;
+      const lr = window.GuruCompletion.getLastRead();
+      if (!lr || !lr.chapterTitle) {
+        card.style.display = 'none';
+        return;
+      }
+      card.style.display = 'flex';
+      const titleEl = document.getElementById('syllabus-continue-title');
+      const subEl = document.getElementById('syllabus-continue-sub');
+      const btn = document.getElementById('btn-syllabus-resume-read');
+      if (titleEl) titleEl.textContent = lr.chapterTitle;
+      if (subEl) subEl.textContent = `${lr.subject} • Class 10 NCERT`;
+      if (btn) {
+        btn.onclick = () => {
+          const all = GURU_SYLLABUS.getAllChapters();
+          const found = all.find(c => c.id === lr.chapterId) || { id: lr.chapterId, subject: lr.subject, chapterName: lr.chapterTitle };
+          if (window.GuruChapterReader) window.GuruChapterReader.open(found);
+        };
+      }
+    }
+
+    window.refreshSyllabusProgressUI = () => {
+      renderSyllabusUI(currentSyllabusSubjectFilter);
+    };
+    window.startFocusSessionFromCard = startFocusSessionFromCard;
+
     function renderSyllabusUI(filterSubj) {
+      if (typeof filterSubj === 'string') currentSyllabusSubjectFilter = filterSubj;
       const container = document.getElementById('syllabus-chapters-container');
       container.innerHTML = '';
+
+      refreshSyllabusOverallBadge();
+      renderContinueReadingCard();
 
       const all = GURU_SYLLABUS.getAllChapters();
       let items = all;
 
-      if (filterSubj === 'maths') items = all.filter(c => c.subject === 'Maths');
-      else if (filterSubj === 'science') items = all.filter(c => c.subject === 'Science');
-      else if (filterSubj === 'sst') items = all.filter(c => c.subject === 'SST');
-      else if (filterSubj === 'language') items = all.filter(c => c.subject === 'English' || c.subject === 'Hindi');
-      else if (filterSubj === 'ai') items = all.filter(c => c.subject === 'AI');
+      if (currentSyllabusSubjectFilter === 'maths') items = all.filter(c => c.subject === 'Maths');
+      else if (currentSyllabusSubjectFilter === 'science') items = all.filter(c => c.subject === 'Science');
+      else if (currentSyllabusSubjectFilter === 'sst') items = all.filter(c => c.subject === 'SST');
+      else if (currentSyllabusSubjectFilter === 'language') items = all.filter(c => c.subject === 'English' || c.subject === 'Hindi');
+      else if (currentSyllabusSubjectFilter === 'ai') items = all.filter(c => c.subject === 'AI');
+
+      if (currentSyllabusStatusFilter !== 'all' && window.GuruCompletion) {
+        items = items.filter(ch => {
+          if (currentSyllabusStatusFilter === 'Bookmarked') {
+            return window.GuruCompletion.getChapterMastery(ch.id).bookmarked;
+          }
+          return window.GuruCompletion.getChapterStatus(ch.id) === currentSyllabusStatusFilter;
+        });
+      }
+
+      if (currentSyllabusSearchQuery) {
+        const q = currentSyllabusSearchQuery.toLowerCase();
+        items = items.filter(ch =>
+          (ch.chapterName || '').toLowerCase().includes(q) ||
+          (ch.subject || '').toLowerCase().includes(q) ||
+          (Array.isArray(ch.keyTopics) && ch.keyTopics.some(t => t.toLowerCase().includes(q)))
+        );
+      }
+
+      if (items.length === 0) {
+        container.innerHTML = `<div class="glass-card" style="padding: 24px; text-align: center; color: #94A3B8; font-size: 0.84rem;">🔍 No chapters matched this filter. Try clearing search or selecting "All Status".</div>`;
+        return;
+      }
 
       items.forEach(ch => {
         const itemEl = document.createElement('div');
         itemEl.className = 'chapter-item';
         itemEl.style.flexDirection = 'column';
 
-        const notesText = GuruVideoManager.getChapterNotes(ch.id);
+        const mastery = window.GuruCompletion ? window.GuruCompletion.getChapterMastery(ch.id) : {};
+        const masteryPct = window.GuruCompletion ? window.GuruCompletion.getChapterProgressPct(ch.id) : 0;
+        const masteryStatus = window.GuruCompletion ? window.GuruCompletion.getChapterStatus(ch.id) : 'Not Started';
+        const isChecked = masteryPct >= 100;
+        const notesText = mastery.notes || GuruVideoManager.getChapterNotes(ch.id);
         const videos = GURUSTUDY_LECTURES.resolveChapterVideos(ch.subject, ch.id);
 
         let videoCardsHtml = '';
@@ -2115,14 +2488,21 @@
           `;
         }
 
+        const statusColor = masteryPct === 100 ? '#10B981' : (masteryPct > 0 ? '#60A5FA' : '#94A3B8');
+
         itemEl.innerHTML = `
           <div style="display: flex; align-items: flex-start; gap: 12px; width: 100%;">
-            <input type="checkbox" class="chapter-checkbox" data-id="${ch.id}">
-            <div class="chapter-content-col">
-              <div class="chapter-title">${ch.chapterName}</div>
+            <input type="checkbox" class="chapter-checkbox" data-id="${ch.id}" ${isChecked ? 'checked' : ''} title="Mark Chapter 100% Completed">
+            <div class="chapter-content-col" style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; flex-wrap: wrap;">
+                <div class="chapter-title" style="${isChecked ? 'text-decoration: line-through; opacity: 0.75;' : ''}">${ch.chapterName} ${mastery.bookmarked ? '⭐' : ''}</div>
+                <button type="button" class="btn-primary btn-open-chapter-reader" data-ch-id="${ch.id}" style="font-size: 0.72rem; padding: 5px 10px;">
+                  📖 Read NCERT
+                </button>
+              </div>
               <div class="chapter-meta">
                 <span style="color: ${ch.color}; font-weight: 600;">${ch.icon} ${ch.subject}</span>
-                <span class="revision-badge">Revision 0/3</span>
+                <span class="revision-badge" style="color: ${statusColor}; border-color: ${statusColor};">${masteryStatus} • ${masteryPct}%</span>
                 <span class="pill-badge" style="font-size: 0.62rem; padding: 2px 6px;">${videos.length} Lectures</span>
               </div>
             </div>
@@ -2144,6 +2524,31 @@
           </div>
         `;
         container.appendChild(itemEl);
+      });
+
+      // Bind Persistent Chapter Completion Checkboxes (Android Parity)
+      container.querySelectorAll('.chapter-checkbox').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const chId = chk.getAttribute('data-id');
+          if (window.GuruCompletion) {
+            window.GuruCompletion.toggleChapterComplete(chId, chk.checked);
+            if (chk.checked && window.showGuruToast) {
+              window.showGuruToast('✓ Chapter marked 100% mastered!');
+            }
+            renderSyllabusUI(currentSyllabusSubjectFilter);
+          }
+        });
+      });
+
+      // Bind Open NCERT Chapter Reader buttons (Android Parity)
+      container.querySelectorAll('.btn-open-chapter-reader').forEach(b => {
+        b.addEventListener('click', () => {
+          const chId = b.getAttribute('data-ch-id');
+          const found = all.find(c => c.id === chId);
+          if (found && window.GuruChapterReader) {
+            window.GuruChapterReader.open(found);
+          }
+        });
       });
 
       // Bind Play Video buttons
@@ -2226,7 +2631,7 @@
       }
     });
 
-    // Syllabus Filter Chips event listeners
+    // Syllabus Filter Chips & Search event listeners
     document.querySelectorAll('#syllabus-subject-chips .chip-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#syllabus-subject-chips .chip-btn').forEach(b => b.classList.remove('active'));
@@ -2236,41 +2641,121 @@
       });
     });
 
-    // Plan Phase Filter Chips event listeners
+    document.querySelectorAll('#syllabus-status-chips .chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#syllabus-status-chips .chip-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSyllabusStatusFilter = btn.getAttribute('data-status') || 'all';
+        renderSyllabusUI(currentSyllabusSubjectFilter);
+      });
+    });
+
+    const syllabusSearchEl = document.getElementById('syllabus-search-input');
+    if (syllabusSearchEl) {
+      syllabusSearchEl.addEventListener('input', (e) => {
+        currentSyllabusSearchQuery = e.target.value.trim();
+        renderSyllabusUI(currentSyllabusSubjectFilter);
+      });
+    }
+
+    // Plan Phase Filter Chips & Search event listeners
+    let currentPlanPhaseFilter = 'all';
+    let currentPlanSearchQuery = '';
+
     document.querySelectorAll('#tab-plan .chip-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#tab-plan .chip-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const phase = btn.getAttribute('data-phase');
-        renderFullPlanUI(phase);
+        currentPlanPhaseFilter = btn.getAttribute('data-phase') || 'all';
+        renderFullPlanUI(currentPlanPhaseFilter);
       });
     });
 
+    const planSearchEl = document.getElementById('plan-search-input');
+    if (planSearchEl) {
+      planSearchEl.addEventListener('input', (e) => {
+        currentPlanSearchQuery = e.target.value.trim().toLowerCase();
+        renderFullPlanUI(currentPlanPhaseFilter);
+      });
+    }
+
     function renderFullPlanUI(phaseFilter) {
+      if (typeof phaseFilter === 'string') currentPlanPhaseFilter = phaseFilter;
       const container = document.getElementById('full-plan-days-container');
       container.innerHTML = '';
       const allDays = GuruTimetable.getAllDays();
 
-      allDays.forEach(day => {
-        if (phaseFilter !== 'all' && String(day.phaseNumber) !== phaseFilter) return;
+      const matched = allDays.filter(day => {
+        if (currentPlanPhaseFilter !== 'all' && String(day.phaseNumber) !== currentPlanPhaseFilter) return false;
+        if (currentPlanSearchQuery) {
+          const hay = `day ${day.dayNumber} ${day.formattedDate} ${day.schedule.map(s => `${s.subject} ${s.chapter}`).join(' ')}`.toLowerCase();
+          if (!hay.includes(currentPlanSearchQuery)) return false;
+        }
+        return true;
+      });
 
+      if (matched.length === 0) {
+        container.innerHTML = `<div class="glass-card" style="padding: 20px; text-align: center; color: #94A3B8; font-size: 0.84rem;">🔍 No days matched "${currentPlanSearchQuery}".</div>`;
+        return;
+      }
+
+      matched.forEach(day => {
+        const isDone = window.GuruCompletion ? window.GuruCompletion.isDayDone(day.dayNumber) : false;
         const card = document.createElement('div');
         card.className = 'glass-card';
         card.style.padding = '14px';
         card.style.marginBottom = '10px';
+        if (isDone) {
+          card.style.borderColor = 'rgba(16, 185, 129, 0.5)';
+          card.style.background = 'rgba(16, 185, 129, 0.06)';
+        }
 
         card.innerHTML = `
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
-            <span style="font-weight: 700; color: ${day.isSunday ? '#F59E0B' : '#60A5FA'}; font-size: 0.9rem; white-space: nowrap;">
-              Day ${day.dayNumber} • ${day.formattedDate}
+            <span style="font-weight: 700; color: ${isDone ? '#34D399' : (day.isSunday ? '#F59E0B' : '#60A5FA')}; font-size: 0.9rem; white-space: nowrap;">
+              ${isDone ? '✓ ' : ''}Day ${day.dayNumber} • ${day.formattedDate}
             </span>
             <span class="pill-badge ${day.isSunday ? 'sunday-pill' : ''}" style="white-space: nowrap; flex-shrink: 0;">${day.isSunday ? '6.5h + AI' : day.totalHours + ' Hours'}</span>
           </div>
-          <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; word-break: normal; overflow-wrap: break-word;">
+          <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; word-break: normal; overflow-wrap: break-word; margin-bottom: 10px;">
             ${day.schedule.map(s => `<strong style="white-space: nowrap;">${s.subject}:</strong> ${s.chapter} (${s.durationMinutes}m)`).join('<br>')}
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+            <button type="button" class="btn-secondary btn-plan-toggle-done" data-day-num="${day.dayNumber}" style="font-size: 0.72rem; padding: 5px 10px; ${isDone ? 'background:#10B981; border-color:#10B981; color:#FFFFFF;' : 'border-color: rgba(16,185,129,0.4); color:#34D399;'}">
+              ${isDone ? '✓ Completed' : '✓ Mark Day Done'}
+            </button>
+            <button type="button" class="btn-secondary btn-plan-open-day" data-day-num="${day.dayNumber}" style="font-size: 0.72rem; padding: 5px 10px;">
+              ▶ Open Day ${day.dayNumber}
+            </button>
           </div>
         `;
         container.appendChild(card);
+      });
+
+      container.querySelectorAll('.btn-plan-toggle-done').forEach(b => {
+        b.addEventListener('click', () => {
+          const dayNum = parseInt(b.getAttribute('data-day-num'), 10);
+          if (window.GuruCompletion) {
+            const next = window.GuruCompletion.toggleDayDone(dayNum);
+            if (window.showGuruToast) {
+              window.showGuruToast(next ? `✓ Day ${dayNum} marked completed!` : `↺ Day ${dayNum} marked pending`);
+            }
+            renderFullPlanUI(currentPlanPhaseFilter);
+          }
+        });
+      });
+
+      container.querySelectorAll('.btn-plan-open-day').forEach(b => {
+        b.addEventListener('click', async () => {
+          const dayNum = parseInt(b.getAttribute('data-day-num'), 10);
+          window.selectedHomeDayNumber = dayNum;
+          document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+          document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+          const todayNav = document.querySelector('[data-tab="tab-today"]');
+          if (todayNav) todayNav.classList.add('active');
+          document.getElementById('tab-today')?.classList.add('active');
+          await renderDashboard();
+        });
       });
     }
 

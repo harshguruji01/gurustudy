@@ -74,7 +74,7 @@ class FocusTimerEngine {
   loadSession(subject, durationMinutes, chapterGoal = '', mode = 'target') {
     this.pause();
     this.currentSubject = subject || 'Mathematics';
-    this.targetDurationMinutes = durationMinutes || 120;
+    this.targetDurationMinutes = Math.max(1, Math.min(240, parseInt(durationMinutes, 10) || 60));
     this.chapterGoal = chapterGoal || '';
     this.mode = mode || 'target';
 
@@ -82,12 +82,21 @@ class FocusTimerEngine {
       this.pomodoroStage = 'focus';
       this.totalSeconds = this.pomodoroFocusSeconds;
       this.remainingSeconds = this.pomodoroFocusSeconds;
+    } else if (this.mode === 'pomodoro25') {
+      this.pomodoroStage = 'focus';
+      this.totalSeconds = 25 * 60;
+      this.remainingSeconds = 25 * 60;
+    } else if (this.mode === 'stopwatch') {
+      this.pomodoroStage = 'focus';
+      this.totalSeconds = 0;
+      this.remainingSeconds = 0;
     } else {
       this.totalSeconds = this.targetDurationMinutes * 60;
       this.remainingSeconds = this.totalSeconds;
     }
 
     this.elapsedSecondsInSession = 0;
+    this.accumulatedSecondsBeforeRun = 0;
     this.lastSavedMinute = 0;
     this.isPaused = false;
     this.isRunning = false;
@@ -98,7 +107,7 @@ class FocusTimerEngine {
   }
 
   setMode(mode) {
-    if (mode !== 'target' && mode !== 'pomodoro') return;
+    if (!['target', 'pomodoro', 'pomodoro25', 'stopwatch'].includes(mode)) return;
     const wasRunning = this.isRunning;
     this.pause();
     this.mode = mode;
@@ -107,6 +116,16 @@ class FocusTimerEngine {
       this.pomodoroStage = 'focus';
       this.totalSeconds = this.pomodoroFocusSeconds;
       this.remainingSeconds = this.pomodoroFocusSeconds;
+    } else if (mode === 'pomodoro25') {
+      this.pomodoroStage = 'focus';
+      this.totalSeconds = 25 * 60;
+      this.remainingSeconds = 25 * 60;
+    } else if (mode === 'stopwatch') {
+      this.pomodoroStage = 'focus';
+      this.totalSeconds = 0;
+      this.remainingSeconds = 0;
+      this.elapsedSecondsInSession = 0;
+      this.accumulatedSecondsBeforeRun = 0;
     } else {
       this.totalSeconds = this.targetDurationMinutes * 60;
       this.remainingSeconds = this.totalSeconds;
@@ -121,7 +140,7 @@ class FocusTimerEngine {
   }
 
   /**
-   * Start or resume the timer with drift-free delta calculation
+   * Start or resume the timer with drift-free timestamp delta calculation
    */
   start() {
     this.ensureAudioResumed();
@@ -130,6 +149,7 @@ class FocusTimerEngine {
     this.isRunning = true;
     this.isPaused = false;
     this.startTime = Date.now();
+    this.accumulatedSecondsBeforeRun = this.elapsedSecondsInSession || 0;
     this.requestWakeLock();
 
     const expectedEndTime = Date.now() + (this.remainingSeconds * 1000);
@@ -137,11 +157,15 @@ class FocusTimerEngine {
     clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
       const now = Date.now();
-      const diffMs = expectedEndTime - now;
-      const leftSec = Math.max(0, Math.ceil(diffMs / 1000));
+      const runElapsedSec = Math.floor((now - this.startTime) / 1000);
+      this.elapsedSecondsInSession = this.accumulatedSecondsBeforeRun + runElapsedSec;
 
-      this.remainingSeconds = leftSec;
-      this.elapsedSecondsInSession++;
+      if (this.mode === 'stopwatch') {
+        this.remainingSeconds = this.elapsedSecondsInSession;
+      } else {
+        const diffMs = expectedEndTime - now;
+        this.remainingSeconds = Math.max(0, Math.ceil(diffMs / 1000));
+      }
 
       // Log progress to DB every 60 seconds of actual study
       const completedMinutesNow = Math.floor(this.elapsedSecondsInSession / 60);
@@ -155,16 +179,17 @@ class FocusTimerEngine {
         this.onTick(this.getState());
       }
 
-      if (this.remainingSeconds <= 0) {
+      if (this.mode !== 'stopwatch' && this.remainingSeconds <= 0) {
         this.handleTimerEnd();
       }
-    }, 500); // 500ms heartbeat prevents fractional drop
+    }, 500);
   }
 
   pause() {
     if (!this.isRunning) return;
     this.isRunning = false;
     this.isPaused = true;
+    this.accumulatedSecondsBeforeRun = this.elapsedSecondsInSession || 0;
     clearInterval(this.timerInterval);
     this.releaseWakeLock();
     if (this.onTick) this.onTick(this.getState());
@@ -180,20 +205,22 @@ class FocusTimerEngine {
     this.pause();
     this.playVictoryChime();
 
-    if (this.mode === 'pomodoro') {
+    if (this.mode === 'pomodoro' || this.mode === 'pomodoro25') {
+      const focusDur = this.mode === 'pomodoro25' ? 25 * 60 : this.pomodoroFocusSeconds;
+      const breakDur = this.mode === 'pomodoro25' ? 5 * 60 : this.pomodoroBreakSeconds;
       if (this.pomodoroStage === 'focus') {
         // Switch to Pomodoro Break
         this.pomodoroStage = 'break';
-        this.totalSeconds = this.pomodoroBreakSeconds;
-        this.remainingSeconds = this.pomodoroBreakSeconds;
-        this.notifyUser('Pomodoro Focus Complete! 10-Minute Break Started.', 'Great job! Rest your eyes, stretch and hydrate.');
+        this.totalSeconds = breakDur;
+        this.remainingSeconds = breakDur;
+        this.notifyUser('Pomodoro Focus Complete! Break Started.', 'Great job! Rest your eyes, stretch and hydrate.');
         this.start();
         return;
       } else {
         // Break ended, back to focus
         this.pomodoroStage = 'focus';
-        this.totalSeconds = this.pomodoroFocusSeconds;
-        this.remainingSeconds = this.pomodoroFocusSeconds;
+        this.totalSeconds = focusDur;
+        this.remainingSeconds = focusDur;
         this.notifyUser('Break Over! Time to Focus.', 'Back to ' + this.currentSubject + ' study session.');
         if (this.onTick) this.onTick(this.getState());
         return;
@@ -206,7 +233,7 @@ class FocusTimerEngine {
         subject: this.currentSubject,
         durationMinutes: this.targetDurationMinutes,
         chapterGoal: this.chapterGoal,
-        minutesStudied: Math.round(this.elapsedSecondsInSession / 60)
+        minutesStudied: Math.max(1, Math.round(this.elapsedSecondsInSession / 60))
       });
     }
   }
